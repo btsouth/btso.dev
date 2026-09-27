@@ -28,7 +28,6 @@ export default defineConfig({
     '/products': '/#projects',
     '/products/toolport': 'https://toolport.app',
     '/work': '/#projects',
-    '/rundown': '/#about',
   },
   vite: {
     resolve: {},

@@ -22,9 +22,6 @@
     { "source": "/work", "destination": "/", "permanent": true },
     { "source": "/work/(.*)", "destination": "/", "permanent": true },
 
-    { "source": "/rundown", "destination": "/#about", "permanent": true },
-    { "source": "/rundown/(.*)", "destination": "/#about", "permanent": true },
-
     { "source": "/blog", "destination": "/", "permanent": false },
     { "source": "/blog/(.*)", "destination": "/", "permanent": false },
     { "source": "/rss.xml", "destination": "/ship.xml", "permanent": false }

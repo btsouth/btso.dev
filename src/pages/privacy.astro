@@ -5,7 +5,8 @@ import { PRIVACY_EMAIL, SUPPORT_EMAIL, SITE_NAME } from '../lib/site';
 <Legal
   pageTitle={`Privacy Policy | ${SITE_NAME}`}
   heading="Privacy Policy"
-  description={`How ${SITE_NAME} collects, uses, and protects information across its products, including application and integration data.`}
+  description={`How ${SITE_NAME} collects, uses, and protects information across its products.`}
+  lastUpdated="September 27, 2026"
 >
   <p>
     I build and operate software including Toolport, Toolport Teams, and the Omarchy plugins published on
@@ -25,48 +26,21 @@ import { PRIVACY_EMAIL, SUPPORT_EMAIL, SITE_NAME } from '../lib/site';
     protect accounts, communicate important updates, and comply with legal obligations.
   </p>
 
-  <h2>Application &amp; Integration Data</h2>
-  <p>
-    When you connect one of our applications (such as Rundown) to your CRM or marketing platform
-    (for example, LeadConnector), the application accesses certain data from your account in order to provide its features.
-    This section explains what we access and how we handle it.
-  </p>
-
-  <h3>What we access</h3>
-  <p>
-    With your authorization (via OAuth), we access the account and performance data needed to generate reports —
-    for example: contacts and leads, calls and appointments, pipeline/opportunity data, and lead/traffic sources.
-    We request read-only access and do not modify data in your connected account.
-  </p>
-
-  <h3>How we use it</h3>
-  <p>
-    We use this data solely to generate the reports and summaries you request within the application.
-    To produce plain-English narratives, report metrics are processed by trusted third-party AI providers
-    acting as our sub-processors under confidentiality obligations; this data is not used to train their models.
-  </p>
-
-  <h3>What we don't do</h3>
+  <h2>What we don't do</h2>
   <p>
     We do not sell, rent, or share your data with third parties for their own purposes, and we do not use it
     for anything other than providing the service to you.
   </p>
 
-  <h3>Storage &amp; retention</h3>
+  <h2>Your data</h2>
   <p>
-    We store only the minimum data needed to operate the service (such as access tokens and generated reports).
-    We delete your data within 30 days of disconnection or upon request.
-  </p>
-
-  <h3>Your control</h3>
-  <p>
-    You can disconnect the application at any time, which revokes our access.
     To request export or deletion of your data, contact <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>.
+    See <a href="/account-deletion">account deletion</a> for what to include.
   </p>
 
-  <h3>Security</h3>
+  <h2>Security</h2>
   <p>
-    We protect your data with industry-standard measures, including encryption of access credentials in transit and at rest.
+    We protect your data with industry-standard measures, including encryption in transit and at rest.
   </p>
 
   <h2>Third-party services</h2>
