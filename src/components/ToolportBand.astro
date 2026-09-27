@@ -1,0 +1,42 @@
+---
+import { projectById } from '../lib/ship';
+import Icon from './Icon.astro';
+import Stars from './Stars.astro';
+import Version from './Version.astro';
+
+const p = projectById.toolport;
+---
+<article class="tp rv">
+  <div class="tp-row">
+    <div class="tp-copy">
+      <p class="eyebrow">Developer tools · start here</p>
+      <div class="tp-id"><Icon project={p} size="lg" /><div><b>Toolport</b><div class="meta" style="margin-top:6px"><Stars count={p.stars} animate /><Version project={p} /></div></div></div>
+      <h3>Your tools, connected.</h3>
+      <p>Set up your MCP servers once and use them in every AI client, from one local gateway.</p>
+      <ul class="checks">
+        <li>One port for every tool and every AI client</li>
+        <li>Lazy tool discovery, around 90% fewer tokens</li>
+        <li>Secrets stay in your OS keychain</li>
+        <li>Tool integrity checks and quarantine</li>
+      </ul>
+      <div class="tp-acts"><a class="btn btn-primary" href={p.site} target="_blank" rel="noreferrer">Get Toolport <span class="arr">→</span></a><a class="btn btn-ghost" href={`https://github.com/${p.repo}`} target="_blank" rel="noreferrer">Source ↗</a><a class="btn btn-ghost" href="/p/toolport">Changelog</a></div>
+    </div>
+    <div class="tp-shot"><div class="win"><div class="bar"><i></i><i></i><i></i></div><img src="/assets/projects/toolport.webp" alt="Toolport's Servers view" width="1200" height="719" loading="lazy" /></div></div>
+  </div>
+  <div class="tp-row rev">
+    <div class="tp-copy">
+      <p class="eyebrow" style="color:var(--accent2)"><span class="new-tag">New</span> Toolport Teams</p>
+      <h3>One MCP setup for the whole team.</h3>
+      <p>An admin curates the team's servers in one place. Every member's Toolport pulls the set, so a server added centrally shows up for everyone.</p>
+      <ul class="checks">
+        <li>Shared servers, profiles and config</li>
+        <li>Never holds a key. Each member signs in locally, into their own keychain</li>
+        <li>Members, groups, usage and an audit log</li>
+        <li>Self-host with Docker. A $5 VPS is plenty for a small team</li>
+      </ul>
+      <p class="price"><b>Free for up to 5 people.</b> The full feature set is $39 a month for your first 5, then $12 per person per month.</p>
+      <div class="tp-acts"><a class="btn btn-primary" href="https://toolport.app/teams/" target="_blank" rel="noreferrer">Set up Teams <span class="arr">→</span></a><a class="btn btn-ghost" href="mailto:tyler@btso.dev?subject=Toolport%20Teams">Talk to me</a></div>
+    </div>
+    <div class="tp-shot"><div class="win"><div class="bar"><i></i><i></i><i></i></div><img src="/assets/toolport/teams-overview.webp" alt="Toolport Teams overview with shared servers and members" width="1460" height="888" loading="lazy" /></div></div>
+  </div>
+</article>

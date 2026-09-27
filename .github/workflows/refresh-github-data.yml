@@ -1,0 +1,73 @@
+name: Refresh GitHub data
+
+# Rewrites src/data/github.json (stars, releases, contribution calendar). A
+# commit only happens when the data changed, and each commit deploys the site
+# through Vercel's Git integration.
+#
+# btsouth/btso-watch triggers this with a repository_dispatch: within minutes of
+# a new release, and every 6 hours for stars and the activity calendar. It runs
+# as a Cloudflare Worker cron because GitHub never fired new schedules here.
+# The daily schedule below is only a safety net if the Worker stops.
+on:
+  schedule:
+    - cron: '17 9 * * *'
+  repository_dispatch:
+    types: [refresh]
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - scripts/fetch-github.mjs
+      - src/data/projects.json
+      - .github/workflows/refresh-github-data.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: refresh-github-data-${{ github.event_name }}
+  cancel-in-progress: false
+
+jobs:
+  # Pull requests only validate the query, with a read-only token.
+  check:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/fetch-github.mjs --check
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # Scheduled, dispatched and manual runs on main write the snapshot back.
+  refresh:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/fetch-github.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- src/data/github.json; then
+            echo "No changes."
+            exit 0
+          fi
+          # Vercel only deploys commits authored by the account owner on this plan.
+          git config user.name "Tyler South"
+          git config user.email "tsouth2@gmail.com"
+          git add src/data/github.json
+          git commit -m "Refresh GitHub data"
+          git push

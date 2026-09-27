@@ -1,0 +1,100 @@
+---
+import '@fontsource/jetbrains-mono/latin-400.css';
+import '@fontsource/jetbrains-mono/latin-500.css';
+import '@fontsource/jetbrains-mono/latin-600.css';
+import '@fontsource/jetbrains-mono/latin-700.css';
+import '@fontsource/jetbrains-mono/latin-800.css';
+import '@fontsource/jetbrains-mono/latin-400-italic.css';
+import '@fontsource-variable/inter/standard.css';
+import '../styles/global.css';
+import '../styles/site.css';
+import Seo from '../components/Seo.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_URL, SITE_NAME } from '../lib/site';
+
+export interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  imageAlt?: string;
+  type?: 'website' | 'article';
+  path?: string;
+  siteName?: string;
+  schema?: Record<string, unknown>[];
+  noindex?: boolean;
+}
+
+const props = Astro.props;
+
+const orgSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': `${SITE_URL}/#person`,
+      name: 'Tyler South',
+      url: SITE_URL,
+      sameAs: [
+        'https://toolport.app',
+        'https://tryomarchy.com',
+        'https://github.com/btsouth',
+      ],
+      worksFor: { '@type': 'Organization', name: 'btso', url: SITE_URL },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE_URL}/#website`,
+      name: SITE_NAME,
+      url: SITE_URL,
+      author: { '@id': `${SITE_URL}/#person` },
+    },
+  ],
+}).replace(/</g, '\\u003c');
+---
+<!doctype html>
+<html lang="en" data-theme="btso">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <script is:inline>
+      (function () {
+        try {
+          var t = localStorage.getItem('btso-theme');
+          // Older visits stored light/dark before the Omarchy themes existed.
+          if (t === 'light') t = 'paper';
+          if (t === 'dark') t = 'btso';
+          var ok = ['btso', 'tokyo-night', 'catppuccin', 'gruvbox', 'osaka-jade', 'matte-black', 'rose-pine', 'paper'];
+          if (ok.indexOf(t) > -1) document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+      })();
+    </script>
+    <meta name="theme-color" content="#121110" />
+    <meta name="author" content="Tyler South" />
+    <meta name="application-name" content={SITE_NAME} />
+    <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/icons/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/icons/favicon-180.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title="btso.dev ship log" href="/ship.xml" />
+
+    <Seo {...props} />
+    <script type="application/ld+json" set:html={orgSchema} />
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script>
+      import '../scripts/theme';
+      import '../scripts/ui';
+      import { inject } from '@vercel/analytics';
+      inject();
+    </script>
+  </body>
+</html>

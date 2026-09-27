@@ -1,0 +1,22 @@
+---
+import { notesHtml, type Release } from '../lib/ship';
+import { ago } from '../lib/time';
+import Icon from './Icon.astro';
+
+interface Props { release: Release; linkName?: boolean }
+const { release: r, linkName = true } = Astro.props;
+const p = r.project;
+const long = r.body.length > 420;
+---
+<article class="entry" style={`--pc:${p.accent}`} data-group={p.group} data-project={p.id} data-at={Date.parse(r.at)}>
+  <div class="hd">
+    <Icon project={p} size="sm" />
+    {linkName ? <a class="nm" href={`/p/${p.id}`}>{p.name}</a> : <span class="nm">{p.name}</span>}
+    <span class="ver" style={`--pc:${p.accent}`}>{r.tag}</span>
+    {r.pre && <span class="beta">beta</span>}
+    <span class="newtag" hidden>NEW</span>
+    <time class="t" datetime={r.at} data-ago={r.at}>{ago(r.at)}</time>
+  </div>
+  <div class:list={['md', { clamp: long }]} set:html={notesHtml(r.body, p)} />
+  <div class="ft2">{long && <button type="button" data-expand aria-expanded="false">Read more</button>}<a href={r.url} rel="noreferrer">On GitHub ↗</a></div>
+</article>

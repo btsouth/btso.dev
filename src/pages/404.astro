@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="404 — Not Found | btso.dev" description="The page you were looking for could not be found." noindex={true}>
+  <div class="not-found shell">
+    <p class="section-number">Error / 404</p>
+    <h1>Wrong turn.<br /><em>Let’s head back.</em></h1>
+    <p>That address does not exist on this site.</p>
+    <div><a class="btn btn-primary" href="/">Return home</a><a class="btn btn-ghost" href="/#apps">See the apps</a></div>
+  </div>
+</Base>
+<style>
+  .not-found { min-height: 680px; padding: 100px 0; }
+  h1 { margin: 0; font-size: clamp(4.2rem, 8vw, 8rem); line-height: .88; letter-spacing: -.075em; }
+  h1 em { color: var(--signal-dark); font-family: var(--serif); font-weight: 400; }
+  .not-found > p:not(.section-number) { margin: 40px 0 28px; color: var(--muted); }
+  .not-found > div { display: flex; flex-wrap: wrap; gap: 12px; }
+</style>

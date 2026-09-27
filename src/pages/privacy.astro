@@ -1,0 +1,80 @@
+---
+import Legal from '../layouts/Legal.astro';
+import { PRIVACY_EMAIL, SUPPORT_EMAIL, SITE_NAME } from '../lib/site';
+---
+<Legal
+  pageTitle={`Privacy Policy | ${SITE_NAME}`}
+  heading="Privacy Policy"
+  description={`How ${SITE_NAME} collects, uses, and protects information across its products, including application and integration data.`}
+>
+  <p>
+    I build and operate software including Toolport, Toolport Teams, and the Omarchy plugins published on
+    this site. This policy explains the types of information these services may collect, how it is used, and
+    how to contact me.
+  </p>
+
+  <h2>Information we collect</h2>
+  <p>
+    Depending on the product, we may collect account information, contact details, product usage data,
+    uploaded files, support messages, billing status, and technical information needed to operate and secure the service.
+  </p>
+
+  <h2>How we use information</h2>
+  <p>
+    We use information to provide the service, process support requests, improve product reliability,
+    protect accounts, communicate important updates, and comply with legal obligations.
+  </p>
+
+  <h2>Application &amp; Integration Data</h2>
+  <p>
+    When you connect one of our applications (such as Rundown) to your CRM or marketing platform
+    (for example, LeadConnector), the application accesses certain data from your account in order to provide its features.
+    This section explains what we access and how we handle it.
+  </p>
+
+  <h3>What we access</h3>
+  <p>
+    With your authorization (via OAuth), we access the account and performance data needed to generate reports —
+    for example: contacts and leads, calls and appointments, pipeline/opportunity data, and lead/traffic sources.
+    We request read-only access and do not modify data in your connected account.
+  </p>
+
+  <h3>How we use it</h3>
+  <p>
+    We use this data solely to generate the reports and summaries you request within the application.
+    To produce plain-English narratives, report metrics are processed by trusted third-party AI providers
+    acting as our sub-processors under confidentiality obligations; this data is not used to train their models.
+  </p>
+
+  <h3>What we don't do</h3>
+  <p>
+    We do not sell, rent, or share your data with third parties for their own purposes, and we do not use it
+    for anything other than providing the service to you.
+  </p>
+
+  <h3>Storage &amp; retention</h3>
+  <p>
+    We store only the minimum data needed to operate the service (such as access tokens and generated reports).
+    We delete your data within 30 days of disconnection or upon request.
+  </p>
+
+  <h3>Your control</h3>
+  <p>
+    You can disconnect the application at any time, which revokes our access.
+    To request export or deletion of your data, contact <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>.
+  </p>
+
+  <h3>Security</h3>
+  <p>
+    We protect your data with industry-standard measures, including encryption of access credentials in transit and at rest.
+  </p>
+
+  <h2>Third-party services</h2>
+  <p>
+    Our products may use trusted service providers for authentication, hosting, analytics, payment processing,
+    and file processing. These providers are used only as needed to operate the service.
+  </p>
+
+  <h2>Contact</h2>
+  <p>Questions about privacy can be sent to <a href={`mailto:${PRIVACY_EMAIL}`}>{PRIVACY_EMAIL}</a>.</p>
+</Legal>

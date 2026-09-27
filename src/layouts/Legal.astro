@@ -1,0 +1,41 @@
+---
+import Base from './Base.astro';
+export interface Props { pageTitle: string; heading: string; description: string; lastUpdated?: string; }
+const { pageTitle, heading, description, lastUpdated = 'June 4, 2026' } = Astro.props;
+---
+<Base title={pageTitle} description={description}>
+  <article class="legal shell">
+    <header><p class="section-number">Legal / btso.dev</p><h1>{heading}</h1><div><p>{description}</p><time>Last updated {lastUpdated}</time></div></header>
+    <div class="legal-grid">
+      <aside><span>Document</span><strong>{heading}</strong><a href="/#about">Questions? Contact ↗</a></aside>
+      <div class="legal-copy"><slot /></div>
+    </div>
+  </article>
+</Base>
+
+<style is:global>
+  .legal { padding: 82px 0 100px; }
+  .legal > header { padding-bottom: 80px; border-bottom: 1px solid var(--ink); }
+  .legal > header h1 { max-width: 1050px; margin: 0; font-size: clamp(4rem, 7vw, 7rem); line-height: .9; letter-spacing: -.07em; }
+  .legal > header > div { max-width: 680px; margin: 38px 0 0 35%; display: flex; justify-content: space-between; gap: 30px; }
+  .legal > header > div p { max-width: 470px; margin: 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
+  .legal > header time { flex: 0 0 auto; color: var(--muted); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+  .legal-grid { display: grid; grid-template-columns: .45fr 1.55fr; gap: 70px; padding-top: 70px; }
+  .legal-grid aside { position: sticky; top: 30px; height: max-content; display: flex; flex-direction: column; gap: 9px; }
+  .legal-grid aside span { color: var(--signal-dark); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+  .legal-grid aside strong { font-size: 14px; }
+  .legal-grid aside a { width: max-content; margin-top: 18px; padding-bottom: 4px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+  .legal-copy { max-width: 780px; font-size: 16px; line-height: 1.8; }
+  .legal-copy p { margin: 0 0 20px; color: var(--muted); }
+  .legal-copy h2 { margin: 52px 0 16px; font-size: 2rem; line-height: 1.05; letter-spacing: -.045em; color: var(--ink); }
+  .legal-copy h3 { margin: 32px 0 12px; font-size: 1.25rem; letter-spacing: -.03em; color: var(--ink); }
+  .legal-copy a { color: var(--signal); text-decoration: underline; text-underline-offset: 4px; }
+  .legal-copy ul, .legal-copy ol { color: var(--muted); }
+  @media (max-width: 760px) {
+    .legal { padding-top: 56px; }
+    .legal > header h1 { font-size: 3.8rem; }
+    .legal > header > div { margin-left: 0; flex-direction: column; }
+    .legal-grid { grid-template-columns: 1fr; gap: 46px; }
+    .legal-grid aside { position: static; }
+  }
+</style>

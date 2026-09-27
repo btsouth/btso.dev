@@ -1,0 +1,18 @@
+---
+import type { Project } from '../lib/ship';
+
+// A deterministic pixel pattern in the project's color, for apps without a screenshot.
+interface Props { project: Project }
+const { project: p } = Astro.props;
+let seed = [...p.id].reduce((h, c) => Math.imul(h ^ c.charCodeAt(0), 16777619) >>> 0, 2166136261);
+const rand = () => {
+  seed = (Math.imul(seed ^ (seed >>> 15), 2246822519) ^ Math.imul(seed ^ (seed >>> 13), 3266489917)) >>> 0;
+  return seed / 4294967296;
+};
+const cells = Array.from({ length: 16 * 9 }, () => {
+  const o = rand() < 0.34 ? (0.12 + rand() * 0.75).toFixed(2) : '0';
+  return `opacity:${o};--o:${o};--dl:${(rand() * 1.4).toFixed(2)}s`;
+});
+---
+<div class="pxart" aria-hidden="true">{cells.map((style) => <i style={style}></i>)}</div>
+<div class="init"><span style={`--n:${p.name.length}`}>{p.name}</span></div>

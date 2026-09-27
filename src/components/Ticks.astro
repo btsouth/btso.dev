@@ -1,0 +1,9 @@
+---
+import { releaseBins, type Project } from '../lib/ship';
+
+interface Props { project: Project }
+const bins = releaseBins(Astro.props.project);
+---
+<div class="ticks" title="Releases, last 90 days" aria-hidden="true">
+  {bins.map((n) => <i class={n > 1 ? 'on' : n ? 'on2' : ''}></i>)}
+</div>

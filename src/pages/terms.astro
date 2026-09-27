@@ -1,0 +1,34 @@
+---
+import Legal from '../layouts/Legal.astro';
+import { SUPPORT_EMAIL, SITE_NAME } from '../lib/site';
+---
+<Legal
+  pageTitle={`Terms of Service | ${SITE_NAME}`}
+  heading="Terms of Service"
+  description={`The terms for using ${SITE_NAME} products responsibly, including disclaimers and account responsibilities.`}
+>
+  <p>
+    By using the software and services published on this site (including Toolport, Toolport Teams, and the
+    Omarchy plugins), you agree to use them lawfully and responsibly. These are tools to help you work your own
+    way; they are provided to improve your workflows, not to make decisions for you.
+  </p>
+
+  <h2>No professional advice</h2>
+  <p>
+    The software on this site organizes information and automates developer and desktop tasks. It does not
+    provide tax, legal, accounting, financial, or safety advice. You remain responsible for reviewing any output
+    before relying on it or sending it to others.
+  </p>
+
+  <h2>Account responsibility</h2>
+  <p>
+    You are responsible for maintaining access to your account and for the accuracy of information you enter,
+    upload, or approve.
+  </p>
+
+  <h2>Service changes</h2>
+  <p>I may update features, pricing, policies, and product availability over time.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about these terms can be sent to <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>.</p>
+</Legal>

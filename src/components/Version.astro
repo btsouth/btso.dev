@@ -1,0 +1,9 @@
+---
+import type { Project } from '../lib/ship';
+import { ago } from '../lib/time';
+
+interface Props { project: Project }
+const { project: p } = Astro.props;
+---
+{p.version ? <span class="ver" style={`--pc:${p.accent}`}>{p.version}</span> : <span class="ver">in progress</span>}
+<span data-ago={p.releasedAt ?? p.pushedAt} data-ago-prefix={p.releasedAt ? 'shipped ' : 'pushed '}>{p.releasedAt ? `shipped ${ago(p.releasedAt)}` : `pushed ${ago(p.pushedAt)}`}</span>

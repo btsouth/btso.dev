@@ -1,0 +1,68 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import Stars from '../../components/Stars.astro';
+import Version from '../../components/Version.astro';
+import ReleaseEntry from '../../components/ReleaseEntry.astro';
+import { GROUPS, projects, releases, type Project } from '../../lib/ship';
+import { ogImage } from '../../lib/og';
+import { SITE_URL } from '../../lib/site';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({ params: { id: project.id }, props: { project } }));
+}
+
+interface Props { project: Project }
+const { project: p } = Astro.props;
+const own = releases.filter((r) => r.project.id === p.id);
+
+// Releases in 4-day buckets over the last 120 days.
+const now = Date.now();
+const bins = new Array(30).fill(0);
+for (const d of p.releaseDates) {
+  const age = (now - Date.parse(d)) / 864e5;
+  if (age >= 0 && age < 120) bins[29 - Math.floor(age / 4)]++;
+}
+const peak = Math.max(1, ...bins);
+
+// Lets search engines show it as software, with its version and source.
+const schema = [{
+  '@type': 'SoftwareApplication',
+  '@id': `${SITE_URL}/p/${p.id}#app`,
+  name: p.name,
+  description: p.tagline,
+  url: p.site ?? `${SITE_URL}/p/${p.id}`,
+  applicationCategory: p.group === 'ai' ? 'DeveloperApplication' : 'UtilitiesApplication',
+  ...(p.group === 'omarchy' ? { operatingSystem: 'Linux (Omarchy)' } : p.group === 'windows' ? { operatingSystem: 'Windows' } : {}),
+  ...(p.version ? { softwareVersion: p.version } : {}),
+  sameAs: [`https://github.com/${p.repo}`],
+  author: { '@id': `${SITE_URL}/#person` },
+}];
+---
+<Base title={`${p.name} | btso.dev`} description={`${p.tagline} Latest release, stars and the full changelog.`} path={`/p/${p.id}`} image={ogImage(`/og/p/${p.id}.png`)} imageAlt={`${p.name}: ${p.tagline}`} schema={schema}>
+  <div class="wrap proj" style={`--pc:${p.accent}`}>
+    <a class="back-link" href="/#apps">← All apps</a>
+    <header class="proj-head">
+      <Icon project={p} size="lg" />
+      <div>
+        <h1>{p.name}</h1>
+        <div class="meta"><Stars count={p.stars} /><Version project={p} /><span>{GROUPS[p.group]}</span></div>
+      </div>
+    </header>
+    <p class="proj-tagline">{p.tagline}</p>
+    <div class="ctas proj-ctas">
+      {p.site && <a class="btn btn-primary" href={p.site} target="_blank" rel="noreferrer">Website <span class="arr">→</span></a>}
+      <a class="btn btn-ghost" href={`https://github.com/${p.repo}`} target="_blank" rel="noreferrer">GitHub ↗</a>
+    </div>
+    {p.install && <button type="button" class="copy proj-copy" data-copy={p.install}><span class="p">$</span><code>{p.install}</code><span class="c">copy</span></button>}
+    {p.shot && <div class="win proj-shot"><div class="bar"><i></i><i></i><i></i></div><img src={p.shot} alt={`${p.name} screenshot`} /></div>}
+
+    <div class="rel-chart" aria-hidden="true">{bins.map((n) => <i style={`height:${n ? 20 + (n / peak) * 80 : 6}%;${n ? 'background:var(--pc)' : ''}`}></i>)}</div>
+    <div class="meta"><span>releases, last 120 days</span><span style="margin-left:auto">{own.length} recent release{own.length === 1 ? '' : 's'}</span></div>
+
+    <h2 class="eyebrow" style="margin-top:40px">Changelog</h2>
+    {own.length
+      ? <div class="tl">{own.map((r) => <ReleaseEntry release={r} linkName={false} />)}</div>
+      : <p class="meta">No releases in the last few months.</p>}
+  </div>
+</Base>

@@ -1,0 +1,19 @@
+node_modules
+dist
+.astro
+.vercel
+.env
+.env.local
+.DS_Store
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+*.log
+*.tsbuildinfo
+
+# Generated at build by scripts/generate-og.mjs
+public/og/
+public/og-image.png
+
+# Local design scratch, not part of the site
+mockups/

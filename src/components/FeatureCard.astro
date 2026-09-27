@@ -1,0 +1,17 @@
+---
+import type { Project } from '../lib/ship';
+import Icon from './Icon.astro';
+import Stars from './Stars.astro';
+import Version from './Version.astro';
+
+interface Props { project: Project }
+const { project: p } = Astro.props;
+---
+<article class="fcard glow rv" style={`--pc:${p.accent}`}>
+  <div class="fshot"><div class="win"><div class="bar"><i></i><i></i><i></i></div><img src={p.shot} alt={`${p.name} screenshot`} width="1200" height="675" loading="lazy" /></div></div>
+  <div class="fbody">
+    <div class="row"><Icon project={p} /><div><h3>{p.name}</h3><div class="meta" style="margin-top:6px"><Stars count={p.stars} animate /><Version project={p} /></div></div></div>
+    <p>{p.tagline}</p>
+    <div class="acts"><a class="btn btn-primary" href={p.site} target="_blank" rel="noreferrer">Explore {p.name} <span class="arr">→</span></a><a class="btn btn-ghost" href={`/p/${p.id}`}>Changelog</a></div>
+  </div>
+</article>

@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import ReleaseEntry from '../components/ReleaseEntry.astro';
+import { GROUPS, projects, releases, within, type Group, type Release } from '../lib/ship';
+import { ogImage } from '../lib/og';
+
+const items = releases.slice(0, 150);
+
+// Group by day in the owner's time zone; the browser relabels today and yesterday.
+const TZ = 'America/New_York';
+const dayKey = (iso: string) => new Date(iso).toLocaleDateString('en-CA', { timeZone: TZ });
+const dayLabel = (iso: string) => new Date(iso).toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric', timeZone: TZ });
+const days: { key: string; label: string; items: Release[] }[] = [];
+for (const item of items) {
+  const key = dayKey(item.at);
+  if (days.at(-1)?.key !== key) days.push({ key, label: dayLabel(item.at), items: [] });
+  days.at(-1)!.items.push(item);
+}
+
+const groups = Object.keys(GROUPS) as Group[];
+const perProject = projects
+  .map((p) => ({ p, n: releases.filter((r) => r.project.id === p.id && within(r.at, 30)).length }))
+  .filter((x) => x.n)
+  .sort((a, b) => b.n - a.n);
+const max = perProject[0]?.n ?? 1;
+---
+<Base title="Ship log | btso.dev" description="Every release across every app, pulled straight from GitHub." path="/ship" image={ogImage('/og/ship.png')} imageAlt="The btso.dev ship log with the latest releases">
+  <section class="page-head">
+    <div class="px-band" id="pxBand" aria-hidden="true"></div>
+    <div class="wrap" style="position:relative">
+      <p class="eyebrow"><span class="live"></span> Updated hourly from GitHub</p>
+      <h1>Ship log</h1>
+      <p>Every release across every app, pulled straight from GitHub.</p>
+      <div class="row">
+        <div class="chips" id="chips">
+          <button type="button" class="chip on" data-f="all">All<small>{items.length}</small></button>
+          {groups.map((g) => <button type="button" class="chip" data-f={g}>{GROUPS[g]}<small>{items.filter((r) => r.project.group === g).length}</small></button>)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap ship-layout">
+    <aside class="side">
+      <h5>Last 30 days</h5>
+      {perProject.map(({ p, n }) => (
+        <button type="button" class="side-row" data-fp={p.id} style={`--pc:${p.accent}`}><Icon project={p} size="sm" /><span>{p.name}</span><span class="n">{n}</span><span></span><span class="b" style={`width:${(n / max) * 100}%`}></span></button>
+      ))}
+      <a class="link rss" href="/ship.xml">RSS feed ↗</a>
+    </aside>
+    <div>
+      <div class="newbar" id="newbar" hidden><span class="live"></span><span id="newCount"></span><button type="button" id="markRead">Mark all as read</button></div>
+      <div id="feed">
+        {days.map((day) => (
+          <div class="day" data-day={day.key}>
+            <div class="day-h"><span class="dl">{day.label}</span><span>· {day.items.length} {day.items.length === 1 ? 'update' : 'updates'}</span></div>
+            <div class="tl">
+              {day.items.map((release) => <ReleaseEntry release={release} />)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</Base>
+
+<script>
+  import '../scripts/ship';
+</script>

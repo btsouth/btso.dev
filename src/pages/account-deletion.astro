@@ -1,0 +1,25 @@
+---
+import Legal from '../layouts/Legal.astro';
+import { SUPPORT_EMAIL, SITE_NAME } from '../lib/site';
+---
+<Legal
+  pageTitle={`Account Deletion | ${SITE_NAME}`}
+  heading="Account Deletion"
+  description={`How to request deletion of your ${SITE_NAME} account and associated product data.`}
+>
+  <p>
+    If you want to delete your account or request deletion of associated product data, contact
+    <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a> from the email address connected to your account.
+  </p>
+
+  <h2>What to include</h2>
+  <p>
+    Include the product name (for example Toolport Teams), your account email, and a clear request to delete your
+    account. I may need to verify ownership before completing the request.
+  </p>
+
+  <h2>Retention</h2>
+  <p>
+    Some records may be retained when required for legal, security, fraud prevention, or billing compliance reasons.
+  </p>
+</Legal>

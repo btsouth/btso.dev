@@ -1,0 +1,9 @@
+---
+import { initials, type Project } from '../lib/ship';
+
+interface Props { project: Project; size?: 'sm' | 'lg' }
+const { project, size } = Astro.props;
+---
+<span class:list={['ico', size]} style={`--pc:${project.accent}`}>
+  {project.icon ? <img src={project.icon} alt="" width="28" height="28" loading="lazy" /> : initials(project.name)}
+</span>

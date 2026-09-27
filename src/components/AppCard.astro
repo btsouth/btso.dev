@@ -1,0 +1,15 @@
+---
+import { GROUPS, type Project } from '../lib/ship';
+import Icon from './Icon.astro';
+import Stars from './Stars.astro';
+import Ticks from './Ticks.astro';
+import Version from './Version.astro';
+
+interface Props { project: Project }
+const { project: p } = Astro.props;
+---
+<a class="acard glow" style={`--pc:${p.accent}`} href={`/p/${p.id}`} data-group={p.group}>
+  <div class="top"><Icon project={p} /><div><h4>{p.name}</h4><div class="meta" style="margin-top:4px">{GROUPS[p.group]}</div></div></div>
+  <p>{p.tagline}</p>
+  <div class="foot"><Ticks project={p} /><div class="meta"><Version project={p} /><Stars count={p.stars} /></div></div>
+</a>
