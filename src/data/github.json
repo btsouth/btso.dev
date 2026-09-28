@@ -1,11 +1,12 @@
 {
- "generatedAt": "2026-09-28T00:50:35.602Z",
+ "generatedAt": "2026-09-28T03:50:36.263Z",
  "repos": {
   "btsouth/toolport": {
-   "stars": 223,
-   "pushedAt": "2026-09-28T00:46:12Z",
-   "latest": "v1.23.1",
+   "stars": 224,
+   "pushedAt": "2026-09-28T03:38:47Z",
+   "latest": "v1.23.2",
    "releaseDates": [
+    "2026-09-28T03:45:36Z",
     "2026-09-28T00:46:16Z",
     "2026-09-27T18:27:07Z",
     "2026-09-25T11:30:09Z",
@@ -76,6 +77,14 @@
     "2026-06-19T23:39:17Z"
    ],
    "releases": [
+    {
+     "tag": "v1.23.2",
+     "title": "Toolport v1.23.2",
+     "at": "2026-09-28T03:45:36Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/toolport/releases/tag/v1.23.2",
+     "body": "### Fixed\n\n- Sharing an enabled personal server now completes its local Team setup while\n  keeping the personal original and credentials on your device.\n- Repeated GTK launches and Team links reuse the open app. Links for the current\n  Team keep the existing connection.\n- Server rows distinguish personal and Team entries, and Team actions use compact\n  buttons. Disconnecting the app restores the personal routes it replaced.\n\n- **Updating a .deb install no longer drops every MCP connection.** The update\n  feed only carries an AppImage for Linux, so the in-app updater stopped every\n  gateway and then failed with \"invalid updater binary format\". Installs from a\n  .deb or .rpm package now link to the release page to download the new package\n  instead. (#961, thanks @JustinKeltner)\n\n\n---\n\n**Full changelog:** https://github.com/btsouth/toolport/blob/v1.23.2/CHANGELOG.md"
+    },
     {
      "tag": "v1.23.1",
      "title": "Toolport v1.23.1",
@@ -623,7 +632,7 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 493,
+   "stars": 492,
    "pushedAt": "2026-09-27T07:16:16Z",
    "latest": "v0.6.0",
    "releaseDates": [
@@ -866,7 +875,7 @@
    ]
   },
   "btsouth/omakade": {
-   "stars": 420,
+   "stars": 421,
    "pushedAt": "2026-09-24T05:24:09Z",
    "latest": "v1.12.0",
    "releaseDates": [
@@ -1191,7 +1200,7 @@
   },
   "btsouth/omarchy-usage-dashboard": {
    "stars": 15,
-   "pushedAt": "2026-09-27T02:38:34Z",
+   "pushedAt": "2026-09-28T01:38:28Z",
    "latest": "v1.8.0",
    "releaseDates": [
     "2026-09-26T16:40:33Z",
@@ -2287,7 +2296,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-09-28T00:35:54Z",
+   "pushedAt": "2026-09-28T03:32:06Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -3941,11 +3950,11 @@
   ],
   [
    "2026-09-27",
-   178
+   198
   ],
   [
    "2026-09-28",
-   1
+   2
   ]
  ]
 }
