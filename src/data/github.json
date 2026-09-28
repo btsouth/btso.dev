@@ -1,11 +1,12 @@
 {
- "generatedAt": "2026-09-28T00:17:34.313Z",
+ "generatedAt": "2026-09-28T00:50:35.602Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 223,
-   "pushedAt": "2026-09-28T00:16:06Z",
-   "latest": "v1.23.0",
+   "pushedAt": "2026-09-28T00:46:12Z",
+   "latest": "v1.23.1",
    "releaseDates": [
+    "2026-09-28T00:46:16Z",
     "2026-09-27T18:27:07Z",
     "2026-09-25T11:30:09Z",
     "2026-09-23T00:29:23Z",
@@ -75,6 +76,14 @@
     "2026-06-19T23:39:17Z"
    ],
    "releases": [
+    {
+     "tag": "v1.23.1",
+     "title": "Toolport v1.23.1",
+     "at": "2026-09-28T00:46:16Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/toolport/releases/tag/v1.23.1",
+     "body": "### Fixed\n\n- Teams share previews now show the command, arguments, working directory,\n  endpoint and declared credential names before publication in both desktop shells.\n  Credential values stay hidden, personal originals remain saved, and unrelated\n  Team servers stay unchanged.\n\n\n---\n\n**Full changelog:** https://github.com/btsouth/toolport/blob/v1.23.1/CHANGELOG.md"
+    },
     {
      "tag": "v1.23.0",
      "title": "Toolport v1.23.0",
@@ -2278,7 +2287,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-09-27T23:47:42Z",
+   "pushedAt": "2026-09-28T00:35:54Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -3932,11 +3941,11 @@
   ],
   [
    "2026-09-27",
-   171
+   178
   ],
   [
    "2026-09-28",
-   0
+   1
   ]
  ]
 }
