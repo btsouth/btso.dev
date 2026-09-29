@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-09-29T04:21:05.328Z",
+ "generatedAt": "2026-09-29T05:00:36.447Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 224,
-   "pushedAt": "2026-09-29T04:16:31Z",
+   "pushedAt": "2026-09-29T04:44:48Z",
    "latest": "v1.23.2",
    "releaseDates": [
     "2026-09-28T03:45:36Z",
@@ -876,13 +876,22 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 1,
-   "pushedAt": "2026-09-28T16:17:48Z",
-   "latest": "linux-app-v0.1.0-preview.1",
+   "pushedAt": "2026-09-29T04:56:33Z",
+   "latest": "linux-app-v0.1.0-preview.2",
    "releaseDates": [
+    "2026-09-29T04:56:34Z",
     "2026-09-28T16:17:47Z",
     "2026-09-28T13:10:23Z"
    ],
    "releases": [
+    {
+     "tag": "linux-app-v0.1.0-preview.2",
+     "title": "Try Omarchy for Linux 0.1.0 preview 2",
+     "at": "2026-09-29T04:56:34Z",
+     "pre": true,
+     "url": "https://github.com/btsouth/try-omarchy-linux/releases/tag/linux-app-v0.1.0-preview.2",
+     "body": "Second Linux app preview for outside testing. Requires x86_64 Linux, KVM and Flatpak.\n\nThis preview installs from a signed Flatpak repository, so later updates arrive through Software or `flatpak update`.\n\n- The home screen says what setup needs and where your VM lives. **Try it now** goes from install to a working Omarchy desktop in one step.\n- Setup shows what it is doing, resumes an interrupted download and can try again in place.\n- A short explanation comes before GNOME's clipboard permission, and Settings can turn sharing on or off.\n- Ctrl+Alt+G gives the keyboard back to your desktop, and a one-time tip says so.\n- Settings is easier to scan, and Backup and recovery can clean up after an interrupted backup or restore.\n\n## Install\n\nDownload `com.tryomarchy.TryOmarchy.flatpakref` below and open it with Software, or from a terminal:\n\n```sh\nflatpak install --user ./com.tryomarchy.TryOmarchy.flatpakref\n```\n\nOn Ubuntu, install Software and its Flatpak plugin first, as the [README](https://github.com/btsouth/try-omarchy-linux#get-started) explains. Open Try Omarchy from the application menu. On Ubuntu 24.04, Software's Open button can fail with `ldconfig failed, exit status 256`, and the menu launcher avoids it.\n\n## Coming from preview 1\n\nPreview 1 never updates itself, and your menu keeps opening it while it is installed. Shut down Omarchy, close Try Omarchy, then run:\n\n```sh\nflatpak uninstall --user com.tryomarchy.TryOmarchy//master\n```\n\nKeep its data when asked, then install this release. Your VM, account and files stay.\n\n## Not covered yet\n\nPhysical GPU, audio and microph"
+    },
     {
      "tag": "linux-app-v0.1.0-preview.1",
      "title": "Try Omarchy for Linux 0.1.0 preview 1",
@@ -3067,11 +3076,11 @@
   ],
   [
    "2026-01-29",
-   1
+   0
   ],
   [
    "2026-01-30",
-   0
+   1
   ],
   [
    "2026-01-31",
@@ -3539,11 +3548,11 @@
   ],
   [
    "2026-05-27",
-   1
+   0
   ],
   [
    "2026-05-28",
-   3
+   4
   ],
   [
    "2026-05-29",
@@ -3583,11 +3592,11 @@
   ],
   [
    "2026-06-07",
-   61
+   60
   ],
   [
    "2026-06-08",
-   112
+   113
   ],
   [
    "2026-06-09",
@@ -3607,11 +3616,11 @@
   ],
   [
    "2026-06-13",
-   60
+   59
   ],
   [
    "2026-06-14",
-   3
+   4
   ],
   [
    "2026-06-15",
@@ -3631,11 +3640,11 @@
   ],
   [
    "2026-06-19",
-   34
+   33
   ],
   [
    "2026-06-20",
-   105
+   106
   ],
   [
    "2026-06-21",
@@ -3647,11 +3656,11 @@
   ],
   [
    "2026-06-23",
-   40
+   38
   ],
   [
    "2026-06-24",
-   32
+   34
   ],
   [
    "2026-06-25",
@@ -3659,11 +3668,11 @@
   ],
   [
    "2026-06-26",
-   78
+   77
   ],
   [
    "2026-06-27",
-   85
+   86
   ],
   [
    "2026-06-28",
@@ -3687,7 +3696,7 @@
   ],
   [
    "2026-07-03",
-   133
+   132
   ],
   [
    "2026-07-04",
@@ -3695,15 +3704,15 @@
   ],
   [
    "2026-07-05",
-   141
+   142
   ],
   [
    "2026-07-06",
-   63
+   62
   ],
   [
    "2026-07-07",
-   107
+   108
   ],
   [
    "2026-07-08",
@@ -3763,7 +3772,7 @@
   ],
   [
    "2026-07-22",
-   99
+   98
   ],
   [
    "2026-07-23",
@@ -3771,11 +3780,11 @@
   ],
   [
    "2026-07-24",
-   89
+   88
   ],
   [
    "2026-07-25",
-   93
+   95
   ],
   [
    "2026-07-26",
@@ -3839,11 +3848,11 @@
   ],
   [
    "2026-08-10",
-   67
+   66
   ],
   [
    "2026-08-11",
-   50
+   51
   ],
   [
    "2026-08-12",
@@ -3875,11 +3884,11 @@
   ],
   [
    "2026-08-19",
-   209
+   206
   ],
   [
    "2026-08-20",
-   75
+   78
   ],
   [
    "2026-08-21",
@@ -3903,11 +3912,11 @@
   ],
   [
    "2026-08-26",
-   3
+   2
   ],
   [
    "2026-08-27",
-   26
+   27
   ],
   [
    "2026-08-28",
@@ -3915,19 +3924,19 @@
   ],
   [
    "2026-08-29",
-   73
+   72
   ],
   [
    "2026-08-30",
-   161
+   162
   ],
   [
    "2026-08-31",
-   54
+   52
   ],
   [
    "2026-09-01",
-   62
+   64
   ],
   [
    "2026-09-02",
@@ -3939,11 +3948,11 @@
   ],
   [
    "2026-09-04",
-   176
+   175
   ],
   [
    "2026-09-05",
-   191
+   192
   ],
   [
    "2026-09-06",
@@ -3979,11 +3988,11 @@
   ],
   [
    "2026-09-14",
-   32
+   31
   ],
   [
    "2026-09-15",
-   220
+   221
   ],
   [
    "2026-09-16",
@@ -4015,19 +4024,19 @@
   ],
   [
    "2026-09-23",
-   189
+   188
   ],
   [
    "2026-09-24",
-   86
+   87
   ],
   [
    "2026-09-25",
-   100
+   98
   ],
   [
    "2026-09-26",
-   209
+   211
   ],
   [
    "2026-09-27",
@@ -4035,11 +4044,11 @@
   ],
   [
    "2026-09-28",
-   59
+   76
   ],
   [
    "2026-09-29",
-   2
+   12
   ]
  ]
 }
