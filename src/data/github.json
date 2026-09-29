@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-29T18:05:39.669Z",
+ "generatedAt": "2026-09-29T18:10:39.389Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 223,
@@ -894,15 +894,24 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 1,
-   "pushedAt": "2026-09-29T18:04:24Z",
-   "latest": "linux-app-v0.1.0-preview.3",
+   "pushedAt": "2026-09-29T18:10:18Z",
+   "latest": "linux-v0.1.1",
    "releaseDates": [
+    "2026-09-29T18:09:14Z",
     "2026-09-29T06:28:19Z",
     "2026-09-29T04:56:34Z",
     "2026-09-28T16:17:47Z",
     "2026-09-28T13:10:23Z"
    ],
    "releases": [
+    {
+     "tag": "linux-v0.1.1",
+     "title": "Linux guest v0.1.1",
+     "at": "2026-09-29T18:09:14Z",
+     "pre": true,
+     "url": "https://github.com/btsouth/try-omarchy-linux/releases/tag/linux-v0.1.1",
+     "body": "Guest image for Try Omarchy for Linux 0.1.0 preview 4. This is a pre-release: it holds only the Omarchy guest image the Linux app downloads on first run and when it updates an existing VM.\n\nThe app verifies every file against `SHA256SUMS`, and pins the SHA256 of `SHA256SUMS` itself:\n\n`e0c5113c0eb9fa489bae3fc0c0abdf5696c35515f6b80db0660d4d3492d4a694`\n\nChanges since linux-v0.1.0 (compatibility revision 44):\n- SSH accepts only keys for the quick-start account (`omarchy`), since its password is public. New quick-start disks get the rule at setup, and existing ones get it once at their next start. Own-account disks keep password logins.\n- The first-desktop notice says quick-start login instead of trial login and points to `passwd`.\n- Package lock refreshed: appstream 1.2.1, libpng 1.6.59, librsvg 2.62.4, mkinitcpio 42.1.\n\nBuilt from the shared guest patches plus the Linux patches in `guest-build`, on Omarchy 4.0.3 with Linux 7.2.7. Omarchy and the guest packages keep their own licenses; see `LICENSE.omarchy`, `packages.lock.txt` and the repository's third-party notices."
+    },
     {
      "tag": "linux-app-v0.1.0-preview.3",
      "title": "Try Omarchy for Linux 0.1.0 preview 3",
