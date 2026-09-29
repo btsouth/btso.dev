@@ -71,6 +71,12 @@ document.addEventListener('click', (e) => {
   if (toggle) { toggle.textContent = open ? 'Show less' : 'Read more'; toggle.setAttribute('aria-expanded', String(open)); }
 });
 
+// A hello for anyone who opens the console.
+console.log(
+  '%cbtso.dev%c\npress T to flip themes. on the homepage: click the grid, click the background seven times fast, or type help in the terminal.\nsource: https://github.com/btsouth/btso.dev',
+  'font: 700 16px "JetBrains Mono", monospace; color: #e8703f', 'font: 12px "JetBrains Mono", monospace; line-height: 1.6',
+);
+
 const hdr = document.getElementById('hdr');
 addEventListener('scroll', () => hdr?.classList.toggle('scrolled', scrollY > 8), { passive: true });
 

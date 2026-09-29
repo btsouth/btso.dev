@@ -1,11 +1,10 @@
 ---
-import '@fontsource/jetbrains-mono/latin-400.css';
-import '@fontsource/jetbrains-mono/latin-500.css';
-import '@fontsource/jetbrains-mono/latin-600.css';
-import '@fontsource/jetbrains-mono/latin-700.css';
-import '@fontsource/jetbrains-mono/latin-800.css';
-import '@fontsource/jetbrains-mono/latin-400-italic.css';
 import '@fontsource-variable/inter/standard.css';
+// One variable file covers every JetBrains Mono weight the site uses (it was
+// five static files). Declared here under the plain family name the CSS uses,
+// and preloaded with Inter's latin file so text doesn't reflow on font swap.
+import monoFont from '@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2?url';
+import interFont from '@fontsource-variable/inter/files/inter-latin-standard-normal.woff2?url';
 import '../styles/global.css';
 import '../styles/site.css';
 import Seo from '../components/Seo.astro';
@@ -70,6 +69,9 @@ const orgSchema = JSON.stringify({
         } catch (e) {}
       })();
     </script>
+    <link rel="preload" href={monoFont} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={interFont} as="font" type="font/woff2" crossorigin />
+    <style is:inline set:html={`@font-face{font-family:"JetBrains Mono";font-style:normal;font-display:swap;font-weight:100 800;src:url(${monoFont}) format("woff2")}`} />
     <meta name="theme-color" content="#121110" />
     <meta name="author" content="Tyler South" />
     <meta name="application-name" content={SITE_NAME} />

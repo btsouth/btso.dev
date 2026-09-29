@@ -107,6 +107,9 @@ kbd { font-size: 11px; padding: 1px 6px; border-radius: 4px; border: 1px solid v
 .ctas { margin-top: 30px; display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
 .rise { animation: rise .55s cubic-bezier(.2,.8,.2,1) both; }
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } }
+/* The headline is the page's largest paint: it slides in without fading so it counts as painted right away. */
+.rise-t { animation: rise-t .55s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes rise-t { from { transform: translateY(14px); } }
 .tip { position: absolute; z-index: 5; pointer-events: none; padding: 9px 12px; border-radius: 9px; background: var(--bg2); border: 1px solid var(--line); box-shadow: 0 12px 30px var(--shade); font: 400 12px/1.5 "JetBrains Mono", monospace; color: var(--fg2); white-space: nowrap; opacity: 0; transform: translate(-50%, calc(-100% - 12px)); transition: opacity .12s; }
 .tip b { color: var(--fg); font-weight: 600; }
 .tip .r { color: var(--accent); }
@@ -245,6 +248,11 @@ section.blk { padding: 96px 0 0; }
 .term .hl { color: var(--fg); }
 .term .bars { color: var(--accent); }
 .term .dim { color: var(--fg3); }
+.term:focus-within { border-color: color-mix(in oklab, var(--accent) 45%, var(--line)); }
+.term pre { cursor: text; }
+.term-in { width: 1ch; padding: 0; border: 0; outline: 0; background: none; font: inherit; color: var(--fg); caret-color: transparent; }
+.term .out { color: var(--fg2); white-space: pre-wrap; }
+.term .err { color: var(--accent2); white-space: pre-wrap; }
 
 footer.ft { margin-top: 120px; border-top: 1px solid var(--line); padding: 40px 0 60px; }
 footer.ft .wrap { display: flex; gap: 20px; justify-content: space-between; flex-wrap: wrap; font: 400 13px/1.6 "JetBrains Mono", monospace; color: var(--fg3); }
@@ -277,7 +285,8 @@ footer.ft .links { display: flex; gap: 18px; flex-wrap: wrap; }
 .newbar { flex-wrap: wrap; display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 12px; background: color-mix(in oklab, var(--accent) 12%, var(--bg2)); border: 1px solid color-mix(in oklab, var(--accent) 35%, var(--line)); font: 500 13px/1.3 "JetBrains Mono", monospace; margin-bottom: 26px; }
 .newbar button { margin-left: auto; color: var(--fg2); text-decoration: underline; text-underline-offset: 3px; }
 .newbar button:hover { color: var(--fg); }
-.day { position: relative; }
+/* Days off screen skip rendering; the padding keeps timeline dots inside the clipped box. */
+.day { position: relative; content-visibility: auto; contain-intrinsic-size: auto 900px; padding-left: 12px; margin-left: -12px; }
 .day-h { position: sticky; top: 64px; z-index: 5; padding: 12px 0 10px; background: linear-gradient(var(--bg) 75%, transparent); font: 600 13px/1 "JetBrains Mono", monospace; color: var(--fg); display: flex; gap: 10px; align-items: center; }
 .day-h span { color: var(--fg3); font-weight: 400; }
 .tl { position: relative; padding-left: 30px; border-left: 1px solid var(--line); margin-left: 6px; padding-bottom: 18px; }

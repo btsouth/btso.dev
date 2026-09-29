@@ -1,9 +1,12 @@
 ---
+import { generatedAt } from '../lib/ship';
+import { ago } from '../lib/time';
+
 const year = new Date().getFullYear();
 ---
 <footer class="ft">
   <div class="wrap">
-    <div>© {year} Tyler South · the ship log updates itself from GitHub</div>
+    <div>© {year} Tyler South · the ship log updates itself from GitHub, last pulled <span data-ago={generatedAt}>{ago(generatedAt)}</span></div>
     <nav class="links" aria-label="Footer">
       <a href="/ship">Ship log</a>
       <a href="/omarchy">Omarchy</a>

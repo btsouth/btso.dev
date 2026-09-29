@@ -23,6 +23,8 @@ const heroData = JSON.stringify({
   repos: Object.fromEntries(projects.map((p) => [p.repo, { name: p.name, version: p.version }])),
   // Words the grid spells when clicked, in order.
   releases30: stats.releases30,
+  stars: stats.stars,
+  apps: projects.map((p) => [p.id, p.name]),
   shapes: ['BTSO.DEV', 'SHIP IT!', `★ ${stats.stars.toLocaleString('en-US')}`, 'HI :)'],
 }).replace(/</g, '\\u003c');
 
@@ -41,7 +43,8 @@ const termLines = [
   `<span class="p">$</span> <span class="hl">btso releases --per-app --last 30d --top 4</span>`,
   ...busiest.map((b) => `<span class="dim">${b.name.padEnd(14)}</span> <span class="hl">${String(b.count).padStart(2)}</span> release${b.count === 1 ? '' : 's'}`),
   '',
-  `<span class="p">$</span> <span class="typed"></span>`,
+  // The last prompt takes commands (see home.ts); the block cursor follows the input.
+  `<span class="p">$</span> <input id="termIn" class="term-in" aria-label="Terminal: type help and press Enter" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="go" /><span class="typed"></span>`,
 ];
 
 ---
@@ -65,7 +68,7 @@ const termLines = [
           <span class="avatar" id="avatar"><img src="/images/tyler-south-headshot.webp" alt="Tyler South" width="60" height="60" /><i class="dot"></i></span>
           <div class="who-t"><b>Tyler South</b><span class="presence" id="presence">developer, desktop person</span></div>
         </div>
-        <h1 class="rise" style="animation-delay:.22s" aria-label="I make software I want on my own computer.">
+        <h1 class="rise-t" style="animation-delay:.22s" aria-label="I make software I want on my own computer.">
           <span aria-hidden="true">I make software I want on my own<br /><span class="word-wrap"><em id="heroWord">computer</em><span class="caret" id="heroCaret"></span></span>.</span>
         </h1>
         <p class="sub rise" style="animation-delay:.3s">Omarchy apps, Windows utilities and tools for working with AI agents. I follow the things that bother me until they turn into apps, then keep shipping them.</p>
@@ -109,7 +112,7 @@ const termLines = [
         <div class="bn rv"><b data-count={stats.stars}>{stats.stars.toLocaleString('en-US')}</b><span>stars across {projects.length} repos</span></div>
         <div class="bn rv"><b data-count={stats.releases7}>{stats.releases7}</b><span>releases in the last 7 days</span></div>
       </div>
-      <div class="term rv"><div class="bar"><i></i><i></i><i></i><span>~/btso.dev</span></div><pre id="term" data-reveal set:html={termLines.join('\n')} /></div>
+      <div class="term rv" title="Click and type help"><div class="bar"><i></i><i></i><i></i><span>~/btso.dev</span></div><pre id="term" data-reveal set:html={termLines.join('\n')} /></div>
     </div>
   </section>
 

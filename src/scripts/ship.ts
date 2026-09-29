@@ -27,8 +27,12 @@ if (feed) {
   markNew();
   document.getElementById('markRead')?.addEventListener('click', () => {
     try { localStorage.setItem(SEEN_KEY, String(Date.now())); } catch { /* Markers just reset next visit. */ }
-    markNew();
-    updateNavCount();
+    // NEW tags in view pop away one after another before the markers clear.
+    const inView = [...feed.querySelectorAll<HTMLElement>('.entry.new .newtag')].filter((t) => { const r = t.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight; });
+    const done = () => { markNew(); updateNavCount(); };
+    if (reduced || !inView.length) return done();
+    inView.forEach((t, i) => t.animate([{ transform: 'none', opacity: 1 }, { transform: 'scale(1.25)', opacity: 1, offset: 0.35 }, { transform: 'scale(0)', opacity: 0 }], { duration: 320, delay: i * 70, easing: 'ease-in', fill: 'forwards' }));
+    setTimeout(done, 320 + inView.length * 70);
   });
 
   // Relabel today and yesterday in the visitor's time zone.

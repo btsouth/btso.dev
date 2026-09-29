@@ -79,6 +79,9 @@ export function createHero(section: HTMLElement, data: HeroData, lastSeen: numbe
   let cells: Cell[] = [], amb: Amb[] = [], today: Cell | null = null, hover: Cell | null = null;
   let fills: Record<string, string> = {}, accent = '#e8703f', accent2 = '#f2b45a', fg = '#fff', bgColor = '#121110';
   let raf = 0, running = true, catchupDone = false, last = performance.now();
+  // Until this time something is moving fast enough to need every frame.
+  let busyUntil = performance.now() + 4000;
+  const busy = (ms: number) => { busyUntil = Math.max(busyUntil, performance.now() + ms); };
   // The easter egg: fast splashes build up to an explosion and a rebuild.
   let streak: number[] = [];
   let boom: null | { start: number; x: number; y: number; rebuildAt: number; doneAt: number } = null;
@@ -202,6 +205,7 @@ export function createHero(section: HTMLElement, data: HeroData, lastSeen: numbe
     if (kind === 'spiral') { a.cx = gx + (cols * pitch) / 2; a.cy = gy + 3.5 * pitch; }
     if (kind === 'drop') { a.fx = tx; a.fy = -40 - Math.random() * H * 0.25; }
     c.anim = a;
+    busy(delay + dur + 200);
   }
 
   function morphTo(index: number) {
@@ -718,7 +722,14 @@ export function createHero(section: HTMLElement, data: HeroData, lastSeen: numbe
     dr.onLand?.();
   }
 
-  function loop(now: number) { if (!running) return; draw(now); raf = requestAnimationFrame(loop); }
+  // When nothing is moving fast (only the ambient twinkle, today's breathing
+  // square and the wandering courier), draw at about 30fps instead of 60.
+  function loop(now: number) {
+    if (!running) return;
+    const idle = now > busyUntil && !boom && !drops.length && !particles.length && !ripples.length && !flashes.size && courier.mode === 'wander';
+    if (!idle || now - last > 30) draw(now);
+    raf = requestAnimationFrame(loop);
+  }
   function wake() { if (!running) { running = true; last = performance.now(); raf = requestAnimationFrame(loop); } else if (reduced) draw(performance.now()); }
 
   /** Animate one live event into today's square. */
@@ -749,6 +760,7 @@ export function createHero(section: HTMLElement, data: HeroData, lastSeen: numbe
   const local = (e: PointerEvent | MouseEvent) => { const r = section.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; };
 
   section.addEventListener('pointermove', (e) => {
+    busy(1200);
     const p = local(e);
     mouse.x = p.x; mouse.y = p.y; mouse.over = true;
     if (e.pointerType === 'mouse' && !boom && courierHit(p.x, p.y, 34) && performance.now() > courier.quietUntil) talk();
@@ -774,6 +786,7 @@ export function createHero(section: HTMLElement, data: HeroData, lastSeen: numbe
   section.addEventListener('click', (e) => {
     if ((e.target as Element).closest('a, button, input, textarea, select, summary')) return;
     if (performance.now() - t0 < 1800 || boom) return;
+    busy(2500);
     const p = local(e);
     const touch = (e as PointerEvent).pointerType === 'touch';
     if (courierHit(p.x, p.y, touch ? 40 : 34)) { if (touch && performance.now() > courier.quietUntil) talk(); }

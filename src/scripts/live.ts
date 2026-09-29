@@ -20,7 +20,7 @@ type GhEvent = {
 
 export type Activity = { text: string; release: boolean; name: string; tag?: string };
 
-const URL_ = 'https://api.github.com/users/btsouth/events/public?per_page=30';
+const URL_ = 'https://api.github.com/users/btsouth/events/public?per_page=15';
 
 export function describe(e: GhEvent, repos: Record<string, { name: string }>): Activity | null {
   const name = repos[e.repo?.name ?? '']?.name ?? (e.repo?.name ?? '').split('/')[1] ?? 'a repo';
