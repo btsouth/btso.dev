@@ -13,6 +13,7 @@
 //   bounce around Solitaire-style, then everything rebuilds itself.
 import { onThemeChange } from './theme';
 import { textShape, type Shape } from './pixel-font';
+import { gridDays, gridPitch } from '../lib/grid';
 
 export type HeroData = {
   days: [string, number][];
@@ -116,13 +117,10 @@ export function createHero(section: HTMLElement, data: HeroData, lastSeen: numbe
     cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     trailCv.width = W * dpr; trailCv.height = H * dpr; tctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     if (boom) finishBoom(true);
-    const firstActive = data.days.findIndex(([, c]) => c > 0);
-    const activeWeeks = Math.ceil((data.days.length - Math.max(0, firstActive)) / 7) + 1;
-    const weeks = Math.max(16, Math.min(W < 700 ? 20 : 53, activeWeeks));
-    const days = data.days.slice(-weeks * 7);
-    const firstDow = new Date(`${days[0][0]}T12:00:00`).getDay();
-    cols = Math.ceil((days.length + firstDow) / 7);
-    pitch = Math.max(6, Math.min(30, Math.floor((Math.min(W, 1100) - 32) / cols)));
+    const grid = gridDays(data.days, W < 700);
+    const days = grid.shown, firstDow = grid.firstDow;
+    cols = grid.cols;
+    pitch = gridPitch(W, cols);
     const size = Math.max(4, pitch - (pitch > 20 ? 6 : pitch > 10 ? 4 : 2));
     slot.style.height = `${7 * pitch}px`;
     const range = section.querySelector('#graphRange');

@@ -59,7 +59,7 @@ kbd { font-size: 11px; padding: 1px 6px; border-radius: 4px; border: 1px solid v
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
 /* ---------- Hero ---------- */
-.hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+.hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); container-type: inline-size; }
 .hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .hero-inner { position: relative; z-index: 1; padding: 56px 0 72px; display: flex; flex-direction: column; align-items: center; text-align: center; pointer-events: none; }
 .hero-inner a, .hero-inner button { pointer-events: auto; }
@@ -70,7 +70,8 @@ kbd { font-size: 11px; padding: 1px 6px; border-radius: 4px; border: 1px solid v
 .live { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); position: relative; flex: none; }
 .live::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 2px solid var(--accent); animation: ring 1.8s ease-out 3; opacity: 0; }
 @keyframes ring { from { transform: scale(.4); opacity: 1; } to { transform: scale(1.6); opacity: 0; } }
-.graph-slot { width: 100%; margin: 40px 0 10px; }
+.graph-slot { width: 100%; margin: 40px 0 10px; --gc: var(--cw); height: calc(7 * clamp(6px, round(down, (min(100cqw, 1100px) - 32px) / var(--gc), 1px), 30px)); }
+@container (max-width: 699px) { .graph-slot { --gc: var(--cn); } }
 .graph-legend { font: 400 12px/1 "JetBrains Mono", monospace; color: var(--fg3); display: flex; gap: 14px; align-items: center; justify-content: center; flex-wrap: wrap; }
 .graph-legend .sw { display: inline-flex; gap: 3px; vertical-align: middle; }
 .graph-legend .sw i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }

@@ -6,6 +6,7 @@ import FeatureCard from '../components/FeatureCard.astro';
 import ToolportBand from '../components/ToolportBand.astro';
 import { GROUPS, days, projectById, projects, releases, releasesPerWeek, stats, within, type Group } from '../lib/ship';
 import { ago } from '../lib/time';
+import { gridDays } from '../lib/grid';
 
 const latest = releases[0];
 const groups = Object.keys(GROUPS) as Group[];
@@ -27,6 +28,9 @@ const heroData = JSON.stringify({
   apps: projects.map((p) => [p.id, p.name]),
   shapes: ['BTSO.DEV', 'SHIP IT!', `★ ${stats.stars.toLocaleString('en-US')}`, 'HI :)'],
 }).replace(/</g, '\\u003c');
+
+// Column counts let CSS reserve the grid's height before the canvas lays it out.
+const gridCols = { wide: gridDays(days, false).cols, narrow: gridDays(days, true).cols };
 
 const weeks = releasesPerWeek(12);
 const maxWeek = Math.max(1, ...weeks.map((w) => w.count));
@@ -56,7 +60,7 @@ const termLines = [
     <div class="courier-say" aria-hidden="true"></div>
     <div class="hero-inner wrap">
       <a class="pill rise" id="pill" href="/ship"><span class="live"></span><span class="pt"><b style="color:var(--fg)">{latest.project.name} {latest.tag}</b> shipped <span data-ago={latest.at}>{ago(latest.at)}</span></span><span class="arr">→</span></a>
-      <div class="graph-slot" id="graphSlot" role="img" aria-label="GitHub activity, one square per day"></div>
+      <div class="graph-slot" id="graphSlot" style={`--cw:${gridCols.wide};--cn:${gridCols.narrow}`} role="img" aria-label="GitHub activity, one square per day"></div>
       <div class="graph-legend rise" style="animation-delay:.9s">
         <span id="graphRange">one square per day</span>
         <span class="sw" aria-hidden="true"><i style="background:var(--bg3)"></i><i style="background:color-mix(in oklab,var(--accent) 30%,var(--bg3))"></i><i style="background:color-mix(in oklab,var(--accent) 60%,var(--bg3))"></i><i style="background:var(--accent)"></i></span>
