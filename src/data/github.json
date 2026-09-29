@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-29T06:17:38.072Z",
+ "generatedAt": "2026-09-29T06:30:37.861Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 224,
@@ -641,7 +641,7 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 503,
+   "stars": 502,
    "pushedAt": "2026-09-28T13:48:15Z",
    "latest": "v0.6.0",
    "releaseDates": [
@@ -885,14 +885,23 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 1,
-   "pushedAt": "2026-09-29T06:12:35Z",
-   "latest": "linux-app-v0.1.0-preview.2",
+   "pushedAt": "2026-09-29T06:28:19Z",
+   "latest": "linux-app-v0.1.0-preview.3",
    "releaseDates": [
+    "2026-09-29T06:28:19Z",
     "2026-09-29T04:56:34Z",
     "2026-09-28T16:17:47Z",
     "2026-09-28T13:10:23Z"
    ],
    "releases": [
+    {
+     "tag": "linux-app-v0.1.0-preview.3",
+     "title": "Try Omarchy for Linux 0.1.0 preview 3",
+     "at": "2026-09-29T06:28:19Z",
+     "pre": true,
+     "url": "https://github.com/btsouth/try-omarchy-linux/releases/tag/linux-app-v0.1.0-preview.3",
+     "body": "Third Linux app preview. Requires x86_64 Linux, KVM and Flatpak.\n\n- Updates now come from flatpak.tryomarchy.com. Preview 2 installs switch over on their next update, with nothing to do.\n- Software shows screenshots and a short video on the app's page.\n- [tryomarchy.com/linux](https://tryomarchy.com/linux/) has the installer and step-by-step instructions.\n\n## Install\n\n[Download the installer](https://tryomarchy.com/linux.flatpakref) and open it with Software or Discover, or from a terminal:\n\n```sh\nflatpak install --user https://tryomarchy.com/linux.flatpakref\n```\n\nOn Ubuntu, install Software and its Flatpak plugin first, as the [README](https://github.com/btsouth/try-omarchy-linux#get-started) explains. Open Try Omarchy from the application menu. On Ubuntu 24.04, Software's Open button can fail with `ldconfig failed, exit status 256`, and the menu launcher avoids it.\n\n## Coming from an earlier preview\n\nPreview 2 updates to this release through Software or `flatpak update`.\n\nPreview 1 never updates itself. Shut down Omarchy, close Try Omarchy, run `flatpak uninstall --user com.tryomarchy.TryOmarchy//master`, keep its data when asked, then install this release. Your VM, account and files stay.\n\n## Not covered yet\n\nPhysical GPU, audio and microphone, suspend and resume, and monitor changes still need testers; the [hardware checklist](https://github.com/btsouth/try-omarchy-linux/blob/master/docs/LINUX-HARDWARE-TESTING.md) covers them. Camera, live audio switching, gestures, bridged networking, USB passthrough, host-app launching and host authentication are outside this preview."
+    },
     {
      "tag": "linux-app-v0.1.0-preview.2",
      "title": "Try Omarchy for Linux 0.1.0 preview 2",
@@ -4057,7 +4066,7 @@
   ],
   [
    "2026-09-29",
-   34
+   35
   ]
  ]
 }
