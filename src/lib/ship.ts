@@ -139,8 +139,10 @@ export function notesHtml(body: string, project: Project) {
     const heading = t.match(/^#{1,6}\s+(.*)/);
     if (heading) {
       flushPara(); flushList();
-      // Skip a heading that only repeats the app name and version.
-      if (!heading[1].toLowerCase().startsWith(project.name.toLowerCase())) out.push(`<h5>${inline(heading[1], project.repo)}</h5>`);
+      // Skip a heading that only repeats the app name and version, including a
+      // shorter form of the name ("Try Omarchy v0.6.0" for Try Omarchy for Windows).
+      const title = heading[1].toLowerCase(), name = project.name.toLowerCase();
+      if (!title.startsWith(name) && !name.startsWith(title.replace(/\s+v?\d[\w.-]*$/, ''))) out.push(`<h5>${inline(heading[1], project.repo)}</h5>`);
       continue;
     }
     const bullet = t.match(/^\s*(?:[-*+]|\d+\.)\s+(.*)/);
