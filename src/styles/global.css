@@ -2,7 +2,8 @@
 
 /* Each theme follows its Omarchy counterpart: --accent is the theme's own accent
    (darkened where a light background needs it for legible text), --accent2 a
-   contrasting color from the same palette. btso and paper are the site's own
+   contrasting color from the same palette. Catppuccin uses its mauve rather than
+   Omarchy's blue, which made it look the same as tokyo-night. btso and paper are the site's own
    dark and light looks. Light themes also soften shadows and darken project
    colors (--pc-keep) so pale ones like lime and yellow stay readable. */
 :root,
@@ -11,7 +12,7 @@
   --accent: #e8703f; --accent2: #f2b45a; --on-accent: #160c06; color-scheme: dark;
 }
 [data-theme='tokyo-night'] { --bg: #1a1b26; --bg2: #1f2335; --bg3: #292e42; --fg: #c0caf5; --fg2: #a9b1d6; --fg3: #8189b4; --line: #2e3350; --accent: #7aa2f7; --accent2: #bb9af7; --on-accent: #11121a; color-scheme: dark; }
-[data-theme='catppuccin'] { --bg: #1e1e2e; --bg2: #25253a; --bg3: #313244; --fg: #cdd6f4; --fg2: #bac2de; --fg3: #9399b2; --line: #35364c; --accent: #89b4fa; --accent2: #f5c2e7; --on-accent: #11111b; color-scheme: dark; }
+[data-theme='catppuccin'] { --bg: #1e1e2e; --bg2: #25253a; --bg3: #313244; --fg: #cdd6f4; --fg2: #bac2de; --fg3: #9399b2; --line: #35364c; --accent: #cba6f7; --accent2: #fab387; --on-accent: #11111b; color-scheme: dark; }
 [data-theme='gruvbox'] { --bg: #282828; --bg2: #302e2d; --bg3: #3c3836; --fg: #d4be98; --fg2: #bdae93; --fg3: #a89984; --line: #433e3b; --accent: #7daea3; --accent2: #d8a657; --on-accent: #1d2021; color-scheme: dark; }
 [data-theme='osaka-jade'] { --bg: #111c18; --bg2: #15241f; --bg3: #1f3229; --fg: #d6d5bc; --fg2: #c1c497; --fg3: #8a9a8b; --line: #25392f; --accent: #5ea883; --accent2: #e5c736; --on-accent: #09100d; color-scheme: dark; }
 [data-theme='matte-black'] { --bg: #121212; --bg2: #191919; --bg3: #232323; --fg: #d6d6d6; --fg2: #b0b0b0; --fg3: #8a8a8d; --line: #2a2a2a; --accent: #e68e0d; --accent2: #d35f5f; --on-accent: #121212; color-scheme: dark; }
