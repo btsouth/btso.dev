@@ -29,7 +29,7 @@ const monthReleases = releases.filter((r) => r.project.group === 'omarchy' && wi
 
   <div class="wrap">
     <article class="lead glow rv" style={`--pc:${lead.accent}`}>
-      <div class="fshot"><div class="win"><div class="bar"><i></i><i></i><i></i></div><img src={lead.shot} alt="Omarchy running in a window on Windows" width="1200" height="674" /></div></div>
+      <div class="fshot"><div class="win"><div class="bar"><i></i><i></i><i></i></div><img src={lead.shot} alt="Omarchy running in a window on Windows" width="1200" height="674" fetchpriority="high" /></div></div>
       <div class="fbody">
         <span class="lead-tag" style="align-self:flex-start">Most popular</span>
         <div class="row"><Icon project={lead} size="lg" /><h3>{lead.name}</h3></div>
