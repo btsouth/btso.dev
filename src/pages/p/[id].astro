@@ -7,6 +7,7 @@ import ReleaseEntry from '../../components/ReleaseEntry.astro';
 import { GROUPS, projects, releases, type Project } from '../../lib/ship';
 import { ogImage } from '../../lib/og';
 import { SITE_URL } from '../../lib/site';
+import sharp from 'sharp';
 
 export function getStaticPaths() {
   return projects.map((project) => ({ params: { id: project.id }, props: { project } }));
@@ -15,6 +16,8 @@ export function getStaticPaths() {
 interface Props { project: Project }
 const { project: p } = Astro.props;
 const own = releases.filter((r) => r.project.id === p.id);
+// The screenshot's real size, so the page reserves its space before it loads.
+const shot = p.shot ? await sharp(`${process.cwd()}/public${p.shot}`).metadata() : null;
 
 // Releases in 4-day buckets over the last 120 days.
 const now = Date.now();
@@ -55,7 +58,7 @@ const schema = [{
       <a class="btn btn-ghost" href={`https://github.com/${p.repo}`} target="_blank" rel="noreferrer">GitHub ↗</a>
     </div>
     {p.install && <button type="button" class="copy proj-copy" data-copy={p.install}><span class="p">$</span><code>{p.install}</code><span class="c">copy</span></button>}
-    {p.shot && <div class="win proj-shot"><div class="bar"><i></i><i></i><i></i></div><img src={p.shot} alt={`${p.name} screenshot`} /></div>}
+    {p.shot && <div class="win proj-shot"><div class="bar"><i></i><i></i><i></i></div><img src={p.shot} alt={`${p.name} screenshot`} width={shot?.width} height={shot?.height} /></div>}
 
     <div class="rel-chart" aria-hidden="true">{bins.map((n) => <i style={`height:${n ? 20 + (n / peak) * 80 : 6}%;${n ? 'background:var(--pci)' : ''}`}></i>)}</div>
     <div class="meta"><span>releases, last 120 days</span><span style="margin-left:auto">{own.length} recent release{own.length === 1 ? '' : 's'}</span></div>
