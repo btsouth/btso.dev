@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-29T18:10:39.389Z",
+ "generatedAt": "2026-09-29T19:15:38.531Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 223,
@@ -641,8 +641,8 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 505,
-   "pushedAt": "2026-09-29T18:03:00Z",
+   "stars": 506,
+   "pushedAt": "2026-09-29T18:51:56Z",
    "latest": "v0.6.1",
    "releaseDates": [
     "2026-09-29T18:03:00Z",
@@ -894,9 +894,10 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 1,
-   "pushedAt": "2026-09-29T18:10:18Z",
-   "latest": "linux-v0.1.1",
+   "pushedAt": "2026-09-29T19:12:24Z",
+   "latest": "linux-app-v0.1.0-preview.4",
    "releaseDates": [
+    "2026-09-29T19:12:24Z",
     "2026-09-29T18:09:14Z",
     "2026-09-29T06:28:19Z",
     "2026-09-29T04:56:34Z",
@@ -904,6 +905,14 @@
     "2026-09-28T13:10:23Z"
    ],
    "releases": [
+    {
+     "tag": "linux-app-v0.1.0-preview.4",
+     "title": "Try Omarchy for Linux 0.1.0 preview 4",
+     "at": "2026-09-29T19:12:24Z",
+     "pre": true,
+     "url": "https://github.com/btsouth/try-omarchy-linux/releases/tag/linux-app-v0.1.0-preview.4",
+     "body": "Fourth Linux app preview. Requires x86_64 Linux, KVM and Flatpak.\n\n- Setup asks how you want to sign in before it downloads Omarchy. **Set up my own account** is now the default and runs Omarchy's normal setup, so you pick your own username and password. **Quick start as omarchy** is still there for a first look.\n- SSH accepts only keys for the quick-start `omarchy` account, since its password is public. Existing quick-start VMs get this rule at their next start.\n- On X11 desktops, Omarchy releases the keyboard when the pointer leaves its window, so panel menus and applets work normally (#4).\n- The clipboard helper stops when Try Omarchy closes, so nothing is left running after Shut down on X11 (#5).\n- New guest image [linux-v0.1.1](https://github.com/btsouth/try-omarchy-linux/releases/tag/linux-v0.1.1). Existing VMs download it at the next launch and keep your files.\n\n## Install\n\n[Download the installer](https://tryomarchy.com/linux.flatpakref) and open it with Software or Discover, or from a terminal:\n\n```sh\nflatpak install --user https://tryomarchy.com/linux.flatpakref\n```\n\nOn Ubuntu, install Software and its Flatpak plugin first. On NixOS, enable Flatpak with `services.flatpak.enable = true;`. The [README](https://github.com/btsouth/try-omarchy-linux#get-started) has both. Open Try Omarchy from the application menu. On Ubuntu 24.04, Software's Open button can fail with `ldconfig failed, exit status 256`, and the menu launcher avoids it.\n\n## Coming from an earlier preview\n\nPreviews 2 and 3 update to this release through Software or `flatpak update`. Your VM, account and "
+    },
     {
      "tag": "linux-v0.1.1",
      "title": "Linux guest v0.1.1",
@@ -2422,7 +2431,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-09-29T16:10:52Z",
+   "pushedAt": "2026-09-29T19:14:57Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4084,7 +4093,7 @@
   ],
   [
    "2026-09-29",
-   102
+   106
   ]
  ]
 }
