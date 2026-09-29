@@ -131,10 +131,17 @@ export function notesHtml(body: string, project: Project) {
   const out: string[] = [];
   let list: string[] | null = null;
   let para: string[] = [];
+  let code: string[] | null = null;
   const flushPara = () => { if (para.length) { out.push(`<p>${inline(para.join(' '), project.repo)}</p>`); para = []; } };
   const flushList = () => { if (list) { out.push(`<ul>${list.map((l) => `<li>${inline(l, project.repo)}</li>`).join('')}</ul>`); list = null; } };
   for (const line of body.split('\n')) {
     const t = line.trimEnd();
+    // Fenced code blocks, kept verbatim.
+    if (/^\s*```/.test(t)) {
+      if (code) { out.push(`<pre><code>${esc(code.join('\n'))}</code></pre>`); code = null; } else { flushPara(); flushList(); code = []; }
+      continue;
+    }
+    if (code) { code.push(line); continue; }
     if (!t.trim()) { flushPara(); flushList(); continue; }
     const heading = t.match(/^#{1,6}\s+(.*)/);
     if (heading) {
@@ -151,6 +158,7 @@ export function notesHtml(body: string, project: Project) {
     flushList();
     para.push(t.trim());
   }
+  if (code) out.push(`<pre><code>${esc(code.join('\n'))}</code></pre>`);
   flushPara(); flushList();
   return out.join('') || '<p>No notes for this one.</p>';
 }
@@ -158,10 +166,12 @@ export function notesHtml(body: string, project: Project) {
 /** First sentence-ish of a release body, as plain text. */
 export const notesSummary = (body: string, max = 180) =>
   body
+    .replace(/```[\s\S]*?(```|$)/g, '')
     .replace(/^#.*$/gm, '')
     .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
     .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
-    .replace(/[*_`>]/g, '')
+    .replace(/^\s*>\s?/gm, '')
+    .replace(/[*`]/g, '')
     .replace(/^\s*[-+]\s+/gm, '')
     .replace(/\s+/g, ' ')
     .trim()

@@ -632,8 +632,10 @@ export function createHero(section: HTMLElement, data: HeroData, lastSeen: numbe
           ctx.globalAlpha = al; ctx.fillStyle = fills[`l${c.l}`];
           square(x, y, s, grow);
           if (c.rel && ik > 0.85) {
-            const d = Math.max(3, Math.round(s * 0.36));
-            ctx.fillStyle = accent2; ctx.fillRect(x + (s - d) / 2, y + (s - d) / 2, d, d);
+            // A hole punched in the page color: reads on any accent, where a
+            // second accent clashed or vanished on some themes.
+            ctx.fillStyle = bgColor;
+            ctx.beginPath(); ctx.arc(x + s / 2, y + s / 2, Math.max(1.5, s * 0.15), 0, Math.PI * 2); ctx.fill();
           }
           const glow = Math.max(fk < 1 ? Math.pow(1 - fk, 2) : 0, wave(c.hx + c.s / 2, c.hy + c.s / 2, now) * 0.6);
           if (glow > 0.01) { ctx.globalAlpha = glow * a; ctx.fillStyle = accent2; square(x, y, s, grow); }

@@ -59,6 +59,7 @@ const orgSchema = JSON.stringify({
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <script is:inline>
       (function () {
+        document.documentElement.classList.add('js');
         try {
           var t = localStorage.getItem('btso-theme');
           // Older visits stored light/dark before the Omarchy themes existed.

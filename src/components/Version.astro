@@ -4,6 +4,8 @@ import { ago } from '../lib/time';
 
 interface Props { project: Project }
 const { project: p } = Astro.props;
+// Tags with a release-line prefix (linux-app-v0.1.0-preview.1) show from the version on.
+const short = p.version?.replace(/^\D*?(?=v?\d)/, '');
 ---
-{p.version ? <span class="ver" style={`--pc:${p.accent}`}>{p.version}</span> : <span class="ver">in progress</span>}
+{p.version ? <span class="ver" style={`--pc:${p.accent}`} title={short !== p.version ? p.version : undefined}>{short}</span> : <span class="ver">in progress</span>}
 <span data-ago={p.releasedAt ?? p.pushedAt} data-ago-prefix={p.releasedAt ? 'shipped ' : 'pushed '}>{p.releasedAt ? `shipped ${ago(p.releasedAt)}` : `pushed ${ago(p.pushedAt)}`}</span>

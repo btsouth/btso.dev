@@ -6,12 +6,13 @@ import Icon from './Icon.astro';
 interface Props { release: Release; index: number }
 const { release: r, index } = Astro.props;
 const p = r.project;
-const digits = [...r.tag.replace(/^v/, '')];
+// Big version number: drop a leading "v" or release-line prefix (linux-app-v0.1.0).
+const digits = [...r.tag.replace(/^\D*?v?(?=\d)/, '')];
 let d = 0;
 ---
 <a class="shipcard glow" style={`--pc:${p.accent}`} href={`/p/${p.id}`}>
   <div class="top"><Icon project={p} size="sm" /><span class="nm">{p.name}</span><span class="ago">{index === 0 && <span class="live"></span>}<span data-ago={r.at}>{ago(r.at)}</span></span></div>
-  <div class="big odo-wrap" aria-label={r.tag}>
+  <div class="big odo-wrap" aria-label={r.tag} style={`--n:${digits.length}`}>
     {digits.map((ch) => /\d/.test(ch)
       ? <span class="odo" aria-hidden="true"><span class="odo-s" style={`--d:${ch};--delay:${(index * 0.05 + d++ * 0.07).toFixed(2)}s`}>{[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => <span>{n}</span>)}</span></span>
       : <span aria-hidden="true">{ch}</span>)}

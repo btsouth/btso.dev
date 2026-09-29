@@ -1,19 +1,30 @@
 /* btso.dev: Omarchy-style themes (press T to cycle), mono wayfinding. */
 
+/* Each theme follows its Omarchy counterpart: --accent is the theme's own accent
+   (darkened where a light background needs it for legible text), --accent2 a
+   contrasting color from the same palette. btso and paper are the site's own
+   dark and light looks. Light themes also soften shadows and darken project
+   colors (--pc-keep) so pale ones like lime and yellow stay readable. */
 :root,
 [data-theme='btso'] {
   --bg: #121110; --bg2: #1a1917; --bg3: #23211e; --fg: #ece6da; --fg2: #b9b2a5; --fg3: #8a8479; --line: #2c2a26;
   --accent: #e8703f; --accent2: #f2b45a; --on-accent: #160c06; color-scheme: dark;
 }
-[data-theme='tokyo-night'] { --bg: #1a1b26; --bg2: #1f2335; --bg3: #292e42; --fg: #c0caf5; --fg2: #a9b1d6; --fg3: #7982a9; --line: #2a2f45; --accent: #7aa2f7; --accent2: #bb9af7; --on-accent: #11121a; color-scheme: dark; }
-[data-theme='catppuccin'] { --bg: #1e1e2e; --bg2: #232336; --bg3: #313244; --fg: #cdd6f4; --fg2: #bac2de; --fg3: #8b90a8; --line: #2e2e42; --accent: #cba6f7; --accent2: #f5c2e7; --on-accent: #1e1e2e; color-scheme: dark; }
-[data-theme='gruvbox'] { --bg: #282828; --bg2: #2f2d2c; --bg3: #3c3836; --fg: #ebdbb2; --fg2: #d5c4a1; --fg3: #a09282; --line: #3a3735; --accent: #fabd2f; --accent2: #fe8019; --on-accent: #282828; color-scheme: dark; }
-[data-theme='osaka-jade'] { --bg: #111c18; --bg2: #15241f; --bg3: #1d312a; --fg: #d6d5bc; --fg2: #b3b8a0; --fg3: #8a9a8b; --line: #22372f; --accent: #5fcf92; --accent2: #e5c736; --on-accent: #0b1410; color-scheme: dark; }
-[data-theme='matte-black'] { --bg: #121212; --bg2: #181818; --bg3: #222222; --fg: #d6d6d6; --fg2: #b0b0b0; --fg3: #888888; --line: #262626; --accent: #ec9f35; --accent2: #e05f3a; --on-accent: #121212; color-scheme: dark; }
-[data-theme='rose-pine'] { --bg: #faf4ed; --bg2: #fffaf3; --bg3: #f2e9e1; --fg: #575279; --fg2: #6e6a86; --fg3: #797593; --line: #e6dcd3; --accent: #b4637a; --accent2: #907aa9; --on-accent: #fffaf3; color-scheme: light; }
-[data-theme='paper'] { --bg: #f3efe6; --bg2: #faf7f0; --bg3: #e9e3d6; --fg: #23211d; --fg2: #4d4940; --fg3: #6f695d; --line: #ddd6c8; --accent: #b4512e; --accent2: #2f6b52; --on-accent: #fff; color-scheme: light; }
+[data-theme='tokyo-night'] { --bg: #1a1b26; --bg2: #1f2335; --bg3: #292e42; --fg: #c0caf5; --fg2: #a9b1d6; --fg3: #8189b4; --line: #2e3350; --accent: #7aa2f7; --accent2: #bb9af7; --on-accent: #11121a; color-scheme: dark; }
+[data-theme='catppuccin'] { --bg: #1e1e2e; --bg2: #25253a; --bg3: #313244; --fg: #cdd6f4; --fg2: #bac2de; --fg3: #9399b2; --line: #35364c; --accent: #89b4fa; --accent2: #f5c2e7; --on-accent: #11111b; color-scheme: dark; }
+[data-theme='gruvbox'] { --bg: #282828; --bg2: #302e2d; --bg3: #3c3836; --fg: #d4be98; --fg2: #bdae93; --fg3: #a89984; --line: #433e3b; --accent: #7daea3; --accent2: #d8a657; --on-accent: #1d2021; color-scheme: dark; }
+[data-theme='osaka-jade'] { --bg: #111c18; --bg2: #15241f; --bg3: #1f3229; --fg: #d6d5bc; --fg2: #c1c497; --fg3: #8a9a8b; --line: #25392f; --accent: #5ea883; --accent2: #e5c736; --on-accent: #09100d; color-scheme: dark; }
+[data-theme='matte-black'] { --bg: #121212; --bg2: #191919; --bg3: #232323; --fg: #d6d6d6; --fg2: #b0b0b0; --fg3: #8a8a8d; --line: #2a2a2a; --accent: #e68e0d; --accent2: #d35f5f; --on-accent: #121212; color-scheme: dark; }
+[data-theme='rose-pine'] { --bg: #faf4ed; --bg2: #fffaf3; --bg3: #f2e9e1; --fg: #575279; --fg2: #625e80; --fg3: #6e6a86; --line: #e4dad2; --accent: #286983; --accent2: #a4506a; --on-accent: #fffaf3; color-scheme: light; }
+[data-theme='paper'] { --bg: #f3efe6; --bg2: #faf7f0; --bg3: #e9e3d6; --fg: #23211d; --fg2: #4d4940; --fg3: #6b6559; --line: #ddd6c8; --accent: #a94a27; --accent2: #93600f; --on-accent: #fff; color-scheme: light; }
+html[data-theme='rose-pine'], html[data-theme='paper'] {
+  --shade: rgba(60, 40, 30, .12); --term: var(--bg2); --pc-keep: 62%;
+}
 
 :root {
+  --shade: rgba(0, 0, 0, .35);
+  --term: color-mix(in oklab, var(--bg) 60%, black);
+  --pc-keep: 100%;
   /* Names the legal pages were written against, mapped onto the theme. */
   --ink: var(--fg);
   --muted: var(--fg2);
@@ -48,7 +59,7 @@
   --radius-lg: 12px;
   --radius: 10px;
   --radius-sm: 8px;
-  --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  --shadow: 0 24px 60px var(--shade);
 }
 
 *,
