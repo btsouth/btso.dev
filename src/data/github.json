@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-29T20:10:40.151Z",
+ "generatedAt": "2026-09-29T23:45:37.725Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 223,
@@ -642,7 +642,7 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 506,
-   "pushedAt": "2026-09-29T20:09:22Z",
+   "pushedAt": "2026-09-29T23:36:03Z",
    "latest": "v0.6.2",
    "releaseDates": [
     "2026-09-29T20:09:22Z",
@@ -903,7 +903,7 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 1,
-   "pushedAt": "2026-09-29T19:12:24Z",
+   "pushedAt": "2026-09-29T22:48:36Z",
    "latest": "linux-app-v0.1.0-preview.4",
    "releaseDates": [
     "2026-09-29T19:12:24Z",
@@ -1289,10 +1289,11 @@
    ]
   },
   "btsouth/omaframe": {
-   "stars": 10,
-   "pushedAt": "2026-09-29T03:58:57Z",
-   "latest": "v0.3.0",
+   "stars": 11,
+   "pushedAt": "2026-09-29T23:41:18Z",
+   "latest": "v0.4.0",
    "releaseDates": [
+    "2026-09-29T23:41:50Z",
     "2026-09-29T03:59:00Z",
     "2026-09-28T15:19:34Z",
     "2026-09-28T14:28:35Z",
@@ -1300,6 +1301,14 @@
     "2026-09-28T12:15:00Z"
    ],
    "releases": [
+    {
+     "tag": "v0.4.0",
+     "title": "Omaframe 0.4.0",
+     "at": "2026-09-29T23:41:50Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaframe/releases/tag/v0.4.0",
+     "body": "# Omaframe 0.4.0\n\nPause and resume recordings, clearer controls, and protection for unsaved\nvideo edits. Changes since 0.3.0:\n\n- **Pause and resume.** Pause keeps the same recording open and leaves the\n  paused time out of the saved video and audio. The timer counts recorded\n  time, and Stop still saves the clip while paused.\n- **Optional pause shortcut.** Enable capture shortcuts in Settings for\n  Alt+Shift+Print Screen, including recordings without a visible control.\n  Setup preserves custom bindings. Scripts can use `--pause-recording`,\n  `--resume-recording` and `--toggle-recording-pause`.\n- **Simpler recording controls.** Labeled Pause, Resume and Stop buttons,\n  centered contents, clearer sound and microphone options, and recording\n  setup that stays reachable in smaller windows.\n- **Cleaner editing.** Named video mark tools, editor controls that fit\n  smaller windows, keyboard access to recent drafts, menus that close with\n  Esc, and a sample image that opens directly in Edit. Settings now show the\n  actual app version.\n- **Protect video edits.** Opening another file, starting a capture or\n  quitting offers Cancel, Discard edits or Save and continue. File drops and\n  capture shortcut commands use the same prompt. Save and continue waits\n  until the export succeeds.\n- **Keep edits after errors.** Failed saves keep the edits available to\n  retry and show a readable message. A failed file open preserves the current\n  editor and its saved state.\n- **Basic CI.** Arch builds, six headless suites, OCR pattern tests and\n  install-layout checks run on pull requests and pushes"
+    },
     {
      "tag": "v0.3.0",
      "title": "Omaframe 0.3.0",
@@ -2440,7 +2449,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-09-29T20:00:04Z",
+   "pushedAt": "2026-09-29T23:33:05Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4082,7 +4091,7 @@
   ],
   [
    "2026-09-24",
-   87
+   88
   ],
   [
    "2026-09-25",
@@ -4102,7 +4111,7 @@
   ],
   [
    "2026-09-29",
-   134
+   181
   ]
  ]
 }
