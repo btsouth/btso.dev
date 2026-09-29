@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-29T15:51:37.895Z",
+ "generatedAt": "2026-09-29T18:05:39.669Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 223,
@@ -642,9 +642,10 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 505,
-   "pushedAt": "2026-09-29T13:33:55Z",
-   "latest": "v0.6.0",
+   "pushedAt": "2026-09-29T18:03:00Z",
+   "latest": "v0.6.1",
    "releaseDates": [
+    "2026-09-29T18:03:00Z",
     "2026-09-27T07:00:01Z",
     "2026-09-27T01:29:19Z",
     "2026-09-26T17:40:52Z",
@@ -673,6 +674,14 @@
     "2026-08-28T00:49:21Z"
    ],
    "releases": [
+    {
+     "tag": "v0.6.1",
+     "title": "v0.6.1",
+     "at": "2026-09-29T18:03:00Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.6.1",
+     "body": "# Try Omarchy v0.6.1\n\nDownload **TryOmarchy.exe** below, or let your installed launcher update itself. Your guest disk, files and settings carry over.\n\n- **Alt+Tab can go back to Windows.** Settings > General has a new \"Send Alt+Tab to Omarchy while its window is focused\" checkbox. It's on by default, so nothing changes unless you turn it off. With it off, Alt+Tab opens the Windows task switcher like it did before v0.1.0. The change applies right away without restarting Omarchy.\n- **No more black screen after a long sleep.** On laptops with Modern Standby, waking Windows after more than a few minutes could make Omarchy restart core services, leaving a black desktop or dropping you back to the login screen. Those restarts no longer happen.\n- **Your monitor scale sticks.** A scale set in `~/.config/hypr/monitors.lua` now survives theme switches and `hyprctl reload` instead of snapping back to the automatic value.\n- Omarchy's packages are refreshed to current Arch versions.\n\nSee the [compatibility guide](https://github.com/omacom/try-omarchy-windows/blob/master/docs/COMPATIBILITY.md) for hardware requirements and known limits.\n\n[Changes since v0.6.0](https://github.com/omacom/try-omarchy-windows/compare/v0.6.0...v0.6.1)"
+    },
     {
      "tag": "v0.6.0",
      "title": "v0.6.0",
@@ -885,7 +894,7 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 1,
-   "pushedAt": "2026-09-29T15:17:31Z",
+   "pushedAt": "2026-09-29T18:04:24Z",
    "latest": "linux-app-v0.1.0-preview.3",
    "releaseDates": [
     "2026-09-29T06:28:19Z",
@@ -2404,7 +2413,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-09-29T14:33:58Z",
+   "pushedAt": "2026-09-29T16:10:52Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4066,7 +4075,7 @@
   ],
   [
    "2026-09-29",
-   97
+   102
   ]
  ]
 }
