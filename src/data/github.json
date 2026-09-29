@@ -1,11 +1,12 @@
 {
- "generatedAt": "2026-09-29T05:00:36.447Z",
+ "generatedAt": "2026-09-29T05:35:40.873Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 224,
-   "pushedAt": "2026-09-29T04:44:48Z",
-   "latest": "v1.23.2",
+   "pushedAt": "2026-09-29T05:34:00Z",
+   "latest": "v1.23.3",
    "releaseDates": [
+    "2026-09-29T05:34:07Z",
     "2026-09-28T03:45:36Z",
     "2026-09-28T00:46:16Z",
     "2026-09-27T18:27:07Z",
@@ -77,6 +78,14 @@
     "2026-06-19T23:39:17Z"
    ],
    "releases": [
+    {
+     "tag": "v1.23.3",
+     "title": "Toolport v1.23.3",
+     "at": "2026-09-29T05:34:07Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/toolport/releases/tag/v1.23.3",
+     "body": "### Fixed\n\n- The Teams approval prompt closes as soon as the browser approves the connection,\n  and a failed or expired request says why. You can hide the prompt or cancel the\n  request, and a repeated link brings back the same prompt instead of starting over.\n- AI clients connected through Toolport no longer get a one-time \"unknown or expired\n  Mcp-Session-Id\" error after a profile, server or tool change, including the switch\n  that happens when you share a server. Toolport reopens the session and sends the\n  refused request once.\n- Sharing into a Team that already has servers explains itself. The preview says\n  whether each server is new, an update or already shared, points out a separate\n  Team server with the same name, and says what changes in your profile. The result\n  names each server and which copy is in use.\n- One server that needs its own setup no longer stops the others from switching to\n  their Team copies. Re-sharing an edited server keeps its Team copy in use, and a\n  server removed from the Team and shared again switches reliably.\n- Servers with environment keys no longer look changed every time you share them.\n- Servers with launch inputs can now be shared. Teammates keep those values in their\n  own vault.\n\n\n---\n\n**Full changelog:** https://github.com/btsouth/toolport/blob/v1.23.3/CHANGELOG.md"
+    },
     {
      "tag": "v1.23.2",
      "title": "Toolport v1.23.2",
@@ -876,7 +885,7 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 1,
-   "pushedAt": "2026-09-29T04:56:33Z",
+   "pushedAt": "2026-09-29T05:34:18Z",
    "latest": "linux-app-v0.1.0-preview.2",
    "releaseDates": [
     "2026-09-29T04:56:34Z",
@@ -1235,7 +1244,7 @@
    ]
   },
   "btsouth/omaframe": {
-   "stars": 4,
+   "stars": 5,
    "pushedAt": "2026-09-29T03:58:57Z",
    "latest": "v0.3.0",
    "releaseDates": [
@@ -4048,7 +4057,7 @@
   ],
   [
    "2026-09-29",
-   12
+   25
   ]
  ]
 }
