@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-29T12:17:41.442Z",
+ "generatedAt": "2026-09-29T15:51:37.895Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 223,
@@ -641,8 +641,8 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 503,
-   "pushedAt": "2026-09-29T11:21:17Z",
+   "stars": 505,
+   "pushedAt": "2026-09-29T13:33:55Z",
    "latest": "v0.6.0",
    "releaseDates": [
     "2026-09-27T07:00:01Z",
@@ -885,7 +885,7 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 1,
-   "pushedAt": "2026-09-29T06:28:19Z",
+   "pushedAt": "2026-09-29T15:17:31Z",
    "latest": "linux-app-v0.1.0-preview.3",
    "releaseDates": [
     "2026-09-29T06:28:19Z",
@@ -1253,7 +1253,7 @@
    ]
   },
   "btsouth/omaframe": {
-   "stars": 9,
+   "stars": 10,
    "pushedAt": "2026-09-29T03:58:57Z",
    "latest": "v0.3.0",
    "releaseDates": [
@@ -1656,7 +1656,7 @@
    ]
   },
   "btsouth/ceiling": {
-   "stars": 31,
+   "stars": 30,
    "pushedAt": "2026-09-29T07:35:00Z",
    "latest": "v1.5.42",
    "releaseDates": [
@@ -2404,7 +2404,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-09-29T12:03:42Z",
+   "pushedAt": "2026-09-29T14:33:58Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4066,7 +4066,7 @@
   ],
   [
    "2026-09-29",
-   47
+   97
   ]
  ]
 }
