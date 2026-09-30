@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-30T09:31:54.433Z",
+ "generatedAt": "2026-09-30T18:17:38.352Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 223,
@@ -641,8 +641,8 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 508,
-   "pushedAt": "2026-09-30T08:24:49Z",
+   "stars": 516,
+   "pushedAt": "2026-09-30T16:36:29Z",
    "latest": "v0.6.2",
    "releaseDates": [
     "2026-09-29T20:09:22Z",
@@ -903,7 +903,7 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 1,
-   "pushedAt": "2026-09-30T08:14:54Z",
+   "pushedAt": "2026-09-30T17:07:33Z",
    "latest": "linux-app-v0.1.0-preview.5",
    "releaseDates": [
     "2026-09-30T01:40:43Z",
@@ -974,7 +974,7 @@
    ]
   },
   "btsouth/omakade": {
-   "stars": 422,
+   "stars": 425,
    "pushedAt": "2026-09-30T05:49:13Z",
    "latest": "v1.13.0",
    "releaseDates": [
@@ -1397,7 +1397,7 @@
    ]
   },
   "btsouth/omarchy-usage-dashboard": {
-   "stars": 15,
+   "stars": 16,
    "pushedAt": "2026-09-30T00:59:59Z",
    "latest": "v1.8.2",
    "releaseDates": [
@@ -2098,7 +2098,7 @@
   },
   "btsouth/cubby-clipboard": {
    "stars": 13,
-   "pushedAt": "2026-09-27T02:48:25Z",
+   "pushedAt": "2026-09-30T17:00:23Z",
    "latest": "v1.3.5",
    "releaseDates": [
     "2026-09-27T04:22:53Z",
@@ -2512,7 +2512,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-09-30T07:45:57Z",
+   "pushedAt": "2026-09-30T17:39:59Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4174,11 +4174,11 @@
   ],
   [
    "2026-09-29",
-   216
+   220
   ],
   [
    "2026-09-30",
-   20
+   46
   ]
  ]
 }
