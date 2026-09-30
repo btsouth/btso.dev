@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-30T20:05:44.317Z",
+ "generatedAt": "2026-09-30T23:40:35.941Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 223,
@@ -641,7 +641,7 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 517,
+   "stars": 518,
    "pushedAt": "2026-09-30T19:38:08Z",
    "latest": "v0.6.2",
    "releaseDates": [
@@ -903,9 +903,10 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 1,
-   "pushedAt": "2026-09-30T17:07:33Z",
-   "latest": "linux-app-v0.1.0-preview.5",
+   "pushedAt": "2026-09-30T23:39:16Z",
+   "latest": "linux-app-v0.1.0",
    "releaseDates": [
+    "2026-09-30T23:39:16Z",
     "2026-09-30T01:40:43Z",
     "2026-09-29T19:12:24Z",
     "2026-09-29T18:09:14Z",
@@ -915,6 +916,14 @@
     "2026-09-28T13:10:23Z"
    ],
    "releases": [
+    {
+     "tag": "linux-app-v0.1.0",
+     "title": "Try Omarchy for Linux v0.1.0",
+     "at": "2026-09-30T23:39:16Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/try-omarchy-linux/releases/tag/linux-app-v0.1.0",
+     "body": "Try Omarchy for Linux now uses regular version numbers, starting at 0.1.0.\n\n- The launcher shares the Mac and Windows design, with Settings grouped into General, Devices and Advanced.\n- Add and remove local port forwards while Omarchy runs.\n- Backups keep the window responsive, and slow first-time account setup stays open with useful guidance.\n- Stop during startup shuts Omarchy down cleanly.\n- Setup instructions match the current buttons, and shared folders show their names.\n\n[Install Try Omarchy for Linux](https://tryomarchy.com/linux/). Existing installations update through Software or `flatpak update`, keeping your VM and settings.\n\nThe guest image remains `linux-v0.1.1`. SSH, camera selection and access changes apply after a full shutdown and launch. See the [user guide](https://github.com/btsouth/try-omarchy-linux/blob/master/docs/LINUX-HELP.md) for setup and current limits."
+    },
     {
      "tag": "linux-app-v0.1.0-preview.5",
      "title": "Linux app v0.1.0-preview.5",
@@ -1398,7 +1407,7 @@
   },
   "btsouth/omarchy-usage-dashboard": {
    "stars": 16,
-   "pushedAt": "2026-09-30T00:59:59Z",
+   "pushedAt": "2026-09-30T20:18:57Z",
    "latest": "v1.8.2",
    "releaseDates": [
     "2026-09-30T01:00:00Z",
@@ -2521,7 +2530,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-09-30T19:51:32Z",
+   "pushedAt": "2026-09-30T23:27:55Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4187,7 +4196,7 @@
   ],
   [
    "2026-09-30",
-   53
+   82
   ]
  ]
 }
