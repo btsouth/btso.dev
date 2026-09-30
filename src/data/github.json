@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-30T00:19:43.057Z",
+ "generatedAt": "2026-09-30T00:50:39.411Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 223,
@@ -642,7 +642,7 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 506,
-   "pushedAt": "2026-09-29T23:36:03Z",
+   "pushedAt": "2026-09-30T00:21:48Z",
    "latest": "v0.6.2",
    "releaseDates": [
     "2026-09-29T20:09:22Z",
@@ -903,7 +903,7 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 1,
-   "pushedAt": "2026-09-30T00:06:30Z",
+   "pushedAt": "2026-09-30T00:49:57Z",
    "latest": "linux-app-v0.1.0-preview.4",
    "releaseDates": [
     "2026-09-29T19:12:24Z",
@@ -966,7 +966,7 @@
   },
   "btsouth/omakade": {
    "stars": 422,
-   "pushedAt": "2026-09-24T05:24:09Z",
+   "pushedAt": "2026-09-30T00:24:00Z",
    "latest": "v1.12.0",
    "releaseDates": [
     "2026-09-23T01:37:21Z",
@@ -1290,9 +1290,10 @@
   },
   "btsouth/omaframe": {
    "stars": 11,
-   "pushedAt": "2026-09-30T00:14:50Z",
-   "latest": "v0.4.0",
+   "pushedAt": "2026-09-30T00:47:32Z",
+   "latest": "v0.5.0",
    "releaseDates": [
+    "2026-09-30T00:48:47Z",
     "2026-09-29T23:41:50Z",
     "2026-09-29T03:59:00Z",
     "2026-09-28T15:19:34Z",
@@ -1301,6 +1302,14 @@
     "2026-09-28T12:15:00Z"
    ],
    "releases": [
+    {
+     "tag": "v0.5.0",
+     "title": "Omaframe 0.5.0",
+     "at": "2026-09-30T00:48:47Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaframe/releases/tag/v0.5.0",
+     "body": "# Omaframe 0.5.0\n\nCrop recordings, return to unfinished edits, add a webcam overlay and export\nshort demos as GIFs. Changes since 0.4.0:\n\n- **Video crop.** Press C and drag to crop the whole clip. Preview with V,\n  reset the crop or undo it.\n- **Recovery drafts.** Video edits save automatically in Recent edits,\n  including trim, cuts, sound, marks, crop and camera placement. Reopen a\n  draft to continue. Removing a draft keeps the original and exported files.\n- **Optional webcam overlay.** Choose a camera in recording Options. It\n  starts off. After recording, drag the overlay while playback is paused;\n  use Camera to change its size, corner or visibility. Pause, trim and cuts\n  stay aligned with the screen recording. Camera failures leave screen\n  recording running.\n- **Looping GIF export.** Export GIF includes your edits and camera overlay,\n  then offers Copy GIF and Show file. GIFs are silent, loop continuously and\n  use up to 720 pixels on the longest edge at 15 fps. Keep the edited clip\n  within 30 seconds. The editor stays open and existing MP4 exports remain\n  available. GIFs can be larger than MP4.\n- **Cleaner review.** More preview space in small windows, menus that close\n  with Esc and shortcuts that stay out of the way while menus are open.\n\nDrafts reference the original video, so keep it in place. For camera edits,\nkeep its webcam MP4 and camera JSON sidecar alongside it.\n\nInstall or update using the attached Arch package or\n`omaframe-x86_64.pkg.tar.zst` from the latest release.\n\nAll nine suites passed in an isolated desktop for crop, drafts and camera.\nFocused "
+    },
     {
      "tag": "v0.4.0",
      "title": "Omaframe 0.4.0",
@@ -2449,7 +2458,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-09-30T00:19:07Z",
+   "pushedAt": "2026-09-30T00:37:41Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4111,11 +4120,11 @@
   ],
   [
    "2026-09-29",
-   188
+   196
   ],
   [
    "2026-09-30",
-   0
+   1
   ]
  ]
 }
