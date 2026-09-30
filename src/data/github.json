@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-30T01:00:38.083Z",
+ "generatedAt": "2026-09-30T01:25:37.895Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 223,
@@ -642,7 +642,7 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 507,
-   "pushedAt": "2026-09-30T00:21:48Z",
+   "pushedAt": "2026-09-30T01:10:16Z",
    "latest": "v0.6.2",
    "releaseDates": [
     "2026-09-29T20:09:22Z",
@@ -903,7 +903,7 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 1,
-   "pushedAt": "2026-09-30T00:49:57Z",
+   "pushedAt": "2026-09-30T01:08:14Z",
    "latest": "linux-app-v0.1.0-preview.4",
    "releaseDates": [
     "2026-09-29T19:12:24Z",
@@ -966,7 +966,7 @@
   },
   "btsouth/omakade": {
    "stars": 422,
-   "pushedAt": "2026-09-30T00:56:42Z",
+   "pushedAt": "2026-09-30T01:21:16Z",
    "latest": "v1.12.0",
    "releaseDates": [
     "2026-09-23T01:37:21Z",
@@ -1290,9 +1290,10 @@
   },
   "btsouth/omaframe": {
    "stars": 11,
-   "pushedAt": "2026-09-30T00:47:32Z",
-   "latest": "v0.5.0",
+   "pushedAt": "2026-09-30T01:23:22Z",
+   "latest": "v0.5.1",
    "releaseDates": [
+    "2026-09-30T01:24:08Z",
     "2026-09-30T00:48:47Z",
     "2026-09-29T23:41:50Z",
     "2026-09-29T03:59:00Z",
@@ -1302,6 +1303,14 @@
     "2026-09-28T12:15:00Z"
    ],
    "releases": [
+    {
+     "tag": "v0.5.1",
+     "title": "Omaframe 0.5.1",
+     "at": "2026-09-30T01:24:08Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaframe/releases/tag/v0.5.1",
+     "body": "# Omaframe 0.5.1\n\nA polish and bug-fix release for screenshots and recordings. Changes since\n0.5.0:\n\n- Clearer first-run guidance, optional shortcuts and recent edits ordered\n  newest first. Existing settings and dismissed guidance stay intact.\n- Capture controls fit smaller screens. Recording options keep Start\n  visible, and paused recordings show both elapsed time and Resume.\n- Cleaner screenshot editing, better label placement and keyboard controls.\n  Failed saves let you change the folder and retry the retained capture.\n- Video and GIF export progress and Cancel stay visible above the preview.\n  Typing in time fields no longer triggers editor shortcuts.\n- Copy video works for opened originals and current exports. Undoing back\n  to the original copies the original rather than an older edited export.\n- Back returns opened videos to the start screen. Settings, folder pickers\n  and camera controls have clearer labels, focus and light/dark contrast.\n\nInstall or update with the attached Arch package or the stable\n`omaframe-x86_64.pkg.tar.zst` asset.\n\nThe build and all nine test suites passed in an isolated desktop. UI checks\ncovered first launch, retained upgrade settings, area/window/whole-display\ncapture, editing, pause/resume and export in light/dark themes and smaller\nwindows. Recording tests use fixtures; physical camera, audio and\nGPU-specific capture behavior were not retested.\n\nOmaframe remains a beta. GPU Screen Recorder 6.1.0 remains the minimum."
+    },
     {
      "tag": "v0.5.0",
      "title": "Omaframe 0.5.0",
@@ -4138,11 +4147,11 @@
   ],
   [
    "2026-09-29",
-   200
+   203
   ],
   [
    "2026-09-30",
-   3
+   4
   ]
  ]
 }
