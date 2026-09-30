@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-30T02:40:41.121Z",
+ "generatedAt": "2026-09-30T05:20:35.872Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 223,
@@ -641,8 +641,8 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 507,
-   "pushedAt": "2026-09-30T01:44:47Z",
+   "stars": 509,
+   "pushedAt": "2026-09-30T04:20:08Z",
    "latest": "v0.6.2",
    "releaseDates": [
     "2026-09-29T20:09:22Z",
@@ -975,7 +975,7 @@
   },
   "btsouth/omakade": {
    "stars": 422,
-   "pushedAt": "2026-09-30T02:00:37Z",
+   "pushedAt": "2026-09-30T05:11:59Z",
    "latest": "v1.13.0",
    "releaseDates": [
     "2026-09-30T02:40:04Z",
@@ -1308,9 +1308,10 @@
   },
   "btsouth/omaframe": {
    "stars": 11,
-   "pushedAt": "2026-09-30T01:23:22Z",
-   "latest": "v0.5.1",
+   "pushedAt": "2026-09-30T05:15:38Z",
+   "latest": "v0.6.0",
    "releaseDates": [
+    "2026-09-30T05:17:33Z",
     "2026-09-30T01:24:08Z",
     "2026-09-30T00:48:47Z",
     "2026-09-29T23:41:50Z",
@@ -1321,6 +1322,14 @@
     "2026-09-28T12:15:00Z"
    ],
    "releases": [
+    {
+     "tag": "v0.6.0",
+     "title": "Omaframe 0.6.0",
+     "at": "2026-09-30T05:17:33Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaframe/releases/tag/v0.6.0",
+     "body": "# Omaframe 0.6.0\n\nAnnotation styles and easier editing, with fixes since 0.5.1:\n\n- Capture hints sit below the bar and no longer block buttons. Recording\n  controls keep the hints outside the captured area.\n- Side handles resize width or height independently. Text wraps when resized\n  from the sides; corner handles scale the font. Crop frames and pen strokes\n  are easier to move and resize, with Shift for straight movement.\n- Contextual style controls offer label colors and backgrounds, open or\n  filled arrowheads, contrast outlines, shape fills, highlight opacity,\n  step colors and blur strength. Choices are remembered for each tool.\n- Style panels have a clear preview, close when you click outside and fit\n  smaller windows. Settings rows and shortcut borders have proper spacing.\n- Fixed recording review getting stuck when closing after annotations,\n  including Super+W and the save-and-close action.\n\nInstall or update with the attached Arch package or the stable\n`omaframe-x86_64.pkg.tar.zst` asset. Reopen Omaframe after updating.\n\nThe build and all nine test suites passed in an isolated desktop. UI checks\ncovered annotation controls, settings, smaller windows and closing the editor.\nRendering and video export were checked with fixtures; physical camera,\naudio and GPU-specific recording behavior were not retested.\n\nOmaframe remains a beta. GPU Screen Recorder 6.1.0 remains the minimum."
+    },
     {
      "tag": "v0.5.1",
      "title": "Omaframe 0.5.1",
@@ -2503,7 +2512,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-09-30T02:30:23Z",
+   "pushedAt": "2026-09-30T04:40:19Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4165,11 +4174,11 @@
   ],
   [
    "2026-09-29",
-   212
+   216
   ],
   [
    "2026-09-30",
-   5
+   13
   ]
  ]
 }
