@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-30T00:50:39.411Z",
+ "generatedAt": "2026-09-30T00:55:36.790Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 223,
@@ -1362,9 +1362,10 @@
   },
   "btsouth/omarchy-usage-dashboard": {
    "stars": 15,
-   "pushedAt": "2026-09-28T14:57:59Z",
-   "latest": "v1.8.0",
+   "pushedAt": "2026-09-30T00:52:41Z",
+   "latest": "v1.8.1",
    "releaseDates": [
+    "2026-09-30T00:52:42Z",
     "2026-09-26T16:40:33Z",
     "2026-09-23T03:33:59Z",
     "2026-09-22T21:18:56Z",
@@ -1377,6 +1378,14 @@
     "2026-09-16T01:35:59Z"
    ],
    "releases": [
+    {
+     "tag": "v1.8.1",
+     "title": "v1.8.1: GPT-6.1 Sol pricing and dashboard fixes",
+     "at": "2026-09-30T00:52:42Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omarchy-usage-dashboard/releases/tag/v1.8.1",
+     "body": "Codex GPT-6.1 Sol now uses OpenAI's published pricing, including cached input, cache writes, and long-context rates. Previously recorded usage is priced automatically. API value is an estimate, not a subscription charge.\n\nThis release also includes the fixes already on main:\n- Keep the model breakdown compact and sort sources by usage.\n- Show tokens recorded since each limit window began.\n- Improve session-reset notifications and limit suggestions.\n\nUpdate with:\n```sh\ncurl -fsSL https://raw.githubusercontent.com/btsouth/omarchy-usage-dashboard/main/install.sh | bash -s -- --with-plugin\n```"
+    },
     {
      "tag": "v1.8.0",
      "title": "v1.8.0: Agent Pulse, a live Today count, hourly history, and pinned limits",
@@ -4120,11 +4129,11 @@
   ],
   [
    "2026-09-29",
-   196
+   198
   ],
   [
    "2026-09-30",
-   1
+   2
   ]
  ]
 }
