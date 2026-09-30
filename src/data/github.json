@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-30T01:25:37.895Z",
+ "generatedAt": "2026-09-30T01:45:36.051Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 223,
@@ -642,7 +642,7 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 507,
-   "pushedAt": "2026-09-30T01:10:16Z",
+   "pushedAt": "2026-09-30T01:44:47Z",
    "latest": "v0.6.2",
    "releaseDates": [
     "2026-09-29T20:09:22Z",
@@ -903,9 +903,10 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 1,
-   "pushedAt": "2026-09-30T01:08:14Z",
-   "latest": "linux-app-v0.1.0-preview.4",
+   "pushedAt": "2026-09-30T01:40:43Z",
+   "latest": "linux-app-v0.1.0-preview.5",
    "releaseDates": [
+    "2026-09-30T01:40:43Z",
     "2026-09-29T19:12:24Z",
     "2026-09-29T18:09:14Z",
     "2026-09-29T06:28:19Z",
@@ -914,6 +915,14 @@
     "2026-09-28T13:10:23Z"
    ],
    "releases": [
+    {
+     "tag": "linux-app-v0.1.0-preview.5",
+     "title": "Linux app v0.1.0-preview.5",
+     "at": "2026-09-30T01:40:43Z",
+     "pre": true,
+     "url": "https://github.com/btsouth/try-omarchy-linux/releases/tag/linux-app-v0.1.0-preview.5",
+     "body": "Fifth Linux preview. Requires x86_64 Linux, KVM and Flatpak.\n\n- Switch playback and microphone devices in Settings while Omarchy runs.\n- Use a camera through your desktop's camera permission portal. Capture starts when a guest app opens the camera and stops when it closes it.\n- On Wayland, moving the pointer outside the VM releases the keyboard. Windowed tablet mode no longer confines the pointer, and leaving fullscreen restores that behavior.\n- Desktops without automatic clipboard sharing start without the large clipboard error window.\n\n[Install Try Omarchy](https://tryomarchy.com/linux.flatpakref), or update an existing preview through Software or `flatpak update`. Your VM and settings stay. The guest remains [linux-v0.1.1](https://github.com/btsouth/try-omarchy-linux/releases/tag/linux-v0.1.1).\n\nOn Ubuntu 24.04, launch from the application menu if Software's Open button fails. This release does not modify AppArmor policy. Camera selection, camera access and microphone access changes require shutting down Omarchy and launching it again.\n\nHeadset playback switching and camera frames were checked on physical hardware. Physical microphone switching and broader hardware coverage still need testers. See the [hardware checklist](https://github.com/btsouth/try-omarchy-linux/blob/master/docs/LINUX-HARDWARE-TESTING.md).\n\nBuilt from [7f0acd0](https://github.com/btsouth/try-omarchy-linux/commit/7f0acd001417a57ca678a2eedcf316d6a8190f69), with the same files as the release tag. Signed Flatpak commit: `9affe2ca77f1b52d949845abb2af9d4f61bd398600abfc68c4aa1a7515f4eec4`."
+    },
     {
      "tag": "linux-app-v0.1.0-preview.4",
      "title": "Try Omarchy for Linux 0.1.0 preview 4",
@@ -2485,7 +2494,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-09-30T00:37:41Z",
+   "pushedAt": "2026-09-30T01:33:40Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4147,7 +4156,7 @@
   ],
   [
    "2026-09-29",
-   203
+   207
   ],
   [
    "2026-09-30",
