@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-01T23:20:37.566Z",
+ "generatedAt": "2026-10-01T23:55:37.539Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 222,
@@ -642,7 +642,7 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 522,
-   "pushedAt": "2026-10-01T23:17:15Z",
+   "pushedAt": "2026-10-01T23:43:39Z",
    "latest": "v0.7.1",
    "releaseDates": [
     "2026-10-01T03:41:30Z",
@@ -921,7 +921,7 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 1,
-   "pushedAt": "2026-10-01T23:10:16Z",
+   "pushedAt": "2026-10-01T23:46:12Z",
    "latest": "linux-app-v0.1.0",
    "releaseDates": [
     "2026-09-30T23:39:16Z",
@@ -1335,9 +1335,10 @@
   },
   "btsouth/omaframe": {
    "stars": 11,
-   "pushedAt": "2026-10-01T23:15:47Z",
-   "latest": "v0.7.0",
+   "pushedAt": "2026-10-01T23:44:10Z",
+   "latest": "v0.7.1",
    "releaseDates": [
+    "2026-10-01T23:50:49Z",
     "2026-10-01T23:19:56Z",
     "2026-09-30T05:17:33Z",
     "2026-09-30T01:24:08Z",
@@ -1350,6 +1351,14 @@
     "2026-09-28T12:15:00Z"
    ],
    "releases": [
+    {
+     "tag": "v0.7.1",
+     "title": "v0.7.1: Scrollshots for Omarchy",
+     "at": "2026-10-01T23:50:49Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaframe/releases/tag/v0.7.1",
+     "body": "Capture a scrolling window with Print Screen, choose Scroll, then click the window. Pick a frame, or Raw, and paste. Press E at the finish picker to mark it up first.\n\n[Watch the scrollshot demo](https://github.com/btsouth/omaframe/releases/download/v0.7.1/omaframe-0.7.1-scrollshots.mp4).\n\n0.7.1 fixes right-edge cropping that could clip Chromium's window controls. Scrolling captures now preserve the full selected width, including headers and footers. Scrollbars remain visible.\n\n[Download the Arch package](https://github.com/btsouth/omaframe/releases/download/v0.7.1/omaframe-x86_64.pkg.tar.zst) and install with `sudo pacman -U omaframe-x86_64.pkg.tar.zst`. Reopen Omaframe after updating. Settings, captures and drafts are preserved.\n\nValidation: all 11 suites pass in an isolated Omarchy desktop, plus Chromium scrolling, cancellation, annotations, crop, undo and reopen checks. CI passes the Arch build, headless tests, OCR patterns and install layout.\n\nScrolling capture is a beta. Pages with changing content or animation may need manual scrolling."
+    },
     {
      "tag": "v0.7.0",
      "title": "Omaframe 0.7.0: Capture the whole page",
@@ -1686,7 +1695,7 @@
   },
   "btsouth/omalink": {
    "stars": 9,
-   "pushedAt": "2026-10-01T22:35:45Z",
+   "pushedAt": "2026-10-01T23:28:04Z",
    "latest": "v0.4.0",
    "releaseDates": [
     "2026-10-01T22:35:46Z",
@@ -4245,7 +4254,7 @@
   ],
   [
    "2026-10-01",
-   106
+   119
   ]
  ]
 }
