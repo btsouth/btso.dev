@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-01T18:17:37.525Z",
+ "generatedAt": "2026-10-01T22:40:35.597Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 222,
@@ -642,7 +642,7 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 522,
-   "pushedAt": "2026-10-01T12:14:24Z",
+   "pushedAt": "2026-10-01T22:39:23Z",
    "latest": "v0.7.1",
    "releaseDates": [
     "2026-10-01T03:41:30Z",
@@ -1002,7 +1002,7 @@
   },
   "btsouth/omakade": {
    "stars": 424,
-   "pushedAt": "2026-09-30T05:49:13Z",
+   "pushedAt": "2026-10-01T22:29:57Z",
    "latest": "v1.13.0",
    "releaseDates": [
     "2026-09-30T02:40:04Z",
@@ -1677,13 +1677,22 @@
   },
   "btsouth/omalink": {
    "stars": 8,
-   "pushedAt": "2026-09-26T16:41:26Z",
-   "latest": "v0.3.0",
+   "pushedAt": "2026-10-01T22:35:45Z",
+   "latest": "v0.4.0",
    "releaseDates": [
+    "2026-10-01T22:35:46Z",
     "2026-09-26T16:41:27Z",
     "2026-09-16T02:49:08Z"
    ],
    "releases": [
+    {
+     "tag": "v0.4.0",
+     "title": "OmaLink 0.4.0",
+     "at": "2026-10-01T22:35:46Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omalink/releases/tag/v0.4.0",
+     "body": "Messages update on phone events, and unread SMS and notifications share one inbox. Clicking a row opens its conversation; Clear handles dismissal.\n\nReply with multiple lines, read older messages without losing your place, and see clearer send status. Whole-second phone timestamps can now match outgoing messages without leaving a duplicate local bubble.\n\nClear authentication codes get a short-lived Copy code popup. Ordinary popup bodies stay hidden, and copied codes carry the sensitive clipboard hint.\n\nInstall or update:\n\n```sh\nomarchy plugin add https://github.com/btsouth/omalink.git --enable\n```\n\nAndroid remains the supported messaging path. Backend acceptance and matching phone history do not prove recipient delivery.\n\nAutomated and isolated desktop checks pass. Real-phone checks for this update remain unverified."
+    },
     {
      "tag": "v0.3.0",
      "title": "OmaLink 0.3.0",
@@ -1801,7 +1810,7 @@
   },
   "btsouth/ceiling": {
    "stars": 30,
-   "pushedAt": "2026-09-29T07:35:00Z",
+   "pushedAt": "2026-10-01T22:37:37Z",
    "latest": "v1.5.42",
    "releaseDates": [
     "2026-09-27T00:03:09Z",
@@ -2134,7 +2143,7 @@
   },
   "btsouth/cubby-clipboard": {
    "stars": 13,
-   "pushedAt": "2026-09-30T19:38:04Z",
+   "pushedAt": "2026-10-01T22:39:32Z",
    "latest": "v1.3.7",
    "releaseDates": [
     "2026-09-30T20:00:45Z",
@@ -2557,7 +2566,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-01T17:42:31Z",
+   "pushedAt": "2026-10-01T22:19:23Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -2609,7 +2618,7 @@
   },
   "btsouth/ds-router": {
    "stars": 8,
-   "pushedAt": "2026-09-20T04:13:59Z",
+   "pushedAt": "2026-10-01T22:38:54Z",
    "latest": "v0.1.0",
    "releaseDates": [
     "2026-09-19T23:18:03Z"
@@ -2726,7 +2735,7 @@
   },
   "btsouth/hermes-wow": {
    "stars": 0,
-   "pushedAt": "2026-09-26T11:50:33Z",
+   "pushedAt": "2026-10-01T22:34:18Z",
    "latest": "v0.7.0",
    "releaseDates": [
     "2026-09-19T22:11:43Z",
@@ -4219,7 +4228,7 @@
   ],
   [
    "2026-09-29",
-   220
+   222
   ],
   [
    "2026-09-30",
@@ -4227,7 +4236,7 @@
   ],
   [
    "2026-10-01",
-   43
+   77
   ]
  ]
 }
