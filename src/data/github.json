@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-01T00:17:35.465Z",
+ "generatedAt": "2026-10-01T00:20:36.299Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 223,
@@ -1407,9 +1407,10 @@
   },
   "btsouth/omarchy-usage-dashboard": {
    "stars": 16,
-   "pushedAt": "2026-10-01T00:17:01Z",
-   "latest": "v1.8.2",
+   "pushedAt": "2026-10-01T00:19:45Z",
+   "latest": "v1.9.0",
    "releaseDates": [
+    "2026-10-01T00:19:58Z",
     "2026-09-30T01:00:00Z",
     "2026-09-30T00:52:42Z",
     "2026-09-26T16:40:33Z",
@@ -1424,6 +1425,14 @@
     "2026-09-16T01:35:59Z"
    ],
    "releases": [
+    {
+     "tag": "v1.9.0",
+     "title": "v1.9.0: Foldable sections, per-account history, and current model rates",
+     "at": "2026-10-01T00:19:58Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omarchy-usage-dashboard/releases/tag/v1.9.0",
+     "body": "The dashboard overview is now foldable. Click a section header to collapse it to one line that keeps the section's headline figure, and click it again to open it. The triangle at the end of the header shows which way it will go, and the folded sections come back the same way the next time you open the window.\n\n- Fold any section: Totals, Pinned limits, Tokens by hour, Accounts, the selected account's limits and models, Cache and output, Breakdown, and the yearly activity map. A screenshot that needs two sections no longer has to include everything between them.\n- Labelled second logins (Claude Second, Claude Third, ChatGPT Second) show their own hourly history in the bar panel, and a source with no indexed history now says why instead of reading as empty.\n- The Accounts rows no longer carry an unlabelled limit percentage, and the Breakdown column headers line up with the figures under them.\n- Rates for the models released since 1.8.2 are in: Claude Sonnet 5.5 and Opus 5.5, GPT-6 Sol, Luna and 6.1 Sol, the new Gemini and image models, DeepSeek V4.1 Flash Fast on CommandCode, and ClinePass rows that record the model vendor's id. DeepSeek V4.1 Flash's OpenCode Go allowance is corrected to the documented $60.\n- Per-account totals, reset periods and drill-downs are consistent across the account picker and the account section.\n\nUpdate with:\n```sh\ncurl -fsSL https://raw.githubusercontent.com/btsouth/omarchy-usage-dashboard/main/install.sh | bash -s -- --with-plugin\n```\n\nRun `omarchy restart shell` afterward so the bar picks up the new widget code."
+    },
     {
      "tag": "v1.8.2",
      "title": "v1.8.2: Protect quota cache credential fingerprints",
@@ -4196,11 +4205,11 @@
   ],
   [
    "2026-09-30",
-   87
+   89
   ],
   [
    "2026-10-01",
-   0
+   1
   ]
  ]
 }
