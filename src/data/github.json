@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-01T00:20:36.299Z",
+ "generatedAt": "2026-10-01T01:35:39.281Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 223,
@@ -642,9 +642,10 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 519,
-   "pushedAt": "2026-09-30T19:38:08Z",
-   "latest": "v0.6.2",
+   "pushedAt": "2026-10-01T01:33:26Z",
+   "latest": "v0.7.0",
    "releaseDates": [
+    "2026-10-01T01:33:26Z",
     "2026-09-29T20:09:22Z",
     "2026-09-29T18:03:00Z",
     "2026-09-27T07:00:01Z",
@@ -675,6 +676,14 @@
     "2026-08-28T00:49:21Z"
    ],
    "releases": [
+    {
+     "tag": "v0.7.0",
+     "title": "v0.7.0",
+     "at": "2026-10-01T01:33:26Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.7.0",
+     "body": "- Install Omarchy next to Windows and bring your trial setup along. Open\n  Settings > Recovery > Install Omarchy for a short checklist,\n  buttons for Windows settings and Disk Management, and the import command.\n  BitLocker status is checked through Windows without PowerShell or elevation.\n- Import settings, files and app data from the Windows trial into your Linux\n  account. Unchanged defaults stay in place, changed files are backed up before\n  replacement, and a repeat import keeps your later edits. Browser profiles\n  and sign-ins are optional.\n- `try-omarchy-export` includes the same importer with its selected files,\n  for moving to another PC or replacing Windows.\n- First-launch screens and Settings use the updated Try Omarchy branding,\n  clearer sections and native Windows controls.\n- Remember a selected USB device before starting Omarchy, so it can attach\n  on the next launch. Disconnected saved devices stay visible in Settings.\n- Follow Windows time-zone changes while preserving a time zone you chose\n  yourself inside Omarchy."
+    },
     {
      "tag": "v0.6.2",
      "title": "v0.6.2",
@@ -2539,7 +2548,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-01T00:05:10Z",
+   "pushedAt": "2026-10-01T01:11:09Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4205,11 +4214,11 @@
   ],
   [
    "2026-09-30",
-   89
+   112
   ],
   [
    "2026-10-01",
-   1
+   2
   ]
  ]
 }
