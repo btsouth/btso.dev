@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-01T22:40:35.597Z",
+ "generatedAt": "2026-10-01T23:20:37.566Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 222,
@@ -642,7 +642,7 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 522,
-   "pushedAt": "2026-10-01T22:39:23Z",
+   "pushedAt": "2026-10-01T23:17:15Z",
    "latest": "v0.7.1",
    "releaseDates": [
     "2026-10-01T03:41:30Z",
@@ -921,7 +921,7 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 1,
-   "pushedAt": "2026-10-01T07:05:54Z",
+   "pushedAt": "2026-10-01T23:10:16Z",
    "latest": "linux-app-v0.1.0",
    "releaseDates": [
     "2026-09-30T23:39:16Z",
@@ -1335,9 +1335,10 @@
   },
   "btsouth/omaframe": {
    "stars": 11,
-   "pushedAt": "2026-10-01T13:23:48Z",
-   "latest": "v0.6.0",
+   "pushedAt": "2026-10-01T23:15:47Z",
+   "latest": "v0.7.0",
    "releaseDates": [
+    "2026-10-01T23:19:56Z",
     "2026-09-30T05:17:33Z",
     "2026-09-30T01:24:08Z",
     "2026-09-30T00:48:47Z",
@@ -1349,6 +1350,14 @@
     "2026-09-28T12:15:00Z"
    ],
    "releases": [
+    {
+     "tag": "v0.7.0",
+     "title": "Omaframe 0.7.0: Capture the whole page",
+     "at": "2026-10-01T23:19:56Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaframe/releases/tag/v0.7.0",
+     "body": "Capture a whole scrolling page, then give it the same finishes and edits as any screenshot.\n\n- Press **S** in the screenshot selector or run `omaframe --scroll`.\n- Auto-scroll and stitch, or move the pointer to scroll by hand.\n- Read and edit long captures at full width. Annotations, crop and undo preserve the original resolution.\n- Includes fixes for preview shutdown, keyboard cancellation and framed preview memory limits.\n\n[Watch the Omarchy demo](https://github.com/btsouth/omaframe/releases/download/v0.7.0/omaframe-0.7.0-scrolling-capture.mp4) · [Download the Arch package](https://github.com/btsouth/omaframe/releases/download/v0.7.0/omaframe-x86_64.pkg.tar.zst)\n\nAll eleven suites and the real Chromium capture/edit smoke passed. Animated or completely repeating pages can leave ambiguous seams; check the result before sharing. Omaframe remains a beta. Physical camera, microphone and GPU recording combinations were not retested."
+    },
     {
      "tag": "v0.6.0",
      "title": "Omaframe 0.6.0",
@@ -1676,7 +1685,7 @@
    ]
   },
   "btsouth/omalink": {
-   "stars": 8,
+   "stars": 9,
    "pushedAt": "2026-10-01T22:35:45Z",
    "latest": "v0.4.0",
    "releaseDates": [
@@ -1810,7 +1819,7 @@
   },
   "btsouth/ceiling": {
    "stars": 30,
-   "pushedAt": "2026-10-01T22:37:37Z",
+   "pushedAt": "2026-10-01T23:07:13Z",
    "latest": "v1.5.42",
    "releaseDates": [
     "2026-09-27T00:03:09Z",
@@ -2143,7 +2152,7 @@
   },
   "btsouth/cubby-clipboard": {
    "stars": 13,
-   "pushedAt": "2026-10-01T22:39:32Z",
+   "pushedAt": "2026-10-01T22:56:13Z",
    "latest": "v1.3.7",
    "releaseDates": [
     "2026-09-30T20:00:45Z",
@@ -4236,7 +4245,7 @@
   ],
   [
    "2026-10-01",
-   77
+   106
   ]
  ]
 }
