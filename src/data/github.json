@@ -1,11 +1,12 @@
 {
- "generatedAt": "2026-10-02T06:17:33.529Z",
+ "generatedAt": "2026-10-02T06:20:36.535Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 222,
-   "pushedAt": "2026-10-02T06:16:48Z",
-   "latest": "v1.23.3",
+   "pushedAt": "2026-10-02T06:18:20Z",
+   "latest": "v1.23.4",
    "releaseDates": [
+    "2026-10-02T06:19:51Z",
     "2026-09-29T05:34:07Z",
     "2026-09-28T03:45:36Z",
     "2026-09-28T00:46:16Z",
@@ -78,6 +79,14 @@
     "2026-06-19T23:39:17Z"
    ],
    "releases": [
+    {
+     "tag": "v1.23.4",
+     "title": "Toolport v1.23.4",
+     "at": "2026-10-02T06:19:51Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/toolport/releases/tag/v1.23.4",
+     "body": "### Added\n\n- Trello is available in the catalog with browser sign-in.\n- Profiles can override or omit the server instructions sent to AI clients.\n\n### Fixed\n\n- Browser sign-in can be cancelled and retried when authorization is abandoned.\n  Fully quitting Toolport clears the pending attempt so sign-in can start again.\n- Logo badges stay square in tiled Linux windows.\n- Trello and RevenueCat now show their logos in both desktop shells. The native\n  Linux app also shows Redis and Postman logos.\n\n---\n\n**Full changelog:** https://github.com/btsouth/toolport/blob/v1.23.4/CHANGELOG.md"
+    },
     {
      "tag": "v1.23.3",
      "title": "Toolport v1.23.3",
@@ -4330,7 +4339,7 @@
   ],
   [
    "2026-10-02",
-   53
+   57
   ]
  ]
 }
