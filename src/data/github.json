@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-02T01:15:36.184Z",
+ "generatedAt": "2026-10-02T01:35:38.760Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 222,
@@ -921,9 +921,10 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 1,
-   "pushedAt": "2026-10-02T01:12:47Z",
-   "latest": "linux-app-v0.1.0",
+   "pushedAt": "2026-10-02T01:34:33Z",
+   "latest": "linux-app-v0.1.1",
    "releaseDates": [
+    "2026-10-02T01:34:40Z",
     "2026-09-30T23:39:16Z",
     "2026-09-30T01:40:43Z",
     "2026-09-29T19:12:24Z",
@@ -934,6 +935,14 @@
     "2026-09-28T13:10:23Z"
    ],
    "releases": [
+    {
+     "tag": "linux-app-v0.1.1",
+     "title": "Try Omarchy for Linux v0.1.1: Bazzite startup fix",
+     "at": "2026-10-02T01:34:40Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/try-omarchy-linux/releases/tag/linux-app-v0.1.1",
+     "body": "Fixes startup on Bazzite and other Fedora Atomic desktops where `/home` points to `/var/home`.\n\n[Install Try Omarchy for Linux](https://tryomarchy.com/linux/). Existing installations can update through Software or `flatpak update`, keeping their VM and settings.\n\nThis is a focused hotfix. The guest image remains `linux-v0.1.1`."
+    },
     {
      "tag": "linux-app-v0.1.0",
      "title": "Try Omarchy for Linux v0.1.0",
@@ -4290,11 +4299,11 @@
   ],
   [
    "2026-10-01",
-   147
+   150
   ],
   [
    "2026-10-02",
-   4
+   5
   ]
  ]
 }
