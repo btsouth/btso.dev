@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-02T00:45:35.443Z",
+ "generatedAt": "2026-10-02T01:15:36.184Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 222,
@@ -921,7 +921,7 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 1,
-   "pushedAt": "2026-10-02T00:37:29Z",
+   "pushedAt": "2026-10-02T01:12:47Z",
    "latest": "linux-app-v0.1.0",
    "releaseDates": [
     "2026-09-30T23:39:16Z",
@@ -1335,9 +1335,10 @@
   },
   "btsouth/omaframe": {
    "stars": 11,
-   "pushedAt": "2026-10-02T00:26:05Z",
-   "latest": "v0.7.2",
+   "pushedAt": "2026-10-02T01:07:40Z",
+   "latest": "v0.7.3",
    "releaseDates": [
+    "2026-10-02T01:13:33Z",
     "2026-10-02T00:30:39Z",
     "2026-10-01T23:50:49Z",
     "2026-10-01T23:19:56Z",
@@ -1352,6 +1353,14 @@
     "2026-09-28T12:15:00Z"
    ],
    "releases": [
+    {
+     "tag": "v0.7.3",
+     "title": "Omaframe 0.7.3: clean scrollshots",
+     "at": "2026-10-02T01:13:33Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaframe/releases/tag/v0.7.3",
+     "body": "Scrollshots no longer repeat native scrollbar thumbs and arrow buttons\nbeside the captured page. The full window width, header and footer controls\nstay intact.\n\nCleanup uses verified scroll motion and a mostly flat page margin. Unconfirmed\ncontrols and textured edges are preserved.\n\nInstall or update with the attached `omaframe-x86_64.pkg.tar.zst` package,\nthen reopen Omaframe. Existing settings, captures and drafts are preserved.\n\nTested with all eleven suites in an isolated Omarchy desktop, Chromium\ncapture and editor checks, and light/dark Omarchy Manual captures."
+    },
     {
      "tag": "v0.7.2",
      "title": "v0.7.2: Cleaner scrollshots",
@@ -4281,11 +4290,11 @@
   ],
   [
    "2026-10-01",
-   139
+   147
   ],
   [
    "2026-10-02",
-   3
+   4
   ]
  ]
 }
