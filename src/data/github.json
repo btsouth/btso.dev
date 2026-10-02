@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-02T00:35:37.985Z",
+ "generatedAt": "2026-10-02T00:45:35.443Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 222,
@@ -921,7 +921,7 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 1,
-   "pushedAt": "2026-10-02T00:27:52Z",
+   "pushedAt": "2026-10-02T00:37:29Z",
    "latest": "linux-app-v0.1.0",
    "releaseDates": [
     "2026-09-30T23:39:16Z",
@@ -1209,7 +1209,7 @@
   },
   "btsouth/omaroll": {
    "stars": 39,
-   "pushedAt": "2026-10-02T00:16:03Z",
+   "pushedAt": "2026-10-02T00:41:56Z",
    "latest": "v1.8.0",
    "releaseDates": [
     "2026-09-15T22:48:16Z",
@@ -1704,15 +1704,24 @@
   },
   "btsouth/omalink": {
    "stars": 9,
-   "pushedAt": "2026-10-02T00:26:08Z",
-   "latest": "v0.5.0",
+   "pushedAt": "2026-10-02T00:45:04Z",
+   "latest": "v0.5.1",
    "releaseDates": [
+    "2026-10-02T00:45:06Z",
     "2026-10-02T00:11:22Z",
     "2026-10-01T22:35:46Z",
     "2026-09-26T16:41:27Z",
     "2026-09-16T02:49:08Z"
    ],
    "releases": [
+    {
+     "tag": "v0.5.1",
+     "title": "OmaLink 0.5.1: A tidier inbox and safer drafts",
+     "at": "2026-10-02T00:45:06Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omalink/releases/tag/v0.5.1",
+     "body": "The phone dropdown is easier to read, and opening a message clears its entry once the conversation loads. Unsent drafts stay with you as you move around, with a warning before you close Messages.\n\nThis also fixes opening another thread when Messages is already open. Failed loads leave the inbox entry available.\n\nDesktop checks passed in an isolated Omarchy session. Real-phone confirmation of these additions is still pending. Native close can retile the window when showing the draft warning.\n\n[Get OmaLink](https://github.com/btsouth/omalink#install)."
+    },
     {
      "tag": "v0.5.0",
      "title": "OmaLink 0.5.0: A better Messages window",
@@ -4272,11 +4281,11 @@
   ],
   [
    "2026-10-01",
-   133
+   139
   ],
   [
    "2026-10-02",
-   2
+   3
   ]
  ]
 }
