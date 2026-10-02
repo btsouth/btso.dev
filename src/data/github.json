@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-02T01:35:38.760Z",
+ "generatedAt": "2026-10-02T03:25:42.104Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 222,
@@ -642,9 +642,10 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 522,
-   "pushedAt": "2026-10-01T23:43:39Z",
-   "latest": "v0.7.1",
+   "pushedAt": "2026-10-02T03:22:57Z",
+   "latest": "v0.8.0",
    "releaseDates": [
+    "2026-10-02T03:22:58Z",
     "2026-10-01T03:41:30Z",
     "2026-10-01T01:33:26Z",
     "2026-09-29T20:09:22Z",
@@ -677,6 +678,14 @@
     "2026-08-28T00:49:21Z"
    ],
    "releases": [
+    {
+     "tag": "v0.8.0",
+     "title": "v0.8.0",
+     "at": "2026-10-02T03:22:58Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.8.0",
+     "body": "This update makes starting Omarchy smoother and adds Korean.\n\nOmarchy's window now opens once the desktop is ready, right where you left it, and Omarchy pauses while Windows sleeps so it picks up where it left off. The launcher is available in Korean, thanks to @seunghan91. Inside, Omarchy moves to 4.0.4; run Update > Omarchy to get it. There are also a few smaller fixes in Settings, the clipboard and the importer.\n\n[Download Try Omarchy for Windows](https://tryomarchy.com/download)"
+    },
     {
      "tag": "v0.7.1",
      "title": "v0.7.1",
@@ -1218,7 +1227,7 @@
   },
   "btsouth/omaroll": {
    "stars": 39,
-   "pushedAt": "2026-10-02T00:41:56Z",
+   "pushedAt": "2026-10-02T03:25:19Z",
    "latest": "v1.8.0",
    "releaseDates": [
     "2026-09-15T22:48:16Z",
@@ -1344,7 +1353,7 @@
   },
   "btsouth/omaframe": {
    "stars": 11,
-   "pushedAt": "2026-10-02T01:07:40Z",
+   "pushedAt": "2026-10-02T03:25:28Z",
    "latest": "v0.7.3",
    "releaseDates": [
     "2026-10-02T01:13:33Z",
@@ -4299,11 +4308,11 @@
   ],
   [
    "2026-10-01",
-   150
+   152
   ],
   [
    "2026-10-02",
-   5
+   6
   ]
  ]
 }
