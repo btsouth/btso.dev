@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-02T03:25:42.104Z",
+ "generatedAt": "2026-10-02T03:30:37.371Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 222,
@@ -1354,8 +1354,9 @@
   "btsouth/omaframe": {
    "stars": 11,
    "pushedAt": "2026-10-02T03:25:28Z",
-   "latest": "v0.7.3",
+   "latest": "v0.7.4",
    "releaseDates": [
+    "2026-10-02T03:26:11Z",
     "2026-10-02T01:13:33Z",
     "2026-10-02T00:30:39Z",
     "2026-10-01T23:50:49Z",
@@ -1371,6 +1372,14 @@
     "2026-09-28T12:15:00Z"
    ],
    "releases": [
+    {
+     "tag": "v0.7.4",
+     "title": "Omaframe 0.7.4: window scrollshots",
+     "at": "2026-10-02T03:26:11Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaframe/releases/tag/v0.7.4",
+     "body": "Scrolling capture now works on windows only. Press S in the selector, then\nclick the window you want. Dragging an area or pressing F no longer starts a\nscrolling capture, since small areas gave the stitcher too little overlap and\noften fell back to scrolling by hand.\n\nTo keep only part of a page, crop the result in the editor.\n\nInstall or update with the attached `omaframe-x86_64.pkg.tar.zst` package,\nthen reopen Omaframe. Existing settings, captures and drafts are preserved.\n\nTested with all eleven suites in an isolated Omarchy desktop, the Chromium\nscrolling smoke, and hands-on selector checks for clicks and drags."
+    },
     {
      "tag": "v0.7.3",
      "title": "Omaframe 0.7.3: clean scrollshots",
@@ -4312,7 +4321,7 @@
   ],
   [
    "2026-10-02",
-   6
+   7
   ]
  ]
 }
