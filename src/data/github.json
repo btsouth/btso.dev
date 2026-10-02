@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-02T23:05:43.309Z",
+ "generatedAt": "2026-10-02T23:45:35.929Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
-   "pushedAt": "2026-10-02T22:32:15Z",
+   "pushedAt": "2026-10-02T23:37:44Z",
    "latest": "v1.23.4",
    "releaseDates": [
     "2026-10-02T06:19:51Z",
@@ -651,7 +651,7 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 527,
-   "pushedAt": "2026-10-02T05:06:35Z",
+   "pushedAt": "2026-10-02T23:18:35Z",
    "latest": "v0.8.0",
    "releaseDates": [
     "2026-10-02T03:22:58Z",
@@ -939,7 +939,7 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 1,
-   "pushedAt": "2026-10-02T08:08:38Z",
+   "pushedAt": "2026-10-02T23:18:27Z",
    "latest": "linux-app-v0.1.1",
    "releaseDates": [
     "2026-10-02T01:34:40Z",
@@ -1029,7 +1029,7 @@
   },
   "btsouth/omakade": {
    "stars": 424,
-   "pushedAt": "2026-10-02T03:45:45Z",
+   "pushedAt": "2026-10-02T23:36:06Z",
    "latest": "v1.13.0",
    "releaseDates": [
     "2026-09-30T02:40:04Z",
@@ -1236,9 +1236,10 @@
   },
   "btsouth/omaroll": {
    "stars": 44,
-   "pushedAt": "2026-10-02T22:39:17Z",
-   "latest": "v1.10.0",
+   "pushedAt": "2026-10-02T23:40:55Z",
+   "latest": "v1.11.0",
    "releaseDates": [
+    "2026-10-02T23:42:56Z",
     "2026-10-02T22:46:10Z",
     "2026-10-02T12:40:15Z",
     "2026-10-02T05:56:13Z",
@@ -1257,6 +1258,14 @@
     "2026-09-02T01:06:06Z"
    ],
    "releases": [
+    {
+     "tag": "v1.11.0",
+     "title": "Omaroll 1.11.0",
+     "at": "2026-10-02T23:42:56Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaroll/releases/tag/v1.11.0",
+     "body": "### Added\n\n- Portrait crop presets: 3:4, 2:3 and 9:16 sit beside their landscape\n  partners in Crop, rotate, resize. A held landscape ratio could not be turned\n  upright, so a portrait, a poster or a phone-screen crop had to be drawn by\n  hand.\n\n### Changed\n\n- The Crop, rotate, resize controls are grouped into labelled Crop, Rotate and\n  Resize rows instead of one strip that wrapped wherever it ran out of room.\n  On a wide sheet the output size ends the Crop row and Reset, Cancel, Copy\n  region and Save a copy end the Resize row; a narrow one gives them a line of\n  their own. The smallest window drops the row labels and packs the groups onto\n  shared lines with a rule between them, so the preview keeps its height. Full\n  frame is gone: it did exactly what Free does.\n\n### Fixed\n\n- The Sub − and Sub + timing buttons for a sidecar subtitle sat on the video\n  clock. The clock now stands to their left, and they leave with the CC button\n  on a narrow window, or before they would squeeze the scrub bar below its\n  minimum. Their offset label sits to their left, so a click no longer moves\n  or hides them."
+    },
     {
      "tag": "v1.10.0",
      "title": "Omaroll 1.10.0",
@@ -1524,7 +1533,7 @@
   },
   "btsouth/omarchy-usage-dashboard": {
    "stars": 16,
-   "pushedAt": "2026-10-01T00:19:45Z",
+   "pushedAt": "2026-10-02T23:17:18Z",
    "latest": "v1.9.0",
    "releaseDates": [
     "2026-10-01T00:19:58Z",
@@ -1830,14 +1839,14 @@
   },
   "btsouth/omarchy-omcp": {
    "stars": 8,
-   "pushedAt": "2026-10-02T22:20:57Z",
+   "pushedAt": "2026-10-02T23:17:44Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
   },
   "btsouth/omarchy-resurrect": {
    "stars": 6,
-   "pushedAt": "2026-09-20T07:33:23Z",
+   "pushedAt": "2026-10-02T23:17:51Z",
    "latest": "v1.2.0",
    "releaseDates": [
     "2026-09-20T07:33:23Z"
@@ -1855,7 +1864,7 @@
   },
   "btsouth/notestrip": {
    "stars": 1,
-   "pushedAt": "2026-09-04T03:23:22Z",
+   "pushedAt": "2026-10-02T23:17:38Z",
    "latest": "v0.3.0",
    "releaseDates": [
     "2026-09-03T23:32:18Z",
@@ -1927,7 +1936,7 @@
   },
   "btsouth/ceiling": {
    "stars": 30,
-   "pushedAt": "2026-10-01T23:07:13Z",
+   "pushedAt": "2026-10-02T23:42:14Z",
    "latest": "v1.5.42",
    "releaseDates": [
     "2026-09-27T00:03:09Z",
@@ -2260,7 +2269,7 @@
   },
   "btsouth/cubby-clipboard": {
    "stars": 13,
-   "pushedAt": "2026-10-01T22:56:13Z",
+   "pushedAt": "2026-10-02T23:42:48Z",
    "latest": "v1.3.7",
    "releaseDates": [
     "2026-09-30T20:00:45Z",
@@ -2404,7 +2413,7 @@
   },
   "btsouth/matteshot": {
    "stars": 2,
-   "pushedAt": "2026-10-02T22:32:14Z",
+   "pushedAt": "2026-10-02T23:17:27Z",
    "latest": "v0.21.1",
    "releaseDates": [
     "2026-09-27T01:46:35Z",
@@ -2683,7 +2692,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-02T05:53:34Z",
+   "pushedAt": "2026-10-02T23:19:10Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4357,7 +4366,7 @@
   ],
   [
    "2026-10-02",
-   83
+   122
   ]
  ]
 }
