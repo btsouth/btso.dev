@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-02T03:30:37.371Z",
+ "generatedAt": "2026-10-02T06:00:36.588Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 222,
-   "pushedAt": "2026-09-29T07:04:15Z",
+   "pushedAt": "2026-10-02T05:58:40Z",
    "latest": "v1.23.3",
    "releaseDates": [
     "2026-09-29T05:34:07Z",
@@ -642,7 +642,7 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 522,
-   "pushedAt": "2026-10-02T03:22:57Z",
+   "pushedAt": "2026-10-02T05:06:35Z",
    "latest": "v0.8.0",
    "releaseDates": [
     "2026-10-02T03:22:58Z",
@@ -930,7 +930,7 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 1,
-   "pushedAt": "2026-10-02T01:34:33Z",
+   "pushedAt": "2026-10-02T05:11:52Z",
    "latest": "linux-app-v0.1.1",
    "releaseDates": [
     "2026-10-02T01:34:40Z",
@@ -1020,7 +1020,7 @@
   },
   "btsouth/omakade": {
    "stars": 424,
-   "pushedAt": "2026-10-01T22:29:57Z",
+   "pushedAt": "2026-10-02T03:45:45Z",
    "latest": "v1.13.0",
    "releaseDates": [
     "2026-09-30T02:40:04Z",
@@ -1227,9 +1227,10 @@
   },
   "btsouth/omaroll": {
    "stars": 39,
-   "pushedAt": "2026-10-02T03:25:19Z",
-   "latest": "v1.8.0",
+   "pushedAt": "2026-10-02T05:41:21Z",
+   "latest": "v1.9.0",
    "releaseDates": [
+    "2026-10-02T05:56:13Z",
     "2026-09-15T22:48:16Z",
     "2026-09-14T23:03:22Z",
     "2026-09-05T22:01:50Z",
@@ -1245,6 +1246,14 @@
     "2026-09-02T01:06:06Z"
    ],
    "releases": [
+    {
+     "tag": "v1.9.0",
+     "title": "Omaroll 1.9.0",
+     "at": "2026-10-02T05:56:13Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaroll/releases/tag/v1.9.0",
+     "body": "### Added\n\n- A quick viewer. A picture or video opened from the file manager fills a\n  window of its own, with the name, the other files and a menu that fade in\n  when the pointer moves. The arrow keys step through the folder in name\n  order, the next picture is decoded ahead, the wheel and a pinch zoom\n  smoothly around the pointer, and a zoomed picture moves with a drag. Pictures get one bar of the usual controls (zoom, actual\n  size, previous, slideshow, next, rotate and delete) and videos a thin bar of\n  their own. The window opens at most of the screen's size, the same for\n  every file, and each picture is fitted inside it, a small one scaled up. Nothing is scanned to open a file; Enter hands it\n  to the library. Folders, PDFs and a plain launch\n  still open the library, and so does `--library` with any file.\n- The viewer's window can float centred like imv and mpv; the rule ships in\n  `/usr/share/omaroll/hypr/omaroll.lua`.\n- Select text in a PDF. Drag across a page to pick the words under the pointer,\n  see each selected line highlighted, then copy those words with Copy\n  selection or Ctrl+C. The words come from the same Poppler tool the document\n  search uses, so nothing new is installed and the file is never changed.\n- The demo library now carries a two-page document, so the page list, the find\n  row and the page controls are rendered and reviewed like every other view.\n\n### Changed\n\n- Opening a picture or video from outside no longer starts the library. The\n  library's services are built the first time it is asked for, in the same\n  process, so marks set in either "
+    },
     {
      "tag": "v1.8.0",
      "title": "Omaroll 1.8.0",
@@ -2647,7 +2656,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-01T22:19:23Z",
+   "pushedAt": "2026-10-02T05:53:34Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4317,11 +4326,11 @@
   ],
   [
    "2026-10-01",
-   152
+   163
   ],
   [
    "2026-10-02",
-   7
+   49
   ]
  ]
 }
