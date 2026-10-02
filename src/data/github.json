@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-02T12:17:35.683Z",
+ "generatedAt": "2026-10-02T12:40:37.750Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 222,
@@ -650,7 +650,7 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 526,
+   "stars": 525,
    "pushedAt": "2026-10-02T05:06:35Z",
    "latest": "v0.8.0",
    "releaseDates": [
@@ -1236,9 +1236,10 @@
   },
   "btsouth/omaroll": {
    "stars": 39,
-   "pushedAt": "2026-10-02T07:47:10Z",
-   "latest": "v1.9.0",
+   "pushedAt": "2026-10-02T12:23:56Z",
+   "latest": "v1.9.1",
    "releaseDates": [
+    "2026-10-02T12:40:15Z",
     "2026-10-02T05:56:13Z",
     "2026-09-15T22:48:16Z",
     "2026-09-14T23:03:22Z",
@@ -1255,6 +1256,14 @@
     "2026-09-02T01:06:06Z"
    ],
    "releases": [
+    {
+     "tag": "v1.9.1",
+     "title": "Omaroll 1.9.1",
+     "at": "2026-10-02T12:40:15Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaroll/releases/tag/v1.9.1",
+     "body": "### Changed\n\n- Gallery previews give the picture more room, with a compact filename header\n  and an inspector available on demand. Ratings, captions and primary actions\n  stay easy to reach; technical details expand when needed, and secondary\n  actions live in an overflow menu.\n- Video controls keep a useful seek target with the inspector open in a narrow\n  window. The slideshow button appears for pictures and active slideshows,\n  leaving ordinary video playback with its own controls.\n- The README demo and preview screenshot show the polished gallery.\n\n### Fixed\n\n- Resume and Restart choices sit below the video and wrap when space is tight.\n  A saved position holds playback until a choice is made; starting playback,\n  seeking or a slideshow dismisses the offer.\n- Caption edits are saved before navigation, and nested actions return keyboard\n  focus to the preview."
+    },
     {
      "tag": "v1.9.0",
      "title": "Omaroll 1.9.0",
@@ -4339,7 +4348,7 @@
   ],
   [
    "2026-10-02",
-   67
+   71
   ]
  ]
 }
