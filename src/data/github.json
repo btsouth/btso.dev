@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-02T18:17:35.825Z",
+ "generatedAt": "2026-10-02T23:05:43.309Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
-   "pushedAt": "2026-10-02T06:36:38Z",
+   "pushedAt": "2026-10-02T22:32:15Z",
    "latest": "v1.23.4",
    "releaseDates": [
     "2026-10-02T06:19:51Z",
@@ -650,7 +650,7 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 526,
+   "stars": 527,
    "pushedAt": "2026-10-02T05:06:35Z",
    "latest": "v0.8.0",
    "releaseDates": [
@@ -1235,10 +1235,11 @@
    ]
   },
   "btsouth/omaroll": {
-   "stars": 43,
-   "pushedAt": "2026-10-02T15:28:04Z",
-   "latest": "v1.9.1",
+   "stars": 44,
+   "pushedAt": "2026-10-02T22:39:17Z",
+   "latest": "v1.10.0",
    "releaseDates": [
+    "2026-10-02T22:46:10Z",
     "2026-10-02T12:40:15Z",
     "2026-10-02T05:56:13Z",
     "2026-09-15T22:48:16Z",
@@ -1256,6 +1257,14 @@
     "2026-09-02T01:06:06Z"
    ],
    "releases": [
+    {
+     "tag": "v1.10.0",
+     "title": "Omaroll 1.10.0",
+     "at": "2026-10-02T22:46:10Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaroll/releases/tag/v1.10.0",
+     "body": "### Added\n\n- Each picture or video opened from outside gets its own viewer, so several\n  can be open at once. Opening a file that is already up brings its viewer\n  forward. On Hyprland, a second viewer on a workspace tiles with the ones\n  there instead of floating on top of them.\n- With several videos open, only the viewer used last is heard. The others\n  keep playing muted, and the saved mute setting is unchanged.\n\n### Fixed\n\n- Images and videos without filename extensions open using bounded content\n  detection. Folder navigation, library previews, animations and thumbnails\n  use the same detected format; unrelated files remain excluded."
+    },
     {
      "tag": "v1.9.1",
      "title": "Omaroll 1.9.1",
@@ -1641,7 +1650,7 @@
   },
   "btsouth/omadrop": {
    "stars": 4,
-   "pushedAt": "2026-09-04T05:08:22Z",
+   "pushedAt": "2026-10-02T23:02:19Z",
    "latest": "v0.3.0",
    "releaseDates": [
     "2026-09-04T04:16:55Z",
@@ -1820,8 +1829,8 @@
    ]
   },
   "btsouth/omarchy-omcp": {
-   "stars": 9,
-   "pushedAt": "2026-09-20T04:55:56Z",
+   "stars": 8,
+   "pushedAt": "2026-10-02T22:20:57Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -2395,7 +2404,7 @@
   },
   "btsouth/matteshot": {
    "stars": 2,
-   "pushedAt": "2026-10-02T09:59:18Z",
+   "pushedAt": "2026-10-02T22:32:14Z",
    "latest": "v0.21.1",
    "releaseDates": [
     "2026-09-27T01:46:35Z",
@@ -4348,7 +4357,7 @@
   ],
   [
    "2026-10-02",
-   74
+   83
   ]
  ]
 }
