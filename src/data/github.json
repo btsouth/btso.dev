@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-02T00:17:33.018Z",
+ "generatedAt": "2026-10-02T00:35:37.985Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 222,
@@ -921,7 +921,7 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 1,
-   "pushedAt": "2026-10-01T23:57:37Z",
+   "pushedAt": "2026-10-02T00:27:52Z",
    "latest": "linux-app-v0.1.0",
    "releaseDates": [
     "2026-09-30T23:39:16Z",
@@ -1335,9 +1335,10 @@
   },
   "btsouth/omaframe": {
    "stars": 11,
-   "pushedAt": "2026-10-01T23:44:10Z",
-   "latest": "v0.7.1",
+   "pushedAt": "2026-10-02T00:26:05Z",
+   "latest": "v0.7.2",
    "releaseDates": [
+    "2026-10-02T00:30:39Z",
     "2026-10-01T23:50:49Z",
     "2026-10-01T23:19:56Z",
     "2026-09-30T05:17:33Z",
@@ -1351,6 +1352,14 @@
     "2026-09-28T12:15:00Z"
    ],
    "releases": [
+    {
+     "tag": "v0.7.2",
+     "title": "v0.7.2: Cleaner scrollshots",
+     "at": "2026-10-02T00:30:39Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaframe/releases/tag/v0.7.2",
+     "body": "Capture scrolling windows with Print Screen. Choose a frame (or Raw), then paste. Press E in the finish picker if you want to mark it up first.\n\nThis patch fixes frames adding a wide grey strip beside Chromium’s scrollbar. The original scrollbar width and window controls are preserved.\n\n[Watch the 30-second demo](https://github.com/btsouth/omaframe/releases/download/v0.7.2/omaframe-0.7.2-scrollshots.mp4) · [Install or update](https://github.com/btsouth/omaframe/releases/download/v0.7.2/omaframe-x86_64.pkg.tar.zst)\n\nAll eleven isolated test suites pass, along with the real Chromium capture and editing smoke test. Existing settings, captures and drafts are preserved."
+    },
     {
      "tag": "v0.7.1",
      "title": "v0.7.1: Scrollshots for Omarchy",
@@ -1695,7 +1704,7 @@
   },
   "btsouth/omalink": {
    "stars": 9,
-   "pushedAt": "2026-10-02T00:11:22Z",
+   "pushedAt": "2026-10-02T00:26:08Z",
    "latest": "v0.5.0",
    "releaseDates": [
     "2026-10-02T00:11:22Z",
@@ -4263,11 +4272,11 @@
   ],
   [
    "2026-10-01",
-   129
+   133
   ],
   [
    "2026-10-02",
-   1
+   2
   ]
  ]
 }
