@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-03T00:17:34.011Z",
+ "generatedAt": "2026-10-03T00:35:39.166Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
-   "pushedAt": "2026-10-02T23:37:44Z",
+   "pushedAt": "2026-10-03T00:32:30Z",
    "latest": "v1.23.4",
    "releaseDates": [
     "2026-10-02T06:19:51Z",
@@ -651,7 +651,7 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 527,
-   "pushedAt": "2026-10-02T23:18:35Z",
+   "pushedAt": "2026-10-03T00:33:39Z",
    "latest": "v0.8.0",
    "releaseDates": [
     "2026-10-02T03:22:58Z",
@@ -1659,15 +1659,24 @@
   },
   "btsouth/omadrop": {
    "stars": 4,
-   "pushedAt": "2026-10-02T23:02:19Z",
-   "latest": "v0.3.0",
+   "pushedAt": "2026-10-03T00:29:04Z",
+   "latest": "v0.5.0",
    "releaseDates": [
+    "2026-10-03T00:33:55Z",
     "2026-09-04T04:16:55Z",
     "2026-08-25T02:45:49Z",
     "2026-08-23T23:11:50Z",
     "2026-08-23T22:57:23Z"
    ],
    "releases": [
+    {
+     "tag": "v0.5.0",
+     "title": "Omadrop v0.5.0",
+     "at": "2026-10-03T00:33:55Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omadrop/releases/tag/v0.5.0",
+     "body": "MilkDrop for Omarchy, wired to your music.\n\nOmadrop 0.5.0 brings 21 hand-picked MilkDrop presets into a compact, theme-aware app. Each preset follows your music through Omadrop's audio engine. Pick a thumbnail or press Play, go fullscreen, and press Esc to return.\n\n- Shuffled MilkDrop rotation with blended transitions and an optional ASCII dot filter.\n- Controls that follow your Omarchy theme, with scene previews, hidden scenes and display selection.\n- Early Omarchy mode with 37 music-driven terminal effects.\n- One Arch package with the controls and both playback modes.\n\n### Install on Omarchy\n\nDownload `omadrop-0.5.0-1-x86_64.pkg.tar.zst` below, then:\n\n```sh\nsudo pacman -U omadrop-0.5.0-1-x86_64.pkg.tar.zst\n```\n\nOpen Omadrop from the launcher or run `omadrop`. Close the app before updating. The package installs its dependencies and leaves your Hyprland shortcuts alone. `SHA256SUMS` contains the download checksums.\n\nThe 60-second launch video is attached. Music: “We Can Fix Everything” by Kevin Koontz, [@koozeex1](https://x.com/koozeex1). Original preset artists are credited in the video and in the source's third-party notices."
+    },
     {
      "tag": "v0.3.0",
      "title": "Omadrop v0.3.0",
@@ -1936,7 +1945,7 @@
   },
   "btsouth/ceiling": {
    "stars": 30,
-   "pushedAt": "2026-10-02T23:56:02Z",
+   "pushedAt": "2026-10-03T00:32:18Z",
    "latest": "v1.5.42",
    "releaseDates": [
     "2026-09-27T00:03:09Z",
@@ -4254,11 +4263,11 @@
   ],
   [
    "2026-09-04",
-   175
+   281
   ],
   [
    "2026-09-05",
-   192
+   195
   ],
   [
    "2026-09-06",
@@ -4366,11 +4375,11 @@
   ],
   [
    "2026-10-02",
-   128
+   149
   ],
   [
    "2026-10-03",
-   0
+   1
   ]
  ]
 }
