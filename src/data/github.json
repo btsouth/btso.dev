@@ -1,11 +1,12 @@
 {
- "generatedAt": "2026-10-03T01:00:36.066Z",
+ "generatedAt": "2026-10-03T01:45:35.819Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
-   "pushedAt": "2026-10-03T00:59:17Z",
-   "latest": "v1.23.4",
+   "pushedAt": "2026-10-03T01:19:21Z",
+   "latest": "v1.23.5",
    "releaseDates": [
+    "2026-10-03T01:45:09Z",
     "2026-10-02T06:19:51Z",
     "2026-09-29T05:34:07Z",
     "2026-09-28T03:45:36Z",
@@ -79,6 +80,14 @@
     "2026-06-19T23:39:17Z"
    ],
    "releases": [
+    {
+     "tag": "v1.23.5",
+     "title": "Toolport v1.23.5",
+     "at": "2026-10-03T01:45:09Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/toolport/releases/tag/v1.23.5",
+     "body": "### Fixed\n\n- Fixed an issue that could repeat a downstream mutation during stdio reconnect recovery after its reply was lost. Toolport now returns the original error and uses the fresh connection for subsequent requests. ([#986](https://github.com/btsouth/toolport/pull/986))\n\nThanks to Jordan Kail (@jckail) for the fix and regression tests."
+    },
     {
      "tag": "v1.23.4",
      "title": "Toolport v1.23.4",
@@ -4384,11 +4393,11 @@
   ],
   [
    "2026-10-02",
-   152
+   154
   ],
   [
    "2026-10-03",
-   2
+   3
   ]
  ]
 }
