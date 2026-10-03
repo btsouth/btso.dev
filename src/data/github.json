@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-03T16:11:09.262Z",
+ "generatedAt": "2026-10-03T18:18:08.527Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -660,7 +660,7 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 528,
-   "pushedAt": "2026-10-03T16:01:17Z",
+   "pushedAt": "2026-10-03T17:52:41Z",
    "latest": "v0.8.0",
    "releaseDates": [
     "2026-10-02T03:22:58Z",
@@ -1037,8 +1037,8 @@
    ]
   },
   "btsouth/omakade": {
-   "stars": 425,
-   "pushedAt": "2026-10-03T16:01:37Z",
+   "stars": 426,
+   "pushedAt": "2026-10-03T17:59:48Z",
    "latest": "v1.14.1",
    "releaseDates": [
     "2026-10-03T14:26:36Z",
@@ -1263,9 +1263,10 @@
   },
   "btsouth/omaroll": {
    "stars": 49,
-   "pushedAt": "2026-10-03T15:14:29Z",
-   "latest": "v1.12.0",
+   "pushedAt": "2026-10-03T18:05:10Z",
+   "latest": "v1.13.0",
    "releaseDates": [
+    "2026-10-03T18:16:20Z",
     "2026-10-03T07:16:58Z",
     "2026-10-02T23:42:56Z",
     "2026-10-02T22:46:10Z",
@@ -1286,6 +1287,14 @@
     "2026-09-02T01:06:06Z"
    ],
    "releases": [
+    {
+     "tag": "v1.13.0",
+     "title": "Omaroll 1.13.0",
+     "at": "2026-10-03T18:16:20Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaroll/releases/tag/v1.13.0",
+     "body": "### Added\n\n- Camera raws open in the viewer and the library: Sony ARW, Canon CR2 and CR3,\n  DNG, Nikon NEF, Fujifilm RAF, Olympus ORF, Panasonic RW2, Pentax PEF, Samsung\n  SRW and the other formats LibRaw reads, through the kimageformats raw plugin\n  when `libraw` is installed. Thumbnails and previews use the camera's embedded\n  JPEG, turned upright, or a half-size decode when there is none, so stepping\n  through a folder of raws is as quick as JPEGs. The viewer demosaics the raw\n  itself only when that preview would be\n  shown larger than it is. Dates, camera, lens and exposure come from the\n  raw's own headers.\n- Actions whose tool cannot open a raw (annotate, text and QR recognition,\n  Pinta, imv, background, print and corrections) are not offered for one.\n  Convert · resize still makes a JPEG or PNG beside it. Raws are never written.\n- The Arch package depends on `libraw`, so raws open without extra setup.\n- Camera RAW tiles show their format, and Develop opens an installed darktable,\n  RawTherapee or ART. The viewer shortcut is `D`.\n- The viewer can show a filmstrip of the folder above its controls. B or the\n  menu turns it on, a click on a thumbnail opens that file, and the choice is\n  kept.\n\n- Matching RAW/JPEG files are grouped, with companion switching and format\n  badges. Both originals and explicitly opened files remain accessible.\n- Save a preferred RAW editor, choose one each time, or use a custom command.\n- Pin folders for quick access.\n- Open existing images in Omaframe for annotation and frames.\n- Right-click files and selections for grouped actions, includi"
+    },
     {
      "tag": "v1.12.0",
      "title": "Omaroll 1.12.0",
@@ -4451,7 +4460,7 @@
   ],
   [
    "2026-10-03",
-   160
+   201
   ]
  ]
 }
