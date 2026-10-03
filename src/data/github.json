@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-03T18:18:08.527Z",
+ "generatedAt": "2026-10-03T20:31:10.485Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -659,7 +659,7 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 528,
+   "stars": 529,
    "pushedAt": "2026-10-03T17:52:41Z",
    "latest": "v0.8.0",
    "releaseDates": [
@@ -1038,7 +1038,7 @@
   },
   "btsouth/omakade": {
    "stars": 426,
-   "pushedAt": "2026-10-03T17:59:48Z",
+   "pushedAt": "2026-10-03T19:42:27Z",
    "latest": "v1.14.1",
    "releaseDates": [
     "2026-10-03T14:26:36Z",
@@ -1262,8 +1262,8 @@
    ]
   },
   "btsouth/omaroll": {
-   "stars": 49,
-   "pushedAt": "2026-10-03T18:05:10Z",
+   "stars": 50,
+   "pushedAt": "2026-10-03T19:50:45Z",
    "latest": "v1.13.0",
    "releaseDates": [
     "2026-10-03T18:16:20Z",
@@ -1596,9 +1596,10 @@
   },
   "btsouth/omarchy-usage-dashboard": {
    "stars": 16,
-   "pushedAt": "2026-10-03T05:56:35Z",
-   "latest": "v1.10.0",
+   "pushedAt": "2026-10-03T20:26:20Z",
+   "latest": "v1.10.1",
    "releaseDates": [
+    "2026-10-03T20:26:20Z",
     "2026-10-03T05:56:36Z",
     "2026-10-01T00:19:58Z",
     "2026-09-30T01:00:00Z",
@@ -1615,6 +1616,14 @@
     "2026-09-16T01:35:59Z"
    ],
    "releases": [
+    {
+     "tag": "v1.10.1",
+     "title": "Agent Pulse v1.10.1",
+     "at": "2026-10-03T20:26:20Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omarchy-usage-dashboard/releases/tag/v1.10.1",
+     "body": "Codex Fast requests now use Fast API rates, including cached input and long-context pricing. Speed uncertainty appears beside the value estimate. Historical requests without recorded speed use a labelled Standard estimate.\n\nThis release also fixes stale tier labels after rescans and keeps synced ledgers up to date after pricing corrections. Token totals, history, preferences, and the bar layout are preserved.\n\nThe demo screenshot and pricing guidance have been refreshed.\n\nUpdate with:\n\n```sh\ncurl -fsSL https://raw.githubusercontent.com/btsouth/omarchy-usage-dashboard/main/install.sh | OMARCHY_USAGE_REF=v1.10.1 bash -s -- --with-plugin\n```\n\nOmit `--with-plugin` if you use only the dashboard."
+    },
     {
      "tag": "v1.10.0",
      "title": "v1.10.0: Update notices",
@@ -2782,7 +2791,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-03T07:43:22Z",
+   "pushedAt": "2026-10-03T20:29:36Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4460,7 +4469,7 @@
   ],
   [
    "2026-10-03",
-   201
+   219
   ]
  ]
 }
