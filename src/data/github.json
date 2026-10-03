@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-03T12:18:03.052Z",
+ "generatedAt": "2026-10-03T14:31:10.335Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -660,7 +660,7 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 528,
-   "pushedAt": "2026-10-03T12:17:07Z",
+   "pushedAt": "2026-10-03T14:03:02Z",
    "latest": "v0.8.0",
    "releaseDates": [
     "2026-10-02T03:22:58Z",
@@ -1038,9 +1038,10 @@
   },
   "btsouth/omakade": {
    "stars": 424,
-   "pushedAt": "2026-10-03T11:42:33Z",
-   "latest": "v1.14.0",
+   "pushedAt": "2026-10-03T14:11:19Z",
+   "latest": "v1.14.1",
    "releaseDates": [
+    "2026-10-03T14:26:36Z",
     "2026-10-03T11:57:39Z",
     "2026-09-30T02:40:04Z",
     "2026-09-23T01:37:21Z",
@@ -1066,6 +1067,14 @@
     "2026-09-01T02:14:44Z"
    ],
    "releases": [
+    {
+     "tag": "v1.14.1",
+     "title": "Omakade 1.14.1",
+     "at": "2026-10-03T14:26:36Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omakade/releases/tag/v1.14.1",
+     "body": "Fixes the Game Mode shortcut leaving a new Omakade window on your desktop.\nWhen the shortcut launches Omakade, pressing it again leaves Game Mode and closes\nOmakade after restoring the desktop. An already-open window stays open in its\nprevious layout.\n\n[Install Omakade](https://github.com/btsouth/omakade/releases/tag/v1.14.1) ·\n[Game Mode guide](https://github.com/btsouth/omakade/blob/v1.14.1/docs/GAME-MODE.md)"
+    },
     {
      "tag": "v1.14.0",
      "title": "Omakade 1.14.0",
@@ -1254,7 +1263,7 @@
   },
   "btsouth/omaroll": {
    "stars": 48,
-   "pushedAt": "2026-10-03T07:08:09Z",
+   "pushedAt": "2026-10-03T13:14:32Z",
    "latest": "v1.12.0",
    "releaseDates": [
     "2026-10-03T07:16:58Z",
@@ -4433,7 +4442,7 @@
   ],
   [
    "2026-10-03",
-   106
+   150
   ]
  ]
 }
