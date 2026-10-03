@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-03T05:40:40.454Z",
+ "generatedAt": "2026-10-03T06:00:39.479Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -1038,7 +1038,7 @@
   },
   "btsouth/omakade": {
    "stars": 424,
-   "pushedAt": "2026-10-03T05:39:06Z",
+   "pushedAt": "2026-10-03T05:55:00Z",
    "latest": "v1.13.0",
    "releaseDates": [
     "2026-09-30T02:40:04Z",
@@ -1245,7 +1245,7 @@
   },
   "btsouth/omaroll": {
    "stars": 47,
-   "pushedAt": "2026-10-03T05:10:06Z",
+   "pushedAt": "2026-10-03T05:59:56Z",
    "latest": "v1.11.0",
    "releaseDates": [
     "2026-10-02T23:42:56Z",
@@ -1551,9 +1551,10 @@
   },
   "btsouth/omarchy-usage-dashboard": {
    "stars": 16,
-   "pushedAt": "2026-10-02T23:17:18Z",
-   "latest": "v1.9.0",
+   "pushedAt": "2026-10-03T05:56:35Z",
+   "latest": "v1.10.0",
    "releaseDates": [
+    "2026-10-03T05:56:36Z",
     "2026-10-01T00:19:58Z",
     "2026-09-30T01:00:00Z",
     "2026-09-30T00:52:42Z",
@@ -1569,6 +1570,14 @@
     "2026-09-16T01:35:59Z"
    ],
    "releases": [
+    {
+     "tag": "v1.10.0",
+     "title": "v1.10.0: Update notices",
+     "at": "2026-10-03T05:56:36Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omarchy-usage-dashboard/releases/tag/v1.10.0",
+     "body": "Agent Pulse now tells you when a newer release is available. The dashboard and bar panel show a command you can copy and run in a terminal. It installs the published version, updates the widget when installed, and preserves history and preferences.\n\n- Checks GitHub once a day during the normal refresh, with no usage data sent.\n- Turn checking off in Settings > Updates and save preferences.\n- Offline checks keep the last result and retry the next day.\n\nUpdate once to enable notices:\n\n```sh\ncurl -fsSL https://raw.githubusercontent.com/btsouth/omarchy-usage-dashboard/main/install.sh | OMARCHY_USAGE_REF=v1.10.0 bash -s -- --with-plugin\n```\n\nOmit `--with-plugin` for the dashboard alone. Run `omarchy restart shell` afterward to load the updated widget. Future updates appear as notices; installation remains manual."
+    },
     {
      "tag": "v1.9.0",
      "title": "v1.9.0: Foldable sections, per-account history, and current model rates",
@@ -4406,7 +4415,7 @@
   ],
   [
    "2026-10-03",
-   35
+   40
   ]
  ]
 }
