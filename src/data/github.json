@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-03T22:41:10.392Z",
+ "generatedAt": "2026-10-03T22:56:12.609Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -1038,7 +1038,7 @@
   },
   "btsouth/omakade": {
    "stars": 426,
-   "pushedAt": "2026-10-03T22:27:00Z",
+   "pushedAt": "2026-10-03T22:43:07Z",
    "latest": "v1.14.2",
    "releaseDates": [
     "2026-10-03T22:40:41Z",
@@ -1272,7 +1272,7 @@
   },
   "btsouth/omaroll": {
    "stars": 50,
-   "pushedAt": "2026-10-03T21:56:04Z",
+   "pushedAt": "2026-10-03T22:50:25Z",
    "latest": "v1.13.0",
    "releaseDates": [
     "2026-10-03T18:16:20Z",
@@ -1452,9 +1452,10 @@
   },
   "btsouth/omaframe": {
    "stars": 12,
-   "pushedAt": "2026-10-03T22:37:09Z",
-   "latest": "v0.8.1",
+   "pushedAt": "2026-10-03T22:52:50Z",
+   "latest": "v0.8.2",
    "releaseDates": [
+    "2026-10-03T22:53:15Z",
     "2026-10-03T16:07:48Z",
     "2026-10-03T05:39:15Z",
     "2026-10-02T03:26:11Z",
@@ -1473,6 +1474,14 @@
     "2026-09-28T12:15:00Z"
    ],
    "releases": [
+    {
+     "tag": "v0.8.2",
+     "title": "Omaframe 0.8.2",
+     "at": "2026-10-03T22:53:15Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaframe/releases/tag/v0.8.2",
+     "body": "# Omaframe 0.8.2\n\nCopying screenshot text now reads the current crop and edits. Redacted or\ncropped-out content is excluded, and delayed OCR cannot overwrite a newer\nscreenshot clipboard copy.\n\nIf a screenshot draft cannot be saved, the image and edits stay open. Retry\nthe save or explicitly discard the unsaved edits before leaving.\n\nVideo drafts now restore trim, cuts, mute and camera layout together. Hidden\ncamera tracks remain hidden after reopening. Extending an annotation's time\nrange keeps it selected and supports undo or cancellation.\n\nCancelling the recording countdown stops the camera preview.\n\nValidated with all thirteen regression suites in an isolated Omarchy desktop,\nreal OCR and clipboard checks, and an app smoke test that copied public text\nwithout a redacted fake token. Physical GPU, microphone and camera combinations\nwere not retested for this release.\n\nUpdate through `omarchy update` or `sudo pacman -Syu`, then reopen Omaframe.\nExisting captures, settings and drafts are preserved."
+    },
     {
      "tag": "v0.8.1",
      "title": "Omaframe 0.8.1",
@@ -2800,7 +2809,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-03T22:26:57Z",
+   "pushedAt": "2026-10-03T22:50:21Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4478,7 +4487,7 @@
   ],
   [
    "2026-10-03",
-   233
+   246
   ]
  ]
 }
