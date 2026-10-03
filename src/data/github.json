@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-03T06:17:34.876Z",
+ "generatedAt": "2026-10-03T07:20:39.774Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
-   "pushedAt": "2026-10-03T06:07:34Z",
+   "pushedAt": "2026-10-03T06:40:50Z",
    "latest": "v1.23.5",
    "releaseDates": [
     "2026-10-03T01:45:09Z",
@@ -659,7 +659,7 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 527,
+   "stars": 526,
    "pushedAt": "2026-10-03T00:33:39Z",
    "latest": "v0.8.0",
    "releaseDates": [
@@ -1038,7 +1038,7 @@
   },
   "btsouth/omakade": {
    "stars": 424,
-   "pushedAt": "2026-10-03T05:55:00Z",
+   "pushedAt": "2026-10-03T07:20:15Z",
    "latest": "v1.13.0",
    "releaseDates": [
     "2026-09-30T02:40:04Z",
@@ -1245,9 +1245,10 @@
   },
   "btsouth/omaroll": {
    "stars": 47,
-   "pushedAt": "2026-10-03T06:17:22Z",
-   "latest": "v1.11.0",
+   "pushedAt": "2026-10-03T07:08:09Z",
+   "latest": "v1.12.0",
    "releaseDates": [
+    "2026-10-03T07:16:58Z",
     "2026-10-02T23:42:56Z",
     "2026-10-02T22:46:10Z",
     "2026-10-02T12:40:15Z",
@@ -1267,6 +1268,14 @@
     "2026-09-02T01:06:06Z"
    ],
    "releases": [
+    {
+     "tag": "v1.12.0",
+     "title": "Omaroll 1.12.0",
+     "at": "2026-10-03T07:16:58Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaroll/releases/tag/v1.12.0",
+     "body": "### Changed\n\n- Installation instructions use the signed package repository so Omaroll can\n  update with the rest of the system. Manual release downloads remain available.\n\n### Fixed\n\n- QR detection stops safely when its media library or the application closes.\n- Gallery thumbnails wait for valid dimensions and hide a previous file's\n  retained pixels while a replacement loads. Viewport checks account for\n  files inserted or removed above a scrolled grid.\n- Installed documentation links resolve to the repository and packaged license.\n  Arch dependencies explicitly include FFmpeg for frame saving and probing.\n- The viewer bounds neighboring photo preloads while keeping originals at full\n  resolution. Canceled thumbnails stop obsolete helper work, and queued\n  requests finish during shutdown.\n- Gallery photo and document details avoid an unused video-poster decode.\n  Gallery and viewer video posters apply display scaling once.\n- The gallery restores keyboard navigation after empty search results and\n  keeps the search field in sync with saved views and files opened from outside.\n- Browse keeps search and folder choices visible in small windows with many\n  source folders. Folder-only shuffle stays in the opened file's folder.\n- The viewer reloads files saved in place, preserves zoom and rotation when\n  other files arrive, and uses the same identity for symlinks as the library.\n- Video scrubbing and Home/End override saved resume positions. Shuffled\n  slideshows reliably find pictures when videos are excluded.\n- Organization survives disconnected folders. Backups retain the iden"
+    },
     {
      "tag": "v1.11.0",
      "title": "Omaroll 1.11.0",
@@ -4415,7 +4424,7 @@
   ],
   [
    "2026-10-03",
-   60
+   83
   ]
  ]
 }
