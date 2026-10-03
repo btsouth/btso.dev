@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-03T01:45:35.819Z",
+ "generatedAt": "2026-10-03T05:40:40.454Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -1038,7 +1038,7 @@
   },
   "btsouth/omakade": {
    "stars": 424,
-   "pushedAt": "2026-10-02T23:51:12Z",
+   "pushedAt": "2026-10-03T05:39:06Z",
    "latest": "v1.13.0",
    "releaseDates": [
     "2026-09-30T02:40:04Z",
@@ -1244,8 +1244,8 @@
    ]
   },
   "btsouth/omaroll": {
-   "stars": 46,
-   "pushedAt": "2026-10-02T23:50:26Z",
+   "stars": 47,
+   "pushedAt": "2026-10-03T05:10:06Z",
    "latest": "v1.11.0",
    "releaseDates": [
     "2026-10-02T23:42:56Z",
@@ -1407,9 +1407,10 @@
   },
   "btsouth/omaframe": {
    "stars": 11,
-   "pushedAt": "2026-10-02T03:25:28Z",
-   "latest": "v0.7.4",
+   "pushedAt": "2026-10-03T05:37:24Z",
+   "latest": "v0.8.0",
    "releaseDates": [
+    "2026-10-03T05:39:15Z",
     "2026-10-02T03:26:11Z",
     "2026-10-02T01:13:33Z",
     "2026-10-02T00:30:39Z",
@@ -1426,6 +1427,14 @@
     "2026-09-28T12:15:00Z"
    ],
    "releases": [
+    {
+     "tag": "v0.8.0",
+     "title": "Omaframe 0.8.0",
+     "at": "2026-10-03T05:39:15Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaframe/releases/tag/v0.8.0",
+     "body": "# Omaframe 0.8.0\n\nScreenshot editing is easier to navigate:\n\n- Use the mouse wheel to zoom around the pointer. Hold Shift while scrolling\n  to move through a long capture, or use the scrollbars.\n- With Select active, drag empty space to pan a zoomed image. Middle-button\n  dragging also pans. Use Fit to return to the normal view.\n- Click an active tool again to return to Select. Mouse clicks no longer leave\n  a keyboard focus outline around the previous tool.\n- Crop an already cropped screenshot to trim it further. Each crop has its\n  own undo step. Ctrl+Z restores the previous crop; Ctrl+Shift+Z or Ctrl+Y\n  reapplies it. Marks outside the crop stay available when you undo.\n\nIf the capture bar covers something you need, hold Super and drag it, or\ndrag the grip at its left edge. Press H or click its H button to hide it, then\npress H to bring it back. New captures show the bar again. It stays reachable\nwhen the display size changes, and narrow displays hide extra key hints so the controls fit.\n\nRepeated crops now follow the exact source pixels shown in the editor.\nDrawing waits for a changed crop preview to appear, preventing misplaced\nmarks on large captures while the preview refreshes.\n\nInstall or update with the attached `omaframe-x86_64.pkg.tar.zst` package,\nthen reopen Omaframe. Existing captures, settings and drafts are preserved.\nOn Omarchy or Arch with Hyprland:\n\n```sh\ncurl -fsSL https://pkgs.btso.dev/install.sh | bash -s -- omaframe\n```\n\nIt adds the [signed package repository](https://github.com/btsouth/pkgs),\nso Omaframe updates with `omarchy update` or `sudo pacman "
+    },
     {
      "tag": "v0.7.4",
      "title": "Omaframe 0.7.4: window scrollshots",
@@ -1667,8 +1676,8 @@
    ]
   },
   "btsouth/omadrop": {
-   "stars": 4,
-   "pushedAt": "2026-10-03T00:40:52Z",
+   "stars": 5,
+   "pushedAt": "2026-10-03T05:16:01Z",
    "latest": "v0.5.0",
    "releaseDates": [
     "2026-10-03T00:33:55Z",
@@ -4393,11 +4402,11 @@
   ],
   [
    "2026-10-02",
-   154
+   159
   ],
   [
    "2026-10-03",
-   3
+   35
   ]
  ]
 }
