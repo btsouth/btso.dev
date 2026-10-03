@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-02T23:45:35.929Z",
+ "generatedAt": "2026-10-03T00:17:34.011Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -1029,7 +1029,7 @@
   },
   "btsouth/omakade": {
    "stars": 424,
-   "pushedAt": "2026-10-02T23:36:06Z",
+   "pushedAt": "2026-10-02T23:51:12Z",
    "latest": "v1.13.0",
    "releaseDates": [
     "2026-09-30T02:40:04Z",
@@ -1235,8 +1235,8 @@
    ]
   },
   "btsouth/omaroll": {
-   "stars": 44,
-   "pushedAt": "2026-10-02T23:40:55Z",
+   "stars": 45,
+   "pushedAt": "2026-10-02T23:50:26Z",
    "latest": "v1.11.0",
    "releaseDates": [
     "2026-10-02T23:42:56Z",
@@ -1264,7 +1264,7 @@
      "at": "2026-10-02T23:42:56Z",
      "pre": false,
      "url": "https://github.com/btsouth/omaroll/releases/tag/v1.11.0",
-     "body": "### Added\n\n- Portrait crop presets: 3:4, 2:3 and 9:16 sit beside their landscape\n  partners in Crop, rotate, resize. A held landscape ratio could not be turned\n  upright, so a portrait, a poster or a phone-screen crop had to be drawn by\n  hand.\n\n### Changed\n\n- The Crop, rotate, resize controls are grouped into labelled Crop, Rotate and\n  Resize rows instead of one strip that wrapped wherever it ran out of room.\n  On a wide sheet the output size ends the Crop row and Reset, Cancel, Copy\n  region and Save a copy end the Resize row; a narrow one gives them a line of\n  their own. The smallest window drops the row labels and packs the groups onto\n  shared lines with a rule between them, so the preview keeps its height. Full\n  frame is gone: it did exactly what Free does.\n\n### Fixed\n\n- The Sub − and Sub + timing buttons for a sidecar subtitle sat on the video\n  clock. The clock now stands to their left, and they leave with the CC button\n  on a narrow window, or before they would squeeze the scrub bar below its\n  minimum. Their offset label sits to their left, so a click no longer moves\n  or hides them."
+     "body": "### Added\n\n- Portrait crop presets: 3:4, 2:3 and 9:16 sit beside their landscape\n  partners in Crop, rotate, resize. A held landscape ratio could not be turned\n  upright, so a portrait, a poster or a phone-screen crop had to be drawn by\n  hand. Thanks to @diogochaves ([#51](https://github.com/btsouth/omaroll/pull/51)).\n\n### Changed\n\n- The Crop, rotate, resize controls are grouped into labelled Crop, Rotate and\n  Resize rows instead of one strip that wrapped wherever it ran out of room.\n  On a wide sheet the output size ends the Crop row and Reset, Cancel, Copy\n  region and Save a copy end the Resize row; a narrow one gives them a line of\n  their own. The smallest window drops the row labels and packs the groups onto\n  shared lines with a rule between them, so the preview keeps its height. Full\n  frame is gone: it did exactly what Free does. Thanks to @diogochaves\n  ([#51](https://github.com/btsouth/omaroll/pull/51)).\n\n### Fixed\n\n- The Sub − and Sub + timing buttons for a sidecar subtitle sat on the video\n  clock. The clock now stands to their left, and they leave with the CC button\n  on a narrow window, or before they would squeeze the scrub bar below its\n  minimum. Their offset label sits to their left, so a click no longer moves\n  or hides them. Thanks to @diogochaves ([#50](https://github.com/btsouth/omaroll/pull/50)).\n\n\n### Contributors\n\nThanks to @diogochaves for their work on this release."
     },
     {
      "tag": "v1.10.0",
@@ -1936,7 +1936,7 @@
   },
   "btsouth/ceiling": {
    "stars": 30,
-   "pushedAt": "2026-10-02T23:42:14Z",
+   "pushedAt": "2026-10-02T23:56:02Z",
    "latest": "v1.5.42",
    "releaseDates": [
     "2026-09-27T00:03:09Z",
@@ -2269,7 +2269,7 @@
   },
   "btsouth/cubby-clipboard": {
    "stars": 13,
-   "pushedAt": "2026-10-02T23:42:48Z",
+   "pushedAt": "2026-10-02T23:56:19Z",
    "latest": "v1.3.7",
    "releaseDates": [
     "2026-09-30T20:00:45Z",
@@ -4366,7 +4366,11 @@
   ],
   [
    "2026-10-02",
-   122
+   128
+  ],
+  [
+   "2026-10-03",
+   0
   ]
  ]
 }
