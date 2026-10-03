@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-03T09:28:00.626Z",
+ "generatedAt": "2026-10-03T12:01:19.026Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -659,8 +659,8 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 526,
-   "pushedAt": "2026-10-03T00:33:39Z",
+   "stars": 528,
+   "pushedAt": "2026-10-03T12:00:49Z",
    "latest": "v0.8.0",
    "releaseDates": [
     "2026-10-02T03:22:58Z",
@@ -1038,9 +1038,10 @@
   },
   "btsouth/omakade": {
    "stars": 424,
-   "pushedAt": "2026-10-03T07:30:03Z",
-   "latest": "v1.13.0",
+   "pushedAt": "2026-10-03T11:42:33Z",
+   "latest": "v1.14.0",
    "releaseDates": [
+    "2026-10-03T11:57:39Z",
     "2026-09-30T02:40:04Z",
     "2026-09-23T01:37:21Z",
     "2026-09-17T02:00:45Z",
@@ -1065,6 +1066,14 @@
     "2026-09-01T02:14:44Z"
    ],
    "releases": [
+    {
+     "tag": "v1.14.0",
+     "title": "Omakade 1.14.0",
+     "at": "2026-10-03T11:57:39Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omakade/releases/tag/v1.14.0",
+     "body": "Game Mode brings Omakade to the couch. Choose a display and sound output, then\nstart from Settings or `omakade --game-mode`. Omakade opens fullscreen, silences\nnotifications and keeps the screen awake. Leaving restores the settings it changed.\n\n- Add Super + Ctrl + G from Settings with one click. The same key leaves Game Mode,\n  or opens the Game Mode controls over a game that is still running.\n- Return Omakade to the exact spot it held in a tiled layout.\n- Return to your library, leave games running, or confirm Stop Games and Leave. A game\n  left running comes back to your desktop.\n- Keep controls responsive with large libraries and when an emulator hangs.\n- Recover session settings after an unexpected exit.\n- Find setup instructions in the shorter README and new feature guide.\n- Sort installed games first, then alphabetically, and dim uninstalled covers in\n  desktop and Couch Mode. Other sort choices remain available.\n- Import owned Epic, GOG and Amazon games from Heroic, including uninstalled\n  titles. Heroic handles installation and launch; refresh its libraries before rescanning.\n- Keep ROM filename details accessible when metadata and descriptions are missing.\n- Add `layer-shell-qt` as a required dependency for the in-game overlay and\n  declare `libpulse` as optional for Game Mode sound switching.\n- Show wide box art whole on the details page, name consoles in full, and keep\n  setup hints and playtime bookkeeping off the TV.\n\nGame Mode switches desktop audio as a whole. Gamescope, HDR and per-game audio\nrouting are outside this release.\n\n[Install Omakade](https://gith"
+    },
     {
      "tag": "v1.13.0",
      "title": "Omakade 1.13.0",
@@ -4424,7 +4433,7 @@
   ],
   [
    "2026-10-03",
-   97
+   103
   ]
  ]
 }
