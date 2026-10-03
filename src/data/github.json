@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-03T00:35:39.166Z",
+ "generatedAt": "2026-10-03T01:00:36.066Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
-   "pushedAt": "2026-10-03T00:32:30Z",
+   "pushedAt": "2026-10-03T00:59:17Z",
    "latest": "v1.23.4",
    "releaseDates": [
     "2026-10-02T06:19:51Z",
@@ -1235,7 +1235,7 @@
    ]
   },
   "btsouth/omaroll": {
-   "stars": 45,
+   "stars": 46,
    "pushedAt": "2026-10-02T23:50:26Z",
    "latest": "v1.11.0",
    "releaseDates": [
@@ -1659,7 +1659,7 @@
   },
   "btsouth/omadrop": {
    "stars": 4,
-   "pushedAt": "2026-10-03T00:29:04Z",
+   "pushedAt": "2026-10-03T00:40:52Z",
    "latest": "v0.5.0",
    "releaseDates": [
     "2026-10-03T00:33:55Z",
@@ -1675,7 +1675,7 @@
      "at": "2026-10-03T00:33:55Z",
      "pre": false,
      "url": "https://github.com/btsouth/omadrop/releases/tag/v0.5.0",
-     "body": "MilkDrop for Omarchy, wired to your music.\n\nOmadrop 0.5.0 brings 21 hand-picked MilkDrop presets into a compact, theme-aware app. Each preset follows your music through Omadrop's audio engine. Pick a thumbnail or press Play, go fullscreen, and press Esc to return.\n\n- Shuffled MilkDrop rotation with blended transitions and an optional ASCII dot filter.\n- Controls that follow your Omarchy theme, with scene previews, hidden scenes and display selection.\n- Early Omarchy mode with 37 music-driven terminal effects.\n- One Arch package with the controls and both playback modes.\n\n### Install on Omarchy\n\nDownload `omadrop-0.5.0-1-x86_64.pkg.tar.zst` below, then:\n\n```sh\nsudo pacman -U omadrop-0.5.0-1-x86_64.pkg.tar.zst\n```\n\nOpen Omadrop from the launcher or run `omadrop`. Close the app before updating. The package installs its dependencies and leaves your Hyprland shortcuts alone. `SHA256SUMS` contains the download checksums.\n\nThe 60-second launch video is attached. Music: “We Can Fix Everything” by Kevin Koontz, [@koozeex1](https://x.com/koozeex1). Original preset artists are credited in the video and in the source's third-party notices."
+     "body": "MilkDrop for Omarchy, wired to your music.\n\nOmadrop 0.5.0 brings 21 hand-picked MilkDrop presets into a compact, theme-aware app. Each preset follows your music through Omadrop's audio engine. Pick a thumbnail or press Play, go fullscreen, and press Esc to return.\n\n- Shuffled MilkDrop rotation with blended transitions and an optional ASCII dot filter.\n- Controls that follow your Omarchy theme, with scene previews, hidden scenes and display selection.\n- Early Omarchy mode with 37 music-driven terminal effects.\n- One Arch package with the controls and both playback modes.\n\n### Install on Omarchy\n\n```sh\ncurl -fLO https://github.com/btsouth/omadrop/releases/latest/download/omadrop-x86_64.pkg.tar.zst && sudo pacman -U ./omadrop-x86_64.pkg.tar.zst\n```\n\nRun the same command to install a newer release. GitHub installs do not update automatically through Omarchy.\n\nOpen Omadrop from the launcher or run `omadrop`. Close the app before updating. The package installs its dependencies and leaves your Hyprland shortcuts alone. `SHA256SUMS` contains the download checksums.\n\nThe 60-second launch video is attached. Music: “We Can Fix Everything” by Kevin Koontz, [@koozeex1](https://x.com/koozeex1). Original preset artists are credited in the video and in the source's third-party notices."
     },
     {
      "tag": "v0.3.0",
@@ -1946,8 +1946,9 @@
   "btsouth/ceiling": {
    "stars": 30,
    "pushedAt": "2026-10-03T00:32:18Z",
-   "latest": "v1.5.42",
+   "latest": "v1.5.43",
    "releaseDates": [
+    "2026-10-03T00:55:37Z",
     "2026-09-27T00:03:09Z",
     "2026-09-26T01:00:31Z",
     "2026-09-25T03:46:51Z",
@@ -1986,6 +1987,14 @@
     "2026-07-14T05:04:40Z"
    ],
    "releases": [
+    {
+     "tag": "v1.5.43",
+     "title": "Ceiling 1.5.43",
+     "at": "2026-10-03T00:55:37Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/ceiling/releases/tag/v1.5.43",
+     "body": "Overview now scrolls through every provider when the window is short.\n\n### Fixed\n- **Overview keeps the last provider reachable.** The provider list can grow beyond the visible area and the main window scrolls through all rows. Fixes #489. Thanks to @jayn2u.\n\n### Internal\n- Updated dependencies and fixed Windows clippy compatibility with Rust 1.99."
+    },
     {
      "tag": "v1.5.42",
      "title": "Ceiling 1.5.42",
@@ -4375,11 +4384,11 @@
   ],
   [
    "2026-10-02",
-   149
+   152
   ],
   [
    "2026-10-03",
-   1
+   2
   ]
  ]
 }
