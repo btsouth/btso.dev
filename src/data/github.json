@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-03T14:31:10.335Z",
+ "generatedAt": "2026-10-03T16:11:09.262Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -660,7 +660,7 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 528,
-   "pushedAt": "2026-10-03T14:03:02Z",
+   "pushedAt": "2026-10-03T16:01:17Z",
    "latest": "v0.8.0",
    "releaseDates": [
     "2026-10-02T03:22:58Z",
@@ -1037,8 +1037,8 @@
    ]
   },
   "btsouth/omakade": {
-   "stars": 424,
-   "pushedAt": "2026-10-03T14:11:19Z",
+   "stars": 425,
+   "pushedAt": "2026-10-03T16:01:37Z",
    "latest": "v1.14.1",
    "releaseDates": [
     "2026-10-03T14:26:36Z",
@@ -1262,8 +1262,8 @@
    ]
   },
   "btsouth/omaroll": {
-   "stars": 48,
-   "pushedAt": "2026-10-03T13:14:32Z",
+   "stars": 49,
+   "pushedAt": "2026-10-03T15:14:29Z",
    "latest": "v1.12.0",
    "releaseDates": [
     "2026-10-03T07:16:58Z",
@@ -1433,10 +1433,11 @@
    ]
   },
   "btsouth/omaframe": {
-   "stars": 11,
-   "pushedAt": "2026-10-03T05:37:24Z",
-   "latest": "v0.8.0",
+   "stars": 12,
+   "pushedAt": "2026-10-03T16:05:56Z",
+   "latest": "v0.8.1",
    "releaseDates": [
+    "2026-10-03T16:07:48Z",
     "2026-10-03T05:39:15Z",
     "2026-10-02T03:26:11Z",
     "2026-10-02T01:13:33Z",
@@ -1454,6 +1455,14 @@
     "2026-09-28T12:15:00Z"
    ],
    "releases": [
+    {
+     "tag": "v0.8.1",
+     "title": "Omaframe 0.8.1",
+     "at": "2026-10-03T16:07:48Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaframe/releases/tag/v0.8.1",
+     "body": "# Omaframe 0.8.1\n\nYou can now turn off **Save screenshots automatically** in Settings. Picking a\nfinish then copies it to the clipboard and closes the chooser without saving\na screenshot or private original. Automatic saving stays on by default, so\nexisting users keep the same flow.\n\nPress **Ctrl+C** or click **Clipboard** in the finish chooser to copy the selected\nfinish without saving, regardless of the setting. **Copy and save** still saves\nwhen automatic saving is off. Edits and redactions appear in the copied image;\neditable editor drafts keep their existing autosave behavior.\n\nCopying runs in the background and failures leave the chooser open to retry.\nPending save, backup and clipboard retries retain their original output.\n\nThanks to [Son Le (@sonlndv)](https://github.com/sonlndv) for\n[PR #22](https://github.com/btsouth/omaframe/pull/22), which this feature builds on.\nHis original commits are included, with co-author credit for the implementation.\n\nValidated with all twelve regression suites, isolated Omarchy clipboard and\nchooser checks, and repeated 1080p captures with no meaningful latency regression.\nPhysical GPU, microphone and camera combinations were not retested for this release.\n\nUpdate through `omarchy update` or `sudo pacman -Syu`, then reopen Omaframe.\nExisting captures, settings and drafts are preserved."
+    },
     {
      "tag": "v0.8.0",
      "title": "Omaframe 0.8.0",
@@ -4442,7 +4451,7 @@
   ],
   [
    "2026-10-03",
-   150
+   160
   ]
  ]
 }
