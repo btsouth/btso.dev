@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-03T20:31:10.485Z",
+ "generatedAt": "2026-10-03T22:41:10.392Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
-   "pushedAt": "2026-10-03T06:40:50Z",
+   "pushedAt": "2026-10-03T22:36:25Z",
    "latest": "v1.23.5",
    "releaseDates": [
     "2026-10-03T01:45:09Z",
@@ -659,7 +659,7 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 529,
+   "stars": 530,
    "pushedAt": "2026-10-03T17:52:41Z",
    "latest": "v0.8.0",
    "releaseDates": [
@@ -1038,9 +1038,10 @@
   },
   "btsouth/omakade": {
    "stars": 426,
-   "pushedAt": "2026-10-03T19:42:27Z",
-   "latest": "v1.14.1",
+   "pushedAt": "2026-10-03T22:27:00Z",
+   "latest": "v1.14.2",
    "releaseDates": [
+    "2026-10-03T22:40:41Z",
     "2026-10-03T14:26:36Z",
     "2026-10-03T11:57:39Z",
     "2026-09-30T02:40:04Z",
@@ -1067,6 +1068,14 @@
     "2026-09-01T02:14:44Z"
    ],
    "releases": [
+    {
+     "tag": "v1.14.2",
+     "title": "Omakade 1.14.2",
+     "at": "2026-10-03T22:40:41Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omakade/releases/tag/v1.14.2",
+     "body": "Game Mode remembers your place. Return to the desktop, then resume your library\nor running game with the same shortcut.\n\n- Super + Ctrl + G returns to the desktop and resumes the complete Game Mode session,\n  with or without a game. Details, selection, focus and scroll stay in place until\n  End Game Mode, Stop Games and Leave, or closing Omakade.\n- Running games stay on their workspace with attributable game audio muted while away.\n  A game ending releases its game/audio records and keeps the library session available.\n- Prepare the Game Mode layout and fullscreen state before showing the window,\n  avoiding the windowed-to-fullscreen flash when entering or resuming.\n- Keep Resume available during background session checks and prevent late focus\n  requests from pulling you away from the restored desktop.\n- Restore the desktop even when game audio recovery fails, retaining the recovery\n  record for a retry.\n\n[Install Omakade](https://github.com/btsouth/omakade/releases/tag/v1.14.2) ·\n[Game Mode guide](https://github.com/btsouth/omakade/blob/v1.14.2/docs/GAME-MODE.md)"
+    },
     {
      "tag": "v1.14.1",
      "title": "Omakade 1.14.1",
@@ -1263,7 +1272,7 @@
   },
   "btsouth/omaroll": {
    "stars": 50,
-   "pushedAt": "2026-10-03T19:50:45Z",
+   "pushedAt": "2026-10-03T21:56:04Z",
    "latest": "v1.13.0",
    "releaseDates": [
     "2026-10-03T18:16:20Z",
@@ -1443,7 +1452,7 @@
   },
   "btsouth/omaframe": {
    "stars": 12,
-   "pushedAt": "2026-10-03T16:05:56Z",
+   "pushedAt": "2026-10-03T22:37:09Z",
    "latest": "v0.8.1",
    "releaseDates": [
     "2026-10-03T16:07:48Z",
@@ -1596,7 +1605,7 @@
   },
   "btsouth/omarchy-usage-dashboard": {
    "stars": 16,
-   "pushedAt": "2026-10-03T20:26:20Z",
+   "pushedAt": "2026-10-03T21:51:59Z",
    "latest": "v1.10.1",
    "releaseDates": [
     "2026-10-03T20:26:20Z",
@@ -1621,7 +1630,7 @@
      "title": "Agent Pulse v1.10.1",
      "at": "2026-10-03T20:26:20Z",
      "pre": false,
-     "url": "https://github.com/btsouth/omarchy-usage-dashboard/releases/tag/v1.10.1",
+     "url": "https://github.com/btsouth/agent-pulse/releases/tag/v1.10.1",
      "body": "Codex Fast requests now use Fast API rates, including cached input and long-context pricing. Speed uncertainty appears beside the value estimate. Historical requests without recorded speed use a labelled Standard estimate.\n\nThis release also fixes stale tier labels after rescans and keeps synced ledgers up to date after pricing corrections. Token totals, history, preferences, and the bar layout are preserved.\n\nThe demo screenshot and pricing guidance have been refreshed.\n\nUpdate with:\n\n```sh\ncurl -fsSL https://raw.githubusercontent.com/btsouth/omarchy-usage-dashboard/main/install.sh | OMARCHY_USAGE_REF=v1.10.1 bash -s -- --with-plugin\n```\n\nOmit `--with-plugin` if you use only the dashboard."
     },
     {
@@ -1629,7 +1638,7 @@
      "title": "v1.10.0: Update notices",
      "at": "2026-10-03T05:56:36Z",
      "pre": false,
-     "url": "https://github.com/btsouth/omarchy-usage-dashboard/releases/tag/v1.10.0",
+     "url": "https://github.com/btsouth/agent-pulse/releases/tag/v1.10.0",
      "body": "Agent Pulse now tells you when a newer release is available. The dashboard and bar panel show a command you can copy and run in a terminal. It installs the published version, updates the widget when installed, and preserves history and preferences.\n\n- Checks GitHub once a day during the normal refresh, with no usage data sent.\n- Turn checking off in Settings > Updates and save preferences.\n- Offline checks keep the last result and retry the next day.\n\nUpdate once to enable notices:\n\n```sh\ncurl -fsSL https://raw.githubusercontent.com/btsouth/omarchy-usage-dashboard/main/install.sh | OMARCHY_USAGE_REF=v1.10.0 bash -s -- --with-plugin\n```\n\nOmit `--with-plugin` for the dashboard alone. Run `omarchy restart shell` afterward to load the updated widget. Future updates appear as notices; installation remains manual."
     },
     {
@@ -1637,7 +1646,7 @@
      "title": "v1.9.0: Foldable sections, per-account history, and current model rates",
      "at": "2026-10-01T00:19:58Z",
      "pre": false,
-     "url": "https://github.com/btsouth/omarchy-usage-dashboard/releases/tag/v1.9.0",
+     "url": "https://github.com/btsouth/agent-pulse/releases/tag/v1.9.0",
      "body": "The dashboard overview is now foldable. Click a section header to collapse it to one line that keeps the section's headline figure, and click it again to open it. The triangle at the end of the header shows which way it will go, and the folded sections come back the same way the next time you open the window.\n\n- Fold any section: Totals, Pinned limits, Tokens by hour, Accounts, the selected account's limits and models, Cache and output, Breakdown, and the yearly activity map. A screenshot that needs two sections no longer has to include everything between them.\n- Labelled second logins (Claude Second, Claude Third, ChatGPT Second) show their own hourly history in the bar panel, and a source with no indexed history now says why instead of reading as empty.\n- The Accounts rows no longer carry an unlabelled limit percentage, and the Breakdown column headers line up with the figures under them.\n- Rates for the models released since 1.8.2 are in: Claude Sonnet 5.5 and Opus 5.5, GPT-6 Sol, Luna and 6.1 Sol, the new Gemini and image models, DeepSeek V4.1 Flash Fast on CommandCode, and ClinePass rows that record the model vendor's id. DeepSeek V4.1 Flash's OpenCode Go allowance is corrected to the documented $60.\n- Per-account totals, reset periods and drill-downs are consistent across the account picker and the account section.\n\nUpdate with:\n```sh\ncurl -fsSL https://raw.githubusercontent.com/btsouth/omarchy-usage-dashboard/main/install.sh | bash -s -- --with-plugin\n```\n\nRun `omarchy restart shell` afterward so the bar picks up the new widget code."
     },
     {
@@ -1645,7 +1654,7 @@
      "title": "v1.8.2: Protect quota cache credential fingerprints",
      "at": "2026-09-30T01:00:00Z",
      "pre": false,
-     "url": "https://github.com/btsouth/omarchy-usage-dashboard/releases/tag/v1.8.2",
+     "url": "https://github.com/btsouth/agent-pulse/releases/tag/v1.8.2",
      "body": "Replace the API-key fingerprints in Ollama Cloud, CommandCode, and ClinePass quota caches with salted PBKDF2-HMAC-SHA256. This addresses CodeQL alerts #1, #2, and #3.\n\nExisting caches refresh once after upgrading. Changed or removed keys still take effect immediately, and raw keys stay out of the quota caches.\n\nUpdate with:\n```sh\ncurl -fsSL https://raw.githubusercontent.com/btsouth/omarchy-usage-dashboard/main/install.sh | bash -s -- --with-plugin\n```"
     },
     {
@@ -1653,7 +1662,7 @@
      "title": "v1.8.1: GPT-6.1 Sol pricing and dashboard fixes",
      "at": "2026-09-30T00:52:42Z",
      "pre": false,
-     "url": "https://github.com/btsouth/omarchy-usage-dashboard/releases/tag/v1.8.1",
+     "url": "https://github.com/btsouth/agent-pulse/releases/tag/v1.8.1",
      "body": "Codex GPT-6.1 Sol now uses OpenAI's published pricing, including cached input, cache writes, and long-context rates. Previously recorded usage is priced automatically. API value is an estimate, not a subscription charge.\n\nThis release also includes the fixes already on main:\n- Keep the model breakdown compact and sort sources by usage.\n- Show tokens recorded since each limit window began.\n- Improve session-reset notifications and limit suggestions.\n\nUpdate with:\n```sh\ncurl -fsSL https://raw.githubusercontent.com/btsouth/omarchy-usage-dashboard/main/install.sh | bash -s -- --with-plugin\n```"
     },
     {
@@ -1661,7 +1670,7 @@
      "title": "v1.8.0: Agent Pulse, a live Today count, hourly history, and pinned limits",
      "at": "2026-09-26T16:40:33Z",
      "pre": false,
-     "url": "https://github.com/btsouth/omarchy-usage-dashboard/releases/tag/v1.8.0",
+     "url": "https://github.com/btsouth/agent-pulse/releases/tag/v1.8.0",
      "body": "# Agent Pulse v1.8.0\n\nThe dashboard has a new name and a reworked bar panel. Everything from 1.7 is still here. It's just arranged so the numbers you check most often are at the top.\n\n## ⚡ Live Today count\n\nThe panel and dashboard now lead with how many tokens you've processed today, and the number moves while you work.\n\n- While the panel or dashboard is open, it checks your local agent histories every 15 seconds and rolls up to the new total. Counts move when an agent records usage, usually right after a response.\n- It only reads local history. Limits, synced ledgers and Cursor still refresh on the normal schedule.\n- The dashboard updates in place as new usage comes in. It no longer dims or locks the page on each refresh, so you can keep reading and scrolling while it updates. It only waits on a scan when you change the period, a filter or the source, and a fast one shows no dimming.\n\n## 🕐 Hourly history\n\n- The panel shows the latest six hours. The dashboard opens on Today with hourly bars split by source, and clicking an hour shows its source totals.\n- Hour labels, reset times and timestamps follow the 12 or 24 hour format of your Omarchy bar clock.\n- Hermes reports session totals without request timestamps. Those tokens stay in the day total and are labelled separately instead of being guessed into an hour.\n\n## 📌 Pinned limits\n\nPin up to three limits from any source and they sit together at the top of the panel and the dashboard, each with its usage and reset time. Below them, \"Limits to watch\" shows the fullest limit from up to three other sources.\n\n## 🧭 A tidier pan"
     },
     {
@@ -1669,7 +1678,7 @@
      "title": "v1.7.0: Claude banked resets, reset expiry dates, and provider logos",
      "at": "2026-09-23T03:33:59Z",
      "pre": false,
-     "url": "https://github.com/btsouth/omarchy-usage-dashboard/releases/tag/v1.7.0",
+     "url": "https://github.com/btsouth/agent-pulse/releases/tag/v1.7.0",
      "body": "# AI Usage Dashboard v1.7.0\n\nAnthropic started handing out banked usage resets today, the same idea ChatGPT has had for Codex. This release puts them on the Claude card, shows when any banked reset expires, and brings back the provider logos that went missing a few releases ago.\n\n## ⏳ Claude banked resets\n\nThe Claude card now shows how many resets you have banked and when the next one expires, like \"1 reset banked · expires Oct 22\".\n\n- The count comes from the same Anthropic usage endpoint the Claude limits already use. Anthropic only returns it to a current Claude Code CLI, so the refresh sends your installed `claude` version. It finds the CLI on PATH or where Claude Code's installers put it.\n- Your token comes from Claude Code's own saved sign-in and only goes to Anthropic's usage endpoint.\n- Answers are cached for five minutes and rate limits are respected, so opening the panel over and over doesn't hammer the API. If a read fails, the last answer stays up for up to 30 minutes before the count goes to unknown.\n- The line no longer flickers when the panel opens. Omarchy's own collector briefly rewrites the Claude record without resets during a refresh, and the panel now holds the last count through that.\n- The reset notifier already watches Claude, so you get a desktop alert when a new reset shows up.\n\n## 📅 Codex reset expiry\n\nCodex banked resets now show their expiry date too. It comes from the credit endpoint the count already uses, so there's no extra request.\n\n## 🎨 Provider logos are back\n\nCodex Second, CommandCode, ClinePass, Ollama Cloud, OpenCode Go, Grok and Cur"
     },
     {
@@ -1677,7 +1686,7 @@
      "title": "v1.6.0: CommandCode extra credits, tighter totals, and a quieter window",
      "at": "2026-09-22T21:18:56Z",
      "pre": false,
-     "url": "https://github.com/btsouth/omarchy-usage-dashboard/releases/tag/v1.6.0",
+     "url": "https://github.com/btsouth/agent-pulse/releases/tag/v1.6.0",
      "body": "# AI Usage Dashboard v1.6.0\n\nThis release puts CommandCode's extra-credit balance on the card, makes model totals and route attribution add up across Muse and T3 Code, and stops the window from rescanning history every time you change a filter.\n\n## 💳 CommandCode extra credits\n\nThe plan's windows were never the whole story: once its credits run out, work continues against the extra credits you bought. That wallet now shows as money on the CommandCode card and in the bar panel:\n\n- **What is left** comes from the billing response the plan windows are already read from, so no new request and no new key.\n- **What it was funded with** is what is left plus what this period has drawn from it, and the card says \"estimated\" because that part is derived.\n- **A wallet with nothing in it stays off the card**, and one left over from a plan that no longer reports windows still shows on its own.\n- The balance travels on the agent record, so Omarchy's built-in agents panel picks it up too, and it carries CommandCode's own name for the wallet rather than a generic label.\n\n## 🧮 Totals, routing, and a quieter window\n\n- Vendor-prefixed `muse-spark-*` records now count with the bare Muse model in totals and filters, including the bar panel's all-route model list, while keeping their route attribution.\n- T3 Code's isolated provider instances are discovered and attributed: CommandCode's Codex and Claude runtimes land on the CommandCode card, FlashX is counted at its published rates, and T3 OpenCode instances for Ollama Cloud and ClinePass reach their own cards.\n- Reports are read-only again: his"
     },
     {
@@ -1685,7 +1694,7 @@
      "title": "v1.5.0 — Cursor usage and a clash check that runs anywhere",
      "at": "2026-09-19T23:07:13Z",
      "pre": false,
-     "url": "https://github.com/btsouth/omarchy-usage-dashboard/releases/tag/v1.5.0",
+     "url": "https://github.com/btsouth/agent-pulse/releases/tag/v1.5.0",
      "body": "# AI Usage Dashboard v1.5.0\n\nThis release adds Cursor — cloud usage events and a billing-cycle quota meter — and fixes the installer's built-in-widget check, which could only pass on the machine it was written on.\n\n## 🟣 Cursor\n\nCursor is the first source here that cannot be rebuilt from local files, so it is read from Cursor's own usage events, per model:\n\n- **Token history** — every event's input, output, and cache-read tokens, priced at list price\n- **A billing-cycle quota meter** with its reset date, read through the session the Cursor desktop app already stores locally\n- **Free events still count** — an event that carries no tokens is kept as a turn rather than dropped as empty\n\nThe session token is read from Cursor's local store and is never copied, logged, or sent anywhere but Cursor. The endpoint is undocumented and can move without notice; when a call fails, the previous snapshot stays in place with its error and nothing else in the dashboard is affected.\n\nEvent costs are list prices and plan discounts are not applied per event, so the quota card's billed total is the figure to trust where the two disagree.\n\nCursor support arrived as a community pull request from **@hilather** — the collector, the paginated walk with resume, the quota mapping, the pricing, and the tests are his work. Thank you.\n\n## 🛠 Also in this release\n\n- The installer's built-in-widget check read `/usr/share/omarchy` directly — a path that exists on a development machine and nowhere else — so it passed locally and went red the moment it ran anywhere else. It now follows the `OMARCHY_PATH` conve"
     },
     {
@@ -1693,7 +1702,7 @@
      "title": "v1.4.0 — one widget, reset notifications, Command Code sessions",
      "at": "2026-09-19T21:41:43Z",
      "pre": false,
-     "url": "https://github.com/btsouth/omarchy-usage-dashboard/releases/tag/v1.4.0",
+     "url": "https://github.com/btsouth/agent-pulse/releases/tag/v1.4.0",
      "body": "# AI Usage Dashboard v1.4.0\n\nThis release makes the packaged widget the only widget — and the complete one — adds reset notifications, and counts work done through the Command Code CLI.\n\n## 🔀 The widget merge\n\nThe widget that ships with the dashboard now includes everything a private, customized clone held — rebuilt as settings anyone can set from the widget's `bar.layout` entry in `shell.json`:\n\n- **`providerOrder`** — walk the bar and panel in your order. Unlisted providers follow alphabetically, so a new provider never drops off the end.\n- **`launchCommands`** — right-click a provider to launch its own CLI in a terminal; unmapped providers fall back to Omarchy's agent picker.\n- **`extraProviders`** — write an upstream-format record into the usage directory and the widget shows it. Bring your own collector; the record is the whole contract.\n- **`alwaysShow`** — keep a provider on the bar before it has numbers.\n- **Fireworks** is back (off by default; enable it in Settings).\n\nThe installer now names any other installed model-usage widget it finds — including Omarchy's built-in Agents widget — so a second AI icon never appears by surprise.\n\n## 🔔 Reset notifications\n\nA desktop notification when a **weekly or monthly limit resets**, or when banked reset credits arrive (the way Codex delivers dropped resets) — with the provider's own mark on the popup.\n\n- Short (session) windows never notify\n- Codex and Claude are watched by default; more via `--provider`, never by silent opt-in\n- Overlapping refreshes serialize on a lock file, so a reset notifies exactly once\n\n## 💳 Command"
     },
     {
@@ -1701,7 +1710,7 @@
      "title": "AI Usage Dashboard 1.3.0",
      "at": "2026-09-17T21:09:52Z",
      "pre": false,
-     "url": "https://github.com/btsouth/omarchy-usage-dashboard/releases/tag/v1.3.0",
+     "url": "https://github.com/btsouth/agent-pulse/releases/tag/v1.3.0",
      "body": "- CommandCode usage: plan windows read from an API key you supply, with the resets it publishes. Its allowance is measured in credit value rather than tokens (the $10 GOAT plan allows $14 in any 5 hours, $35 in any 7 days, and $70 a month), and each window reports its own spend, cap, and reset time, so these meters carry a countdown where the other providers cannot. Add the key under **Settings**, or export `COMMANDCODE_API_KEY`, or drop it in `~/.config/omarchy/ai-usage/commandcode.key`. The key is never written back, never leaves the request it authenticates, and never appears in anything the dashboard renders.\n- Count CommandCode token history through the same agent ledger as OpenCode Go and Ollama Cloud. Its two profiles for one account, one OpenAI-shaped and one Anthropic-shaped, collapse onto one card, with the raw route kept in the Routes breakdown so nothing is double counted.\n- CommandCode model rates, transcribed from the rates it publishes rather than the labs' list prices, since it bills against its own resale table. Includes its peak window that doubles the DeepSeek rates on weekday early mornings. Models that are free while capacity lasts price at zero instead of reading as unpriced.\n- Keep the provider tabs on one row: the chips now share the width evenly and keep their own text width, so four or five providers sit on one line instead of wrapping, with more room on both sides.\n\nInstall or update: `curl -fsSL https://raw.githubusercontent.com/btsouth/omarchy-usage-dashboard/main/install.sh | bash -s -- --with-plugin`"
     },
     {
@@ -1709,7 +1718,7 @@
      "title": "AI Usage Dashboard 1.2.0",
      "at": "2026-09-17T08:23:17Z",
      "pre": false,
-     "url": "https://github.com/btsouth/omarchy-usage-dashboard/releases/tag/v1.2.0",
+     "url": "https://github.com/btsouth/agent-pulse/releases/tag/v1.2.0",
      "body": "- Ollama Cloud usage: local token history alongside the plan's usage limits, read from an API key you supply. Add it under **Settings**, or export `OLLAMA_API_KEY`, or drop a key in `~/.config/omarchy/ai-usage/ollama.key`. The key is never written back, never leaves the request it authenticates, and never appears in anything the dashboard renders.\n- Ollama Cloud model rates, including the published peak window that doubles the DeepSeek rates on weekday afternoons.\n- Count your agent's own OpenCode Go and Ollama Cloud spending. Running those routes through Hermes used to hide that usage; both are now included, and they reconcile to the agent's own ledger exactly.\n- Split agent-sourced usage by what it was for: typed prompts, title generation, context compression, vision, approvals, and background review.\n- Treat a Hermes home as an account source folder, so it can be labelled per account or imported from another machine.\n- Show up to four model rows on each overview card, from local token totals. Providers whose usage endpoint reports one aggregate number cannot supply per-model shares, so the local figures are the honest view there.\n- Fix the bar widget's scrollbar so it no longer draws over the text, and give the provider chips room to fit their labels.\n\nInstall or update: `curl -fsSL https://raw.githubusercontent.com/btsouth/omarchy-usage-dashboard/main/install.sh | bash -s -- --with-plugin`"
     },
     {
@@ -1717,7 +1726,7 @@
      "title": "AI Usage Dashboard 1.1.1",
      "at": "2026-09-16T02:29:53Z",
      "pre": false,
-     "url": "https://github.com/btsouth/omarchy-usage-dashboard/releases/tag/v1.1.1",
+     "url": "https://github.com/btsouth/agent-pulse/releases/tag/v1.1.1",
      "body": "- Follow Omarchy theme swaps live again: the dashboard watches the stable theme directory, which survives the swap that replaces it by rename.\n- Repaint theme changes from a fast palette read instead of a full history scan, removing the two to three second lag after `omarchy theme set`.\n- Derive the Pi provider color from the theme's bright foreground, since no shipped theme defines `bright_white`.\n- Let the demo enable a subset of agents with `--agents` for quieter screenshots.\n\nInstall or update: `curl -fsSL https://raw.githubusercontent.com/btsouth/omarchy-usage-dashboard/main/install.sh | bash -s -- --with-plugin`"
     },
     {
@@ -1725,7 +1734,7 @@
      "title": "AI Usage Dashboard 1.1.0",
      "at": "2026-09-16T01:47:20Z",
      "pre": false,
-     "url": "https://github.com/btsouth/omarchy-usage-dashboard/releases/tag/v1.1.0",
+     "url": "https://github.com/btsouth/agent-pulse/releases/tag/v1.1.0",
      "body": "- Synced machine ledgers: point every machine at one shared folder and each imports the others' snapshots, so totals, charts, and model breakdowns cover all of them.\n- Show synced machines in the data coverage card, and warn once per broken snapshot instead of every scan.\n- Fix release pinning in the one-line installer: tags download correctly, not only branches.\n\nInstall or update: `curl -fsSL https://raw.githubusercontent.com/btsouth/omarchy-usage-dashboard/main/install.sh | bash -s -- --with-plugin`"
     },
     {
@@ -1733,7 +1742,7 @@
      "title": "AI Usage Dashboard 1.0.0",
      "at": "2026-09-16T01:35:59Z",
      "pre": false,
-     "url": "https://github.com/btsouth/omarchy-usage-dashboard/releases/tag/v1.0.0",
+     "url": "https://github.com/btsouth/agent-pulse/releases/tag/v1.0.0",
      "body": "First public release of the AI Usage Dashboard for Omarchy.\n\n- Named history accounts with multiple folders, account comparisons, and filters.\n- Deduplicate mirrored history and flag conflicting account assignments.\n- API-value shares and tokens/value per recorded session.\n- Grok Build history, recorded API value, model calls, and weekly quota.\n- Gemini CLI, general OpenCode, Pi, and Oh My Pi history, with source-route breakdowns.\n- Detect active sources on first use and adapt layouts to the enabled providers.\n- Refresh Grok quota after login and request fresh limits on manual Refresh.\n- Reopen unmapped dashboard windows and focus the correct instance across workspaces.\n- Keep provider colors readable on light and dark backgrounds.\n- Wrap bar-widget provider chips when many sources are enabled.\n- One overview card per account, with optional monthly prices per provider or labelled account.\n- Daily and hourly charts split into one series per account when a provider has more than one, each in its own shade of the provider color, largest solid and the others dashed.\n- Labelled accounts read their own agent usage record by matching id or name, so a second Codex account shows its quota beside the current login.\n- OpenCode Go prices the full documented model table, doubles DeepSeek rates during peak hours, and falls back to OpenCode's recorded cost for unlisted models.\n- The Go card shows value used against each model's monthly allowance, including the DeepSeek V4.1 Flash 4x promo through Sep 20.\n- Price Codex `gpt-5.3-codex-spark` and mark `codex-auto-review` internal, clearing t"
     }
    ]
@@ -2791,7 +2800,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-03T20:29:36Z",
+   "pushedAt": "2026-10-03T22:26:57Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4469,7 +4478,7 @@
   ],
   [
    "2026-10-03",
-   219
+   233
   ]
  ]
 }
