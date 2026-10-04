@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-03T22:56:12.609Z",
+ "generatedAt": "2026-10-04T00:01:10.015Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
-   "pushedAt": "2026-10-03T22:36:25Z",
+   "pushedAt": "2026-10-03T23:15:20Z",
    "latest": "v1.23.5",
    "releaseDates": [
     "2026-10-03T01:45:09Z",
@@ -1272,7 +1272,7 @@
   },
   "btsouth/omaroll": {
    "stars": 50,
-   "pushedAt": "2026-10-03T22:50:25Z",
+   "pushedAt": "2026-10-03T23:57:07Z",
    "latest": "v1.13.0",
    "releaseDates": [
     "2026-10-03T18:16:20Z",
@@ -1452,9 +1452,10 @@
   },
   "btsouth/omaframe": {
    "stars": 12,
-   "pushedAt": "2026-10-03T22:52:50Z",
-   "latest": "v0.8.2",
+   "pushedAt": "2026-10-03T23:58:22Z",
+   "latest": "v0.9.0",
    "releaseDates": [
+    "2026-10-03T23:56:55Z",
     "2026-10-03T22:53:15Z",
     "2026-10-03T16:07:48Z",
     "2026-10-03T05:39:15Z",
@@ -1474,6 +1475,14 @@
     "2026-09-28T12:15:00Z"
    ],
    "releases": [
+    {
+     "tag": "v0.9.0",
+     "title": "Omaframe 0.9.0",
+     "at": "2026-10-03T23:56:55Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaframe/releases/tag/v0.9.0",
+     "body": "# Omaframe 0.9.0\n\nA click in the finish chooser now selects a finish. It no longer copies, saves\nor closes the screenshot, so a stray click right after a capture is harmless.\nDouble-click a finish, press Enter or press 1 to 9 to copy it. Press E to mark\nup the selected finish first. Clicking outside the panel no longer cancels;\nEsc and the close button still do. Thanks to @sonlndv, who first proposed\nselecting with a click.\n\nIn the editor, Ctrl+C, Ctrl+X and Ctrl+V copy, cut and paste the selected mark.\nThey never copy or close the screenshot. Each paste lands a step further from\nthe last, so the same arrow can be placed several times at the same size.\nVideo marks get the same keys, plus Ctrl+D to duplicate. A pasted video mark\nstarts at the playhead and keeps its length; blur and redact keep their times.\n\nFinishing from the editor now follows **Save screenshots automatically**. With\nit off, **Copy** (Ctrl+Enter) copies without saving, and **Copy and save**\n(Ctrl+S) still keeps a file. Ctrl+Shift+C no longer finishes.\n\nValidated with all thirteen regression suites, including new tests for the\nchooser clicks, mark copy and paste in the editor and video pane, and editor\nfinishing with automatic saving on and off. Checked in an isolated Omarchy\ndesktop. Physical GPU, microphone and camera combinations were not retested\nfor this release.\n\nUpdate through `omarchy update` or `sudo pacman -Syu`, then reopen Omaframe.\nExisting captures, settings and drafts are preserved."
+    },
     {
      "tag": "v0.8.2",
      "title": "Omaframe 0.8.2",
@@ -2809,7 +2818,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-03T22:50:21Z",
+   "pushedAt": "2026-10-03T23:57:55Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -3005,34 +3014,6 @@
   }
  },
  "days": [
-  [
-   "2025-09-28",
-   0
-  ],
-  [
-   "2025-09-29",
-   0
-  ],
-  [
-   "2025-09-30",
-   0
-  ],
-  [
-   "2025-10-01",
-   0
-  ],
-  [
-   "2025-10-02",
-   0
-  ],
-  [
-   "2025-10-03",
-   0
-  ],
-  [
-   "2025-10-04",
-   0
-  ],
   [
    "2025-10-05",
    0
@@ -4487,7 +4468,11 @@
   ],
   [
    "2026-10-03",
-   246
+   260
+  ],
+  [
+   "2026-10-04",
+   0
   ]
  ]
 }
