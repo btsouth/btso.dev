@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-04T18:18:07.496Z",
+ "generatedAt": "2026-10-04T18:31:11.143Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -660,7 +660,7 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 538,
-   "pushedAt": "2026-10-04T18:08:09Z",
+   "pushedAt": "2026-10-04T18:21:08Z",
    "latest": "runtime-v1-r21",
    "releaseDates": [
     "2026-10-04T17:55:58Z",
@@ -957,9 +957,10 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 1,
-   "pushedAt": "2026-10-04T18:03:47Z",
-   "latest": "linux-app-v0.1.1",
+   "pushedAt": "2026-10-04T18:29:03Z",
+   "latest": "linux-v0.2.0",
    "releaseDates": [
+    "2026-10-04T18:29:03Z",
     "2026-10-02T01:34:40Z",
     "2026-09-30T23:39:16Z",
     "2026-09-30T01:40:43Z",
@@ -971,6 +972,14 @@
     "2026-09-28T13:10:23Z"
    ],
    "releases": [
+    {
+     "tag": "linux-v0.2.0",
+     "title": "Linux guest image v0.2.0",
+     "at": "2026-10-04T18:29:03Z",
+     "pre": true,
+     "url": "https://github.com/btsouth/try-omarchy-linux/releases/tag/linux-v0.2.0",
+     "body": "Guest image for Try Omarchy for Linux 0.2.0. The Linux app downloads this image on first run and when it updates an existing VM.\n\nThe app verifies every file against `SHA256SUMS`, and pins the SHA256 of `SHA256SUMS` itself:\n\n`9018c27c21accd17a1bafbfd31e47f62611411a8f9a9c12fb673399efa87699e`\n\nChanges since linux-v0.1.1 (compatibility revision 55):\n\n- New VMs start on Omarchy 4.0.4 (existing ones update through Update, Omarchy), with the shared guest improvements from Try Omarchy for Windows, including desktop defaults, audio and battery fixes.\n- The clock follows live time-zone changes on the host computer while respecting a time zone chosen inside Omarchy.\n- Settings, file sharing and power menus use Linux host wording.\n- Older Linux disks receive the missing shared guest improvements when they upgrade. Quick-start SSH remains limited to keys, and customized guest settings are preserved.\n\nBuilt from the unified guest patch series in `guest-build`, with Linux 7.2.8. Omarchy and the guest packages keep their own licenses; see `LICENSE.omarchy`, `packages.lock.txt` and the repository's third-party notices."
+    },
     {
      "tag": "linux-app-v0.1.1",
      "title": "Try Omarchy for Linux v0.1.1: Bazzite startup fix",
@@ -2845,7 +2854,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-04T18:16:14Z",
+   "pushedAt": "2026-10-04T18:30:23Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4499,7 +4508,7 @@
   ],
   [
    "2026-10-04",
-   86
+   89
   ]
  ]
 }
