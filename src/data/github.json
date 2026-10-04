@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-04T22:26:10.604Z",
+ "generatedAt": "2026-10-04T23:26:10.776Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -966,7 +966,7 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 1,
-   "pushedAt": "2026-10-04T22:12:43Z",
+   "pushedAt": "2026-10-04T23:23:43Z",
    "latest": "linux-app-v0.2.0",
    "releaseDates": [
     "2026-10-04T18:56:57Z",
@@ -1074,7 +1074,7 @@
   },
   "btsouth/omakade": {
    "stars": 427,
-   "pushedAt": "2026-10-04T21:57:07Z",
+   "pushedAt": "2026-10-04T22:28:19Z",
    "latest": "v1.15.0",
    "releaseDates": [
     "2026-10-04T01:09:43Z",
@@ -1821,9 +1821,10 @@
   },
   "btsouth/omadrop": {
    "stars": 5,
-   "pushedAt": "2026-10-04T22:20:47Z",
-   "latest": "v0.6.0",
+   "pushedAt": "2026-10-04T23:23:05Z",
+   "latest": "v0.6.1",
    "releaseDates": [
+    "2026-10-04T23:25:07Z",
     "2026-10-04T22:24:03Z",
     "2026-10-03T00:33:55Z",
     "2026-09-04T04:16:55Z",
@@ -1832,6 +1833,14 @@
     "2026-08-23T22:57:23Z"
    ],
    "releases": [
+    {
+     "tag": "v0.6.1",
+     "title": "Omadrop 0.6.1",
+     "at": "2026-10-04T23:25:07Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omadrop/releases/tag/v0.6.1",
+     "body": "A quick fix for MilkDrop mode.\n\n- MilkDrop now starts with \"This screen\" selected. In 0.6.0 it could exit right away because the monitor name Hyprland reports, like `DP-2`, did not exactly match the name SDL uses, like `DP-2 27\"`. This also fixes MilkDrop on all displays where the names differ.\n\n### Install on Omarchy\n\n```sh\ncurl -fsSL https://pkgs.btso.dev/install.sh | bash -s -- omadrop\n```\n\nIf you already use the signed repository, `omarchy update` or `sudo pacman -Syu` picks this up. To install this release directly instead:\n\n```sh\ncurl -fLO https://github.com/btsouth/omadrop/releases/download/v0.6.1/omadrop-x86_64.pkg.tar.zst && sudo pacman -U ./omadrop-x86_64.pkg.tar.zst\n```\n\n`SHA256SUMS` contains the download checksums."
+    },
     {
      "tag": "v0.6.0",
      "title": "Omadrop 0.6.0: Osaka Jade",
@@ -2881,7 +2890,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-04T22:19:12Z",
+   "pushedAt": "2026-10-04T22:42:42Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4535,7 +4544,7 @@
   ],
   [
    "2026-10-04",
-   133
+   162
   ]
  ]
 }
