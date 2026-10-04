@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-04T00:18:05.628Z",
+ "generatedAt": "2026-10-04T01:11:13.632Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -1038,9 +1038,10 @@
   },
   "btsouth/omakade": {
    "stars": 426,
-   "pushedAt": "2026-10-03T22:43:07Z",
-   "latest": "v1.14.2",
+   "pushedAt": "2026-10-04T00:53:48Z",
+   "latest": "v1.15.0",
    "releaseDates": [
+    "2026-10-04T01:09:43Z",
     "2026-10-03T22:40:41Z",
     "2026-10-03T14:26:36Z",
     "2026-10-03T11:57:39Z",
@@ -1068,6 +1069,14 @@
     "2026-09-01T02:14:44Z"
    ],
    "releases": [
+    {
+     "tag": "v1.15.0",
+     "title": "Omakade 1.15.0",
+     "at": "2026-10-04T01:09:43Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omakade/releases/tag/v1.15.0",
+     "body": "Press the Xbox, PlayStation or Home button to start Game Mode, return to the desktop\nand resume.\n\n- New **Controller Home button** setting in Settings → Controls, off by default. A short\n  press on any controller does what Super + Ctrl + G does, from inside a game or with\n  Omakade closed.\n- It runs as an optional user service, `omakade-guide-button`, that only reads\n  controllers. Nothing is grabbed, remapped or emulated, and Steam Input keeps working.\n- Long holds, chords with other buttons or triggers, the press that switches a\n  controller on and duplicate reports from Steam Input's pad are ignored. Presses while the screen is\n  locked are ignored.\n- With Steam open, turn off \"Guide button focuses Steam\" and \"Enable Guide Button\n  Chords for controllers\" in Steam's controller settings.\n\n[Install Omakade](https://github.com/btsouth/omakade/releases/tag/v1.15.0) ·\n[Game Mode guide](https://github.com/btsouth/omakade/blob/v1.15.0/docs/GAME-MODE.md)"
+    },
     {
      "tag": "v1.14.2",
      "title": "Omakade 1.14.2",
@@ -1271,8 +1280,8 @@
    ]
   },
   "btsouth/omaroll": {
-   "stars": 50,
-   "pushedAt": "2026-10-03T23:57:07Z",
+   "stars": 51,
+   "pushedAt": "2026-10-04T01:03:59Z",
    "latest": "v1.13.0",
    "releaseDates": [
     "2026-10-03T18:16:20Z",
@@ -1452,7 +1461,7 @@
   },
   "btsouth/omaframe": {
    "stars": 12,
-   "pushedAt": "2026-10-04T00:17:14Z",
+   "pushedAt": "2026-10-04T00:21:32Z",
    "latest": "v0.9.0",
    "releaseDates": [
     "2026-10-03T23:56:55Z",
@@ -2818,7 +2827,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-04T00:07:40Z",
+   "pushedAt": "2026-10-04T01:07:26Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4432,7 +4441,7 @@
   ],
   [
    "2026-09-24",
-   88
+   89
   ],
   [
    "2026-09-25",
@@ -4468,11 +4477,11 @@
   ],
   [
    "2026-10-03",
-   262
+   275
   ],
   [
    "2026-10-04",
-   1
+   2
   ]
  ]
 }
