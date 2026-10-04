@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-04T20:26:10.692Z",
+ "generatedAt": "2026-10-04T22:26:10.604Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -660,7 +660,7 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 538,
-   "pushedAt": "2026-10-04T20:21:08Z",
+   "pushedAt": "2026-10-04T22:16:50Z",
    "latest": "v0.9.0",
    "releaseDates": [
     "2026-10-04T20:21:08Z",
@@ -966,7 +966,7 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 1,
-   "pushedAt": "2026-10-04T18:56:56Z",
+   "pushedAt": "2026-10-04T22:12:43Z",
    "latest": "linux-app-v0.2.0",
    "releaseDates": [
     "2026-10-04T18:56:57Z",
@@ -1074,7 +1074,7 @@
   },
   "btsouth/omakade": {
    "stars": 427,
-   "pushedAt": "2026-10-04T19:03:21Z",
+   "pushedAt": "2026-10-04T21:57:07Z",
    "latest": "v1.15.0",
    "releaseDates": [
     "2026-10-04T01:09:43Z",
@@ -1821,9 +1821,10 @@
   },
   "btsouth/omadrop": {
    "stars": 5,
-   "pushedAt": "2026-10-04T18:06:26Z",
-   "latest": "v0.5.0",
+   "pushedAt": "2026-10-04T22:20:47Z",
+   "latest": "v0.6.0",
    "releaseDates": [
+    "2026-10-04T22:24:03Z",
     "2026-10-03T00:33:55Z",
     "2026-09-04T04:16:55Z",
     "2026-08-25T02:45:49Z",
@@ -1831,6 +1832,14 @@
     "2026-08-23T22:57:23Z"
    ],
    "releases": [
+    {
+     "tag": "v0.6.0",
+     "title": "Omadrop 0.6.0: Osaka Jade",
+     "at": "2026-10-04T22:24:03Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omadrop/releases/tag/v0.6.0",
+     "body": "Omarchy mode is now Osaka Jade: a living street that reacts to your music.\n\nThe old terminal effects are gone. In their place is one hand-built world. Windows breathe with the music, the moon pulses on the bass, birds hop on the beat, and loud songs set off a firework show. Trains, cyclists, the noodle cart and the rest of the street come back at different times on every launch, so it never plays the same way twice. MilkDrop and its ASCII option are still here and still the default.\n\n- Osaka Jade plays on every Omarchy theme. Esc returns to the controls.\n- Fireworks follow the music: loud, bass-heavy songs get a full show with follow-up shells, quiet songs get a single small one.\n- It reacts at normal desktop volume, not only when the music is loud.\n- Slower GPUs, such as integrated Intel graphics, get a lower internal resolution automatically. Set `OMADROP_OSAKA_SCALE` (0.5 to 1) to fix it.\n- The mouse pointer hides as soon as the visuals start.\n- \"This screen\" plays on the monitor you are using.\n- The ttfx terminal effects, the effect browser and their dependencies are removed. Upgrades clean up the old launchers.\n\n### Install on Omarchy\n\n```sh\ncurl -fsSL https://pkgs.btso.dev/install.sh | bash -s -- omadrop\n```\n\nThis adds the signed package repository, so Omadrop updates with the rest of your system. If you installed an earlier release by hand, run the same command to start getting updates.\n\nTo install this release directly instead:\n\n```sh\ncurl -fLO https://github.com/btsouth/omadrop/releases/download/v0.6.0/omadrop-x86_64.pkg.tar.zst && sudo pacman -U ./omadrop-x86_64.p"
+    },
     {
      "tag": "v0.5.0",
      "title": "Omadrop v0.5.0",
@@ -2872,7 +2881,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-04T19:07:53Z",
+   "pushedAt": "2026-10-04T22:19:12Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4526,7 +4535,7 @@
   ],
   [
    "2026-10-04",
-   96
+   133
   ]
  ]
 }
