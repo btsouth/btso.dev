@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-04T01:11:13.632Z",
+ "generatedAt": "2026-10-04T01:16:30.288Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -1282,8 +1282,9 @@
   "btsouth/omaroll": {
    "stars": 51,
    "pushedAt": "2026-10-04T01:03:59Z",
-   "latest": "v1.13.0",
+   "latest": "v1.14.0",
    "releaseDates": [
+    "2026-10-04T01:15:07Z",
     "2026-10-03T18:16:20Z",
     "2026-10-03T07:16:58Z",
     "2026-10-02T23:42:56Z",
@@ -1305,6 +1306,14 @@
     "2026-09-02T01:06:06Z"
    ],
    "releases": [
+    {
+     "tag": "v1.14.0",
+     "title": "Omaroll 1.14.0",
+     "at": "2026-10-04T01:15:07Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaroll/releases/tag/v1.14.0",
+     "body": "Photos and videos open faster, and videos work with media keys and the shell's\nplayer controls. This release also brings the application chooser and more\nnavigation shortcuts to both viewers.\n\n### Added\n\n- Media keys and the desktop player panel control Omaroll videos through MPRIS,\n  including play/pause, seeking and track navigation.\n- Additional video types sent by Omarchy's file associations open in Omaroll,\n  including 3G2, ASF and OGM. Audio-only Ogg associations stay unchanged.\n- `Shift+Delete` permanently deletes the current file or checked library files.\n  Confirmation is on by default, with an explicit opt-out in Settings.\n  Regular `Delete` still uses recoverable Trash.\n- Open with offers the desktop application chooser for the current file,\n  without changing MIME defaults. The menu and `Ctrl+O` work in both viewers\n  and the library grid.\n- Show in file manager selects the current file through the standard\n  file-manager interface of the configured folder handler, falling back to\n  opening its containing folder with `xdg-open` when selection is unavailable.\n- Mouse back and forward buttons navigate files in both viewers.\n- `1` toggles fit and actual size in both image viewers; from a custom zoom,\n  it still goes to actual size first. `0` still fits.\n\n### Changed\n\n- Startup uses the desktop portal theme instead of loading GTK3.\n- Opening a video shows its poster while the player starts. Linux playback\n  avoids Qt's broad hardware-device scan, uses guarded CUDA/VAAPI discovery,\n  and retains software fallback and explicit user overrides.\n\n[Install or update](http"
+    },
     {
      "tag": "v1.13.0",
      "title": "Omaroll 1.13.0",
@@ -4481,7 +4490,7 @@
   ],
   [
    "2026-10-04",
-   2
+   3
   ]
  ]
 }
