@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-04T12:18:44.184Z",
+ "generatedAt": "2026-10-04T17:56:10.304Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -659,10 +659,11 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 536,
-   "pushedAt": "2026-10-03T17:52:41Z",
-   "latest": "v0.8.0",
+   "stars": 538,
+   "pushedAt": "2026-10-04T17:55:57Z",
+   "latest": "runtime-v1-r21",
    "releaseDates": [
+    "2026-10-04T17:55:58Z",
     "2026-10-02T03:22:58Z",
     "2026-10-01T03:41:30Z",
     "2026-10-01T01:33:26Z",
@@ -696,6 +697,14 @@
     "2026-08-28T00:49:21Z"
    ],
    "releases": [
+    {
+     "tag": "runtime-v1-r21",
+     "title": "WINQ-EMU r21 runtime",
+     "at": "2026-10-04T17:55:58Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/runtime-v1-r21",
+     "body": "WINQ-EMU r21 runtime component and corresponding source archives for the next signed Try Omarchy app release. This is not a standalone launcher or a new app version.\n\nBuilt from the source-locked recipe at commit `8ec4033826e09cbd4c833c059bb0fd1517f18857` (the same tree as `master` at `a02465f`) in [Runtime run 37135317236](https://github.com/omacom/try-omarchy-windows/actions/runs/37135317236). `SHA256SUMS` covers both archives. r21 opens Windows playback and recording at each device's own sample rate, keeps precision touchpad scrolling smooth instead of rounding it to whole wheel clicks, and checks the host GPU driver's exact image import support before sharing images with it.\n\nThe currently published `v0.8.0` app pins r20c. The next signed app release will pin r21."
+    },
     {
      "tag": "v0.8.0",
      "title": "v0.8.0",
@@ -948,7 +957,7 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 1,
-   "pushedAt": "2026-10-04T12:09:12Z",
+   "pushedAt": "2026-10-04T17:46:10Z",
    "latest": "linux-app-v0.1.1",
    "releaseDates": [
     "2026-10-02T01:34:40Z",
@@ -1038,7 +1047,7 @@
   },
   "btsouth/omakade": {
    "stars": 427,
-   "pushedAt": "2026-10-04T00:53:48Z",
+   "pushedAt": "2026-10-04T17:54:48Z",
    "latest": "v1.15.0",
    "releaseDates": [
     "2026-10-04T01:09:43Z",
@@ -2836,7 +2845,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-04T11:50:58Z",
+   "pushedAt": "2026-10-04T17:50:35Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4470,27 +4479,27 @@
   ],
   [
    "2026-09-29",
-   222
+   237
   ],
   [
    "2026-09-30",
-   125
+   180
   ],
   [
    "2026-10-01",
-   166
+   208
   ],
   [
    "2026-10-02",
-   174
+   187
   ],
   [
    "2026-10-03",
-   283
+   319
   ],
   [
    "2026-10-04",
-   27
+   76
   ]
  ]
 }
