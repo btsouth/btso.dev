@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-04T19:01:10.541Z",
+ "generatedAt": "2026-10-04T20:26:10.692Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -660,9 +660,10 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 538,
-   "pushedAt": "2026-10-04T18:21:08Z",
-   "latest": "runtime-v1-r21",
+   "pushedAt": "2026-10-04T20:21:08Z",
+   "latest": "v0.9.0",
    "releaseDates": [
+    "2026-10-04T20:21:08Z",
     "2026-10-04T17:55:58Z",
     "2026-10-02T03:22:58Z",
     "2026-10-01T03:41:30Z",
@@ -697,6 +698,14 @@
     "2026-08-28T00:49:21Z"
    ],
    "releases": [
+    {
+     "tag": "v0.9.0",
+     "title": "v0.9.0",
+     "at": "2026-10-04T20:21:08Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.9.0",
+     "body": "This update makes Omarchy sound and scroll more like Windows, and adds Simplified Chinese.\n\nAudio now plays at your Windows device's own sample rate and as loud as Windows does. Precision touchpads scroll smoothly in both directions instead of in wheel steps, and Omarchy's battery panel shows the health, capacity and cycle count that Windows reports. Image Viewer and Media Player are more reliable, and Settings no longer smears text while scrolling at higher display scaling.\n\nThe launcher is available in Simplified Chinese, thanks to @Dazzle-sys, and Korean now covers Settings and Help, thanks to @seunghan91. Inside Omarchy there are a few smaller fixes too, like clearer guidance from Update > Omarchy when the disk needs more space and better Traditional Chinese input.\n\n[Download Try Omarchy for Windows](https://tryomarchy.com/download)"
+    },
     {
      "tag": "runtime-v1-r21",
      "title": "WINQ-EMU r21 runtime",
@@ -1065,7 +1074,7 @@
   },
   "btsouth/omakade": {
    "stars": 427,
-   "pushedAt": "2026-10-04T17:54:48Z",
+   "pushedAt": "2026-10-04T19:03:21Z",
    "latest": "v1.15.0",
    "releaseDates": [
     "2026-10-04T01:09:43Z",
@@ -2863,7 +2872,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-04T18:54:00Z",
+   "pushedAt": "2026-10-04T19:07:53Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4517,7 +4526,7 @@
   ],
   [
    "2026-10-04",
-   93
+   96
   ]
  ]
 }
