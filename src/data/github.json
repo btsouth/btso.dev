@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-04T18:31:11.143Z",
+ "generatedAt": "2026-10-04T19:01:10.541Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -957,9 +957,10 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 1,
-   "pushedAt": "2026-10-04T18:29:03Z",
-   "latest": "linux-v0.2.0",
+   "pushedAt": "2026-10-04T18:56:56Z",
+   "latest": "linux-app-v0.2.0",
    "releaseDates": [
+    "2026-10-04T18:56:57Z",
     "2026-10-04T18:29:03Z",
     "2026-10-02T01:34:40Z",
     "2026-09-30T23:39:16Z",
@@ -972,6 +973,14 @@
     "2026-09-28T13:10:23Z"
    ],
    "releases": [
+    {
+     "tag": "linux-app-v0.2.0",
+     "title": "Try Omarchy for Linux v0.2.0",
+     "at": "2026-10-04T18:56:57Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/try-omarchy-linux/releases/tag/linux-app-v0.2.0",
+     "body": "Snapshots, disk space reclaim, a path to installed Omarchy, and a newer Omarchy guest.\n\n- Take snapshots of the VM and roll back to them\n- Give unused disk space back to this computer\n- Bring a trial into an installed Omarchy, including saved sign-ins and password-protected GNOME keyrings\n- Drop files from this computer straight into the Omarchy app under the pointer\n- Open approved apps on this computer from Omarchy\n- Follow this computer's time zone as it changes\n- Choose which monitor the app opens fullscreen on\n- Shared folder, diagnostics and help in the tray menu\n\nThe guest image is now `linux-v0.2.0`. New VMs start on Omarchy 4.0.4. Existing VMs upgrade at their next launch, keep their files and settings, and can move to Omarchy 4.0.4 through Update, Omarchy. If the new image does not reach the desktop, the app rolls back to the previous one.\n\n[Install Try Omarchy for Linux](https://tryomarchy.com/linux/). Existing installations can update through Software or `flatpak update`, keeping their VM and settings."
+    },
     {
      "tag": "linux-v0.2.0",
      "title": "Linux guest image v0.2.0",
@@ -2854,7 +2863,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-04T18:30:23Z",
+   "pushedAt": "2026-10-04T18:54:00Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4508,7 +4517,7 @@
   ],
   [
    "2026-10-04",
-   89
+   93
   ]
  ]
 }
