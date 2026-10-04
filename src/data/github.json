@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-04T01:16:30.288Z",
+ "generatedAt": "2026-10-04T06:18:06.416Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -1037,7 +1037,7 @@
    ]
   },
   "btsouth/omakade": {
-   "stars": 426,
+   "stars": 427,
    "pushedAt": "2026-10-04T00:53:48Z",
    "latest": "v1.15.0",
    "releaseDates": [
@@ -1281,7 +1281,7 @@
   },
   "btsouth/omaroll": {
    "stars": 51,
-   "pushedAt": "2026-10-04T01:03:59Z",
+   "pushedAt": "2026-10-04T01:23:40Z",
    "latest": "v1.14.0",
    "releaseDates": [
     "2026-10-04T01:15:07Z",
@@ -1308,11 +1308,11 @@
    "releases": [
     {
      "tag": "v1.14.0",
-     "title": "Omaroll 1.14.0",
+     "title": "Omaroll 1.14.0: faster photos and videos",
      "at": "2026-10-04T01:15:07Z",
      "pre": false,
      "url": "https://github.com/btsouth/omaroll/releases/tag/v1.14.0",
-     "body": "Photos and videos open faster, and videos work with media keys and the shell's\nplayer controls. This release also brings the application chooser and more\nnavigation shortcuts to both viewers.\n\n### Added\n\n- Media keys and the desktop player panel control Omaroll videos through MPRIS,\n  including play/pause, seeking and track navigation.\n- Additional video types sent by Omarchy's file associations open in Omaroll,\n  including 3G2, ASF and OGM. Audio-only Ogg associations stay unchanged.\n- `Shift+Delete` permanently deletes the current file or checked library files.\n  Confirmation is on by default, with an explicit opt-out in Settings.\n  Regular `Delete` still uses recoverable Trash.\n- Open with offers the desktop application chooser for the current file,\n  without changing MIME defaults. The menu and `Ctrl+O` work in both viewers\n  and the library grid.\n- Show in file manager selects the current file through the standard\n  file-manager interface of the configured folder handler, falling back to\n  opening its containing folder with `xdg-open` when selection is unavailable.\n- Mouse back and forward buttons navigate files in both viewers.\n- `1` toggles fit and actual size in both image viewers; from a custom zoom,\n  it still goes to actual size first. `0` still fits.\n\n### Changed\n\n- Startup uses the desktop portal theme instead of loading GTK3.\n- Opening a video shows its poster while the player starts. Linux playback\n  avoids Qt's broad hardware-device scan, uses guarded CUDA/VAAPI discovery,\n  and retains software fallback and explicit user overrides.\n\n[Install or update](http"
+     "body": "Photos and videos open faster, with a preview shown while video playback starts. Videos now work with media keys and the desktop player panel, and Omaroll opens more of Omarchy’s video types.\n\nMPRIS supports play/pause, stop, seeking, rate and volume. Next/previous controls are not offered in this release.\n\nBoth viewers gain Open with, mouse back/forward navigation and a fit/actual-size toggle on `1`. Show in file manager selects the file when your default manager supports it.\n\n`Shift+Delete` adds permanent deletion with confirmation on by default. You can explicitly disable that prompt in Settings; ordinary `Delete` continues to use Trash.\n\n[Install or update](https://github.com/btsouth/omaroll#install-or-update) · [Full changelog](https://github.com/btsouth/omaroll/blob/main/CHANGELOG.md#1140)\n\nThanks to @dyedfox for the viewer shortcuts, Open with, file-manager and permanent-delete requests."
     },
     {
      "tag": "v1.13.0",
@@ -2836,7 +2836,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-04T01:07:26Z",
+   "pushedAt": "2026-10-04T06:15:42Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4486,11 +4486,11 @@
   ],
   [
    "2026-10-03",
-   275
+   283
   ],
   [
    "2026-10-04",
-   3
+   8
   ]
  ]
 }
