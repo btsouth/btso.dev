@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-05T12:18:07.951Z",
+ "generatedAt": "2026-10-05T12:26:12.542Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -1326,7 +1326,7 @@
   },
   "btsouth/omaroll": {
    "stars": 52,
-   "pushedAt": "2026-10-04T01:23:40Z",
+   "pushedAt": "2026-10-05T12:24:52Z",
    "latest": "v1.14.0",
    "releaseDates": [
     "2026-10-04T01:15:07Z",
@@ -1830,9 +1830,10 @@
   },
   "btsouth/omadrop": {
    "stars": 5,
-   "pushedAt": "2026-10-05T12:00:06Z",
-   "latest": "v0.6.2",
+   "pushedAt": "2026-10-05T12:20:23Z",
+   "latest": "v0.6.3",
    "releaseDates": [
+    "2026-10-05T12:23:47Z",
     "2026-10-05T12:02:37Z",
     "2026-10-04T23:25:07Z",
     "2026-10-04T22:24:03Z",
@@ -1843,6 +1844,14 @@
     "2026-08-23T22:57:23Z"
    ],
    "releases": [
+    {
+     "tag": "v0.6.3",
+     "title": "Omadrop 0.6.3",
+     "at": "2026-10-05T12:23:47Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omadrop/releases/tag/v0.6.3",
+     "body": "A fix for MilkDrop on more than one display.\n\n- MilkDrop with \"All screens\" selected now opens full screen on every display. Before, the second window opened as a small window on the focused display.\n\n### Install on Omarchy\n\n```sh\ncurl -fsSL https://pkgs.btso.dev/install.sh | bash -s -- omadrop\n```\n\nIf you already use the signed repository, `omarchy update` or `sudo pacman -Syu` picks this up. To install this release directly instead:\n\n```sh\ncurl -fLO https://github.com/btsouth/omadrop/releases/download/v0.6.3/omadrop-x86_64.pkg.tar.zst && sudo pacman -U ./omadrop-x86_64.pkg.tar.zst\n```\n\n`SHA256SUMS` contains the download checksums."
+    },
     {
      "tag": "v0.6.2",
      "title": "Omadrop 0.6.2",
@@ -2908,7 +2917,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-05T12:13:48Z",
+   "pushedAt": "2026-10-05T12:25:22Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4566,7 +4575,7 @@
   ],
   [
    "2026-10-05",
-   30
+   33
   ]
  ]
 }
