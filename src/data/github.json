@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-05T12:06:11.287Z",
+ "generatedAt": "2026-10-05T12:18:07.951Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -660,9 +660,10 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 541,
-   "pushedAt": "2026-10-05T11:31:32Z",
-   "latest": "v0.9.0",
+   "pushedAt": "2026-10-05T12:17:58Z",
+   "latest": "runtime-v1-r22",
    "releaseDates": [
+    "2026-10-05T12:16:07Z",
     "2026-10-04T20:21:08Z",
     "2026-10-04T17:55:58Z",
     "2026-10-02T03:22:58Z",
@@ -698,6 +699,14 @@
     "2026-08-28T00:49:21Z"
    ],
    "releases": [
+    {
+     "tag": "runtime-v1-r22",
+     "title": "WINQ-EMU r22 runtime",
+     "at": "2026-10-05T12:16:07Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/runtime-v1-r22",
+     "body": "WINQ-EMU r22 runtime component and corresponding source archives for the next signed Try Omarchy app release. This is not a standalone launcher or a new app version.\n\nBuilt from the source-locked recipe at commit `ccc7de2efa92495d52b0ad43ab57c65185c06589` (`master`) in [Runtime run 37303492481](https://github.com/omacom/try-omarchy-windows/actions/runs/37303492481). `SHA256SUMS` covers both archives. r22 makes CPU rendering mode really limit the processor features Omarchy sees, and lets tools like PowerToys and AutoHotkey see the Win key while Omarchy runs.\n\nThe currently published `v0.9.0` app pins r21. The next signed app release will pin r22."
+    },
     {
      "tag": "v0.9.0",
      "title": "v0.9.0",
@@ -2899,7 +2908,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-05T12:03:48Z",
+   "pushedAt": "2026-10-05T12:13:48Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4557,7 +4566,7 @@
   ],
   [
    "2026-10-05",
-   28
+   30
   ]
  ]
 }
