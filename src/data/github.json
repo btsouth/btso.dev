@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-05T09:43:58.728Z",
+ "generatedAt": "2026-10-05T12:06:11.287Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -659,8 +659,8 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 540,
-   "pushedAt": "2026-10-05T05:27:19Z",
+   "stars": 541,
+   "pushedAt": "2026-10-05T11:31:32Z",
    "latest": "v0.9.0",
    "releaseDates": [
     "2026-10-04T20:21:08Z",
@@ -965,7 +965,7 @@
    ]
   },
   "btsouth/try-omarchy-linux": {
-   "stars": 1,
+   "stars": 2,
    "pushedAt": "2026-10-05T03:28:07Z",
    "latest": "linux-app-v0.2.0",
    "releaseDates": [
@@ -1074,7 +1074,7 @@
   },
   "btsouth/omakade": {
    "stars": 427,
-   "pushedAt": "2026-10-04T22:28:19Z",
+   "pushedAt": "2026-10-05T11:10:44Z",
    "latest": "v1.15.0",
    "releaseDates": [
     "2026-10-04T01:09:43Z",
@@ -1821,9 +1821,10 @@
   },
   "btsouth/omadrop": {
    "stars": 5,
-   "pushedAt": "2026-10-05T07:01:15Z",
-   "latest": "v0.6.1",
+   "pushedAt": "2026-10-05T12:00:06Z",
+   "latest": "v0.6.2",
    "releaseDates": [
+    "2026-10-05T12:02:37Z",
     "2026-10-04T23:25:07Z",
     "2026-10-04T22:24:03Z",
     "2026-10-03T00:33:55Z",
@@ -1833,6 +1834,14 @@
     "2026-08-23T22:57:23Z"
    ],
    "releases": [
+    {
+     "tag": "v0.6.2",
+     "title": "Omadrop 0.6.2",
+     "at": "2026-10-05T12:02:37Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omadrop/releases/tag/v0.6.2",
+     "body": "Osaka Jade on integrated graphics.\n\n- Osaka Jade renders more than twice as fast on integrated graphics without changing how it looks. On an Intel UHD 770 at 1080p a frame now takes about 30 ms instead of 69 ms.\n- Slower GPUs keep full resolution at a steady 30 fps instead of dropping to a lower resolution. Resolution only steps down when 30 fps at full resolution is out of reach. Fast GPUs stay at 60 fps.\n\n### Install on Omarchy\n\n```sh\ncurl -fsSL https://pkgs.btso.dev/install.sh | bash -s -- omadrop\n```\n\nIf you already use the signed repository, `omarchy update` or `sudo pacman -Syu` picks this up. To install this release directly instead:\n\n```sh\ncurl -fLO https://github.com/btsouth/omadrop/releases/download/v0.6.2/omadrop-x86_64.pkg.tar.zst && sudo pacman -U ./omadrop-x86_64.pkg.tar.zst\n```\n\n`SHA256SUMS` contains the download checksums."
+    },
     {
      "tag": "v0.6.1",
      "title": "Omadrop 0.6.1",
@@ -2890,7 +2899,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-05T07:58:46Z",
+   "pushedAt": "2026-10-05T12:03:48Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4548,7 +4557,7 @@
   ],
   [
    "2026-10-05",
-   23
+   28
   ]
  ]
 }
