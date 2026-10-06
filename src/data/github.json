@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-06T01:01:12.663Z",
+ "generatedAt": "2026-10-06T01:21:11.747Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -660,9 +660,10 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 545,
-   "pushedAt": "2026-10-05T22:39:39Z",
-   "latest": "runtime-v1-r22",
+   "pushedAt": "2026-10-06T01:17:02Z",
+   "latest": "v0.10.0",
    "releaseDates": [
+    "2026-10-06T01:17:02Z",
     "2026-10-05T12:16:07Z",
     "2026-10-04T20:21:08Z",
     "2026-10-04T17:55:58Z",
@@ -699,6 +700,14 @@
     "2026-08-28T00:49:21Z"
    ],
    "releases": [
+    {
+     "tag": "v0.10.0",
+     "title": "v0.10.0",
+     "at": "2026-10-06T01:17:02Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.10.0",
+     "body": ""
+    },
     {
      "tag": "runtime-v1-r22",
      "title": "WINQ-EMU r22 runtime",
@@ -975,7 +984,7 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 2,
-   "pushedAt": "2026-10-06T00:56:19Z",
+   "pushedAt": "2026-10-06T01:01:17Z",
    "latest": "linux-app-v0.3.0",
    "releaseDates": [
     "2026-10-06T00:56:19Z",
@@ -1344,7 +1353,7 @@
   },
   "btsouth/omaroll": {
    "stars": 53,
-   "pushedAt": "2026-10-06T00:54:11Z",
+   "pushedAt": "2026-10-06T01:20:55Z",
    "latest": "v1.14.0",
    "releaseDates": [
     "2026-10-04T01:15:07Z",
@@ -1848,7 +1857,7 @@
   },
   "btsouth/omadrop": {
    "stars": 5,
-   "pushedAt": "2026-10-06T00:47:35Z",
+   "pushedAt": "2026-10-06T01:13:32Z",
    "latest": "v0.6.3",
    "releaseDates": [
     "2026-10-05T12:23:47Z",
@@ -2935,7 +2944,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-06T00:32:37Z",
+   "pushedAt": "2026-10-06T01:17:44Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4593,11 +4602,11 @@
   ],
   [
    "2026-10-05",
-   197
+   204
   ],
   [
    "2026-10-06",
-   2
+   3
   ]
  ]
 }
