@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-06T10:11:16.510Z",
+ "generatedAt": "2026-10-06T10:46:16.286Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 222,
-   "pushedAt": "2026-10-06T10:09:23Z",
+   "pushedAt": "2026-10-06T10:38:17Z",
    "latest": "v1.23.5",
    "releaseDates": [
     "2026-10-03T01:45:09Z",
@@ -659,8 +659,8 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 546,
-   "pushedAt": "2026-10-06T09:50:36Z",
+   "stars": 547,
+   "pushedAt": "2026-10-06T10:20:09Z",
    "latest": "v0.10.0",
    "releaseDates": [
     "2026-10-06T01:17:02Z",
@@ -1352,10 +1352,11 @@
    ]
   },
   "btsouth/omaroll": {
-   "stars": 53,
-   "pushedAt": "2026-10-06T09:51:59Z",
-   "latest": "v1.15.0",
+   "stars": 54,
+   "pushedAt": "2026-10-06T10:27:47Z",
+   "latest": "v1.15.1",
    "releaseDates": [
+    "2026-10-06T10:43:04Z",
     "2026-10-06T04:41:54Z",
     "2026-10-04T01:15:07Z",
     "2026-10-03T18:16:20Z",
@@ -1379,6 +1380,14 @@
     "2026-09-02T01:06:06Z"
    ],
    "releases": [
+    {
+     "tag": "v1.15.1",
+     "title": "Omaroll 1.15.1",
+     "at": "2026-10-06T10:43:04Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaroll/releases/tag/v1.15.1",
+     "body": "Tiled quick viewers can fill their tiles instead of showing empty bands.\n\n### Added\n\n- `Shift+W` or Fill window in the quick viewer menu crops a picture to cover\n  the window, centred, so tiled viewers have no empty bands. It stays on while\n  stepping through the folder; press it again to fit the whole picture.\n\n[Install or update](https://github.com/btsouth/omaroll#install-or-update)."
+    },
     {
      "tag": "v1.15.0",
      "title": "Omaroll 1.15.0",
@@ -1902,7 +1911,7 @@
   },
   "btsouth/omadrop": {
    "stars": 5,
-   "pushedAt": "2026-10-06T05:27:58Z",
+   "pushedAt": "2026-10-06T10:31:36Z",
    "latest": "v0.6.3",
    "releaseDates": [
     "2026-10-05T12:23:47Z",
@@ -2998,7 +3007,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-06T10:11:04Z",
+   "pushedAt": "2026-10-06T10:46:08Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4660,7 +4669,7 @@
   ],
   [
    "2026-10-06",
-   71
+   80
   ]
  ]
 }
