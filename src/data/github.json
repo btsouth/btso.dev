@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-06T00:18:10.826Z",
+ "generatedAt": "2026-10-06T00:56:10.913Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -975,9 +975,10 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 2,
-   "pushedAt": "2026-10-05T23:14:43Z",
-   "latest": "linux-app-v0.2.0",
+   "pushedAt": "2026-10-06T00:55:49Z",
+   "latest": "linux-v0.3.0",
    "releaseDates": [
+    "2026-10-06T00:55:37Z",
     "2026-10-04T18:56:57Z",
     "2026-10-04T18:29:03Z",
     "2026-10-02T01:34:40Z",
@@ -991,6 +992,14 @@
     "2026-09-28T13:10:23Z"
    ],
    "releases": [
+    {
+     "tag": "linux-v0.3.0",
+     "title": "Linux guest image v0.3.0",
+     "at": "2026-10-06T00:55:37Z",
+     "pre": true,
+     "url": "https://github.com/btsouth/try-omarchy-linux/releases/tag/linux-v0.3.0",
+     "body": "Guest image for Try Omarchy for Linux 0.3.0. The Linux app downloads this image on first run and when it updates an existing VM.\n\nThe app verifies every file against `SHA256SUMS`, and pins the SHA256 of `SHA256SUMS` itself:\n\n`f101b139d441a2b27b9ac9d32d4e2abc626e11636a755255b344039c384fd80e`\n\nChanges since linux-v0.2.0 (compatibility revision 62):\n\n- Guest fixes shared with Try Omarchy for Windows v0.10: night light inside the VM, private lock screen notifications, compositor health reports for frozen desktop recovery, safer live Omarchy updates, and a fix for a night light file conflict during upgrades.\n- Each display gets its own mode and scale when Omarchy runs on several displays.\n- Desktop readiness works with custom Omarchy bars, and the power menu keeps its Linux wording after Omarchy updates.\n- Refreshed package lock (iniparser 4.3.2, upower 1.91.5).\n\nExisting VMs receive these through the compatibility overlay on their next start with the new app."
+    },
     {
      "tag": "linux-app-v0.2.0",
      "title": "Try Omarchy for Linux v0.2.0",
@@ -1326,7 +1335,7 @@
   },
   "btsouth/omaroll": {
    "stars": 53,
-   "pushedAt": "2026-10-06T00:15:21Z",
+   "pushedAt": "2026-10-06T00:54:11Z",
    "latest": "v1.14.0",
    "releaseDates": [
     "2026-10-04T01:15:07Z",
@@ -1830,7 +1839,7 @@
   },
   "btsouth/omadrop": {
    "stars": 5,
-   "pushedAt": "2026-10-05T12:20:23Z",
+   "pushedAt": "2026-10-06T00:47:35Z",
    "latest": "v0.6.3",
    "releaseDates": [
     "2026-10-05T12:23:47Z",
@@ -2917,7 +2926,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-06T00:17:13Z",
+   "pushedAt": "2026-10-06T00:32:37Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4575,11 +4584,11 @@
   ],
   [
    "2026-10-05",
-   183
+   197
   ],
   [
    "2026-10-06",
-   0
+   1
   ]
  ]
 }
