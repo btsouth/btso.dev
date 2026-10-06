@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-06T01:21:11.747Z",
+ "generatedAt": "2026-10-06T03:21:09.725Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -660,7 +660,7 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 545,
-   "pushedAt": "2026-10-06T01:17:02Z",
+   "pushedAt": "2026-10-06T02:24:47Z",
    "latest": "v0.10.0",
    "releaseDates": [
     "2026-10-06T01:17:02Z",
@@ -706,7 +706,7 @@
      "at": "2026-10-06T01:17:02Z",
      "pre": false,
      "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.10.0",
-     "body": ""
+     "body": "`v0.10.0` brings a faster start, recovery when things go wrong, and a long list of fixes across the clipboard, audio, keyboard, displays and more.\n\n# Features\n\n* Start Omarchy right away. Updates now download in the background while you use it, resume after interruptions, use the Windows proxy settings, and install the next time Omarchy starts, or right away with **Restart to update** in the tray (#307)\n* Detect when the Omarchy desktop stops responding, save diagnostics, and offer to restart it, in CPU mode if graphics froze. Your session stays open until you choose (#303, #315)\n* Resume cleanly after Windows sleep, or show **Resume Omarchy** in the tray if it cannot. Restarting or signing out of Windows shuts Omarchy down cleanly first, and the next start offers recovery if that did not finish (#304, #216)\n* Keep volume and mute in sync between Omarchy and Windows, including playback device changes. Turn off **Sync volume with Windows** in Settings to control them separately (#292, #277)\n* Night light now warms the VM display from the existing menu and keyboard shortcut (#289)\n* Warn when Omarchy's Windows drive is running low or almost full, with guidance for Reclaim and moving the data in Settings (#291)\n* CPU rendering mode now really limits the processor features Omarchy sees (#306)\n* PowerToys and AutoHotkey can see the Win key while Omarchy runs (#306)\n* Follow your Windows display language, plus Dvorak, US-International and Turkish F layouts (#296)\n\n# Fixes\n\n* Fix GPU mode freezing on NVIDIA graphics when Media Player opens, and GTK4 apps such as Files crashing (#2"
     },
     {
      "tag": "runtime-v1-r22",
@@ -1353,7 +1353,7 @@
   },
   "btsouth/omaroll": {
    "stars": 53,
-   "pushedAt": "2026-10-06T01:20:55Z",
+   "pushedAt": "2026-10-06T03:16:19Z",
    "latest": "v1.14.0",
    "releaseDates": [
     "2026-10-04T01:15:07Z",
@@ -1713,9 +1713,10 @@
   },
   "btsouth/omarchy-usage-dashboard": {
    "stars": 17,
-   "pushedAt": "2026-10-03T21:51:59Z",
-   "latest": "v1.10.1",
+   "pushedAt": "2026-10-06T03:16:47Z",
+   "latest": "v1.10.2",
    "releaseDates": [
+    "2026-10-06T03:16:47Z",
     "2026-10-03T20:26:20Z",
     "2026-10-03T05:56:36Z",
     "2026-10-01T00:19:58Z",
@@ -1733,6 +1734,14 @@
     "2026-09-16T01:35:59Z"
    ],
    "releases": [
+    {
+     "tag": "v1.10.2",
+     "title": "Agent Pulse v1.10.2",
+     "at": "2026-10-06T03:16:47Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/agent-pulse/releases/tag/v1.10.2",
+     "body": "Agent Pulse no longer checks OpenCode Go quota in the background when OpenCode Go is turned off in Settings, and it stops rewriting the OpenCode Go bar record. History, preferences and the bar layout are preserved.\n\nUpdate with:\n\n```sh\ncurl -fsSL https://raw.githubusercontent.com/btsouth/agent-pulse/main/install.sh | OMARCHY_USAGE_REF=v1.10.2 bash -s -- --with-plugin\n```\n\nOmit `--with-plugin` if you use only the dashboard."
+    },
     {
      "tag": "v1.10.1",
      "title": "Agent Pulse v1.10.1",
@@ -1857,7 +1866,7 @@
   },
   "btsouth/omadrop": {
    "stars": 5,
-   "pushedAt": "2026-10-06T01:13:32Z",
+   "pushedAt": "2026-10-06T03:12:41Z",
    "latest": "v0.6.3",
    "releaseDates": [
     "2026-10-05T12:23:47Z",
@@ -2179,7 +2188,7 @@
   },
   "btsouth/ceiling": {
    "stars": 30,
-   "pushedAt": "2026-10-03T00:32:18Z",
+   "pushedAt": "2026-10-06T03:21:01Z",
    "latest": "v1.5.43",
    "releaseDates": [
     "2026-10-03T00:55:37Z",
@@ -2944,7 +2953,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-06T01:17:44Z",
+   "pushedAt": "2026-10-06T03:18:04Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4602,11 +4611,11 @@
   ],
   [
    "2026-10-05",
-   204
+   225
   ],
   [
    "2026-10-06",
-   3
+   4
   ]
  ]
 }
