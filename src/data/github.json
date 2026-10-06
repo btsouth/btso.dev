@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-06T09:32:57.284Z",
+ "generatedAt": "2026-10-06T09:46:13.796Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -1353,7 +1353,7 @@
   },
   "btsouth/omaroll": {
    "stars": 53,
-   "pushedAt": "2026-10-06T04:44:42Z",
+   "pushedAt": "2026-10-06T09:40:14Z",
    "latest": "v1.15.0",
    "releaseDates": [
     "2026-10-06T04:41:54Z",
@@ -1551,7 +1551,7 @@
   },
   "btsouth/omaframe": {
    "stars": 14,
-   "pushedAt": "2026-10-06T05:05:52Z",
+   "pushedAt": "2026-10-06T09:42:44Z",
    "latest": "v0.9.0",
    "releaseDates": [
     "2026-10-03T23:56:55Z",
@@ -1722,9 +1722,10 @@
   },
   "btsouth/omarchy-usage-dashboard": {
    "stars": 17,
-   "pushedAt": "2026-10-06T03:16:47Z",
-   "latest": "v1.10.2",
+   "pushedAt": "2026-10-06T09:41:04Z",
+   "latest": "v1.10.3",
    "releaseDates": [
+    "2026-10-06T09:41:05Z",
     "2026-10-06T03:16:47Z",
     "2026-10-03T20:26:20Z",
     "2026-10-03T05:56:36Z",
@@ -1743,6 +1744,14 @@
     "2026-09-16T01:35:59Z"
    ],
    "releases": [
+    {
+     "tag": "v1.10.3",
+     "title": "Agent Pulse v1.10.3",
+     "at": "2026-10-06T09:41:05Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/agent-pulse/releases/tag/v1.10.3",
+     "body": "Claude limits stay current when T3 Code is also open. Agent Pulse reuses a recent Claude usage reading shared in `~/.cache/claude-usage/` instead of asking Anthropic's rate-limited endpoint again, and only asks itself when there is no recent reading.\n\nA new opt-in widget setting, `limitsRefreshIntervalSec`, refreshes Claude limits on its own timer without rescanning history. See the README for details. History, preferences and the bar layout are preserved.\n\nUpdate with:\n\n```sh\ncurl -fsSL https://raw.githubusercontent.com/btsouth/agent-pulse/main/install.sh | OMARCHY_USAGE_REF=v1.10.3 bash -s -- --with-plugin\n```\n\nOmit `--with-plugin` if you use only the dashboard."
+    },
     {
      "tag": "v1.10.2",
      "title": "Agent Pulse v1.10.2",
@@ -4633,7 +4642,7 @@
   ],
   [
    "2026-10-06",
-   55
+   61
   ]
  ]
 }
