@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-06T09:46:13.796Z",
+ "generatedAt": "2026-10-06T09:51:12.788Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
-   "pushedAt": "2026-10-06T04:03:02Z",
+   "pushedAt": "2026-10-06T09:47:03Z",
    "latest": "v1.23.5",
    "releaseDates": [
     "2026-10-03T01:45:09Z",
@@ -660,7 +660,7 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 546,
-   "pushedAt": "2026-10-06T09:10:16Z",
+   "pushedAt": "2026-10-06T09:50:36Z",
    "latest": "v0.10.0",
    "releaseDates": [
     "2026-10-06T01:17:02Z",
@@ -1552,8 +1552,9 @@
   "btsouth/omaframe": {
    "stars": 14,
    "pushedAt": "2026-10-06T09:42:44Z",
-   "latest": "v0.9.0",
+   "latest": "v0.10.0",
    "releaseDates": [
+    "2026-10-06T09:48:18Z",
     "2026-10-03T23:56:55Z",
     "2026-10-03T22:53:15Z",
     "2026-10-03T16:07:48Z",
@@ -1574,6 +1575,14 @@
     "2026-09-28T12:15:00Z"
    ],
    "releases": [
+    {
+     "tag": "v0.10.0",
+     "title": "Omaframe 0.10.0",
+     "at": "2026-10-06T09:48:18Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaframe/releases/tag/v0.10.0",
+     "body": "Omaframe now takes delayed screenshots, keeps a capture history, snaps marks\nwith Shift, and shows microphone and computer sound levels.\n\n- **Delay timer.** Press Shift+Print, or the Delay button (3, 5 or 10\n  seconds), or press T in the selector to start a countdown, so menus,\n  tooltips and hover states stay open. `omaframe --delay N` (0 to 30 seconds)\n  does the same from a key or script. A small badge shows \"Screenshot in N\"\n  with Cancel. The last choice is remembered, and plain Print Screen stays\n  immediate.\n- **Capture history.** Press Ctrl+H, run `omaframe --history`, or use the\n  launcher to list saved screenshots, recordings, exports and drafts, by day.\n  Each row can copy, open in the editor, reveal, resume or move a file to the\n  Trash. History only lists files you saved and keeps no extra copies.\n- **Angle snapping.** Hold Shift while drawing to snap arrows and lines to 45\n  degree steps and turn boxes, highlights, redactions and blurs into squares\n  and ovals into circles. A small readout shows while Shift is held, and it is\n  never exported.\n- **Sound meters.** In video mode the Sound and Mic buttons show a live level\n  before and during a recording, and Options shows device names, levels, peaks\n  and clip warnings. The meters read the exact inputs handed to the recorder.\n\n**Open** now uses your system file chooser, the same one your other apps show,\nand starts in your screenshot folder or the last folder you opened from.\nWithout a desktop portal, a larger built-in dialog opens instead.\n\nRecordings are written to a hidden file until they finish. A failed or\n"
+    },
     {
      "tag": "v0.9.0",
      "title": "Omaframe 0.9.0",
@@ -2980,7 +2989,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-06T07:45:11Z",
+   "pushedAt": "2026-10-06T09:50:41Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4642,7 +4651,7 @@
   ],
   [
    "2026-10-06",
-   61
+   66
   ]
  ]
 }
