@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-06T03:21:09.725Z",
+ "generatedAt": "2026-10-06T04:21:10.796Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
-   "pushedAt": "2026-10-03T23:15:20Z",
+   "pushedAt": "2026-10-06T04:03:02Z",
    "latest": "v1.23.5",
    "releaseDates": [
     "2026-10-03T01:45:09Z",
@@ -659,7 +659,7 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 545,
+   "stars": 546,
    "pushedAt": "2026-10-06T02:24:47Z",
    "latest": "v0.10.0",
    "releaseDates": [
@@ -984,7 +984,7 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 2,
-   "pushedAt": "2026-10-06T01:01:17Z",
+   "pushedAt": "2026-10-06T04:03:02Z",
    "latest": "linux-app-v0.3.0",
    "releaseDates": [
     "2026-10-06T00:56:19Z",
@@ -1110,7 +1110,7 @@
   },
   "btsouth/omakade": {
    "stars": 430,
-   "pushedAt": "2026-10-05T11:10:44Z",
+   "pushedAt": "2026-10-06T04:02:31Z",
    "latest": "v1.15.0",
    "releaseDates": [
     "2026-10-04T01:09:43Z",
@@ -1353,7 +1353,7 @@
   },
   "btsouth/omaroll": {
    "stars": 53,
-   "pushedAt": "2026-10-06T03:16:19Z",
+   "pushedAt": "2026-10-06T04:19:13Z",
    "latest": "v1.14.0",
    "releaseDates": [
     "2026-10-04T01:15:07Z",
@@ -1542,7 +1542,7 @@
   },
   "btsouth/omaframe": {
    "stars": 14,
-   "pushedAt": "2026-10-05T22:38:38Z",
+   "pushedAt": "2026-10-06T04:19:24Z",
    "latest": "v0.9.0",
    "releaseDates": [
     "2026-10-03T23:56:55Z",
@@ -1866,7 +1866,7 @@
   },
   "btsouth/omadrop": {
    "stars": 5,
-   "pushedAt": "2026-10-06T03:12:41Z",
+   "pushedAt": "2026-10-06T04:11:41Z",
    "latest": "v0.6.3",
    "releaseDates": [
     "2026-10-05T12:23:47Z",
@@ -2188,9 +2188,10 @@
   },
   "btsouth/ceiling": {
    "stars": 30,
-   "pushedAt": "2026-10-06T03:21:01Z",
-   "latest": "v1.5.43",
+   "pushedAt": "2026-10-06T04:02:49Z",
+   "latest": "v1.5.44",
    "releaseDates": [
+    "2026-10-06T04:19:56Z",
     "2026-10-03T00:55:37Z",
     "2026-09-27T00:03:09Z",
     "2026-09-26T01:00:31Z",
@@ -2230,6 +2231,14 @@
     "2026-07-14T05:04:40Z"
    ],
    "releases": [
+    {
+     "tag": "v1.5.44",
+     "title": "Ceiling 1.5.44",
+     "at": "2026-10-06T04:19:56Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/ceiling/releases/tag/v1.5.44",
+     "body": "Antigravity CLI usage reads correctly with newer agy versions and reports sign-in and quota states clearly.\n\n### Fixed\n- **Newer Antigravity CLI versions explain the required access token.** For agy 1.2.2 and later, Ceiling explains how to start agy with `--csrf_token` and checks all matching processes and candidate ports. Fixes #412. Thanks to @WayPointStack.\n- **Antigravity reports sign-in and exhausted quotas accurately.** Signed-out sessions show \"not signed in\" instead of a false 0% used, and exhausted model quotas show 100% used.\n\n### Internal\n- Added regression tests for taskbar capacity strip repainting and relative time wording."
+    },
     {
      "tag": "v1.5.43",
      "title": "Ceiling 1.5.43",
@@ -2530,7 +2539,7 @@
   },
   "btsouth/cubby-clipboard": {
    "stars": 13,
-   "pushedAt": "2026-10-03T08:36:09Z",
+   "pushedAt": "2026-10-06T04:03:33Z",
    "latest": "v1.3.7",
    "releaseDates": [
     "2026-09-30T20:00:45Z",
@@ -2953,7 +2962,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-06T03:18:04Z",
+   "pushedAt": "2026-10-06T04:17:26Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -3005,7 +3014,7 @@
   },
   "btsouth/ds-router": {
    "stars": 8,
-   "pushedAt": "2026-10-01T22:38:54Z",
+   "pushedAt": "2026-10-06T04:03:16Z",
    "latest": "v0.1.0",
    "releaseDates": [
     "2026-09-19T23:18:03Z"
@@ -4611,11 +4620,11 @@
   ],
   [
    "2026-10-05",
-   225
+   236
   ],
   [
    "2026-10-06",
-   4
+   23
   ]
  ]
 }
