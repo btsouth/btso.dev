@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-06T12:18:09.947Z",
+ "generatedAt": "2026-10-06T16:26:15.188Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 222,
@@ -659,8 +659,8 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 548,
-   "pushedAt": "2026-10-06T10:20:09Z",
+   "stars": 549,
+   "pushedAt": "2026-10-06T13:10:23Z",
    "latest": "v0.10.0",
    "releaseDates": [
     "2026-10-06T01:17:02Z",
@@ -983,7 +983,7 @@
    ]
   },
   "btsouth/try-omarchy-linux": {
-   "stars": 2,
+   "stars": 3,
    "pushedAt": "2026-10-06T04:22:08Z",
    "latest": "linux-app-v0.3.0",
    "releaseDates": [
@@ -1109,7 +1109,7 @@
    ]
   },
   "btsouth/omakade": {
-   "stars": 430,
+   "stars": 431,
    "pushedAt": "2026-10-06T04:21:56Z",
    "latest": "v1.15.0",
    "releaseDates": [
@@ -1740,9 +1740,10 @@
   },
   "btsouth/omarchy-usage-dashboard": {
    "stars": 17,
-   "pushedAt": "2026-10-06T10:06:01Z",
-   "latest": "v1.10.4",
+   "pushedAt": "2026-10-06T16:23:19Z",
+   "latest": "v1.10.5",
    "releaseDates": [
+    "2026-10-06T16:22:33Z",
     "2026-10-06T10:06:01Z",
     "2026-10-06T09:41:05Z",
     "2026-10-06T03:16:47Z",
@@ -1763,6 +1764,14 @@
     "2026-09-16T01:35:59Z"
    ],
    "releases": [
+    {
+     "tag": "v1.10.5",
+     "title": "Agent Pulse v1.10.5",
+     "at": "2026-10-06T16:22:33Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/agent-pulse/releases/tag/v1.10.5",
+     "body": "Agent Pulse now counts OpenCode 2.x usage. OpenCode v2 stores messages in new tables, so usage after that upgrade was missing from OpenCode and OpenCode Go totals. Messages carried over from v1 still count once. History, preferences and the bar layout are preserved.\n\nUpdate with:\n\n```sh\ncurl -fsSL https://raw.githubusercontent.com/btsouth/agent-pulse/main/install.sh | OMARCHY_USAGE_REF=v1.10.5 bash -s -- --with-plugin\n```\n\nOmit `--with-plugin` if you use only the dashboard."
+    },
     {
      "tag": "v1.10.4",
      "title": "Agent Pulse v1.10.4",
@@ -3007,7 +3016,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-06T12:17:52Z",
+   "pushedAt": "2026-10-06T16:20:01Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4669,7 +4678,7 @@
   ],
   [
    "2026-10-06",
-   81
+   95
   ]
  ]
 }
