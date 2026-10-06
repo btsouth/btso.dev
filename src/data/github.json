@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-06T00:56:10.913Z",
+ "generatedAt": "2026-10-06T01:01:12.663Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -975,9 +975,10 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 2,
-   "pushedAt": "2026-10-06T00:55:49Z",
-   "latest": "linux-v0.3.0",
+   "pushedAt": "2026-10-06T00:56:19Z",
+   "latest": "linux-app-v0.3.0",
    "releaseDates": [
+    "2026-10-06T00:56:19Z",
     "2026-10-06T00:55:37Z",
     "2026-10-04T18:56:57Z",
     "2026-10-04T18:29:03Z",
@@ -992,6 +993,14 @@
     "2026-09-28T13:10:23Z"
    ],
    "releases": [
+    {
+     "tag": "linux-app-v0.3.0",
+     "title": "Try Omarchy for Linux v0.3.0",
+     "at": "2026-10-06T00:56:19Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/try-omarchy-linux/releases/tag/linux-app-v0.3.0",
+     "body": "`v0.3.0` adds multiple displays, smoother input, sleep handling and a large set of fixes shared with Try Omarchy for Windows.\n\n# Features\n\n* Open Omarchy on two or more displays, each fullscreen on its own monitor, with its own resolution and scale. Choose the display count and monitors in Settings. On Wayland, windowed displays open where your desktop places them (#58, #60)\n* Smoother touchpad scrolling, including small movements and horizontal scrolling, following your desktop's natural scrolling setting (#50)\n* Pause Omarchy when your computer sleeps and resume it on wake, with a manual resume and diagnostics if the pause can't be confirmed (#49, #57)\n* Add USB device passthrough. Pick a device for the next start in Settings, or attach and release devices from the tray while Omarchy runs (#55)\n* Show battery health, design capacity, charge cycles, maker and model inside Omarchy (#52)\n* Detect the host keyboard layout on GNOME, KDE and other desktops when Settings follows the host layout, and say when it can't be detected (#53)\n* Start Try Omarchy when you log in (#51)\n* Follow your system language in the launcher where translations exist. Most Linux-only text is still English for now (#54)\n* Boot your working Omarchy right away, download guest updates in the background, and apply them on the next start (#57)\n* Offer recovery when Omarchy's desktop stops responding (#57)\n* Bring night light into Omarchy, keep notifications private on the lock screen, and allow larger clipboard images such as 8K screenshots (#57)\n* Remember when GPU rendering fails on a machine and start w"
+    },
     {
      "tag": "linux-v0.3.0",
      "title": "Linux guest image v0.3.0",
@@ -4588,7 +4597,7 @@
   ],
   [
    "2026-10-06",
-   1
+   2
   ]
  ]
 }
