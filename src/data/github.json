@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-06T04:21:10.796Z",
+ "generatedAt": "2026-10-06T04:46:10.164Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -984,7 +984,7 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 2,
-   "pushedAt": "2026-10-06T04:03:02Z",
+   "pushedAt": "2026-10-06T04:22:08Z",
    "latest": "linux-app-v0.3.0",
    "releaseDates": [
     "2026-10-06T00:56:19Z",
@@ -1110,7 +1110,7 @@
   },
   "btsouth/omakade": {
    "stars": 430,
-   "pushedAt": "2026-10-06T04:02:31Z",
+   "pushedAt": "2026-10-06T04:21:56Z",
    "latest": "v1.15.0",
    "releaseDates": [
     "2026-10-04T01:09:43Z",
@@ -1353,9 +1353,10 @@
   },
   "btsouth/omaroll": {
    "stars": 53,
-   "pushedAt": "2026-10-06T04:19:13Z",
-   "latest": "v1.14.0",
+   "pushedAt": "2026-10-06T04:44:42Z",
+   "latest": "v1.15.0",
    "releaseDates": [
+    "2026-10-06T04:41:54Z",
     "2026-10-04T01:15:07Z",
     "2026-10-03T18:16:20Z",
     "2026-10-03T07:16:58Z",
@@ -1378,6 +1379,14 @@
     "2026-09-02T01:06:06Z"
    ],
    "releases": [
+    {
+     "tag": "v1.15.0",
+     "title": "Omaroll 1.15.0",
+     "at": "2026-10-06T04:41:54Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaroll/releases/tag/v1.15.0",
+     "body": "A second quick viewer opens straight into its tile without stalling the app,\nlarge libraries show metadata and thumbnails sooner, and the library gains an\noptional folder sidebar. The quick viewer adds looping, audio track and\nsubtitle timing controls, and file actions, restores and hand-offs are safer.\n\n### Added\n\n- An optional folder sidebar in the library, toggled with F9 or the Folders\n  button. It shows pinned folders and a tree of library folders with counts,\n  and its visibility and width are remembered.\n\n- An optional Show filenames in grid setting keeps elided names on thumbnails,\n  with the full name on hover or keyboard focus. It is off by default.\n- Copy path and Copy file name in library menus and previews. `Ctrl+Shift+C`\n  copies the opened entry's path as text, including symlinks.\n- Resize the library preview by dragging its edges or corner. Its last size\n  is remembered and fits within the current window.\n\n- Loop videos in the quick viewer with the menu or Shift+L, cycle audio tracks\n  with Shift+A, and adjust sidecar subtitle timing with Z and X.\n- An optional Remember playback speed setting applies the last chosen quick\n  viewer speed to newly opened videos. It is off by default.\n- Copy paths and file names from the quick viewer and its details card.\n- Fit pictures to the width or without enlarging, with a saved enlargement setting.\n- Pan zoomed pictures with Shift+arrows and see viewer shortcuts with ? or F1.\n\n### Changed\n\n- A second quick viewer on Hyprland asks the compositor without blocking and\n  maps directly into its tile. Closing a viewer never rea"
+    },
     {
      "tag": "v1.14.0",
      "title": "Omaroll 1.14.0: faster photos and videos",
@@ -1542,7 +1551,7 @@
   },
   "btsouth/omaframe": {
    "stars": 14,
-   "pushedAt": "2026-10-06T04:19:24Z",
+   "pushedAt": "2026-10-06T04:42:16Z",
    "latest": "v0.9.0",
    "releaseDates": [
     "2026-10-03T23:56:55Z",
@@ -1866,7 +1875,7 @@
   },
   "btsouth/omadrop": {
    "stars": 5,
-   "pushedAt": "2026-10-06T04:11:41Z",
+   "pushedAt": "2026-10-06T04:22:16Z",
    "latest": "v0.6.3",
    "releaseDates": [
     "2026-10-05T12:23:47Z",
@@ -2188,7 +2197,7 @@
   },
   "btsouth/ceiling": {
    "stars": 30,
-   "pushedAt": "2026-10-06T04:02:49Z",
+   "pushedAt": "2026-10-06T04:25:47Z",
    "latest": "v1.5.44",
    "releaseDates": [
     "2026-10-06T04:19:56Z",
@@ -2539,7 +2548,7 @@
   },
   "btsouth/cubby-clipboard": {
    "stars": 13,
-   "pushedAt": "2026-10-06T04:03:33Z",
+   "pushedAt": "2026-10-06T04:24:30Z",
    "latest": "v1.3.7",
    "releaseDates": [
     "2026-09-30T20:00:45Z",
@@ -2962,7 +2971,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-06T04:17:26Z",
+   "pushedAt": "2026-10-06T04:45:01Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -3014,7 +3023,7 @@
   },
   "btsouth/ds-router": {
    "stars": 8,
-   "pushedAt": "2026-10-06T04:03:16Z",
+   "pushedAt": "2026-10-06T04:22:12Z",
    "latest": "v0.1.0",
    "releaseDates": [
     "2026-09-19T23:18:03Z"
@@ -4624,7 +4633,7 @@
   ],
   [
    "2026-10-06",
-   23
+   38
   ]
  ]
 }
