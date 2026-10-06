@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-06T09:51:12.788Z",
+ "generatedAt": "2026-10-06T10:11:16.510Z",
  "repos": {
   "btsouth/toolport": {
-   "stars": 221,
-   "pushedAt": "2026-10-06T09:47:03Z",
+   "stars": 222,
+   "pushedAt": "2026-10-06T10:09:23Z",
    "latest": "v1.23.5",
    "releaseDates": [
     "2026-10-03T01:45:09Z",
@@ -1353,7 +1353,7 @@
   },
   "btsouth/omaroll": {
    "stars": 53,
-   "pushedAt": "2026-10-06T09:40:14Z",
+   "pushedAt": "2026-10-06T09:51:59Z",
    "latest": "v1.15.0",
    "releaseDates": [
     "2026-10-06T04:41:54Z",
@@ -1731,9 +1731,10 @@
   },
   "btsouth/omarchy-usage-dashboard": {
    "stars": 17,
-   "pushedAt": "2026-10-06T09:41:04Z",
-   "latest": "v1.10.3",
+   "pushedAt": "2026-10-06T10:06:01Z",
+   "latest": "v1.10.4",
    "releaseDates": [
+    "2026-10-06T10:06:01Z",
     "2026-10-06T09:41:05Z",
     "2026-10-06T03:16:47Z",
     "2026-10-03T20:26:20Z",
@@ -1753,6 +1754,14 @@
     "2026-09-16T01:35:59Z"
    ],
    "releases": [
+    {
+     "tag": "v1.10.4",
+     "title": "Agent Pulse v1.10.4",
+     "at": "2026-10-06T10:06:01Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/agent-pulse/releases/tag/v1.10.4",
+     "body": "While T3 Code reports that it is polling a Claude login, Agent Pulse no longer asks Anthropic for that login itself, even when T3's latest reading is a few minutes old. Extra requests only kept a rate-limited login refused. Agent Pulse still asks on its own when T3 is closed. History, preferences and the bar layout are preserved.\n\nUpdate with:\n\n```sh\ncurl -fsSL https://raw.githubusercontent.com/btsouth/agent-pulse/main/install.sh | OMARCHY_USAGE_REF=v1.10.4 bash -s -- --with-plugin\n```\n\nOmit `--with-plugin` if you use only the dashboard."
+    },
     {
      "tag": "v1.10.3",
      "title": "Agent Pulse v1.10.3",
@@ -2989,7 +2998,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-06T09:50:41Z",
+   "pushedAt": "2026-10-06T10:11:04Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4651,7 +4660,7 @@
   ],
   [
    "2026-10-06",
-   66
+   71
   ]
  ]
 }
