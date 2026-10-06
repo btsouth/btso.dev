@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-06T18:18:10.868Z",
+ "generatedAt": "2026-10-06T21:20:36.856Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 222,
@@ -660,9 +660,10 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 549,
-   "pushedAt": "2026-10-06T13:10:23Z",
-   "latest": "v0.10.0",
+   "pushedAt": "2026-10-06T21:16:43Z",
+   "latest": "v0.10.1",
    "releaseDates": [
+    "2026-10-06T21:16:43Z",
     "2026-10-06T01:17:02Z",
     "2026-10-05T12:16:07Z",
     "2026-10-04T20:21:08Z",
@@ -700,6 +701,14 @@
     "2026-08-28T00:49:21Z"
    ],
    "releases": [
+    {
+     "tag": "v0.10.1",
+     "title": "v0.10.1",
+     "at": "2026-10-06T21:16:43Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.10.1",
+     "body": "`v0.10.1` fixes large images copied from Windows and portable installs on exFAT.\n\n# Fixes\n\n* Fix large images copied from Windows stalling before they reach Omarchy (#319)\n* Fix portable installs on exFAT failing to start after the first launch (#322)\n\n## Dev\n\n* Write release notes as UTF-8 and stop publishing when notes are missing or empty (#319)"
+    },
     {
      "tag": "v0.10.0",
      "title": "v0.10.0",
@@ -3016,7 +3025,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-06T18:15:30Z",
+   "pushedAt": "2026-10-06T21:14:21Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4678,7 +4687,7 @@
   ],
   [
    "2026-10-06",
-   98
+   104
   ]
  ]
 }
