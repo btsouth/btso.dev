@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-05T18:18:14.091Z",
+ "generatedAt": "2026-10-06T00:18:10.826Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -660,7 +660,7 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 545,
-   "pushedAt": "2026-10-05T14:45:28Z",
+   "pushedAt": "2026-10-05T22:39:39Z",
    "latest": "runtime-v1-r22",
    "releaseDates": [
     "2026-10-05T12:16:07Z",
@@ -975,7 +975,7 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 2,
-   "pushedAt": "2026-10-05T14:36:33Z",
+   "pushedAt": "2026-10-05T23:14:43Z",
    "latest": "linux-app-v0.2.0",
    "releaseDates": [
     "2026-10-04T18:56:57Z",
@@ -1325,8 +1325,8 @@
    ]
   },
   "btsouth/omaroll": {
-   "stars": 52,
-   "pushedAt": "2026-10-05T13:43:52Z",
+   "stars": 53,
+   "pushedAt": "2026-10-06T00:15:21Z",
    "latest": "v1.14.0",
    "releaseDates": [
     "2026-10-04T01:15:07Z",
@@ -1514,8 +1514,8 @@
    ]
   },
   "btsouth/omaframe": {
-   "stars": 13,
-   "pushedAt": "2026-10-05T14:28:07Z",
+   "stars": 14,
+   "pushedAt": "2026-10-05T22:38:38Z",
    "latest": "v0.9.0",
    "releaseDates": [
     "2026-10-03T23:56:55Z",
@@ -1685,7 +1685,7 @@
    ]
   },
   "btsouth/omarchy-usage-dashboard": {
-   "stars": 16,
+   "stars": 17,
    "pushedAt": "2026-10-03T21:51:59Z",
    "latest": "v1.10.1",
    "releaseDates": [
@@ -2917,7 +2917,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-05T14:58:04Z",
+   "pushedAt": "2026-10-06T00:17:13Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4575,7 +4575,11 @@
   ],
   [
    "2026-10-05",
-   149
+   183
+  ],
+  [
+   "2026-10-06",
+   0
   ]
  ]
 }
