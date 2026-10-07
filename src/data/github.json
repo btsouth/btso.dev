@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-07T18:17:36.958Z",
+ "generatedAt": "2026-10-07T18:30:38.577Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 222,
@@ -1758,9 +1758,10 @@
   },
   "btsouth/omarchy-usage-dashboard": {
    "stars": 17,
-   "pushedAt": "2026-10-06T16:23:19Z",
-   "latest": "v1.10.5",
+   "pushedAt": "2026-10-07T18:29:37Z",
+   "latest": "v1.11.0",
    "releaseDates": [
+    "2026-10-07T18:28:51Z",
     "2026-10-06T16:22:33Z",
     "2026-10-06T10:06:01Z",
     "2026-10-06T09:41:05Z",
@@ -1782,6 +1783,14 @@
     "2026-09-16T01:35:59Z"
    ],
    "releases": [
+    {
+     "tag": "v1.11.0",
+     "title": "Agent Pulse v1.11.0",
+     "at": "2026-10-07T18:28:51Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/agent-pulse/releases/tag/v1.11.0",
+     "body": "Agent Pulse now supports Antigravity. Token history is read from the Antigravity CLI's conversations and from T3 Code's Antigravity sessions, and the bar shows the Gemini and Claude/GPT 5-hour and weekly limits from `agy -p /usage`, which uses no allowance. Antigravity models stay unpriced for now. History, preferences and the bar layout are preserved.\n\nUpdate with:\n\n```sh\ncurl -fsSL https://raw.githubusercontent.com/btsouth/agent-pulse/main/install.sh | OMARCHY_USAGE_REF=v1.11.0 bash -s -- --with-plugin\n```\n\nOmit `--with-plugin` if you use only the dashboard."
+    },
     {
      "tag": "v1.10.5",
      "title": "Agent Pulse v1.10.5",
@@ -4700,7 +4709,7 @@
   ],
   [
    "2026-10-07",
-   83
+   86
   ]
  ]
 }
