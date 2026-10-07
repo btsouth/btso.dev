@@ -1,11 +1,12 @@
 {
- "generatedAt": "2026-10-07T00:17:33.335Z",
+ "generatedAt": "2026-10-07T02:05:34.757Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 222,
-   "pushedAt": "2026-10-07T00:12:46Z",
-   "latest": "v1.23.5",
+   "pushedAt": "2026-10-07T01:51:57Z",
+   "latest": "v1.24.0",
    "releaseDates": [
+    "2026-10-07T02:02:37Z",
     "2026-10-03T01:45:09Z",
     "2026-10-02T06:19:51Z",
     "2026-09-29T05:34:07Z",
@@ -80,6 +81,14 @@
     "2026-06-19T23:39:17Z"
    ],
    "releases": [
+    {
+     "tag": "v1.24.0",
+     "title": "Toolport v1.24.0",
+     "at": "2026-10-07T02:02:37Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/toolport/releases/tag/v1.24.0",
+     "body": "### Added\n\n- Servers that fail to connect when Toolport starts keep retrying in the background,\n  from every 2 seconds up to every 5 minutes, and join your AI clients without a\n  restart. `toolport_status` shows which servers are retrying and which need you to\n  sign in. Servers that refuse your credentials wait for a new sign-in instead of\n  retrying. (#1003)\n- Disconnecting a client puts back the servers \"Move into gateway\" took out of its\n  config. (#1002)\n- ZCode is a supported client. (#990)\n- The Linux app has a \"Check servers again\" button. (#999)\n\n### Changed\n\n- Importing servers, or moving them into Toolport, turns them on, so your AI clients\n  get their tools right away. (#1002)\n- Shared setups no longer carry API keys in server URLs. Keys in the path, query and\n  userinfo are replaced with placeholders, and the import asks the recipient to fill\n  in their own. (#1001)\n- The Teams page shows the current plans: Free for 2 people, and Team at $19 a month\n  for up to 10. (#1009)\n- The Arch installer runs a full system upgrade (`pacman -Syu`) instead of a partial\n  one. (#997)\n\n### Fixed\n\n- The Linux app no longer relaunches every server while you search, refocus the\n  window or edit one server. Long names no longer widen the window, sidebar text is\n  readable on all themes, and an approval notification closes once the call is\n  decided, even after you click it. (#999)\n- An agent can no longer turn on a team server that is waiting for your review. (#1001)\n- Project rules are never written through a symbolic link that points outside the\n  project. (#1001)\n- A sign-in w"
+    },
     {
      "tag": "v1.23.5",
      "title": "Toolport v1.23.5",
@@ -1361,7 +1370,7 @@
    ]
   },
   "btsouth/omaroll": {
-   "stars": 54,
+   "stars": 55,
    "pushedAt": "2026-10-06T10:27:47Z",
    "latest": "v1.15.1",
    "releaseDates": [
@@ -3025,7 +3034,7 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-07T00:16:06Z",
+   "pushedAt": "2026-10-07T01:22:41Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
@@ -4687,11 +4696,11 @@
   ],
   [
    "2026-10-06",
-   147
+   170
   ],
   [
    "2026-10-07",
-   0
+   1
   ]
  ]
 }
