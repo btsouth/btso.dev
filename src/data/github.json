@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-09T02:20:30.340Z",
+ "generatedAt": "2026-10-09T02:45:30.539Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -668,10 +668,11 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 564,
-   "pushedAt": "2026-10-09T02:18:16Z",
-   "latest": "v0.10.1",
+   "stars": 565,
+   "pushedAt": "2026-10-09T02:45:07Z",
+   "latest": "runtime-v1-r23",
    "releaseDates": [
+    "2026-10-09T02:41:32Z",
     "2026-10-06T21:16:43Z",
     "2026-10-06T01:17:02Z",
     "2026-10-05T12:16:07Z",
@@ -710,6 +711,14 @@
     "2026-08-28T00:49:21Z"
    ],
    "releases": [
+    {
+     "tag": "runtime-v1-r23",
+     "title": "WINQ-EMU r23 runtime",
+     "at": "2026-10-09T02:41:32Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/runtime-v1-r23",
+     "body": "WINQ-EMU r23 runtime component and corresponding source archives for the next signed Try Omarchy app release. This is not a standalone launcher or a new app version.\n\nBuilt from the source-locked recipe at commit `00b7bf2` (`master`) in [Runtime run 37874254043](https://github.com/omacom/try-omarchy-windows/actions/runs/37874254043). `SHA256SUMS` covers both archives. r23 keeps typing working while a Windows input method such as Microsoft Pinyin is in Chinese mode (#334), and stops the sound menu from freezing Omarchy when Windows has no microphone (#338)."
+    },
     {
      "tag": "v0.10.1",
      "title": "v0.10.1",
@@ -1128,7 +1137,7 @@
   },
   "btsouth/omakade": {
    "stars": 432,
-   "pushedAt": "2026-10-09T02:12:58Z",
+   "pushedAt": "2026-10-09T02:44:40Z",
    "latest": "v1.15.0",
    "releaseDates": [
     "2026-10-04T01:09:43Z",
@@ -4764,11 +4773,11 @@
   ],
   [
    "2026-10-05",
-   236
+   240
   ],
   [
    "2026-10-06",
-   221
+   223
   ],
   [
    "2026-10-07",
@@ -4776,11 +4785,11 @@
   ],
   [
    "2026-10-08",
-   208
+   218
   ],
   [
    "2026-10-09",
-   2
+   3
   ]
  ]
 }
