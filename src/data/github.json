@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-09T09:35:07.809Z",
+ "generatedAt": "2026-10-09T10:30:30.922Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -668,10 +668,11 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 567,
-   "pushedAt": "2026-10-09T03:56:59Z",
-   "latest": "runtime-v1-r23",
+   "stars": 568,
+   "pushedAt": "2026-10-09T10:25:56Z",
+   "latest": "v0.11.0",
    "releaseDates": [
+    "2026-10-09T10:25:57Z",
     "2026-10-09T02:41:32Z",
     "2026-10-06T21:16:43Z",
     "2026-10-06T01:17:02Z",
@@ -711,6 +712,14 @@
     "2026-08-28T00:49:21Z"
    ],
    "releases": [
+    {
+     "tag": "v0.11.0",
+     "title": "v0.11.0",
+     "at": "2026-10-09T10:25:57Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.11.0",
+     "body": "`v0.11.0` makes future updates much smaller, fixes the top bar disappearing after **Update > Omarchy**, Chinese input methods and a sound menu freeze, and finishes the Korean translation.\n\nThis update still downloads the full Omarchy system image (about 1.9 GB) one last time. Updates after this one skip it.\n\n# Features\n\n* Updates no longer download the full Omarchy system image. It is only fetched when you install Omarchy or choose **Start fresh**, and an interrupted download resumes where it left off (#312)\n* Backups can leave out the system image, and backups to exFAT drives work (#312)\n* Korean now covers the whole launcher (#318)\n* Simplified Chinese wording is polished and covers the tray messages (#327)\n\n# Fixes\n\n* Fix the top bar disappearing and Win+K / Win+Space opening black screens after **Update > Omarchy**. Installs that already updated are repaired when this version starts (#336)\n* Fix typing and shortcuts not reaching Omarchy while a Windows input method such as Microsoft Pinyin is in Chinese mode (#328)\n* Fix the sound menu freezing Omarchy when Windows has no microphone. Connecting a headset later picks up its microphone (#332)\n* Fix volume sync stopping after choosing **VirtIO PCM 0** in Omarchy's sound menu. Omarchy now switches back to the Windows device (#277)\n* Show a tray message when the Omarchy system update cannot be downloaded, instead of failing silently (#277)\n\n## Dev\n\n* Build runtime r23 with the input method and microphone fixes (#334, #338)\n* Refresh the guest package lock to Qt 6.12 (#340)\n* Allow two backports to change the same file (#342)"
+    },
     {
      "tag": "runtime-v1-r23",
      "title": "WINQ-EMU r23 runtime",
@@ -4789,7 +4798,7 @@
   ],
   [
    "2026-10-09",
-   7
+   9
   ]
  ]
 }
