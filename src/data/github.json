@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-08T18:17:29.752Z",
+ "generatedAt": "2026-10-09T00:17:26.911Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
-   "pushedAt": "2026-10-08T18:16:50Z",
+   "pushedAt": "2026-10-08T23:59:33Z",
    "latest": "v1.24.0",
    "releaseDates": [
     "2026-10-07T02:02:37Z",
@@ -668,8 +668,8 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 560,
-   "pushedAt": "2026-10-07T11:41:36Z",
+   "stars": 563,
+   "pushedAt": "2026-10-08T23:44:36Z",
    "latest": "v0.10.1",
    "releaseDates": [
     "2026-10-06T21:16:43Z",
@@ -1758,7 +1758,7 @@
   },
   "btsouth/omarchy-usage-dashboard": {
    "stars": 17,
-   "pushedAt": "2026-10-07T20:30:33Z",
+   "pushedAt": "2026-10-08T18:43:59Z",
    "latest": "v1.11.1",
    "releaseDates": [
     "2026-10-07T20:30:31Z",
@@ -1956,7 +1956,7 @@
   },
   "btsouth/omadrop": {
    "stars": 5,
-   "pushedAt": "2026-10-06T10:31:36Z",
+   "pushedAt": "2026-10-08T23:23:41Z",
    "latest": "v0.6.3",
    "releaseDates": [
     "2026-10-05T12:23:47Z",
@@ -4714,15 +4714,19 @@
   ],
   [
    "2026-10-06",
-   220
+   221
   ],
   [
    "2026-10-07",
-   225
+   228
   ],
   [
    "2026-10-08",
-   113
+   153
+  ],
+  [
+   "2026-10-09",
+   0
   ]
  ]
 }
