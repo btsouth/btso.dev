@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-09T01:45:34.663Z",
+ "generatedAt": "2026-10-09T02:20:30.340Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
@@ -669,7 +669,7 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 564,
-   "pushedAt": "2026-10-09T01:11:48Z",
+   "pushedAt": "2026-10-09T02:18:16Z",
    "latest": "v0.10.1",
    "releaseDates": [
     "2026-10-06T21:16:43Z",
@@ -1128,7 +1128,7 @@
   },
   "btsouth/omakade": {
    "stars": 432,
-   "pushedAt": "2026-10-09T01:26:03Z",
+   "pushedAt": "2026-10-09T02:12:58Z",
    "latest": "v1.15.0",
    "releaseDates": [
     "2026-10-04T01:09:43Z",
@@ -1965,9 +1965,10 @@
   },
   "btsouth/omadrop": {
    "stars": 5,
-   "pushedAt": "2026-10-09T01:38:52Z",
-   "latest": "v0.6.3",
+   "pushedAt": "2026-10-09T02:15:21Z",
+   "latest": "v0.7.0",
    "releaseDates": [
+    "2026-10-09T02:18:26Z",
     "2026-10-05T12:23:47Z",
     "2026-10-05T12:02:37Z",
     "2026-10-04T23:25:07Z",
@@ -1979,6 +1980,14 @@
     "2026-08-23T22:57:23Z"
    ],
    "releases": [
+    {
+     "tag": "v0.7.0",
+     "title": "Omadrop 0.7.0",
+     "at": "2026-10-09T02:18:26Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omadrop/releases/tag/v0.7.0",
+     "body": "A new world and a kit to build your own.\n\n- New world: Kanagawa, a sunset Hokusai print with Fuji, a great wave and two rowing crews. Loud music builds each set: the wave grows, feints on strong hits and breaks, and the crews race it off the right edge. Sets differ, from towering waves to ones that fizzle out or break early, and the sea stays calm for a while after each landing.\n- The Omarchy tab lists every installed world. Click one to play it. The world named after your Omarchy theme is selected by default, otherwise the last one you played. `omadrop --mode omarchy --world NAME` plays a world directly.\n- Theme detection works with current Omarchy, which records the active theme in `~/.local/state/omarchy/current/theme.name`.\n- Build a living world for your theme. `omadrop world new` starts one from a template, `omadrop world preview` reloads it as you save, and `omadrop world check` reports whether it loads, reacts to music, fits the frame budget and avoids harsh flashing. Worlds are a `scene.json` and an Inkscape `art.svg` built from a shared library of pieces. See [Build a living world](https://github.com/btsouth/omadrop/blob/v0.7.0/docs/worlds.md).\n- Osaka Jade now loads from its own world folder, with no visible change.\n\n### Install on Omarchy\n\n```sh\ncurl -fsSL https://pkgs.btso.dev/install.sh | bash -s -- omadrop\n```\n\nIf you already use the signed repository, `omarchy update` or `sudo pacman -Syu` picks this up. To install this release directly instead:\n\n```sh\ncurl -fLO https://github.com/btsouth/omadrop/releases/download/v0.7.0/omadrop-x86_64.pkg.tar.zst && sudo pa"
+    },
     {
      "tag": "v0.6.3",
      "title": "Omadrop 0.6.3",
@@ -4767,11 +4776,11 @@
   ],
   [
    "2026-10-08",
-   201
+   208
   ],
   [
    "2026-10-09",
-   1
+   2
   ]
  ]
 }
