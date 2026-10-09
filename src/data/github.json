@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-09T00:17:26.911Z",
+ "generatedAt": "2026-10-09T01:45:34.663Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 221,
-   "pushedAt": "2026-10-08T23:59:33Z",
+   "pushedAt": "2026-10-09T01:35:18Z",
    "latest": "v1.24.0",
    "releaseDates": [
     "2026-10-07T02:02:37Z",
@@ -668,8 +668,8 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 563,
-   "pushedAt": "2026-10-08T23:44:36Z",
+   "stars": 564,
+   "pushedAt": "2026-10-09T01:11:48Z",
    "latest": "v0.10.1",
    "releaseDates": [
     "2026-10-06T21:16:43Z",
@@ -1128,7 +1128,7 @@
   },
   "btsouth/omakade": {
    "stars": 432,
-   "pushedAt": "2026-10-08T03:39:19Z",
+   "pushedAt": "2026-10-09T01:26:03Z",
    "latest": "v1.15.0",
    "releaseDates": [
     "2026-10-04T01:09:43Z",
@@ -1758,9 +1758,10 @@
   },
   "btsouth/omarchy-usage-dashboard": {
    "stars": 17,
-   "pushedAt": "2026-10-08T18:43:59Z",
-   "latest": "v1.11.1",
+   "pushedAt": "2026-10-09T01:44:04Z",
+   "latest": "v1.11.2",
    "releaseDates": [
+    "2026-10-09T01:44:05Z",
     "2026-10-07T20:30:31Z",
     "2026-10-07T18:28:51Z",
     "2026-10-06T16:22:33Z",
@@ -1784,6 +1785,14 @@
     "2026-09-16T01:35:59Z"
    ],
    "releases": [
+    {
+     "tag": "v1.11.2",
+     "title": "Agent Pulse v1.11.2",
+     "at": "2026-10-09T01:44:05Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/agent-pulse/releases/tag/v1.11.2",
+     "body": "Colors work again on Qt 6.12. QtQuick 6.12 added its own `Color` type, which hid the shell's color palette and left the plugin's colors undefined. It now reads the palette as `Commons.Color`, the same fix Omarchy made for its own shell. History, preferences and the bar layout are preserved.\n\nUpdate with:\n\n```sh\ncurl -fsSL https://raw.githubusercontent.com/btsouth/agent-pulse/main/install.sh | OMARCHY_USAGE_REF=v1.11.2 bash -s -- --with-plugin\n```\n\nOmit `--with-plugin` if you use only the dashboard."
+    },
     {
      "tag": "v1.11.1",
      "title": "Agent Pulse v1.11.1",
@@ -1956,7 +1965,7 @@
   },
   "btsouth/omadrop": {
    "stars": 5,
-   "pushedAt": "2026-10-08T23:23:41Z",
+   "pushedAt": "2026-10-09T01:38:52Z",
    "latest": "v0.6.3",
    "releaseDates": [
     "2026-10-05T12:23:47Z",
@@ -2046,9 +2055,10 @@
   },
   "btsouth/typearchy": {
    "stars": 5,
-   "pushedAt": "2026-09-20T12:19:03Z",
-   "latest": "v1.6.0",
+   "pushedAt": "2026-10-09T01:43:54Z",
+   "latest": "v1.6.1",
    "releaseDates": [
+    "2026-10-09T01:44:00Z",
     "2026-09-20T12:19:04Z",
     "2026-09-20T02:24:35Z",
     "2026-09-05T05:27:38Z",
@@ -2059,6 +2069,14 @@
     "2026-08-28T21:34:22Z"
    ],
    "releases": [
+    {
+     "tag": "v1.6.1",
+     "title": "Typearchy 1.6.1",
+     "at": "2026-10-09T01:44:00Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/typearchy/releases/tag/v1.6.1",
+     "body": "Colors work again on Qt 6.12. QtQuick 6.12 added its own `Color` type, which hid the shell's color palette and left the plugin's colors undefined. It now reads the palette as `Commons.Color`, the same fix Omarchy made for its own shell."
+    },
     {
      "tag": "v1.6.0",
      "title": "Typearchy 1.6.0",
@@ -2127,9 +2145,10 @@
   },
   "btsouth/omalink": {
    "stars": 10,
-   "pushedAt": "2026-10-02T00:45:04Z",
-   "latest": "v0.5.1",
+   "pushedAt": "2026-10-09T01:43:52Z",
+   "latest": "v0.5.2",
    "releaseDates": [
+    "2026-10-09T01:43:59Z",
     "2026-10-02T00:45:06Z",
     "2026-10-02T00:11:22Z",
     "2026-10-01T22:35:46Z",
@@ -2137,6 +2156,14 @@
     "2026-09-16T02:49:08Z"
    ],
    "releases": [
+    {
+     "tag": "v0.5.2",
+     "title": "OmaLink 0.5.2: Colors on Qt 6.12",
+     "at": "2026-10-09T01:43:59Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omalink/releases/tag/v0.5.2",
+     "body": "Colors work again on Qt 6.12. QtQuick 6.12 added its own `Color` type, which hid the shell's color palette and left the plugin's colors undefined. It now reads the palette as `Commons.Color`, the same fix Omarchy made for its own shell."
+    },
     {
      "tag": "v0.5.1",
      "title": "OmaLink 0.5.1: A tidier inbox and safer drafts",
@@ -2181,19 +2208,28 @@
   },
   "btsouth/omarchy-omcp": {
    "stars": 8,
-   "pushedAt": "2026-10-02T23:17:44Z",
+   "pushedAt": "2026-10-09T01:43:01Z",
    "latest": null,
    "releaseDates": [],
    "releases": []
   },
   "btsouth/omarchy-resurrect": {
    "stars": 7,
-   "pushedAt": "2026-10-02T23:17:51Z",
-   "latest": "v1.2.0",
+   "pushedAt": "2026-10-09T01:43:56Z",
+   "latest": "v1.2.1",
    "releaseDates": [
+    "2026-10-09T01:44:03Z",
     "2026-09-20T07:33:23Z"
    ],
    "releases": [
+    {
+     "tag": "v1.2.1",
+     "title": "1.2.1",
+     "at": "2026-10-09T01:44:03Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omarchy-resurrect/releases/tag/v1.2.1",
+     "body": "### Fixed\n\n- Colors work again on Qt 6.12. QtQuick 6.12 added its own `Color` type, which hid the shell's color palette and left the plugin's colors undefined. It now reads the palette as `Commons.Color`, the same fix Omarchy made for its own shell."
+    },
     {
      "tag": "v1.2.0",
      "title": "1.2.0",
@@ -2251,13 +2287,22 @@
   },
   "btsouth/signal": {
    "stars": 0,
-   "pushedAt": "2026-09-24T05:03:01Z",
-   "latest": "v1.0.1",
+   "pushedAt": "2026-10-09T01:42:46Z",
+   "latest": "v1.0.2",
    "releaseDates": [
+    "2026-10-09T01:44:01Z",
     "2026-08-21T10:26:12Z",
     "2026-08-20T21:22:16Z"
    ],
    "releases": [
+    {
+     "tag": "v1.0.2",
+     "title": "Signal v1.0.2",
+     "at": "2026-10-09T01:44:01Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/signal/releases/tag/v1.0.2",
+     "body": "Colors work again on Qt 6.12. QtQuick 6.12 added its own `Color` type, which hid the shell's color palette and left the plugin's colors undefined. It now reads the palette as `Commons.Color`, the same fix Omarchy made for its own shell."
+    },
     {
      "tag": "v1.0.1",
      "title": "Signal v1.0.1",
@@ -4722,11 +4767,11 @@
   ],
   [
    "2026-10-08",
-   153
+   201
   ],
   [
    "2026-10-09",
-   0
+   1
   ]
  ]
 }
