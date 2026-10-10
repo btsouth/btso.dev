@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-10T07:50:31.553Z",
+ "generatedAt": "2026-10-10T09:25:29.415Z",
  "repos": {
   "btsouth/toolport": {
-   "stars": 222,
-   "pushedAt": "2026-10-10T07:48:45Z",
+   "stars": 223,
+   "pushedAt": "2026-10-10T09:19:06Z",
    "latest": "v1.24.0",
    "releaseDates": [
     "2026-10-07T02:02:37Z",
@@ -668,7 +668,7 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 589,
+   "stars": 591,
    "pushedAt": "2026-10-09T13:04:09Z",
    "latest": "v0.11.0",
    "releaseDates": [
@@ -1146,7 +1146,7 @@
   },
   "btsouth/omakade": {
    "stars": 432,
-   "pushedAt": "2026-10-10T07:44:21Z",
+   "pushedAt": "2026-10-10T08:09:20Z",
    "latest": "v1.15.0",
    "releaseDates": [
     "2026-10-04T01:09:43Z",
@@ -1389,9 +1389,10 @@
   },
   "btsouth/omaroll": {
    "stars": 56,
-   "pushedAt": "2026-10-10T07:34:55Z",
-   "latest": "v1.15.1",
+   "pushedAt": "2026-10-10T09:04:36Z",
+   "latest": "v1.15.2",
    "releaseDates": [
+    "2026-10-10T09:20:27Z",
     "2026-10-06T10:43:04Z",
     "2026-10-06T04:41:54Z",
     "2026-10-04T01:15:07Z",
@@ -1416,6 +1417,14 @@
     "2026-09-02T01:06:06Z"
    ],
    "releases": [
+    {
+     "tag": "v1.15.2",
+     "title": "Omaroll 1.15.2",
+     "at": "2026-10-10T09:20:27Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaroll/releases/tag/v1.15.2",
+     "body": "Very large pictures open, and videos play again with Qt 6.12.\n\n### Fixed\n\n- Very large pictures open. A 150-megapixel scan used to fail with \"Could not\n  display this picture\"; the viewer and library preview now show it from a copy\n  the size of the screen and load full resolution when zoomed in. A picture that\n  needs more memory than the limit says how much\n  ([#115](https://github.com/btsouth/omaroll/issues/115), reported by\n  @dyedfox).\n- Corrections and Mattes say when a picture is too large to preview, instead of\n  \"Could not read this file\".\n- Videos play with Qt 6.12. Stepping to another video in the quick viewer could\n  leave it stopped, and a playing video could stop by itself, because Qt 6.12\n  stops the player whenever its file is set again.\n\n[Install or update](https://github.com/btsouth/omaroll#install-or-update)."
+    },
     {
      "tag": "v1.15.1",
      "title": "Omaroll 1.15.1",
@@ -2710,7 +2719,7 @@
   },
   "btsouth/cubby-clipboard": {
    "stars": 12,
-   "pushedAt": "2026-10-06T04:24:30Z",
+   "pushedAt": "2026-10-10T08:35:13Z",
    "latest": "v1.3.7",
    "releaseDates": [
     "2026-09-30T20:00:45Z",
@@ -4799,19 +4808,19 @@
   ],
   [
    "2026-10-07",
-   228
+   241
   ],
   [
    "2026-10-08",
-   233
+   256
   ],
   [
    "2026-10-09",
-   115
+   124
   ],
   [
    "2026-10-10",
-   33
+   67
   ]
  ]
 }
