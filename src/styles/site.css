@@ -112,6 +112,7 @@ kbd { font-size: 11px; padding: 1px 6px; border-radius: 4px; border: 1px solid v
 .rise-t { animation: rise-t .55s cubic-bezier(.2,.8,.2,1) both; }
 @keyframes rise-t { from { transform: translateY(14px); } }
 .tip { position: absolute; z-index: 5; pointer-events: none; padding: 9px 12px; border-radius: 9px; background: var(--bg2); border: 1px solid var(--line); box-shadow: 0 12px 30px var(--shade); font: 400 12px/1.5 "JetBrains Mono", monospace; color: var(--fg2); white-space: nowrap; opacity: 0; transform: translate(-50%, calc(-100% - 12px)); transition: opacity .12s; }
+.tip.below { transform: translate(-50%, 12px); }
 .tip b { color: var(--fg); font-weight: 600; }
 .tip .r { color: var(--accent); }
 

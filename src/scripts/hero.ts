@@ -774,8 +774,13 @@ export function createHero(section: HTMLElement, data: HeroData, lastSeen: numbe
       tip.innerHTML = `<b>${shortDay(hit.d)}</b> · ${hit.c} contribution${hit.c === 1 ? '' : 's'}` +
         (rel.length ? `<br>${rel.slice(0, 4).map((s) => `<span class="r">▲</span> ${esc(s)}`).join('<br>')}${rel.length > 4 ? `<br>+${rel.length - 4} more` : ''}` : '') +
         '<br><span class="hint">click the grid to play</span>';
-      tip.style.left = `${hit.hx + hit.s / 2}px`;
-      tip.style.top = `${hit.hy}px`;
+      // Flip below the cell when the tip would slide under the sticky header, and keep it on screen.
+      const hdr = document.querySelector('.hdr')?.getBoundingClientRect().bottom ?? 0;
+      const below = section.getBoundingClientRect().top + hit.hy - tip.offsetHeight - 12 < hdr + 8;
+      tip.classList.toggle('below', below);
+      const half = tip.offsetWidth / 2 + 8;
+      tip.style.left = `${Math.min(Math.max(hit.hx + hit.s / 2, half), section.clientWidth - half)}px`;
+      tip.style.top = `${below ? hit.hy + hit.s : hit.hy}px`;
       tip.style.opacity = '1';
     } else tip.style.opacity = '0';
     if (reduced) draw(performance.now());
