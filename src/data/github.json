@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-10T18:17:24.366Z",
+ "generatedAt": "2026-10-10T23:20:28.481Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 223,
-   "pushedAt": "2026-10-10T18:13:37Z",
+   "pushedAt": "2026-10-10T23:17:36Z",
    "latest": "v1.24.0",
    "releaseDates": [
     "2026-10-07T02:02:37Z",
@@ -668,7 +668,7 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 595,
+   "stars": 598,
    "pushedAt": "2026-10-09T13:04:09Z",
    "latest": "v0.11.0",
    "releaseDates": [
@@ -1146,9 +1146,10 @@
   },
   "btsouth/omakade": {
    "stars": 432,
-   "pushedAt": "2026-10-10T17:22:34Z",
-   "latest": "v1.16.0",
+   "pushedAt": "2026-10-10T23:00:02Z",
+   "latest": "v1.16.1",
    "releaseDates": [
+    "2026-10-10T23:19:41Z",
     "2026-10-10T16:27:09Z",
     "2026-10-04T01:09:43Z",
     "2026-10-03T22:40:41Z",
@@ -1178,6 +1179,14 @@
     "2026-09-01T02:14:44Z"
    ],
    "releases": [
+    {
+     "tag": "v1.16.1",
+     "title": "Omakade 1.16.1",
+     "at": "2026-10-10T23:19:41Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omakade/releases/tag/v1.16.1",
+     "body": "- The in-game guide's Record clip action now uses its own recorder. A screen recording you\n  start from Omarchy keeps running on its own: the guide no longer shows it as its\n  clip or stops it, and Omarchy's stop leaves the guide's clip alone.\n- The in-game guide shows GPU load and temperature on NVIDIA cards too.\n- Controller navigation is fixed across the app. A press could move two steps, which made\n  some buttons and Settings sections hard or impossible to reach. Every screen is now\n  tested from every control in every direction, in couch and desktop layouts.\n- Home: the top buttons stay on one row, Down moves straight between shelves, and X adds\n  a game to Up next. Going back up to the top buttons shows the top of the page.\n- Settings: Back from Settings opened on Home returns to Home. Sliders change only with\n  Left and Right, dropdowns no longer trap the controller, and Left from a page goes to\n  the section list.\n- With Steam running, each controller press counted twice, because Steam Input adds a\n  copy of the pad. B in Settings on Home went past Home to the library. Omakade now\n  ignores Steam's copy while the real pad is connected.\n- In Game Mode, DESKTOP on Home goes straight to the desktop, as holding Home does.\n\n[Install Omakade](https://github.com/btsouth/omakade/releases/tag/v1.16.1)"
+    },
     {
      "tag": "v1.16.0",
      "title": "Omakade 1.16.0",
@@ -4847,7 +4856,7 @@
   ],
   [
    "2026-10-10",
-   165
+   237
   ]
  ]
 }
