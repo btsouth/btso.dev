@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-10T12:17:28.430Z",
+ "generatedAt": "2026-10-10T13:00:31.958Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 223,
-   "pushedAt": "2026-10-10T11:50:11Z",
+   "pushedAt": "2026-10-10T12:55:35Z",
    "latest": "v1.24.0",
    "releaseDates": [
     "2026-10-07T02:02:37Z",
@@ -1146,7 +1146,7 @@
   },
   "btsouth/omakade": {
    "stars": 432,
-   "pushedAt": "2026-10-10T12:11:19Z",
+   "pushedAt": "2026-10-10T12:59:42Z",
    "latest": "v1.15.0",
    "releaseDates": [
     "2026-10-04T01:09:43Z",
@@ -1389,7 +1389,7 @@
   },
   "btsouth/omaroll": {
    "stars": 56,
-   "pushedAt": "2026-10-10T12:10:45Z",
+   "pushedAt": "2026-10-10T12:52:37Z",
    "latest": "v1.15.2",
    "releaseDates": [
     "2026-10-10T09:20:27Z",
@@ -1605,9 +1605,10 @@
   },
   "btsouth/omaframe": {
    "stars": 15,
-   "pushedAt": "2026-10-10T07:39:54Z",
-   "latest": "v0.11.0",
+   "pushedAt": "2026-10-10T12:55:30Z",
+   "latest": "v0.11.1",
    "releaseDates": [
+    "2026-10-10T12:58:02Z",
     "2026-10-10T07:45:40Z",
     "2026-10-06T09:48:18Z",
     "2026-10-03T23:56:55Z",
@@ -1631,12 +1632,20 @@
    ],
    "releases": [
     {
+     "tag": "v0.11.1",
+     "title": "Omaframe 0.11.1",
+     "at": "2026-10-10T12:58:02Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaframe/releases/tag/v0.11.1",
+     "body": "Omaframe 0.11.0 did not start on Omarchy stable or rc. It was built against\nQt 6.12, which only edge has, and failed with \"version `Qt_6.12' not found\".\nThis release is built against the Qt 6.11 that stable and rc ship, so it\nstarts on stable, rc and edge. Nothing else changed.\n\nThe package now requires the Qt it was built against, so pacman refuses an\ninstall that would fail to start instead of letting it through.\n\nValidated by building in a clean Arch container on Omarchy's stable mirror,\nchecking that the binary needs nothing newer than Qt 6.11, and installing and\nstarting it offscreen in that container. CI ran the eighteen headless suites\non both Omarchy stable and current Arch.\n\nUpdate through `omarchy update` or `sudo pacman -Syu`, then reopen Omaframe.\nExisting captures, settings and drafts are preserved."
+    },
+    {
      "tag": "v0.11.0",
      "title": "Omaframe 0.11.0",
      "at": "2026-10-10T07:45:40Z",
      "pre": false,
      "url": "https://github.com/btsouth/omaframe/releases/tag/v0.11.0",
-     "body": "Omaframe now pins screenshots to your screen, and opens a screenshot again\nfrom its notification.\n\n- **Pin a screenshot.** Press P on the finish chooser, Pin (Ctrl+P) in the\n  editor, or Pin in History. The pin lifts off what you captured and settles\n  in the farthest corner, above your windows on every workspace. Drag it\n  anywhere, across displays too, resize it from a corner, scroll to zoom and\n  Ctrl+scroll to fade it. Right-click for Copy, Save, Actual size and Click\n  through, which lets clicks reach the window below. A pin is the screenshot\n  with your marks and crop; Shift+P keeps the selected finish, for showing it\n  on a call. Pinning copies and saves nothing, and Omaframe exits when the\n  last pin closes.\n- **Edit from the notification.** Click Screenshot copied to open that\n  screenshot in the editor again, with its marks and finish still editable\n  (#37).\n\n## Fixes\n\n- On Qt 6.12 the video playhead no longer jumps back to the start just after\n  a recording opens, and a resumed draft keeps its trimmed start.\n- Playing to the end of a trimmed clip now returns to the trim start, as\n  intended.\n- Step numbers keep the order you placed them in saved video drafts too.\n\nValidated with the eighteen headless suites in CI on Qt 6.12, the desktop\nsuites in an isolated Omarchy desktop, and pins on a two monitor Omarchy\ndesktop at 1.25 scale.\n\nUpdate through `omarchy update` or `sudo pacman -Syu`, then reopen Omaframe.\nExisting captures, settings and drafts are preserved."
+     "body": "**This package needs Qt 6.12 and does not start on Omarchy stable or rc. Update to [0.11.1](https://github.com/btsouth/omaframe/releases/tag/v0.11.1).**\n\nOmaframe now pins screenshots to your screen, and opens a screenshot again\nfrom its notification.\n\n- **Pin a screenshot.** Press P on the finish chooser, Pin (Ctrl+P) in the\n  editor, or Pin in History. The pin lifts off what you captured and settles\n  in the farthest corner, above your windows on every workspace. Drag it\n  anywhere, across displays too, resize it from a corner, scroll to zoom and\n  Ctrl+scroll to fade it. Right-click for Copy, Save, Actual size and Click\n  through, which lets clicks reach the window below. A pin is the screenshot\n  with your marks and crop; Shift+P keeps the selected finish, for showing it\n  on a call. Pinning copies and saves nothing, and Omaframe exits when the\n  last pin closes.\n- **Edit from the notification.** Click Screenshot copied to open that\n  screenshot in the editor again, with its marks and finish still editable\n  (#37).\n\n## Fixes\n\n- On Qt 6.12 the video playhead no longer jumps back to the start just after\n  a recording opens, and a resumed draft keeps its trimmed start.\n- Playing to the end of a trimmed clip now returns to the trim start, as\n  intended.\n- Step numbers keep the order you placed them in saved video drafts too.\n\nValidated with the eighteen headless suites in CI on Qt 6.12, the desktop\nsuites in an isolated Omarchy desktop, and pins on a two monitor Omarchy\ndesktop at 1.25 scale.\n\nUpdate through `omarchy update` or `sudo pacman -Syu`, then reopen Omaframe.\nExis"
     },
     {
      "tag": "v0.10.0",
@@ -4820,7 +4829,7 @@
   ],
   [
    "2026-10-10",
-   73
+   85
   ]
  ]
 }
