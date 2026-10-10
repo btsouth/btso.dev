@@ -36,9 +36,11 @@ const EMAIL = 'tsouth2@gmail.com';
     To see which parts of the game people enjoy and where they get stuck, the game sends a few counts to
     <a href="https://posthog.com/privacy">PostHog</a>, our analytics provider in the United States: when the
     game opens, which day and chapter you're on, finished days and chapters, Cake Sort wins and losses, goals
-    claimed, energy refills, when the unlock screen appears, purchases and restores, and whether reminders were
-    allowed, along with the app version and whether it's Android or iPhone. Each launch uses a new random number
-    that is never saved, so the counts aren't linked to you or to each other across launches. They never include
+    claimed, energy refills, when the unlock screen appears, purchases and restores, whether reminders were
+    allowed, and when the first tap, merge, box and served order happen, along with the app version and whether
+    it's Android or iPhone. Each count also says how many days ago the game was first opened and how many times it
+    has been opened. The date itself stays on your phone; only the count of days is sent. Each launch uses a new
+    random number that is never saved, so the counts aren't linked to you or to each other across launches. They never include
     your name, your café or save, or any device or advertising ID. PostHog receives your IP address when the
     counts arrive, as any website would; the game asks it not to work out your location. Turn this off anytime
     with Share anonymous usage in Settings.
