@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-10T13:25:32.069Z",
+ "generatedAt": "2026-10-10T16:30:34.397Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 223,
-   "pushedAt": "2026-10-10T13:13:15Z",
+   "pushedAt": "2026-10-10T16:03:13Z",
    "latest": "v1.24.0",
    "releaseDates": [
     "2026-10-07T02:02:37Z",
@@ -668,7 +668,7 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 591,
+   "stars": 595,
    "pushedAt": "2026-10-09T13:04:09Z",
    "latest": "v0.11.0",
    "releaseDates": [
@@ -1146,9 +1146,10 @@
   },
   "btsouth/omakade": {
    "stars": 432,
-   "pushedAt": "2026-10-10T12:59:42Z",
-   "latest": "v1.15.0",
+   "pushedAt": "2026-10-10T16:28:54Z",
+   "latest": "v1.16.0",
    "releaseDates": [
+    "2026-10-10T16:27:09Z",
     "2026-10-04T01:09:43Z",
     "2026-10-03T22:40:41Z",
     "2026-10-03T14:26:36Z",
@@ -1177,6 +1178,14 @@
     "2026-09-01T02:14:44Z"
    ],
    "releases": [
+    {
+     "tag": "v1.16.0",
+     "title": "Omakade 1.16.0",
+     "at": "2026-10-10T16:27:09Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omakade/releases/tag/v1.16.0",
+     "body": "Press Home or Super + Ctrl + G over a running game to open the in-game guide, a\npanel at the edge of the screen in your Omarchy theme. The game pauses while it is\nopen. Resume, take a screenshot or record a clip, change the volume or sound output,\ncheck performance, or quit the game.\n\n- **Desktop** (in Game Mode) takes you to the desktop with the game hidden and muted.\n  Press Home to come back to the game, paused, with the guide open.\n- Hold Home for half a second to go to the desktop and back without the guide, as\n  Home did in 1.15.\n- RetroArch started by Omakade: Home opens only the guide. Click both sticks\n  (L3 + R3) for RetroArch's own menu. Your `retroarch.cfg` is left as it was.\n- The press that closes the guide never reaches the game.\n- Game Mode opens straight onto its own workspace at full size, and the library\n  stays behind your game.\n- Prefer the old Home button? Set **Home button in games** to **Game Mode** in\n  Settings. The guide comes with the package; `omarchy plugin disable\n  omakade.guide` turns it off.\n\nFixes\n\n- Sunshine apps exported by Omakade launch from Moonlight again.\n- Heroic libraries with an empty Epic or Amazon cache no longer block GOG imports.\n- OmaStore installs record playtime.\n- x86_64 packages are built against Omarchy stable, so they start on stable, RC and edge.\n\n[Install Omakade](https://github.com/btsouth/omakade/releases/tag/v1.16.0) ·\n[Guide documentation](https://github.com/btsouth/omakade/blob/v1.16.0/docs/GAME-GUIDE.md)"
+    },
     {
      "tag": "v1.15.0",
      "title": "Omakade 1.15.0",
@@ -1432,7 +1441,7 @@
      "at": "2026-10-10T09:20:27Z",
      "pre": false,
      "url": "https://github.com/btsouth/omaroll/releases/tag/v1.15.2",
-     "body": "Very large pictures open, and videos play again with Qt 6.12.\n\n### Fixed\n\n- Very large pictures open. A 150-megapixel scan used to fail with \"Could not\n  display this picture\"; the viewer and library preview now show it from a copy\n  the size of the screen and load full resolution when zoomed in. A picture that\n  needs more memory than the limit says how much\n  ([#115](https://github.com/btsouth/omaroll/issues/115), reported by\n  @dyedfox).\n- Corrections and Mattes say when a picture is too large to preview, instead of\n  \"Could not read this file\".\n- Videos play with Qt 6.12. Stepping to another video in the quick viewer could\n  leave it stopped, and a playing video could stop by itself, because Qt 6.12\n  stops the player whenever its file is set again.\n\n[Install or update](https://github.com/btsouth/omaroll#install-or-update)."
+     "body": "> This package needs Qt 6.12 and does not start on Omarchy stable or rc. Use [1.15.3](https://github.com/btsouth/omaroll/releases/tag/v1.15.3) instead.\n\nVery large pictures open, and videos play again with Qt 6.12.\n\n### Fixed\n\n- Very large pictures open. A 150-megapixel scan used to fail with \"Could not\n  display this picture\"; the viewer and library preview now show it from a copy\n  the size of the screen and load full resolution when zoomed in. A picture that\n  needs more memory than the limit says how much\n  ([#115](https://github.com/btsouth/omaroll/issues/115), reported by\n  @dyedfox).\n- Corrections and Mattes say when a picture is too large to preview, instead of\n  \"Could not read this file\".\n- Videos play with Qt 6.12. Stepping to another video in the quick viewer could\n  leave it stopped, and a playing video could stop by itself, because Qt 6.12\n  stops the player whenever its file is set again.\n\n[Install or update](https://github.com/btsouth/omaroll#install-or-update)."
     },
     {
      "tag": "v1.15.1",
@@ -2208,7 +2217,7 @@
   },
   "btsouth/omalink": {
    "stars": 10,
-   "pushedAt": "2026-10-10T13:11:01Z",
+   "pushedAt": "2026-10-10T13:49:03Z",
    "latest": "v0.5.2",
    "releaseDates": [
     "2026-10-09T01:43:59Z",
@@ -4814,11 +4823,11 @@
   ],
   [
    "2026-10-04",
-   483
+   509
   ],
   [
    "2026-10-05",
-   240
+   241
   ],
   [
    "2026-10-06",
@@ -4826,19 +4835,19 @@
   ],
   [
    "2026-10-07",
-   241
+   252
   ],
   [
    "2026-10-08",
-   256
+   297
   ],
   [
    "2026-10-09",
-   124
+   157
   ],
   [
    "2026-10-10",
-   90
+   146
   ]
  ]
 }
