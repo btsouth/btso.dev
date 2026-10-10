@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-10T13:00:31.958Z",
+ "generatedAt": "2026-10-10T13:25:32.069Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 223,
-   "pushedAt": "2026-10-10T12:55:35Z",
+   "pushedAt": "2026-10-10T13:13:15Z",
    "latest": "v1.24.0",
    "releaseDates": [
     "2026-10-07T02:02:37Z",
@@ -1389,9 +1389,10 @@
   },
   "btsouth/omaroll": {
    "stars": 56,
-   "pushedAt": "2026-10-10T12:52:37Z",
-   "latest": "v1.15.2",
+   "pushedAt": "2026-10-10T13:07:42Z",
+   "latest": "v1.15.3",
    "releaseDates": [
+    "2026-10-10T13:22:56Z",
     "2026-10-10T09:20:27Z",
     "2026-10-06T10:43:04Z",
     "2026-10-06T04:41:54Z",
@@ -1417,6 +1418,14 @@
     "2026-09-02T01:06:06Z"
    ],
    "releases": [
+    {
+     "tag": "v1.15.3",
+     "title": "Omaroll 1.15.3",
+     "at": "2026-10-10T13:22:56Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaroll/releases/tag/v1.15.3",
+     "body": "Omaroll starts again on Omarchy's stable and rc channels.\n\n### Fixed\n\n- 1.15.2 was built against Qt 6.12 and failed to start with Qt 6.11, which\n  Omarchy's stable and rc channels still ship ([#119](https://github.com/btsouth/omaroll/issues/119),\n  reported by @dyedfox). Releases are now built against Omarchy's stable\n  packages and refuse to publish a package that needs anything newer.\n\n[Install or update](https://github.com/btsouth/omaroll#install-or-update)."
+    },
     {
      "tag": "v1.15.2",
      "title": "Omaroll 1.15.2",
@@ -2199,7 +2208,7 @@
   },
   "btsouth/omalink": {
    "stars": 10,
-   "pushedAt": "2026-10-09T01:43:52Z",
+   "pushedAt": "2026-10-10T13:11:01Z",
    "latest": "v0.5.2",
    "releaseDates": [
     "2026-10-09T01:43:59Z",
@@ -4829,7 +4838,7 @@
   ],
   [
    "2026-10-10",
-   85
+   90
   ]
  ]
 }
