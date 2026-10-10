@@ -1,0 +1,39 @@
+---
+import Legal from '../../layouts/Legal.astro';
+const EMAIL = 'tsouth2@gmail.com';
+---
+<Legal
+  pageTitle="Family Bakery: Merge & Bake | Help"
+  heading="Family Bakery help"
+  description="Help for Family Bakery: Merge & Bake, a cozy merge game with one purchase, no ads and no energy for sale."
+  lastUpdated="October 10, 2026"
+>
+  <p>
+    Merge ingredients, bake for your regulars and follow a missing family recipe book across five chapters.
+    The first two chapters are free. One purchase opens the rest, with no ads and no subscriptions.
+  </p>
+
+  <h2>I bought the game on another phone</h2>
+  <p>
+    Open Settings and tap Restore purchases while signed in to the same Google Play or Apple account you
+    bought with. The whole café opens again.
+  </p>
+
+  <h2>Moving to a new phone</h2>
+  <p>
+    Your café is saved on your phone. Before you switch, open Settings, tap Move my café and copy your café
+    code somewhere safe, such as a note or an email to yourself. On the new phone, paste the code in the same
+    screen and tap Bring this café here.
+  </p>
+
+  <h2>Do I need the internet?</h2>
+  <p>
+    No. The game plays offline. Buying or restoring the full café needs a connection once.
+  </p>
+
+  <h2>Something else</h2>
+  <p>
+    Email <a href={`mailto:${EMAIL}`}>{EMAIL}</a> with your phone model and what happened, and I'll help.
+    Privacy details are in the <a href="/family-bakery/privacy">privacy policy</a>.
+  </p>
+</Legal>

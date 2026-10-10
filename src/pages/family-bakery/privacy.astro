@@ -1,0 +1,53 @@
+---
+import Legal from '../../layouts/Legal.astro';
+const EMAIL = 'tsouth2@gmail.com';
+---
+<Legal
+  pageTitle="Privacy Policy | Family Bakery: Merge & Bake"
+  heading="Family Bakery privacy"
+  description="What Family Bakery: Merge & Bake keeps, what it sends, and what it never does."
+  lastUpdated="October 10, 2026"
+>
+  <p>
+    Family Bakery: Merge &amp; Bake is a merge game for Android and iPhone. It has no accounts, no ads,
+    no analytics and no tracking. This policy covers the game only.
+  </p>
+
+  <h2>Your café stays on your phone</h2>
+  <p>
+    Your progress, settings and café are saved on your device. They are not uploaded anywhere. If you
+    use Move my café in Settings, the café code is created on your phone and goes only where you paste it.
+  </p>
+
+  <h2>Purchases</h2>
+  <p>
+    The game sells one optional purchase that opens the whole café. Payment is handled by Google Play or
+    the App Store; we never see your card or payment details. To confirm and restore the purchase, the game uses
+    <a href="https://www.revenuecat.com/privacy">RevenueCat</a>, which receives a random ID created by the app,
+    your purchase records and basic technical details such as app version, device type and country. We use
+    this only to unlock the game for you.
+  </p>
+
+  <h2>What we don't do</h2>
+  <p>
+    We don't sell or share your information, show ads, track you across apps or websites, or ask for your
+    name, email, contacts, location, photos or microphone.
+  </p>
+
+  <h2>Children</h2>
+  <p>
+    The game is meant for players 13 and over and does not knowingly collect personal information from children.
+  </p>
+
+  <h2>Deleting your data</h2>
+  <p>
+    Uninstalling the game deletes your café from the device. To delete the purchase records held by RevenueCat,
+    email <a href={`mailto:${EMAIL}`}>{EMAIL}</a>. Your store account keeps its own purchase history.
+  </p>
+
+  <h2>Changes and contact</h2>
+  <p>
+    If this policy changes, the date above changes with it. Questions can be sent to
+    <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.
+  </p>
+</Legal>
