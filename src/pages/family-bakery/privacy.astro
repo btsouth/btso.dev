@@ -9,14 +9,17 @@ const EMAIL = 'tsouth2@gmail.com';
   lastUpdated="October 10, 2026"
 >
   <p>
-    Family Bakery: Merge &amp; Bake is a merge game for Android and iPhone. It has no accounts, no ads,
-    no analytics and no tracking. This policy covers the game only.
+    Family Bakery: Merge &amp; Bake is a merge game for Android and iPhone. It has no accounts, no ads
+    and no tracking. It shares a few anonymous usage counts, which you can turn off. This policy covers
+    the game only.
   </p>
 
   <h2>Your café stays on your phone</h2>
   <p>
-    Your progress, settings and café are saved on your device. They are not uploaded anywhere. If you
-    use Move my café in Settings, the café code is created on your phone and goes only where you paste it.
+    Your progress, settings and café are saved on your device. We don't upload them anywhere. If your phone
+    backs up apps to your Google or Apple account, that backup includes your café, so it can come back after a
+    reinstall; Google and Apple handle those backups under your account. If you use Move my café in Settings,
+    the café code is created on your phone and goes only where you paste it.
   </p>
 
   <h2>Purchases</h2>
@@ -26,6 +29,19 @@ const EMAIL = 'tsouth2@gmail.com';
     <a href="https://www.revenuecat.com/privacy">RevenueCat</a>, which receives a random ID created by the app,
     your purchase records and basic technical details such as app version, device type and country. We use
     this only to unlock the game for you.
+  </p>
+
+  <h2>Anonymous usage counts</h2>
+  <p>
+    To see which parts of the game people enjoy and where they get stuck, the game sends a few counts to
+    <a href="https://posthog.com/privacy">PostHog</a>, our analytics provider in the United States: when the
+    game opens, which day and chapter you're on, finished days and chapters, Cake Sort wins and losses, goals
+    claimed, energy refills, when the unlock screen appears, purchases and restores, and whether reminders were
+    allowed, along with the app version and whether it's Android or iPhone. Each launch uses a new random number
+    that is never saved, so the counts aren't linked to you or to each other across launches. They never include
+    your name, your café or save, or any device or advertising ID. PostHog receives your IP address when the
+    counts arrive, as any website would; the game asks it not to work out your location. Turn this off anytime
+    with Share anonymous usage in Settings.
   </p>
 
   <h2>What we don't do</h2>
@@ -41,8 +57,8 @@ const EMAIL = 'tsouth2@gmail.com';
 
   <h2>Deleting your data</h2>
   <p>
-    Uninstalling the game deletes your café from the device. To delete the purchase records held by RevenueCat,
-    email <a href={`mailto:${EMAIL}`}>{EMAIL}</a>. Your store account keeps its own purchase history.
+    Uninstalling the game deletes your café from the device. Usage counts can't be traced back to a player,
+    so there is nothing of yours in them to delete. To delete the purchase records held by RevenueCat, email <a href={`mailto:${EMAIL}`}>{EMAIL}</a>. Your store account keeps its own purchase history.
   </p>
 
   <h2>Changes and contact</h2>
