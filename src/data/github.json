@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-11T12:17:25.670Z",
+ "generatedAt": "2026-10-11T16:15:29.344Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 225,
-   "pushedAt": "2026-10-11T12:12:48Z",
+   "pushedAt": "2026-10-11T15:52:08Z",
    "latest": "v1.24.0",
    "releaseDates": [
     "2026-10-07T02:02:37Z",
@@ -668,7 +668,7 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 602,
+   "stars": 603,
    "pushedAt": "2026-10-11T03:35:18Z",
    "latest": "v0.11.0",
    "releaseDates": [
@@ -1145,7 +1145,7 @@
    ]
   },
   "btsouth/omakade": {
-   "stars": 433,
+   "stars": 434,
    "pushedAt": "2026-10-10T23:21:10Z",
    "latest": "v1.16.1",
    "releaseDates": [
@@ -1632,9 +1632,10 @@
   },
   "btsouth/omaframe": {
    "stars": 15,
-   "pushedAt": "2026-10-10T12:55:30Z",
-   "latest": "v0.11.1",
+   "pushedAt": "2026-10-11T16:07:54Z",
+   "latest": "v0.11.2",
    "releaseDates": [
+    "2026-10-11T16:10:58Z",
     "2026-10-10T12:58:02Z",
     "2026-10-10T07:45:40Z",
     "2026-10-06T09:48:18Z",
@@ -1658,6 +1659,14 @@
     "2026-09-28T12:15:00Z"
    ],
    "releases": [
+    {
+     "tag": "v0.11.2",
+     "title": "Omaframe 0.11.2",
+     "at": "2026-10-11T16:10:58Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaframe/releases/tag/v0.11.2",
+     "body": "Opening a video in the editor now shows its first frame straight away. Before,\nthe picture stayed empty until you pressed play, and a frame that did appear\ncould vanish again when the filmstrip finished loading.\n\nThe filmstrip loads faster. Its frames are now read several at a time, so a\n2 minute 1440p recording shows its filmstrip in under 2 seconds instead of\nabout 5. High bitrate clips under 90 seconds gain the most: one 85 second\nclip went from about 7 seconds to under 2. The strip shows that it is loading\nuntil its frames arrive, and a frame that takes too long no longer leaves the\nwhole strip empty.\n\nValidated in an isolated Omarchy desktop with a real 141 second 2560x1440\n60 fps recording and a shorter one, including opening a second video in the\nsame window and playback. A new test checks that an opened video waits paused\non its frame and stays there when the filmstrip arrives. CI ran the eighteen\nheadless suites on both Omarchy stable and current Arch.\n\nUpdate through `omarchy update` or `sudo pacman -Syu`, then reopen Omaframe.\nExisting captures, settings and drafts are preserved."
+    },
     {
      "tag": "v0.11.1",
      "title": "Omaframe 0.11.1",
@@ -4832,7 +4841,7 @@
   ],
   [
    "2026-10-11",
-   26
+   42
   ]
  ]
 }
