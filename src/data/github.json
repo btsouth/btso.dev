@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-11T18:17:25.800Z",
+ "generatedAt": "2026-10-12T00:17:26.104Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 225,
-   "pushedAt": "2026-10-11T18:16:50Z",
+   "pushedAt": "2026-10-11T23:19:57Z",
    "latest": "v1.24.0",
    "releaseDates": [
     "2026-10-07T02:02:37Z",
@@ -1145,7 +1145,7 @@
    ]
   },
   "btsouth/omakade": {
-   "stars": 434,
+   "stars": 435,
    "pushedAt": "2026-10-10T23:21:10Z",
    "latest": "v1.16.1",
    "releaseDates": [
@@ -4841,7 +4841,11 @@
   ],
   [
    "2026-10-11",
-   50
+   83
+  ],
+  [
+   "2026-10-12",
+   0
   ]
  ]
 }
