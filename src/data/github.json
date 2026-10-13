@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-13T00:17:26.967Z",
+ "generatedAt": "2026-10-13T01:05:34.113Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 225,
@@ -1146,9 +1146,10 @@
   },
   "btsouth/omakade": {
    "stars": 437,
-   "pushedAt": "2026-10-13T00:08:03Z",
-   "latest": "v1.16.1",
+   "pushedAt": "2026-10-13T00:44:06Z",
+   "latest": "v1.16.2",
    "releaseDates": [
+    "2026-10-13T01:02:57Z",
     "2026-10-10T23:19:41Z",
     "2026-10-10T16:27:09Z",
     "2026-10-04T01:09:43Z",
@@ -1179,6 +1180,14 @@
     "2026-09-01T02:14:44Z"
    ],
    "releases": [
+    {
+     "tag": "v1.16.2",
+     "title": "Omakade 1.16.2",
+     "at": "2026-10-13T01:02:57Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omakade/releases/tag/v1.16.2",
+     "body": "- The in-game guide works on Omarchy 4.0 stable releases. It needed a shell\n  surface that only newer Omarchy builds have, so on stable the guide did not load."
+    },
     {
      "tag": "v1.16.1",
      "title": "Omakade 1.16.1",
@@ -4845,11 +4854,11 @@
   ],
   [
    "2026-10-12",
-   17
+   22
   ],
   [
    "2026-10-13",
-   0
+   1
   ]
  ]
 }
