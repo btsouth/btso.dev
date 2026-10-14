@@ -1,11 +1,12 @@
 {
- "generatedAt": "2026-10-14T02:00:41.867Z",
+ "generatedAt": "2026-10-14T04:00:43.642Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 227,
-   "pushedAt": "2026-10-14T01:32:18Z",
-   "latest": "v1.24.1",
+   "pushedAt": "2026-10-14T03:24:05Z",
+   "latest": "v2.0.0",
    "releaseDates": [
+    "2026-10-14T03:56:08Z",
     "2026-10-14T01:56:58Z",
     "2026-10-13T22:54:02Z",
     "2026-10-07T02:02:37Z",
@@ -83,6 +84,14 @@
     "2026-06-19T23:39:17Z"
    ],
    "releases": [
+    {
+     "tag": "v2.0.0",
+     "title": "Toolport v2.0.0",
+     "at": "2026-10-14T03:56:08Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/toolport/releases/tag/v2.0.0",
+     "body": "Toolport 2.0 is here. Existing 1.24.x installs are not updated to it\nautomatically yet. To upgrade now, download and install the matching package from\nthe [GitHub release assets](https://github.com/btsouth/toolport/releases/tag/v2.0.0).\nRead the [upgrade guide](https://github.com/btsouth/toolport/blob/next/2.0/docs/migration.md)\nfor preserved settings, removed features and rollback steps.\n\n### Added\n\n- One local gateway shared by your AI clients, with supervised server lifecycles\n  and client access sets that control which servers each client can use.\n- Teams configuration sharing with member review of changes and team safety floors.\n- Personal sync across your machines with Pro, plus password manager references\n  for credentials that you approve locally on each machine.\n- A native GTK shell for Linux, shipped in `.deb` and `.rpm` packages. The AppImage\n  remains available for older distributions.\n- Local tool search that prioritizes literal tool names and uses bundled\n  bge-small semantic ranking on the CPU, with no model download or external service.\n  The model loads when needed and unloads while idle.\n- Command Code client support.\n\n### Changed\n\n- A simpler sidebar: Servers, Clients, Activity and Settings. Browse the catalog\n  in Servers and try tools in each server's Tools tab.\n- Code Mode is opt-in. New installs start with Safety Ask and Code Mode off;\n  upgrades keep your 1.x Safety, Code Mode and discovery choices.\n- Agents receive a compact tool menu instead of repeated full catalogs when\n  using lazy discovery. Activity shows callers, approval outcomes and tool ch"
+    },
     {
      "tag": "v1.24.1",
      "title": "Toolport v1.24.1",
@@ -686,8 +695,8 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 618,
-   "pushedAt": "2026-10-14T01:51:46Z",
+   "stars": 619,
+   "pushedAt": "2026-10-14T02:42:16Z",
    "latest": "runtime-v1-r24",
    "releaseDates": [
     "2026-10-14T01:33:16Z",
@@ -1443,7 +1452,7 @@
   },
   "btsouth/omaroll": {
    "stars": 65,
-   "pushedAt": "2026-10-10T13:07:42Z",
+   "pushedAt": "2026-10-14T03:59:48Z",
    "latest": "v1.15.3",
    "releaseDates": [
     "2026-10-10T13:22:56Z",
@@ -4885,11 +4894,11 @@
   ],
   [
    "2026-10-13",
-   24
+   37
   ],
   [
    "2026-10-14",
-   2
+   3
   ]
  ]
 }
