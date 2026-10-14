@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-14T12:17:25.853Z",
+ "generatedAt": "2026-10-14T12:45:37.542Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 227,
@@ -1461,9 +1461,10 @@
   },
   "btsouth/omaroll": {
    "stars": 65,
-   "pushedAt": "2026-10-14T12:16:54Z",
-   "latest": "v1.16.0",
+   "pushedAt": "2026-10-14T12:28:20Z",
+   "latest": "v1.16.1",
    "releaseDates": [
+    "2026-10-14T12:43:57Z",
     "2026-10-14T04:39:36Z",
     "2026-10-10T13:22:56Z",
     "2026-10-10T09:20:27Z",
@@ -1491,6 +1492,14 @@
     "2026-09-02T01:06:06Z"
    ],
    "releases": [
+    {
+     "tag": "v1.16.1",
+     "title": "Omaroll 1.16.1",
+     "at": "2026-10-14T12:43:57Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaroll/releases/tag/v1.16.1",
+     "body": "Photos use less memory, and browsing a folder stays light.\n\n### Changed\n\n- Photos larger than the screen open from a sharp copy the size of the screen,\n  and full resolution loads when you zoom in. Photos use less memory, open a\n  little sooner and show less moiré when fitted. Both neighbouring photos are\n  now preloaded instead of one.\n- Memory from pictures you have moved past is returned to the system, so\n  browsing a folder no longer keeps growing.\n\n[Install or update](https://github.com/btsouth/omaroll#install-or-update)."
+    },
     {
      "tag": "v1.16.0",
      "title": "Omaroll 1.16.0",
@@ -4916,7 +4925,7 @@
   ],
   [
    "2026-10-14",
-   12
+   15
   ]
  ]
 }
