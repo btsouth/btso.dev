@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-14T04:00:43.642Z",
+ "generatedAt": "2026-10-14T04:25:29.655Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 227,
@@ -695,10 +695,11 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 619,
-   "pushedAt": "2026-10-14T02:42:16Z",
-   "latest": "runtime-v1-r24",
+   "stars": 620,
+   "pushedAt": "2026-10-14T04:23:31Z",
+   "latest": "v0.12.0",
    "releaseDates": [
+    "2026-10-14T04:23:32Z",
     "2026-10-14T01:33:16Z",
     "2026-10-09T10:25:57Z",
     "2026-10-09T02:41:32Z",
@@ -740,6 +741,14 @@
     "2026-08-28T00:49:21Z"
    ],
    "releases": [
+    {
+     "tag": "v0.12.0",
+     "title": "v0.12.0",
+     "at": "2026-10-14T04:23:32Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.12.0",
+     "body": "`v0.12.0` makes the cursor as smooth as the Windows pointer, keeps Omarchy's network working with many connections open, and lets links clicked in Windows open in Omarchy.\n\n# Features\n\n* Links clicked in Windows can open in an Omarchy app. Allow a link type in **Settings > Apps > Links from Windows** (#352, #348)\n* Windows now draws the cursor with Omarchy's own shapes, so it stays smooth when the desktop is busy. Existing installs get it after running **Update > Omarchy** once (#345, #346, #321)\n* When a system update can't download, the launcher keeps retrying while Omarchy runs and gives slow name lookups more time. You can also install it from release files downloaded in your browser, using the tray menu (#344, #277)\n\n# Fixes\n\n* Fix Omarchy's network stopping once more than 64 connections were open, which stalled browsers, package updates and Tailscale until a restart (#347)\n* Fix clicks at the bottom of the screen opening an auto-hidden Windows taskbar in fullscreen. Ctrl+Alt+G still releases the pointer (#330, #320)\n* Fix the window staying larger than the screen after leaving fullscreen with Ctrl+Alt+F (#355)\n* Diagnostics leave out folder paths, account, computer and display names, and private network addresses, so the zip can be shared as is (#350)\n* First setup says the system image is downloading instead of showing \"Checking cached rootfs.ext4.zst...\" (#351)\n\n## Dev\n\n* Build runtime r24 with the network and cursor fixes (#353)\n* Refresh the guest package lock (#354)\n* Check the guest shell against current Arch and Omarchy packages every day (#343)\n\n## Thanks 🙏\n\n"
+    },
     {
      "tag": "runtime-v1-r24",
      "title": "WINQ-EMU r24 runtime",
@@ -1452,7 +1461,7 @@
   },
   "btsouth/omaroll": {
    "stars": 65,
-   "pushedAt": "2026-10-14T03:59:48Z",
+   "pushedAt": "2026-10-14T04:23:57Z",
    "latest": "v1.15.3",
    "releaseDates": [
     "2026-10-10T13:22:56Z",
@@ -4898,7 +4907,7 @@
   ],
   [
    "2026-10-14",
-   3
+   5
   ]
  ]
 }
