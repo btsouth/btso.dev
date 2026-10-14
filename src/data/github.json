@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-13T22:55:30.974Z",
+ "generatedAt": "2026-10-14T00:17:30.740Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 227,
@@ -678,7 +678,7 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 617,
-   "pushedAt": "2026-10-12T15:16:35Z",
+   "pushedAt": "2026-10-14T00:09:33Z",
    "latest": "v0.11.0",
    "releaseDates": [
     "2026-10-09T10:25:57Z",
@@ -1029,7 +1029,7 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 4,
-   "pushedAt": "2026-10-06T04:22:08Z",
+   "pushedAt": "2026-10-14T00:11:14Z",
    "latest": "linux-app-v0.3.0",
    "releaseDates": [
     "2026-10-06T00:56:19Z",
@@ -4867,7 +4867,11 @@
   ],
   [
    "2026-10-13",
-   8
+   9
+  ],
+  [
+   "2026-10-14",
+   0
   ]
  ]
 }
