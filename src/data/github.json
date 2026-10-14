@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-14T00:17:30.740Z",
+ "generatedAt": "2026-10-14T01:35:33.601Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 227,
-   "pushedAt": "2026-10-13T22:20:17Z",
+   "pushedAt": "2026-10-14T01:32:18Z",
    "latest": "v2.0.0-rc.1",
    "releaseDates": [
     "2026-10-13T22:54:02Z",
@@ -677,10 +677,11 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 617,
-   "pushedAt": "2026-10-14T00:09:33Z",
-   "latest": "v0.11.0",
+   "stars": 618,
+   "pushedAt": "2026-10-14T01:34:51Z",
+   "latest": "runtime-v1-r24",
    "releaseDates": [
+    "2026-10-14T01:33:16Z",
     "2026-10-09T10:25:57Z",
     "2026-10-09T02:41:32Z",
     "2026-10-06T21:16:43Z",
@@ -721,6 +722,14 @@
     "2026-08-28T00:49:21Z"
    ],
    "releases": [
+    {
+     "tag": "runtime-v1-r24",
+     "title": "WINQ-EMU r24 runtime",
+     "at": "2026-10-14T01:33:16Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/runtime-v1-r24",
+     "body": "WINQ-EMU r24 runtime component and corresponding source archives for the next signed Try Omarchy app release. This is not a standalone launcher or a new app version.\n\nBuilt from the source-locked recipe at commit `0debd6f` (`master`) in [Runtime run 38487926153](https://github.com/omacom/try-omarchy-windows/actions/runs/38487926153). `SHA256SUMS` covers both archives. r24 keeps Omarchy's network working when it has more than 64 connections open (#347, thanks @pai-scaffolde), and lets Windows draw the Omarchy cursor so it stays smooth when the desktop is busy (#346, for #321)."
+    },
     {
      "tag": "v0.11.0",
      "title": "v0.11.0",
@@ -4867,11 +4876,11 @@
   ],
   [
    "2026-10-13",
-   9
+   15
   ],
   [
    "2026-10-14",
-   0
+   1
   ]
  ]
 }
