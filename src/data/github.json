@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-14T04:25:29.655Z",
+ "generatedAt": "2026-10-14T04:40:37.554Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 227,
@@ -1462,8 +1462,9 @@
   "btsouth/omaroll": {
    "stars": 65,
    "pushedAt": "2026-10-14T04:23:57Z",
-   "latest": "v1.15.3",
+   "latest": "v1.16.0",
    "releaseDates": [
+    "2026-10-14T04:39:36Z",
     "2026-10-10T13:22:56Z",
     "2026-10-10T09:20:27Z",
     "2026-10-06T10:43:04Z",
@@ -1490,6 +1491,14 @@
     "2026-09-02T01:06:06Z"
    ],
    "releases": [
+    {
+     "tag": "v1.16.0",
+     "title": "Omaroll 1.16.0",
+     "at": "2026-10-14T04:39:36Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaroll/releases/tag/v1.16.0",
+     "body": "Omaroll runs on ARM.\n\n### Added\n\n- Packages for aarch64 (ARM64) Omarchy and Arch Linux, built and tested the\n  same way as the x86_64 package. The package repository installs the right\n  one for your machine.\n\n[Install or update](https://github.com/btsouth/omaroll#install-or-update)."
+    },
     {
      "tag": "v1.15.3",
      "title": "Omaroll 1.15.3",
@@ -4907,7 +4916,7 @@
   ],
   [
    "2026-10-14",
-   5
+   6
   ]
  ]
 }
