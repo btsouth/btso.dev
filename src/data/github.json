@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-15T01:00:39.978Z",
+ "generatedAt": "2026-10-15T02:45:34.277Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 228,
-   "pushedAt": "2026-10-15T00:59:51Z",
+   "pushedAt": "2026-10-15T02:40:43Z",
    "latest": "v2.0.0",
    "releaseDates": [
     "2026-10-14T03:56:08Z",
@@ -695,7 +695,7 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 624,
+   "stars": 625,
    "pushedAt": "2026-10-14T04:23:31Z",
    "latest": "v0.12.0",
    "releaseDates": [
@@ -1191,7 +1191,7 @@
   },
   "btsouth/omakade": {
    "stars": 437,
-   "pushedAt": "2026-10-15T00:27:30Z",
+   "pushedAt": "2026-10-15T02:34:22Z",
    "latest": "v1.16.2",
    "releaseDates": [
     "2026-10-13T01:02:57Z",
@@ -1461,9 +1461,10 @@
   },
   "btsouth/omaroll": {
    "stars": 65,
-   "pushedAt": "2026-10-14T12:28:20Z",
-   "latest": "v1.16.1",
+   "pushedAt": "2026-10-15T02:30:50Z",
+   "latest": "v1.17.0",
    "releaseDates": [
+    "2026-10-15T02:44:46Z",
     "2026-10-14T12:43:57Z",
     "2026-10-14T04:39:36Z",
     "2026-10-10T13:22:56Z",
@@ -1492,6 +1493,14 @@
     "2026-09-02T01:06:06Z"
    ],
    "releases": [
+    {
+     "tag": "v1.17.0",
+     "title": "Omaroll 1.17.0",
+     "at": "2026-10-15T02:44:46Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaroll/releases/tag/v1.17.0",
+     "body": "Videos start sooner, wide-gamut photos show their real colors, and very large\nJPEGs zoom in without loading the whole picture.\n\n### Changed\n\n- Videos start playing about a tenth of a second sooner. The player no longer\n  waits for the thumbnail to be drawn first.\n- Zooming into a very large JPEG, such as a 150-megapixel scan, decodes only\n  the part on screen. Full resolution needs a fraction of the memory it did,\n  about 410 MiB instead of 1.5 GiB for such a scan at actual size, and pictures\n  too long for the graphics card are now sharp when zoomed in too.\n\n### Fixed\n\n- Photos tagged with a wide-gamut color profile, such as Display P3 from\n  phones or Adobe RGB from cameras, are shown in their real colors instead of\n  looking washed out. The viewer, library, thumbnails and compare view all\n  convert them; originals and saved copies keep their profile.\n\n[Install or update](https://github.com/btsouth/omaroll#install-or-update)."
+    },
     {
      "tag": "v1.16.1",
      "title": "Omaroll 1.16.1",
@@ -2845,7 +2854,7 @@
   },
   "btsouth/cubby-clipboard": {
    "stars": 12,
-   "pushedAt": "2026-10-10T08:35:13Z",
+   "pushedAt": "2026-10-15T01:45:35Z",
    "latest": "v1.3.7",
    "releaseDates": [
     "2026-09-30T20:00:45Z",
@@ -2989,7 +2998,7 @@
   },
   "btsouth/matteshot": {
    "stars": 2,
-   "pushedAt": "2026-10-15T00:54:44Z",
+   "pushedAt": "2026-10-15T01:16:36Z",
    "latest": "v0.21.1",
    "releaseDates": [
     "2026-09-27T01:46:35Z",
@@ -4918,7 +4927,7 @@
   ],
   [
    "2026-10-10",
-   324
+   332
   ],
   [
    "2026-10-11",
@@ -4934,11 +4943,11 @@
   ],
   [
    "2026-10-14",
-   34
+   57
   ],
   [
    "2026-10-15",
-   1
+   2
   ]
  ]
 }
