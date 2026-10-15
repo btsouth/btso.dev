@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-15T00:17:26.031Z",
+ "generatedAt": "2026-10-15T01:00:39.978Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 228,
-   "pushedAt": "2026-10-15T00:16:54Z",
+   "pushedAt": "2026-10-15T00:59:51Z",
    "latest": "v2.0.0",
    "releaseDates": [
     "2026-10-14T03:56:08Z",
@@ -1191,7 +1191,7 @@
   },
   "btsouth/omakade": {
    "stars": 437,
-   "pushedAt": "2026-10-13T00:44:06Z",
+   "pushedAt": "2026-10-15T00:27:30Z",
    "latest": "v1.16.2",
    "releaseDates": [
     "2026-10-13T01:02:57Z",
@@ -2485,9 +2485,10 @@
   },
   "btsouth/ceiling": {
    "stars": 31,
-   "pushedAt": "2026-10-15T00:08:23Z",
-   "latest": "v1.5.44",
+   "pushedAt": "2026-10-15T00:31:06Z",
+   "latest": "v1.5.45",
    "releaseDates": [
+    "2026-10-15T00:58:19Z",
     "2026-10-06T04:19:56Z",
     "2026-10-03T00:55:37Z",
     "2026-09-27T00:03:09Z",
@@ -2528,6 +2529,14 @@
     "2026-07-14T05:04:40Z"
    ],
    "releases": [
+    {
+     "tag": "v1.5.45",
+     "title": "Ceiling 1.5.45",
+     "at": "2026-10-15T00:58:19Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/ceiling/releases/tag/v1.5.45",
+     "body": "The floating bar no longer gets stuck off-screen after it is minimized.\n\n### Fixed\n- **The floating bar comes back after being minimized.** Ceiling no longer saves the bar's position while it is minimized, ignores a saved position that is not on a connected monitor, and restores the bar if it gets minimized. Fixes #501. Thanks to @DohunHyun.\n\n### Internal\n- Dependency updates bring `rustls`, `quinn-proto` and `source-map-js` past published security advisories."
+    },
     {
      "tag": "v1.5.44",
      "title": "Ceiling 1.5.44",
@@ -2980,7 +2989,7 @@
   },
   "btsouth/matteshot": {
    "stars": 2,
-   "pushedAt": "2026-10-14T16:36:46Z",
+   "pushedAt": "2026-10-15T00:54:44Z",
    "latest": "v0.21.1",
    "releaseDates": [
     "2026-09-27T01:46:35Z",
@@ -4893,43 +4902,43 @@
   ],
   [
    "2026-10-06",
-   224
+   227
   ],
   [
    "2026-10-07",
-   252
+   305
   ],
   [
    "2026-10-08",
-   297
+   328
   ],
   [
    "2026-10-09",
-   157
+   176
   ],
   [
    "2026-10-10",
-   300
+   324
   ],
   [
    "2026-10-11",
-   86
+   108
   ],
   [
    "2026-10-12",
-   28
+   34
   ],
   [
    "2026-10-13",
-   37
+   44
   ],
   [
    "2026-10-14",
-   22
+   34
   ],
   [
    "2026-10-15",
-   0
+   1
   ]
  ]
 }
