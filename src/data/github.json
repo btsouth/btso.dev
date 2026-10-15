@@ -1,11 +1,12 @@
 {
- "generatedAt": "2026-10-15T23:26:17.344Z",
+ "generatedAt": "2026-10-15T23:56:17.537Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 228,
-   "pushedAt": "2026-10-15T23:12:20Z",
-   "latest": "v1.24.2",
+   "pushedAt": "2026-10-15T23:28:37Z",
+   "latest": "v2.1.0",
    "releaseDates": [
+    "2026-10-15T23:55:07Z",
     "2026-10-15T23:23:20Z",
     "2026-10-14T03:56:08Z",
     "2026-10-14T01:56:58Z",
@@ -85,6 +86,14 @@
     "2026-06-19T23:39:17Z"
    ],
    "releases": [
+    {
+     "tag": "v2.1.0",
+     "title": "Toolport v2.1.0",
+     "at": "2026-10-15T23:55:07Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/toolport/releases/tag/v2.1.0",
+     "body": "Toolport now speaks nine languages. Like 2.0.0, this release is for manual\ninstallation: 1.24.x installs are not updated to it automatically yet. Download the\npackage for your system from the\n[release assets](https://github.com/btsouth/toolport/releases/tag/v2.1.0), and read\nthe [upgrade guide](https://github.com/btsouth/toolport/blob/main/docs/migration.md)\nif you are coming from 1.x.\n\n### Added\n\n- Japanese, Korean, Simplified Chinese, Traditional Chinese, German, French, Spanish\n  and Brazilian Portuguese, across the app, the Linux GTK app, tray menus and\n  notifications. Pick a language in Settings > General; the choice is saved per\n  machine and is not synced. New installs follow the system language. Existing\n  installs stay in English and offer the system language once. The translations\n  are new, so if you are fluent and spot awkward wording, fixes are welcome (see\n  [CONTRIBUTING.md](https://github.com/btsouth/toolport/blob/main/CONTRIBUTING.md)).\n  Thanks to @1llum1n4t1s for the original translations. (#1187, #1188, #1197)\n- A Retry button when a server's resources or prompts fail to load. (#1198)\n\n### Changed\n\n- Claude Code on Auto discovery lists the full catalog when it has 120 tools or\n  fewer, and searches above that. In live Claude Code runs, listing a 50-tool\n  catalog in full used about a quarter less input than searching it. Explicit\n  per-client and global modes, `TOOLPORT_DISCOVERY` and 1.x upgraders who kept\n  Lazy are unchanged. (#1200)\n\n### Fixed\n\n- A slow resource read or prompt result no longer replaces the one you picked\n  after it. Thanks @Columbus"
+    },
     {
      "tag": "v1.24.2",
      "title": "Toolport v1.24.2",
@@ -4965,7 +4974,7 @@
   ],
   [
    "2026-10-15",
-   47
+   49
   ]
  ]
 }
