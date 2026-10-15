@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-15T02:45:34.277Z",
+ "generatedAt": "2026-10-15T04:50:46.030Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 228,
-   "pushedAt": "2026-10-15T02:40:43Z",
+   "pushedAt": "2026-10-15T04:42:11Z",
    "latest": "v2.0.0",
    "releaseDates": [
     "2026-10-14T03:56:08Z",
@@ -695,7 +695,7 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 625,
+   "stars": 626,
    "pushedAt": "2026-10-14T04:23:31Z",
    "latest": "v0.12.0",
    "releaseDates": [
@@ -1191,7 +1191,7 @@
   },
   "btsouth/omakade": {
    "stars": 437,
-   "pushedAt": "2026-10-15T02:34:22Z",
+   "pushedAt": "2026-10-15T04:44:19Z",
    "latest": "v1.16.2",
    "releaseDates": [
     "2026-10-13T01:02:57Z",
@@ -1461,9 +1461,10 @@
   },
   "btsouth/omaroll": {
    "stars": 65,
-   "pushedAt": "2026-10-15T02:30:50Z",
-   "latest": "v1.17.0",
+   "pushedAt": "2026-10-15T04:33:56Z",
+   "latest": "v1.18.0",
    "releaseDates": [
+    "2026-10-15T04:48:25Z",
     "2026-10-15T02:44:46Z",
     "2026-10-14T12:43:57Z",
     "2026-10-14T04:39:36Z",
@@ -1493,6 +1494,14 @@
     "2026-09-02T01:06:06Z"
    ],
    "releases": [
+    {
+     "tag": "v1.18.0",
+     "title": "Omaroll 1.18.0",
+     "at": "2026-10-15T04:48:25Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaroll/releases/tag/v1.18.0",
+     "body": "Step through video a frame at a time, and zoom into very large JPEGs in the\nlibrary and compare view too.\n\n### Added\n\n- `,` and `.` pause a video and step one frame back or forward, in the viewer\n  and the library's preview, as in mpv.\n\n### Changed\n\n- The library's preview and compare view zoom into very large JPEGs the way\n  the viewer does, decoding only the part on screen. Compare opens very large\n  pictures from copies the size of the screen instead of decoding each one\n  whole, which for two 150-megapixel scans took more than a gigabyte.\n\n### Fixed\n\n- Audio and subtitle tracks are named by their language, such as \"Track 2:\n  French\", instead of only a number.\n\n[Install or update](https://github.com/btsouth/omaroll#install-or-update)."
+    },
     {
      "tag": "v1.17.0",
      "title": "Omaroll 1.17.0",
@@ -2378,7 +2387,7 @@
    ]
   },
   "btsouth/omarchy-omcp": {
-   "stars": 8,
+   "stars": 9,
    "pushedAt": "2026-10-09T01:43:01Z",
    "latest": null,
    "releaseDates": [],
@@ -4943,11 +4952,11 @@
   ],
   [
    "2026-10-14",
-   57
+   94
   ],
   [
    "2026-10-15",
-   2
+   11
   ]
  ]
 }
