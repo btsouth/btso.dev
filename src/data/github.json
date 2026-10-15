@@ -1,11 +1,12 @@
 {
- "generatedAt": "2026-10-15T18:17:28.970Z",
+ "generatedAt": "2026-10-15T23:26:17.344Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 228,
-   "pushedAt": "2026-10-15T11:01:04Z",
-   "latest": "v2.0.0",
+   "pushedAt": "2026-10-15T23:12:20Z",
+   "latest": "v1.24.2",
    "releaseDates": [
+    "2026-10-15T23:23:20Z",
     "2026-10-14T03:56:08Z",
     "2026-10-14T01:56:58Z",
     "2026-10-13T22:54:02Z",
@@ -85,12 +86,20 @@
    ],
    "releases": [
     {
+     "tag": "v1.24.2",
+     "title": "Toolport v1.24.2",
+     "at": "2026-10-15T23:23:20Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/toolport/releases/tag/v1.24.2",
+     "body": "A security update for the 1.24 line.\n\n### Security\n\n- rustls 0.23.46. (#1185)\n\n\n---\n\n**Full changelog:** https://github.com/btsouth/toolport/blob/v1.24.2/CHANGELOG.md"
+    },
+    {
      "tag": "v2.0.0",
      "title": "Toolport v2.0.0",
      "at": "2026-10-14T03:56:08Z",
      "pre": false,
      "url": "https://github.com/btsouth/toolport/releases/tag/v2.0.0",
-     "body": "Toolport 2.0 is here. Existing 1.24.x installs are not updated to it\nautomatically yet. To upgrade now, download and install the matching package from\nthe [GitHub release assets](https://github.com/btsouth/toolport/releases/tag/v2.0.0).\nRead the [upgrade guide](https://github.com/btsouth/toolport/blob/next/2.0/docs/migration.md)\nfor preserved settings, removed features and rollback steps.\n\n### Added\n\n- One local gateway shared by your AI clients, with supervised server lifecycles\n  and client access sets that control which servers each client can use.\n- Teams configuration sharing with member review of changes and team safety floors.\n- Personal sync across your machines with Pro, plus password manager references\n  for credentials that you approve locally on each machine.\n- A native GTK shell for Linux, shipped in `.deb` and `.rpm` packages. The AppImage\n  remains available for older distributions.\n- Local tool search that prioritizes literal tool names and uses bundled\n  bge-small semantic ranking on the CPU, with no model download or external service.\n  The model loads when needed and unloads while idle.\n- Command Code client support.\n\n### Changed\n\n- A simpler sidebar: Servers, Clients, Activity and Settings. Browse the catalog\n  in Servers and try tools in each server's Tools tab.\n- Code Mode is opt-in. New installs start with Safety Ask and Code Mode off;\n  upgrades keep your 1.x Safety, Code Mode and discovery choices.\n- Agents receive a compact tool menu instead of repeated full catalogs when\n  using lazy discovery. Activity shows callers, approval outcomes and tool ch"
+     "body": "Toolport 2.0 is here. Existing 1.24.x installs are not updated to it\nautomatically yet. To upgrade now, download and install the matching package from\nthe [GitHub release assets](https://github.com/btsouth/toolport/releases/tag/v2.0.0).\nRead the [upgrade guide](https://github.com/btsouth/toolport/blob/main/docs/migration.md)\nfor preserved settings, removed features and rollback steps.\n\n### Added\n\n- One local gateway shared by your AI clients, with supervised server lifecycles\n  and client access sets that control which servers each client can use.\n- Teams configuration sharing with member review of changes and team safety floors.\n- Personal sync across your machines with Pro, plus password manager references\n  for credentials that you approve locally on each machine.\n- A native GTK shell for Linux, shipped in `.deb` and `.rpm` packages. The AppImage\n  remains available for older distributions.\n- Local tool search that prioritizes literal tool names and uses bundled\n  bge-small semantic ranking on the CPU, with no model download or external service.\n  The model loads when needed and unloads while idle.\n- Command Code client support.\n\n### Changed\n\n- A simpler sidebar: Servers, Clients, Activity and Settings. Browse the catalog\n  in Servers and try tools in each server's Tools tab.\n- Code Mode is opt-in. New installs start with Safety Ask and Code Mode off;\n  upgrades keep your 1.x Safety, Code Mode and discovery choices.\n- Agents receive a compact tool menu instead of repeated full catalogs when\n  using lazy discovery. Activity shows callers, approval outcomes and tool change"
     },
     {
      "tag": "v1.24.1",
@@ -1191,7 +1200,7 @@
   },
   "btsouth/omakade": {
    "stars": 437,
-   "pushedAt": "2026-10-15T12:29:59Z",
+   "pushedAt": "2026-10-15T22:14:40Z",
    "latest": "v1.16.2",
    "releaseDates": [
     "2026-10-13T01:02:57Z",
@@ -1460,7 +1469,7 @@
    ]
   },
   "btsouth/omaroll": {
-   "stars": 65,
+   "stars": 66,
    "pushedAt": "2026-10-15T04:33:56Z",
    "latest": "v1.18.0",
    "releaseDates": [
@@ -4956,7 +4965,7 @@
   ],
   [
    "2026-10-15",
-   33
+   47
   ]
  ]
 }
