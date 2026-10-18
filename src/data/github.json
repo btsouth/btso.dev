@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-18T18:17:14.822Z",
+ "generatedAt": "2026-10-18T20:35:18.903Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 233,
-   "pushedAt": "2026-10-18T17:42:04Z",
+   "pushedAt": "2026-10-18T20:32:26Z",
    "latest": "v2.2.0",
    "releaseDates": [
     "2026-10-18T11:39:59Z",
@@ -722,7 +722,7 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 639,
+   "stars": 640,
    "pushedAt": "2026-10-14T04:23:31Z",
    "latest": "v0.12.0",
    "releaseDates": [
@@ -1218,7 +1218,7 @@
   },
   "btsouth/omakade": {
    "stars": 438,
-   "pushedAt": "2026-10-16T00:33:48Z",
+   "pushedAt": "2026-10-18T20:05:12Z",
    "latest": "v1.16.2",
    "releaseDates": [
     "2026-10-13T01:02:57Z",
@@ -1487,7 +1487,7 @@
    ]
   },
   "btsouth/omaroll": {
-   "stars": 70,
+   "stars": 72,
    "pushedAt": "2026-10-15T04:33:56Z",
    "latest": "v1.18.0",
    "releaseDates": [
@@ -1956,9 +1956,10 @@
   },
   "btsouth/omarchy-usage-dashboard": {
    "stars": 18,
-   "pushedAt": "2026-10-16T21:55:29Z",
-   "latest": "v1.11.2",
+   "pushedAt": "2026-10-18T20:34:05Z",
+   "latest": "v1.12.0",
    "releaseDates": [
+    "2026-10-18T20:34:05Z",
     "2026-10-09T01:44:05Z",
     "2026-10-07T20:30:31Z",
     "2026-10-07T18:28:51Z",
@@ -1983,6 +1984,14 @@
     "2026-09-16T01:35:59Z"
    ],
    "releases": [
+    {
+     "tag": "v1.12.0",
+     "title": "Agent Pulse v1.12.0",
+     "at": "2026-10-18T20:34:05Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/agent-pulse/releases/tag/v1.12.0",
+     "body": "OpenCode Go quota works again with OpenCode 2.x. OpenCode 2.x saves API keys in its own database and leaves the old `auth.json` behind, so the Go limits stopped updating once that key expired. Agent Pulse now uses the active key from OpenCode's credential store and falls back to `auth.json` for 1.x. A rejected key says to reconnect Go in OpenCode.\n\nOllama Cloud and ClinePass are removed. Their history, usage records, quota caches and stored keys are cleaned up on the first refresh, and a T3 Code runtime for either route counts as plain OpenCode.\n\nBanked resets now show on every Claude account card, not only the main one, using the sign-in of the folder linked to that account in Settings.\n\nThe bar panel is sized against the screen, so on a 1080p screen it no longer fills nearly the whole height. Larger screens keep the previous size.\n\n`hourly-summary.json` now carries the day's estimated API value.\n\nUpdate with:\n\n```sh\ncurl -fsSL https://raw.githubusercontent.com/btsouth/agent-pulse/main/install.sh | OMARCHY_USAGE_REF=v1.12.0 bash -s -- --with-plugin\n```\n\nOmit `--with-plugin` if you use only the dashboard. Restart the Omarchy shell afterwards (`omarchy restart shell`) so the bar panel loads the new version."
+    },
     {
      "tag": "v1.11.2",
      "title": "Agent Pulse v1.11.2",
@@ -4963,11 +4972,11 @@
   ],
   [
    "2026-10-17",
-   19
+   175
   ],
   [
    "2026-10-18",
-   41
+   78
   ]
  ]
 }
