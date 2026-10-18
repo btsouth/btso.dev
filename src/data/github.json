@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-18T20:35:18.903Z",
+ "generatedAt": "2026-10-18T23:25:17.311Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 233,
-   "pushedAt": "2026-10-18T20:32:26Z",
+   "pushedAt": "2026-10-18T22:51:05Z",
    "latest": "v2.2.0",
    "releaseDates": [
     "2026-10-18T11:39:59Z",
@@ -722,7 +722,7 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 640,
+   "stars": 641,
    "pushedAt": "2026-10-14T04:23:31Z",
    "latest": "v0.12.0",
    "releaseDates": [
@@ -1218,9 +1218,10 @@
   },
   "btsouth/omakade": {
    "stars": 438,
-   "pushedAt": "2026-10-18T20:05:12Z",
-   "latest": "v1.16.2",
+   "pushedAt": "2026-10-18T23:22:49Z",
+   "latest": "v1.17.0",
    "releaseDates": [
+    "2026-10-18T23:21:52Z",
     "2026-10-13T01:02:57Z",
     "2026-10-10T23:19:41Z",
     "2026-10-10T16:27:09Z",
@@ -1252,6 +1253,14 @@
     "2026-09-01T02:14:44Z"
    ],
    "releases": [
+    {
+     "tag": "v1.17.0",
+     "title": "Omakade 1.17.0",
+     "at": "2026-10-18T23:21:52Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omakade/releases/tag/v1.17.0",
+     "body": "Game Mode keeps launchers out of the way while a game starts.\n\n- **Hold launcher windows**: updates, splash screens, sign-ins and the setup Steam runs\n  on a game's first launch no longer take focus from Omakade. A Starting screen lists\n  them, and any of them can be opened from there with a controller or the keyboard. When\n  the game opens it goes fullscreen and the rest stay out of sight. Publisher launchers that run\n  under Proton, such as Rockstar's and EA's, are told apart from the game. Listed windows\n  wait as long as a slow update takes. Turn it on in Settings → Controls.\n- The Starting screen shows the game's cover and artwork while it starts.\n- **Start Steam in the background** when Game Mode starts, so Steam games open without\n  waiting for Steam to load. With launcher windows held, Steam's own windows wait on the\n  Starting screen too. Turn it on in Settings → Controls.\n- Controller buttons now navigate and activate controls directly, avoiding duplicate\n  presses and actions reaching the wrong control. Keyboard controls stay the same.\n- A game's page keeps every action in view while the game runs. Stop Game no longer\n  pushes Manage past the edge in Game Mode or in a narrow window.\n- In the Game Mode search, Enter on a keyboard after typing finishes the search, and a\n  search with no match leaves you on Search to change it.\n- Closing a game started from its page in Game Mode returns to Play, not Back."
+    },
     {
      "tag": "v1.16.2",
      "title": "Omakade 1.16.2",
@@ -1487,7 +1496,7 @@
    ]
   },
   "btsouth/omaroll": {
-   "stars": 72,
+   "stars": 73,
    "pushedAt": "2026-10-15T04:33:56Z",
    "latest": "v1.18.0",
    "releaseDates": [
@@ -1955,8 +1964,8 @@
    ]
   },
   "btsouth/omarchy-usage-dashboard": {
-   "stars": 18,
-   "pushedAt": "2026-10-18T20:34:05Z",
+   "stars": 19,
+   "pushedAt": "2026-10-18T20:36:08Z",
    "latest": "v1.12.0",
    "releaseDates": [
     "2026-10-18T20:34:05Z",
@@ -4972,11 +4981,11 @@
   ],
   [
    "2026-10-17",
-   175
+   323
   ],
   [
    "2026-10-18",
-   78
+   129
   ]
  ]
 }
