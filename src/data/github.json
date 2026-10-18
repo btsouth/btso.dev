@@ -1,11 +1,12 @@
 {
- "generatedAt": "2026-10-18T09:26:15.133Z",
+ "generatedAt": "2026-10-18T11:40:19.470Z",
  "repos": {
   "btsouth/toolport": {
-   "stars": 230,
-   "pushedAt": "2026-10-18T04:58:30Z",
-   "latest": "v2.1.0",
+   "stars": 232,
+   "pushedAt": "2026-10-18T11:06:07Z",
+   "latest": "v2.2.0",
    "releaseDates": [
+    "2026-10-18T11:39:59Z",
     "2026-10-15T23:55:07Z",
     "2026-10-15T23:23:20Z",
     "2026-10-14T03:56:08Z",
@@ -86,6 +87,14 @@
     "2026-06-19T23:39:17Z"
    ],
    "releases": [
+    {
+     "tag": "v2.2.0",
+     "title": "Toolport v2.2.0",
+     "at": "2026-10-18T11:39:59Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/toolport/releases/tag/v2.2.0",
+     "body": "Toolport now shows the skills and rules files each of your AI agents loads. Like\n2.0.0, this release is for manual installation: 1.24.x installs are not updated to\nit automatically yet. Download the package for your system from the\n[release assets](https://github.com/btsouth/toolport/releases/tag/v2.2.0), and read\nthe [upgrade guide](https://github.com/btsouth/toolport/blob/main/docs/migration.md)\nif you are coming from 1.x.\n\n### Added\n\n- A Skills page that shows the skills and rules files each installed agent loads,\n  across Claude Code, Codex, Cursor, Copilot CLI, OpenCode, Grok, Hermes, Gemini CLI\n  and more. See each skill's state in every agent, how each agent reaches your rules\n  files, and turn a skill on or off through the agent's own setting in ten agents,\n  among them Grok, Crush, Qwen Code and Oh My Pi. A Needs a look\n  tab finds skills still on elsewhere, broken links, duplicate names, cut-off\n  descriptions and rules files an agent never reads, with confirmed fixes, and\n  items you're fine with can be dismissed. Open a file in the app you pick, and move\n  a skill you own to the trash. Several Claude Code profiles each get their own\n  column. Available in the app and the Linux GTK app. See\n  [Skills and rules](https://github.com/btsouth/toolport/blob/main/docs/skills-and-rules.md).\n  (#1213, #1215, #1218, #1219)\n- Auggie CLI and Tabnine Agent as supported clients. Toolport connects and imports\n  through their user settings files, `~/.augment/settings.json` and\n  `~/.tabnine/mcp_servers.json`, and leaves the rest of Auggie's settings alone. A\n  Tabnine remote ser"
+    },
     {
      "tag": "v2.1.0",
      "title": "Toolport v2.1.0",
@@ -1478,7 +1487,7 @@
    ]
   },
   "btsouth/omaroll": {
-   "stars": 69,
+   "stars": 70,
    "pushedAt": "2026-10-15T04:33:56Z",
    "latest": "v1.18.0",
    "releaseDates": [
@@ -4958,7 +4967,7 @@
   ],
   [
    "2026-10-18",
-   6
+   11
   ]
  ]
 }
