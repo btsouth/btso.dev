@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-19T09:37:53.138Z",
+ "generatedAt": "2026-10-19T12:18:01.989Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 233,
@@ -722,7 +722,7 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 643,
+   "stars": 644,
    "pushedAt": "2026-10-14T04:23:31Z",
    "latest": "v0.12.0",
    "releaseDates": [
@@ -1497,7 +1497,7 @@
   },
   "btsouth/omaroll": {
    "stars": 73,
-   "pushedAt": "2026-10-19T04:35:18Z",
+   "pushedAt": "2026-10-19T11:59:51Z",
    "latest": "v1.18.0",
    "releaseDates": [
     "2026-10-15T04:48:25Z",
@@ -4989,7 +4989,7 @@
   ],
   [
    "2026-10-19",
-   4
+   6
   ]
  ]
 }
