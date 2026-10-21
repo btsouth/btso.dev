@@ -26,7 +26,11 @@ type RepoData = {
   latest: string | null;
   releaseDates: string[];
   releases: { tag: string; title: string | null; at: string; pre: boolean; url: string; body: string }[];
+  merged?: Merged[];
 };
+
+/** A merged pull request, kept for repos that deploy without releases. */
+type Merged = { n: number; title: string; at: string };
 
 export type Project = Omit<ProjectMeta, 'group'> & {
   group: Group;
@@ -35,6 +39,7 @@ export type Project = Omit<ProjectMeta, 'group'> & {
   version: string | null;
   releasedAt: string | null;
   releaseDates: string[];
+  merged: Merged[];
 };
 
 export type Release = {
@@ -64,6 +69,7 @@ export const projects: Project[] = (projectList as ProjectMeta[]).map((meta) => 
     version,
     releasedAt: data?.releaseDates[0] ?? null,
     releaseDates: data?.releaseDates ?? [],
+    merged: data?.merged ?? [],
   };
 });
 
@@ -72,6 +78,31 @@ export const projectById = Object.fromEntries(projects.map((p) => [p.id, p])) as
 export const releases: Release[] = projects
   .flatMap((project) => (repos[project.repo]?.releases ?? []).map((r) => ({ project, tag: r.tag, at: r.at, pre: r.pre, url: r.url, body: r.body })))
   .sort((a, b) => b.at.localeCompare(a.at));
+
+/** Merged pull requests grouped into one changelog entry per week (Monday start), newest first. */
+export function weeklyUpdates(project: Project): Release[] {
+  const weeks = new Map<string, Merged[]>();
+  for (const m of project.merged) {
+    const d = new Date(m.at);
+    d.setUTCDate(d.getUTCDate() - ((d.getUTCDay() + 6) % 7));
+    const key = d.toISOString().slice(0, 10);
+    weeks.set(key, [...(weeks.get(key) ?? []), m]);
+  }
+  return [...weeks.entries()].map(([monday, list]) => {
+    const end = new Date(`${monday}T00:00:00Z`);
+    end.setUTCDate(end.getUTCDate() + 6);
+    const label = new Date(`${monday}T00:00:00Z`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
+    const q = encodeURIComponent(`is:pr is:merged merged:${monday}..${end.toISOString().slice(0, 10)}`);
+    return {
+      project,
+      tag: `week of ${label}`,
+      at: list[0].at,
+      pre: false,
+      url: `https://github.com/${project.repo}/pulls?q=${q}`,
+      body: list.map((m) => `- ${m.title} #${m.n}`).join('\n'),
+    };
+  });
+}
 
 export const days = github.days as [string, number][];
 export const generatedAt = github.generatedAt as string;
