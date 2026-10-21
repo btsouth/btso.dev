@@ -71,7 +71,7 @@ const schema = [{
     </div>
 
     <h2 class="eyebrow" style="margin-top:40px">Changelog</h2>
-    {prs && <p class="meta" style="margin:-4px 0 14px">{p.name} deploys straight from main, so this is every merged pull request, grouped by week.</p>}
+    {prs && <p class="meta" style="margin:-4px 0 14px">{p.name} ships from main without tagged releases, so this is every merged pull request, grouped by week.</p>}
     {own.length
       ? <div class="tl">{own.map((r) => <ReleaseEntry release={r} linkName={false} />)}</div>
       : <p class="meta">No releases in the last few months.</p>}
