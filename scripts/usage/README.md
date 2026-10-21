@@ -6,8 +6,7 @@ value, models and the public apps the work went into.
 It reads [Agent Pulse](https://github.com/btsouth/omarchy-usage-dashboard)'s usage ledger, which
 already parses and deduplicates the logs of every coding tool on the machine, adds the
 devbox's Claude Code and Codex logs over rsync, and values each model call with Agent Pulse's
-price list. Only personal accounts count: work accounts, other people's logins and any session
-in a work folder are left out. The output is numbers only, and a project is named only when
+price list. Other people's logins are left out. The output is numbers only, and a project is named only when
 it's a public app in `src/data/projects.json`.
 
 `publish.sh` runs it in its own clone and pushes the result, which deploys the site. A systemd

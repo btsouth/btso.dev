@@ -12,20 +12,25 @@ const t = usage.totals;
 const models = usage.models.filter((m) => m.name !== 'Unknown');
 const updated = new Date(usage.updated);
 
-// Calendar: whole weeks from the Sunday before the first day to today.
+// Calendar: whole weeks ending today, at least half a year so it fills the panel.
 const byDay = new Map(usage.days.map((d) => [d.d, d]));
 const iso = (d: Date) => d.toISOString().slice(0, 10);
-const first = new Date(`${usage.first}T12:00:00Z`);
-const start = new Date(first);
-start.setUTCDate(start.getUTCDate() - start.getUTCDay());
 const end = new Date(`${usage.updated.slice(0, 10)}T12:00:00Z`);
+const lastSunday = new Date(end);
+lastSunday.setUTCDate(end.getUTCDate() - end.getUTCDay());
+const dataWeeks = Math.ceil((lastSunday.getTime() - new Date(`${usage.first}T12:00:00Z`).getTime()) / 6048e5) + 1;
+const weeks = Math.max(26, dataWeeks);
+const start = new Date(lastSunday);
+start.setUTCDate(start.getUTCDate() - (weeks - 1) * 7);
 const maxDay = Math.max(...usage.days.map((d) => d.t));
-const cells: { d: string; l: number; pad: boolean }[] = [];
-for (const d = new Date(start); d <= end; d.setUTCDate(d.getUTCDate() + 1)) {
+const cells: { d: string; l: number; pad: boolean; w: number; dow: number }[] = [];
+const months: { w: number; label: string }[] = [];
+for (let d = new Date(start), n = 0; d <= end; d.setUTCDate(d.getUTCDate() + 1), n++) {
   const key = iso(d);
   const day = byDay.get(key);
-  const pad = key < usage.first;
-  cells.push({ d: key, pad, l: day && day.t ? Math.max(1, Math.ceil((day.t / maxDay) * 4)) : 0 });
+  const w = Math.floor(n / 7);
+  if (d.getUTCDate() === 1 && w < weeks - 1) months.push({ w, label: d.toLocaleDateString('en-US', { month: 'short', timeZone: 'UTC' }) });
+  cells.push({ d: key, w, dow: d.getUTCDay(), pad: key < usage.first, l: day && day.t ? Math.max(1, Math.ceil((day.t / maxDay) * 4)) : 0 });
 }
 
 // The last 60 days of the daily chart.
@@ -67,24 +72,23 @@ const clientData = JSON.stringify({ days: usage.days, models }).replace(/</g, '\
       <div class="panel-h">
         <div><h3>Every day, every token</h3><p>One square per day. Hover a day to see what ran.</p></div>
       </div>
-      <div class="cal-layout">
-        <div class="cal-wrap" style={`--weeks:${Math.ceil(cells.length / 7)}`}>
-          <div class="cal-days" aria-hidden="true">{['', 'Mon', '', 'Wed', '', 'Fri', ''].map((d) => <span>{d}</span>)}</div>
-          <div class="cal" id="cal" role="img" aria-label={`Daily token use since ${usage.first}`}>
-            {cells.map((c) => <i class:list={{ pad: c.pad }} data-d={c.d} data-l={c.l}></i>)}
-          </div>
+      <div class="cal-scroll" id="calScroll">
+        <div class="cal" id="cal" style={`--weeks:${weeks}`} role="img" aria-label={`Daily token use since ${usage.first}`}>
+          {months.map((m) => <span class="cal-m" style={`grid-column:${m.w + 2}`}>{m.label}</span>)}
+          {['Mon', 'Wed', 'Fri'].map((d, i) => <span class="cal-d" style={`grid-row:${i * 2 + 3}`}>{d}</span>)}
+          {cells.map((c) => <i class:list={{ pad: c.pad }} data-d={c.d} data-l={c.l} style={`grid-column:${c.w + 2};grid-row:${c.dow + 2}`}></i>)}
         </div>
-        <dl class="facts">
-          <div><dt>Busiest day</dt><dd>{short(t.busiestDay.tokens)}<small>{dayLabel(t.busiestDay.date)}</small></dd></div>
-          <div><dt>Average active day</dt><dd>{short(t.tokens / Math.max(1, t.activeDays))}<small>{money(t.value / Math.max(1, t.activeDays))} at API prices</small></dd></div>
-          <div><dt>Sessions</dt><dd>{t.sessions.toLocaleString('en-US')}<small>{t.sessions30.toLocaleString('en-US')} this month</small></dd></div>
-          <div><dt>Model calls</dt><dd>{short(t.calls)}<small>{short(t.calls30)} this month</small></dd></div>
-        </dl>
       </div>
       <div class="cal-foot">
         <span class="ai-note">{t.activeDays} active days since {dayLabel(usage.first)}</span>
         <span class="cal-key">less <i style="background:var(--bg3)"></i>{[1, 2, 3, 4].map((l) => <i data-l={l} style={`background:color-mix(in oklab, var(--accent) ${[28, 50, 74, 100][l - 1]}%, var(--bg3))`}></i>)} more</span>
       </div>
+      <dl class="facts">
+        <div><dt>Busiest day</dt><dd>{short(t.busiestDay.tokens)}<small>{dayLabel(t.busiestDay.date)}</small></dd></div>
+        <div><dt>Average active day</dt><dd>{short(t.tokens / Math.max(1, t.activeDays))}<small>{money(t.value / Math.max(1, t.activeDays))} at API prices</small></dd></div>
+        <div><dt>Sessions</dt><dd>{t.sessions.toLocaleString('en-US')}<small>{t.sessions30.toLocaleString('en-US')} this month</small></dd></div>
+        <div><dt>Model calls</dt><dd>{short(t.calls)}<small>{short(t.calls30)} this month</small></dd></div>
+      </dl>
       <div class="tip" id="calTip"></div>
     </div>
 
@@ -130,7 +134,7 @@ const clientData = JSON.stringify({ days: usage.days, models }).replace(/</g, '\
 
     {projects.length > 0 && (
       <section class="ai-sec">
-        <div class="blk-head rv"><div><p class="eyebrow">Projects</p><h2>What it went into</h2><p>The public apps on this site that took the most tokens in the last 30 days. Private and work projects are never named.</p></div></div>
+        <div class="blk-head rv"><div><p class="eyebrow">Projects</p><h2>What it went into</h2><p>The public apps on this site that took the most tokens in the last 30 days. Private projects are never named.</p></div></div>
         <div class="pcards">
           {projects.map((p, i) => (
             <a class="pc glow rv" href={`/p/${p.id}`} style={`--pc:${p.project.accent};--w:${(p.tokens / projMax) * 100}%;transition-delay:${i * 40}ms`}>

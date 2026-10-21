@@ -65,6 +65,9 @@ cal?.addEventListener('pointerover', (e) => {
     : `<b>${date}</b><br><span class="hint">no AI coding</span>`);
 });
 hideOn(cal, calTip);
+// On narrow screens the calendar scrolls; start at today.
+const calScroll = document.getElementById('calScroll');
+if (calScroll) calScroll.scrollLeft = calScroll.scrollWidth;
 
 // Day-by-day bars
 const daily = document.getElementById('daily');
