@@ -50,7 +50,7 @@ const clientData = JSON.stringify({ days: usage.days, models }).replace(/</g, '\
     <div class="wrap" style="position:relative">
       <p class="eyebrow"><span class="live"></span> Updated nightly from my own logs</p>
       <h1>My AI usage</h1>
-      <p>Every number here comes from the logs my coding agents already keep. It's numbers only: no prompts, no code and no private projects. Work accounts aren't counted.</p>
+      <p>Every number here comes from the logs my coding agents already keep. It's numbers only: no prompts, no code and no private projects.</p>
       <div class="row"><AiTabs /><span class="ai-note">since {dayLabel(usage.first, { month: 'long', day: 'numeric', year: 'numeric' })} · updated <span data-ago={usage.updated}>{updated.toLocaleDateString('en-US')}</span></span></div>
     </div>
   </section>
