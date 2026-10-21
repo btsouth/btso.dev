@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
-"""Build src/data/usage.json: my personal AI coding usage, as numbers only.
+"""Build src/data/usage.json: my AI coding usage, as numbers only.
 
 It reads Agent Pulse's usage ledger (every coding tool's logs on this machine, already
-parsed and deduplicated), adds my personal Claude Code and Codex logs from the devbox, and
+parsed and deduplicated), adds my Claude Code and Codex logs from the devbox, and
 values each model call at API list price with Agent Pulse's rates.
 
-Left out: work accounts, other people's accounts and any session in a work folder. Nothing
-from a prompt, a reply or a file leaves the machine, and a project is only named when it's
-a public app on this site.
+Left out: other people's accounts. Nothing from a prompt, a reply or a file leaves the
+machine, and a project is only named when it's a public app on this site.
 
   collect.py [--no-devbox] [--out PATH]
 """
@@ -31,17 +30,8 @@ TZ = ZoneInfo("America/New_York")
 sys.path.insert(0, str(AGENT_PULSE))
 import collector  # noqa: E402  Agent Pulse: log parsers and the pricing catalog
 
-# Log folders that are mine and personal. Everything else in the ledger is left out,
-# including the work Claude account (~/.claude), its API key and other people's Codex logins.
-PERSONAL = [str(HOME / p) for p in (
-    ".claude2/", ".claude3/", ".codex/", "Codex-Second/", ".local/share/opencode/",
-    ".t3/commandcode/", ".commandcode/", ".hermes/", ".t3/userdata/", ".grok/", ".gemini/",
-)] + ["/data/user-data/bts/codex/"]
-WORK_FOLDERS = (str(HOME / "cssi"), str(HOME / "work"), "/cssi/", "-cssi-")
-
-TOOLS = {"claude": "Claude Code", "codex": "Codex", "opencode-go": "OpenCode", "opencode": "OpenCode",
-         "commandcode": "Command Code", "hermes": "Hermes", "grok": "Grok Build", "gemini": "Gemini",
-         "antigravity": "Antigravity", "muse": "Muse"}
+# Other people's logins on this machine. Everything else in the ledger is mine.
+OTHERS = [str(HOME / "Codex-Becca") + "/"]
 
 NAMES = {
     "claude-opus-5-5": "Opus 5.5", "claude-fable-5-1": "Fable 5.1", "claude-sonnet-5-5": "Sonnet 5.5",
@@ -82,10 +72,8 @@ def model_name(model):
     return name.replace("GLM 5", "GLM-5").replace("GPT 6", "GPT-6").replace("GPT 5", "GPT-5")
 
 
-def personal(paths, project):
-    if any(w in (project or "") for w in WORK_FOLDERS):
-        return False
-    return any(p.startswith(root) for p in paths for root in PERSONAL)
+def mine(paths):
+    return not any(p.startswith(root) for p in paths for root in OTHERS)
 
 
 def ledger_events():
@@ -97,25 +85,21 @@ def ledger_events():
         sources[event].append(path)
     for row in conn.execute("SELECT * FROM events"):
         r = dict(row)
-        if personal(sources.get(r["id"], []), r.get("project")):
+        if mine(sources.get(r["id"], [])):
             yield r
     conn.close()
 
 
 def devbox_events():
-    """My personal Claude Code and Codex logs on the devbox (its ~/.claude is the personal account)."""
+    """My Claude Code and Codex logs on the devbox."""
     for remote, local in (("~/.claude/projects/", CACHE / "devbox-claude"), ("~/.codex/sessions/", CACHE / "devbox-codex")):
         local.mkdir(parents=True, exist_ok=True)
         subprocess.run(["rsync", "-a", "--delete", "--include=*/", "--include=*.jsonl", "--exclude=*",
                         f"devbox-bts:{remote}", f"{local}/"], check=True, timeout=600)
     for path in (CACHE / "devbox-claude").rglob("*.jsonl"):
-        for r in collector.claude_records(path):
-            if not any(w in r["project"] for w in WORK_FOLDERS):
-                yield r
+        yield from collector.claude_records(path)
     for path in (CACHE / "devbox-codex").rglob("*.jsonl"):
-        for r in collector.codex_records(path):
-            if not any(w in r["project"] for w in WORK_FOLDERS):
-                yield r
+        yield from collector.codex_records(path)
 
 
 def public_projects():
@@ -162,15 +146,11 @@ def main():
     public = public_projects()
     now = dt.datetime.now(TZ)
     cut30 = (now - dt.timedelta(days=30)).date()
-    cut90 = (now - dt.timedelta(days=90)).date()
 
     days = collections.defaultdict(lambda: {"tokens": 0, "value": 0.0, "calls": 0, "models": collections.Counter()})
     models = collections.defaultdict(lambda: {"tokens": 0, "tokens30": 0, "value": 0.0, "value30": 0.0,
                                               "output": 0, "calls": 0, "first": None, "last": None})
-    tools = collections.Counter()
-    tools30 = collections.Counter()
     projects30 = collections.Counter()
-    rhythm = [[0] * 24 for _ in range(7)]
     totals = collections.Counter()
     unpriced = 0
     sessions, sessions30 = set(), set()
@@ -203,8 +183,6 @@ def main():
         m["calls"] += 1
         m["first"] = min(m["first"] or day, day)
         m["last"] = max(m["last"] or day, day)
-        tool = TOOLS.get(r["provider"], r["provider"])
-        tools[tool] += tokens
         totals["tokens"] += tokens
         totals["value"] += value
         totals["cacheRead"] += int(r.get("cacheRead") or 0)
@@ -214,7 +192,6 @@ def main():
         if day >= cut30:
             m["tokens30"] += tokens
             m["value30"] += value
-            tools30[tool] += tokens
             sessions30.add(r.get("session"))
             totals["tokens30"] += tokens
             totals["value30"] += value
@@ -222,8 +199,6 @@ def main():
             pid = project_id(r.get("project"), public)
             if pid:
                 projects30[pid] += tokens
-        if day >= cut90:
-            rhythm[when.weekday()][when.hour] += 1
 
     active = [dt.date.fromisoformat(k) for k, v in days.items() if v["tokens"]]
     current, longest = streaks(active)
@@ -252,9 +227,7 @@ def main():
                     "value30": round(v["value30"], 2), "output": v["output"], "calls": v["calls"],
                     "first": v["first"].isoformat(), "last": v["last"].isoformat()}
                    for n, v in top_models[:12]],
-        "tools": [{"name": n, "tokens": t, "tokens30": tools30.get(n, 0)} for n, t in tools.most_common()],
         "projects30": [{"id": p, "tokens": t} for p, t in projects30.most_common(8)],
-        "rhythm": rhythm,
     }
     Path(args.out).write_text(json.dumps(out, separators=(",", ":")) + "\n")
     t = out["totals"]

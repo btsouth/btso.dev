@@ -33,27 +33,26 @@
 .tip.show { opacity: 1; }
 .tip .sw { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 6px; vertical-align: 0; }
 
-/* Calendar: one column per week, one cell per day. */
-.cal-layout { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 28px; align-items: center; }
-@media (max-width: 860px) { .cal-layout { grid-template-columns: 1fr; } }
-.cal-wrap { container-type: inline-size; --cs: clamp(10px, calc((100cqw - 40px) / var(--weeks) - 4px), 24px); }
-.cal { display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, var(--cs)); grid-auto-columns: var(--cs); gap: 4px; overflow-x: auto; padding: 2px 2px 6px; scrollbar-width: thin; }
-.facts { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.facts div { padding: 12px 14px; border-radius: 12px; background: var(--bg); border: 1px solid var(--line); }
-.facts dt { font: 400 11px/1.3 "JetBrains Mono", monospace; color: var(--fg3); }
-.facts dd { margin: 6px 0 0; font: 700 20px/1.1 "JetBrains Mono", monospace; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
-.facts dd small { display: block; margin-top: 5px; font: 400 11px/1.3 "JetBrains Mono", monospace; color: var(--fg3); letter-spacing: 0; }
-.cal i { border-radius: 3px; background: var(--bg3); transition: transform .15s, outline-color .15s; outline: 1px solid transparent; outline-offset: 1px; }
+/* Calendar: one column per week, one cell per day, stretched to fill the panel. */
+.cal-scroll { overflow-x: auto; scrollbar-width: thin; padding: 2px 2px 6px; }
+.cal { --g: 3px; display: grid; grid-template-columns: 30px repeat(var(--weeks), minmax(12px, 1fr)); grid-template-rows: 16px; gap: var(--g); }
+.cal-m { grid-row: 1; font: 400 10px/16px "JetBrains Mono", monospace; color: var(--fg3); white-space: nowrap; }
+.cal-d { grid-column: 1; position: sticky; left: 0; z-index: 1; display: flex; align-items: center; font: 400 10px/1 "JetBrains Mono", monospace; color: var(--fg3); background: var(--bg2); }
+.cal i { aspect-ratio: 1; border-radius: clamp(3px, 12%, 6px); background: var(--bg3); transition: transform .15s, outline-color .15s; outline: 1px solid transparent; outline-offset: 1px; }
 .cal i[data-l='1'] { background: color-mix(in oklab, var(--accent) 28%, var(--bg3)); }
 .cal i[data-l='2'] { background: color-mix(in oklab, var(--accent) 50%, var(--bg3)); }
 .cal i[data-l='3'] { background: color-mix(in oklab, var(--accent) 74%, var(--bg3)); }
 .cal i[data-l='4'] { background: var(--accent); }
-.cal i.pad { background: transparent; }
-.cal i:not(.pad):hover { transform: scale(1.25); outline-color: var(--fg2); }
-.cal-wrap { display: flex; gap: 10px; align-items: flex-start; }
-.cal-days { display: grid; grid-template-rows: repeat(7, var(--cs)); gap: 4px; font: 400 10px/1 "JetBrains Mono", monospace; color: var(--fg3); padding-top: 2px; flex: none; width: 26px; }
-.cal-days span { display: flex; align-items: center; }
-.cal-foot { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+.cal i.pad { background: color-mix(in oklab, var(--bg3) 40%, transparent); }
+.cal i:not(.pad):hover { transform: scale(1.15); outline-color: var(--fg2); position: relative; z-index: 2; }
+@media (max-width: 640px) { .cal { --g: 3px; grid-template-columns: 26px repeat(var(--weeks), 13px); } }
+.facts { margin: 18px 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+@media (max-width: 860px) { .facts { grid-template-columns: 1fr 1fr; } }
+.facts div { padding: 12px 14px; border-radius: 12px; background: var(--bg); border: 1px solid var(--line); }
+.facts dt { font: 400 11px/1.3 "JetBrains Mono", monospace; color: var(--fg3); }
+.facts dd { margin: 6px 0 0; font: 700 20px/1.1 "JetBrains Mono", monospace; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.facts dd small { display: block; margin-top: 5px; font: 400 11px/1.3 "JetBrains Mono", monospace; color: var(--fg3); letter-spacing: 0; }
+.cal-foot { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 10px; }
 .cal-key { display: inline-flex; align-items: center; gap: 4px; font: 400 11px/1 "JetBrains Mono", monospace; color: var(--fg3); }
 .cal-key i { width: 11px; height: 11px; border-radius: 3px; display: inline-block; }
 
@@ -81,22 +80,6 @@
 .legend span { display: inline-flex; align-items: center; gap: 6px; }
 .legend i { width: 10px; height: 10px; border-radius: 3px; background: var(--pc); }
 
-/* Weekday x hour rhythm */
-.rhythm { display: grid; grid-template-columns: 34px repeat(24, 1fr); gap: 3px; align-items: center; }
-.rhythm .rl { font: 400 10px/1 "JetBrains Mono", monospace; color: var(--fg3); }
-.rhythm .hr { font: 400 9px/1 "JetBrains Mono", monospace; color: var(--fg3); text-align: center; }
-.rhythm .d { aspect-ratio: 1; display: grid; place-items: center; }
-.rhythm .d i { width: calc(var(--s) * 100%); height: calc(var(--s) * 100%); min-width: 2px; min-height: 2px; border-radius: 50%; background: var(--accent); opacity: calc(.25 + var(--s) * .75); transition: transform .15s; }
-.rhythm .d:hover i { transform: scale(1.4); }
-
-/* Tool split and projects */
-.split { display: flex; height: 36px; border-radius: 10px; overflow: hidden; gap: 3px; }
-.split div { --pc: #888; flex: var(--f) 1 0; min-width: 6px; background: color-mix(in oklab, var(--pc) 85%, var(--bg3)); display: flex; align-items: center; padding: 0 10px; font: 700 12px/1 "JetBrains Mono", monospace; color: var(--on-split, #fff); white-space: nowrap; overflow: hidden; transition: filter .15s; }
-.split div:hover { filter: brightness(1.12); }
-.tools { display: grid; gap: 8px; margin-top: 16px; }
-.tools .row { display: flex; align-items: center; gap: 10px; font: 500 13px/1.2 "JetBrains Mono", monospace; color: var(--fg2); }
-.tools .row i { width: 10px; height: 10px; border-radius: 3px; background: var(--pc); }
-.tools .row b { margin-left: auto; color: var(--fg); font-weight: 600; font-variant-numeric: tabular-nums; }
 .projs { display: grid; gap: 4px; }
 .proj { --pc: var(--accent); display: grid; grid-template-columns: 28px 1fr auto; gap: 12px; align-items: center; padding: 7px 10px; margin: 0 -10px; border-radius: 10px; font: 600 13px/1.2 "JetBrains Mono", monospace; transition: background .15s; }
 .proj:hover { background: var(--bg3); }

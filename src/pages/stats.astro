@@ -12,20 +12,25 @@ const t = usage.totals;
 const models = usage.models.filter((m) => m.name !== 'Unknown');
 const updated = new Date(usage.updated);
 
-// Calendar: whole weeks from the Sunday before the first day to today.
+// Calendar: whole weeks ending today, at least a year so it fills the panel.
 const byDay = new Map(usage.days.map((d) => [d.d, d]));
 const iso = (d: Date) => d.toISOString().slice(0, 10);
-const first = new Date(`${usage.first}T12:00:00Z`);
-const start = new Date(first);
-start.setUTCDate(start.getUTCDate() - start.getUTCDay());
 const end = new Date(`${usage.updated.slice(0, 10)}T12:00:00Z`);
+const lastSunday = new Date(end);
+lastSunday.setUTCDate(end.getUTCDate() - end.getUTCDay());
+const dataWeeks = Math.ceil((lastSunday.getTime() - new Date(`${usage.first}T12:00:00Z`).getTime()) / 6048e5) + 1;
+const weeks = Math.max(52, dataWeeks);
+const start = new Date(lastSunday);
+start.setUTCDate(start.getUTCDate() - (weeks - 1) * 7);
 const maxDay = Math.max(...usage.days.map((d) => d.t));
-const cells: { d: string; l: number; pad: boolean }[] = [];
-for (const d = new Date(start); d <= end; d.setUTCDate(d.getUTCDate() + 1)) {
+const cells: { d: string; l: number; pad: boolean; w: number; dow: number }[] = [];
+const months: { w: number; label: string }[] = [];
+for (let d = new Date(start), n = 0; d <= end; d.setUTCDate(d.getUTCDate() + 1), n++) {
   const key = iso(d);
   const day = byDay.get(key);
-  const pad = key < usage.first;
-  cells.push({ d: key, pad, l: day && day.t ? Math.max(1, Math.ceil((day.t / maxDay) * 4)) : 0 });
+  const w = Math.floor(n / 7);
+  if (d.getUTCDate() === 1 && w < weeks - 1) months.push({ w, label: d.toLocaleDateString('en-US', { month: 'short', timeZone: 'UTC' }) });
+  cells.push({ d: key, w, dow: d.getUTCDay(), pad: key < usage.first, l: day && day.t ? Math.max(1, Math.ceil((day.t / maxDay) * 4)) : 0 });
 }
 
 // The last 60 days of the daily chart.
@@ -36,27 +41,21 @@ for (const d of recent) for (const [name, n] of Object.entries(d.m)) legendTotal
 const legendNames = [...legendTotals.entries()].sort((a, b) => (a[0] === 'Other' ? 1 : b[0] === 'Other' ? -1 : b[1] - a[1])).map(([n]) => n);
 const colorOf = (name: string) => (name === 'Other' ? OTHER : modelColor(name));
 
-const toolColors: Record<string, string> = { 'Claude Code': '#d97757', Codex: '#5b9cf5', 'Command Code': '#e5a54b', OpenCode: '#2bbfd4' };
-const tools = usage.tools.filter((x) => x.tokens30 > 0);
-const toolTotal = tools.reduce((n, x) => n + x.tokens30, 0);
-
 const projects = usage.projects30.map((p) => ({ ...p, project: projectById[p.id] })).filter((p) => p.project);
 const projMax = projects[0]?.tokens ?? 1;
 
-const rhythmMax = Math.max(...usage.rhythm.flat());
-const weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 const bars30 = models.filter((m) => m.tokens30 > 0).sort((a, b) => b.tokens30 - a.tokens30).slice(0, 8);
 const barMax = bars30[0]?.tokens30 ?? 1;
 
-const clientData = JSON.stringify({ days: usage.days, models, rhythm: usage.rhythm }).replace(/</g, '\\u003c');
+const clientData = JSON.stringify({ days: usage.days, models }).replace(/</g, '\\u003c');
 ---
-<Base title="My AI usage | btso.dev" description="How much AI coding I actually do: tokens, models, tools and what it would cost at API prices, from my own logs." path="/stats" image={ogImage('/og/stats.png')} imageAlt="My AI coding usage on btso.dev">
+<Base title="My AI usage | btso.dev" description="How much AI coding I actually do: tokens, models and what it would cost at API prices, from my own logs." path="/stats" image={ogImage('/og/stats.png')} imageAlt="My AI coding usage on btso.dev">
   <section class="page-head">
     <div class="px-band" id="pxBand" aria-hidden="true"></div>
     <div class="wrap" style="position:relative">
       <p class="eyebrow"><span class="live"></span> Updated nightly from my own logs</p>
       <h1>My AI usage</h1>
-      <p>Every number here comes from the logs my coding agents already keep. It's numbers only: no prompts, no code and no private projects. Work accounts aren't counted.</p>
+      <p>Every number here comes from the logs my coding agents already keep. It's numbers only: no prompts, no code and no private projects.</p>
       <div class="row"><AiTabs /><span class="ai-note">since {dayLabel(usage.first, { month: 'long', day: 'numeric', year: 'numeric' })} · updated <span data-ago={usage.updated}>{updated.toLocaleDateString('en-US')}</span></span></div>
     </div>
   </section>
@@ -73,24 +72,23 @@ const clientData = JSON.stringify({ days: usage.days, models, rhythm: usage.rhyt
       <div class="panel-h">
         <div><h3>Every day, every token</h3><p>One square per day. Hover a day to see what ran.</p></div>
       </div>
-      <div class="cal-layout">
-        <div class="cal-wrap" style={`--weeks:${Math.ceil(cells.length / 7)}`}>
-          <div class="cal-days" aria-hidden="true">{['', 'Mon', '', 'Wed', '', 'Fri', ''].map((d) => <span>{d}</span>)}</div>
-          <div class="cal" id="cal" role="img" aria-label={`Daily token use since ${usage.first}`}>
-            {cells.map((c) => <i class:list={{ pad: c.pad }} data-d={c.d} data-l={c.l}></i>)}
-          </div>
+      <div class="cal-scroll" id="calScroll">
+        <div class="cal" id="cal" style={`--weeks:${weeks}`} role="img" aria-label={`Daily token use since ${usage.first}`}>
+          {months.map((m) => <span class="cal-m" style={`grid-column:${m.w + 2}`}>{m.label}</span>)}
+          {['Mon', 'Wed', 'Fri'].map((d, i) => <span class="cal-d" style={`grid-row:${i * 2 + 3}`}>{d}</span>)}
+          {cells.map((c) => <i class:list={{ pad: c.pad }} data-d={c.d} data-l={c.l} style={`grid-column:${c.w + 2};grid-row:${c.dow + 2}`}></i>)}
         </div>
-        <dl class="facts">
-          <div><dt>Busiest day</dt><dd>{short(t.busiestDay.tokens)}<small>{dayLabel(t.busiestDay.date)}</small></dd></div>
-          <div><dt>Average active day</dt><dd>{short(t.tokens / Math.max(1, t.activeDays))}<small>{money(t.value / Math.max(1, t.activeDays))} at API prices</small></dd></div>
-          <div><dt>Sessions</dt><dd>{t.sessions.toLocaleString('en-US')}<small>{t.sessions30.toLocaleString('en-US')} this month</small></dd></div>
-          <div><dt>Model calls</dt><dd>{short(t.calls)}<small>{short(t.calls30)} this month</small></dd></div>
-        </dl>
       </div>
       <div class="cal-foot">
         <span class="ai-note">{t.activeDays} active days since {dayLabel(usage.first)}</span>
         <span class="cal-key">less <i style="background:var(--bg3)"></i>{[1, 2, 3, 4].map((l) => <i data-l={l} style={`background:color-mix(in oklab, var(--accent) ${[28, 50, 74, 100][l - 1]}%, var(--bg3))`}></i>)} more</span>
       </div>
+      <dl class="facts">
+        <div><dt>Busiest day</dt><dd>{short(t.busiestDay.tokens)}<small>{dayLabel(t.busiestDay.date)}</small></dd></div>
+        <div><dt>Average active day</dt><dd>{short(t.tokens / Math.max(1, t.activeDays))}<small>{money(t.value / Math.max(1, t.activeDays))} at API prices</small></dd></div>
+        <div><dt>Sessions</dt><dd>{t.sessions.toLocaleString('en-US')}<small>{t.sessions30.toLocaleString('en-US')} this month</small></dd></div>
+        <div><dt>Model calls</dt><dd>{short(t.calls)}<small>{short(t.calls30)} this month</small></dd></div>
+      </dl>
       <div class="tip" id="calTip"></div>
     </div>
 
@@ -134,37 +132,9 @@ const clientData = JSON.stringify({ days: usage.days, models, rhythm: usage.rhyt
       </div>
     </section>
 
-    <section class="ai-sec">
-      <div class="blk-head rv"><div><p class="eyebrow">Habits</p><h2>When and where</h2></div></div>
-      <div class="duo">
-        <div class="panel rv tipbox">
-          <div class="panel-h"><div><h3>When I work</h3><p>Model calls by weekday and hour over the last 90 days, Eastern time.</p></div></div>
-          <div class="rhythm" id="rhythm">
-            <span></span>{Array.from({ length: 24 }, (_, h) => <span class="hr">{['12a', '6a', '12p', '6p'][h / 6] ?? ''}</span>)}
-            {usage.rhythm.map((row, w) => (
-              <>
-                <span class="rl">{weekdays[w]}</span>
-                {row.map((n, h) => <span class="d" data-w={w} data-h={h} data-n={n}><i style={`--s:${rhythmMax ? Math.sqrt(n / rhythmMax) : 0}`}></i></span>)}
-              </>
-            ))}
-          </div>
-          <div class="tip" id="rhythmTip"></div>
-        </div>
-        <div class="panel rv">
-          <div class="panel-h"><div><h3>Which tools</h3><p>Tokens by coding tool over the last 30 days.</p></div></div>
-          <div class="split">
-            {tools.map((x) => <div style={`--pc:${toolColors[x.name] ?? OTHER};--f:${x.tokens30};background:color-mix(in oklab, var(--pc) var(--pc-keep), var(--fg));color:var(--bg)`} title={`${x.name}: ${short(x.tokens30)}`}>{x.tokens30 / toolTotal > 0.12 ? `${Math.round((x.tokens30 / toolTotal) * 100)}%` : ''}</div>)}
-          </div>
-          <div class="tools">
-            {tools.map((x) => <div class="row" style={`--pc:${toolColors[x.name] ?? OTHER}`}><i></i>{x.name}<b>{short(x.tokens30)}</b></div>)}
-          </div>
-        </div>
-      </div>
-    </section>
-
     {projects.length > 0 && (
       <section class="ai-sec">
-        <div class="blk-head rv"><div><p class="eyebrow">Projects</p><h2>What it went into</h2><p>The public apps on this site that took the most tokens in the last 30 days. Private and work projects are never named.</p></div></div>
+        <div class="blk-head rv"><div><p class="eyebrow">Projects</p><h2>What it went into</h2><p>The public apps on this site that took the most tokens in the last 30 days. Private projects are never named.</p></div></div>
         <div class="pcards">
           {projects.map((p, i) => (
             <a class="pc glow rv" href={`/p/${p.id}`} style={`--pc:${p.project.accent};--w:${(p.tokens / projMax) * 100}%;transition-delay:${i * 40}ms`}>
