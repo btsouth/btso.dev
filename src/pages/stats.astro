@@ -12,14 +12,14 @@ const t = usage.totals;
 const models = usage.models.filter((m) => m.name !== 'Unknown');
 const updated = new Date(usage.updated);
 
-// Calendar: whole weeks ending today, at least half a year so it fills the panel.
+// Calendar: whole weeks ending today, at least a year so it fills the panel.
 const byDay = new Map(usage.days.map((d) => [d.d, d]));
 const iso = (d: Date) => d.toISOString().slice(0, 10);
 const end = new Date(`${usage.updated.slice(0, 10)}T12:00:00Z`);
 const lastSunday = new Date(end);
 lastSunday.setUTCDate(end.getUTCDate() - end.getUTCDay());
 const dataWeeks = Math.ceil((lastSunday.getTime() - new Date(`${usage.first}T12:00:00Z`).getTime()) / 6048e5) + 1;
-const weeks = Math.max(26, dataWeeks);
+const weeks = Math.max(52, dataWeeks);
 const start = new Date(lastSunday);
 start.setUTCDate(start.getUTCDate() - (weeks - 1) * 7);
 const maxDay = Math.max(...usage.days.map((d) => d.t));

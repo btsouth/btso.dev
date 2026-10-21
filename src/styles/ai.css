@@ -35,7 +35,7 @@
 
 /* Calendar: one column per week, one cell per day, stretched to fill the panel. */
 .cal-scroll { overflow-x: auto; scrollbar-width: thin; padding: 2px 2px 6px; }
-.cal { --g: 4px; display: grid; grid-template-columns: 30px repeat(var(--weeks), minmax(13px, 1fr)); grid-template-rows: 16px; gap: var(--g); }
+.cal { --g: 3px; display: grid; grid-template-columns: 30px repeat(var(--weeks), minmax(12px, 1fr)); grid-template-rows: 16px; gap: var(--g); }
 .cal-m { grid-row: 1; font: 400 10px/16px "JetBrains Mono", monospace; color: var(--fg3); white-space: nowrap; }
 .cal-d { grid-column: 1; position: sticky; left: 0; z-index: 1; display: flex; align-items: center; font: 400 10px/1 "JetBrains Mono", monospace; color: var(--fg3); background: var(--bg2); }
 .cal i { aspect-ratio: 1; border-radius: clamp(3px, 12%, 6px); background: var(--bg3); transition: transform .15s, outline-color .15s; outline: 1px solid transparent; outline-offset: 1px; }
@@ -43,7 +43,7 @@
 .cal i[data-l='2'] { background: color-mix(in oklab, var(--accent) 50%, var(--bg3)); }
 .cal i[data-l='3'] { background: color-mix(in oklab, var(--accent) 74%, var(--bg3)); }
 .cal i[data-l='4'] { background: var(--accent); }
-.cal i.pad { background: color-mix(in oklab, var(--bg3) 45%, transparent); }
+.cal i.pad { background: color-mix(in oklab, var(--bg3) 40%, transparent); }
 .cal i:not(.pad):hover { transform: scale(1.15); outline-color: var(--fg2); position: relative; z-index: 2; }
 @media (max-width: 640px) { .cal { --g: 3px; grid-template-columns: 26px repeat(var(--weeks), 13px); } }
 .facts { margin: 18px 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
