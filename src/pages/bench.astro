@@ -1,0 +1,160 @@
+---
+import Base from '../layouts/Base.astro';
+import AiTabs from '../components/AiTabs.astro';
+import bench from '../data/bench.json';
+import { modelColor, modelLabel, short, money, secs, dayLabel, median } from '../lib/ai';
+import { ogImage } from '../lib/og';
+import '../styles/ai.css';
+
+type Limits = { five_hour?: number | null; seven_day?: number | null } | null;
+type Run = {
+  date: string; passed: boolean; score: number; wall_seconds: number; over_limit?: boolean;
+  limits?: { before: Limits; after: Limits }; api_cost_usd?: number | null; tokens?: number; output?: number;
+};
+type Model = {
+  model: string; plan: string; runs: number; pass_rate_30: number;
+  latest: Run & { hidden_passed: number; hidden_total: number; tokens: Record<string, number> };
+  history: Run[];
+};
+type Bench = { updated?: string; date?: string; hidden_total?: number; variant?: Record<string, any>; models: Record<string, Model> };
+
+const data = bench as Bench;
+const keys = Object.keys(data.models);
+const hasData = keys.length > 0;
+const REPO = 'https://github.com/btsouth/model-canary';
+
+// Today's card for each model, with a status against its own earlier runs.
+const cards = keys.map((key) => {
+  const m = data.models[key];
+  const runs = m.history;
+  const last = runs.at(-1)!;
+  const earlier = runs.slice(0, -1);
+  const name = modelLabel(m.model);
+  const before = last.limits?.before?.five_hour;
+  const after = last.limits?.after?.five_hour;
+  const used = before != null && after != null && !last.over_limit ? Math.max(0, after - before) : null;
+  let status = { cls: 'ok', text: 'Passed' };
+  if (!last.passed) status = { cls: 'bad', text: `Missed ${m.latest.hidden_total - m.latest.hidden_passed} tests` };
+  else if (earlier.length < 3) status = { cls: 'dim', text: earlier.length ? 'Passed · new' : 'First run' };
+  else if (last.wall_seconds > 1.5 * median(earlier.map((r) => r.wall_seconds))) status = { cls: 'warn', text: 'Slower than usual' };
+  else if ((last.tokens ?? 0) > 1.5 * median(earlier.map((r) => r.tokens ?? 0))) status = { cls: 'warn', text: 'More tokens than usual' };
+  return { key, m, last, name, used, status, color: modelColor(name) };
+});
+
+const v = data.variant ?? {};
+const s = v.schedule ?? {};
+const twists = hasData ? [
+  ['Leftover cent goes to', `the ${v.tie} share`],
+  ['Exact halves round', v.rounding === 'half_up' ? 'up' : 'to the even cent'],
+  ['Fields look like', `<code>a=1${v.sep} b=${v.quote}x${v.quote}</code>`],
+  ['Duration units', (v.units ?? '').split('').join(' ')],
+  ['Day fields combine with', s.rule === 'or' ? 'OR, classic cron' : 'AND, both must match'],
+  ['Backwards ranges', s.wrap ? 'wrap around' : 'are an error'],
+  ['Search horizon', `${s.years} years`],
+  ['Split function is called', `<code>${v.split}()</code>`],
+] : [];
+
+const days = hasData ? [...new Set(keys.flatMap((k) => data.models[k].history.map((r) => r.date)))].sort().slice(-30) : [];
+const clientData = JSON.stringify({ models: keys.map((k) => ({ key: k, name: modelLabel(data.models[k].model), history: data.models[k].history })) }).replace(/</g, '\\u003c');
+---
+<Base title="Daily model bench | btso.dev" description="Every morning each AI model I pay for gets the same kind of coding task. Pass rate, time, tokens and limit use, tracked daily." path="/bench" image={ogImage('/og/bench.png')} imageAlt="The daily model bench on btso.dev">
+  <section class="page-head">
+    <div class="px-band" id="pxBand" aria-hidden="true"></div>
+    <div class="wrap" style="position:relative">
+      <p class="eyebrow"><span class="live"></span> Runs every morning at 6:00 ET</p>
+      <h1>Daily model bench</h1>
+      <p>Every morning each model I pay for gets the same kind of coding job: fix nine bugs, then build a scheduler from a written spec. The details change daily so nothing can be memorized, but the work stays the same size. If time, tokens or the pass rate move, the model or the plan changed.</p>
+      <div class="row"><AiTabs />{hasData && <span class="ai-note">last run {dayLabel(data.date!, { weekday: 'long', month: 'short', day: 'numeric' })} · <a href={REPO} target="_blank" rel="noreferrer">every run on GitHub</a></span>}</div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    {!hasData && (
+      <div class="panel rv" style="margin-top:40px;text-align:center;padding:56px 24px">
+        <h3 style="margin:0;font:700 20px/1.3 'JetBrains Mono',monospace">The first run lands at 6:00 ET</h3>
+        <p style="margin:10px auto 0;color:var(--fg2);max-width:52ch">Five models, one task, every day. Results show up here after each run. Until then you can read <a href={REPO} style="color:var(--accent)">how it works</a>.</p>
+      </div>
+    )}
+
+    {hasData && (
+      <>
+        <div class="today">
+          {cards.map((c, i) => (
+            <article class="run glow rv" style={`--pc:${c.color};transition-delay:${i * 50}ms`}>
+              <div class="top">
+                <h4>{c.name}</h4><div class="plan">{c.m.plan}</div>
+                <span class:list={['badge', c.status.cls]}><i></i>{c.status.text}</span>
+              </div>
+              <div class="score" data-num={c.m.latest.hidden_passed}>{c.m.latest.hidden_passed}<small>/ {c.m.latest.hidden_total}</small></div>
+              <dl>
+                <dt>Time</dt><dd>{secs(c.last.wall_seconds)}</dd>
+                <dt>Tokens</dt><dd>{short(c.last.tokens ?? 0)}</dd>
+                <dt>API price</dt><dd>{c.last.api_cost_usd != null ? money(c.last.api_cost_usd) : 'n/a'}</dd>
+                <dt>5h limit</dt><dd>{c.used == null ? 'n/a' : c.used === 0 ? 'under 1%' : `${Math.round(c.used * 100)}%`}</dd>
+              </dl>
+            </article>
+          ))}
+        </div>
+
+        <section class="ai-sec">
+          <div class="blk-head rv"><div><p class="eyebrow">Trends</p><h2>Same work, every day</h2><p>Each line is one model on the day's task. Hover for the numbers, or click a name to pick it out.</p></div></div>
+          <div class="panel rv tipbox" id="trendPanel">
+            <div class="panel-h">
+              <div class="chips" role="group" aria-label="Measure">
+                <button type="button" class="chip on" data-metric="wall_seconds">Time to finish</button>
+                <button type="button" class="chip" data-metric="tokens">Tokens</button>
+                <button type="button" class="chip" data-metric="api_cost_usd">API price</button>
+                <button type="button" class="chip" data-metric="score">Score</button>
+              </div>
+            </div>
+            <div class="chart" id="trend"></div>
+            <div class="legend" id="trendLegend">
+              {cards.map((c) => <button type="button" data-key={c.key} style={`--pc:${c.color}`}><i></i>{c.name}</button>)}
+            </div>
+            <div class="tip" id="trendTip"></div>
+          </div>
+
+          <div class="duo">
+            <div class="panel rv">
+              <div class="panel-h"><div><h3>Pass record</h3><p>One dot per day. Red means it missed at least one hidden test.</p></div></div>
+              <div class="record">
+                {cards.map((c) => {
+                  const byDate = new Map(c.m.history.map((r) => [r.date, r]));
+                  const passed = c.m.history.filter((r) => r.passed).length;
+                  return (
+                    <div class="row" style={`--pc:${c.color}`}>
+                      <span><i></i>{c.name}</span>
+                      <span class="dots">{days.map((d) => { const r = byDate.get(d); return <i class:list={{ f: r && !r.passed, x: !r }} title={`${dayLabel(d)}: ${r ? `${Math.round(r.score * (data.hidden_total ?? 157))}/${data.hidden_total ?? 157}` : 'no run'}`}></i>; })}</span>
+                      <span class="pct">{Math.round((passed / c.m.history.length) * 100)}%</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <div class="panel rv">
+              <div class="panel-h"><div><h3>Today's twist</h3><p>What changed in {dayLabel(data.date!)}'s version of the task.</p></div></div>
+              <dl class="twist">{twists.map(([k, val]) => <div><dt>{k}</dt><dd set:html={val}></dd></div>)}</dl>
+            </div>
+          </div>
+        </section>
+      </>
+    )}
+
+    <section class="ai-sec">
+      <div class="blk-head rv"><div><p class="eyebrow">How it works</p><h2>Fair, boring, every day</h2></div><a class="link" href={REPO} target="_blank" rel="noreferrer">Source and every result ↗</a></div>
+      <ol class="steps">
+        <li class="rv"><b>Same work, new details</b>Nine bugs across five small modules, plus a cron-style scheduler built from a spec. A new variant is generated from the date, so every model gets the same task on the same day.</li>
+        <li class="rv"><b>Graded by hidden tests</b>{data.hidden_total ?? 157} tests the model never sees check the work. Their answers come from a reference implementation that's itself checked against a brute-force search.</li>
+        <li class="rv"><b>No peeking</b>Each model runs through its own CLI with fixed settings and none of my instructions. The hidden tests only exist after it's done, and any run that touches the grader is thrown out.</li>
+      </ol>
+      <p class="ai-note rv" style="margin-top:20px">Today's models all pass this task nearly every time, so a red dot matters. Time, tokens and limit use are the trends to watch. Limit readings are whole percents shared with my other work, so a single day's number is rough.</p>
+    </section>
+  </div>
+
+  <script type="application/json" id="benchData" set:html={clientData}></script>
+</Base>
+
+<script>
+  import '../scripts/pixel-band';
+  import '../scripts/bench';
+</script>

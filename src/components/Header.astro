@@ -5,9 +5,10 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const nav = [
   { key: 'ship', label: 'Ship log', href: '/ship' },
   { key: 'omarchy', label: 'Omarchy', href: '/omarchy' },
+  { key: 'ai', label: 'AI', href: '/stats', also: ['/bench'] },
   { key: 'apps', label: 'Apps', href: '/#apps', wide: true },
 ];
-const active = (href: string) => !href.includes('#') && (path === href || path.startsWith(`${href}/`));
+const active = (href: string, also: string[] = []) => !href.includes('#') && [href, ...also].some((h) => path === h || path.startsWith(`${h}/`));
 // Release times for the "new since your last visit" badge.
 const releaseTimes = JSON.stringify(releases.slice(0, 60).map((r) => Date.parse(r.at)));
 ---
@@ -19,7 +20,7 @@ const releaseTimes = JSON.stringify(releases.slice(0, 60).map((r) => Date.parse(
     </a>
     <nav class="nav" aria-label="Primary navigation">
       {nav.map((item) => (
-        <a href={item.href} class:list={[{ keep: !item.wide, on: active(item.href) }]} aria-current={active(item.href) ? 'page' : undefined}>
+        <a href={item.href} class:list={[{ keep: !item.wide, on: active(item.href, item.also) }]} aria-current={active(item.href, item.also) ? 'page' : undefined}>
           {item.label}{item.key === 'ship' && <span class="count" id="navCount" data-release-times={releaseTimes} hidden></span>}
         </a>
       ))}

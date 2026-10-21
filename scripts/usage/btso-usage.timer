@@ -1,0 +1,10 @@
+[Unit]
+Description=Publish AI usage stats to btso.dev every night
+
+[Timer]
+OnCalendar=*-*-* 04:30:00
+Persistent=true
+RandomizedDelaySec=10min
+
+[Install]
+WantedBy=timers.target

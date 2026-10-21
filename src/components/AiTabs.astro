@@ -1,0 +1,11 @@
+---
+// Switches between the two AI pages.
+const path = Astro.url.pathname.replace(/\/$/, '');
+const tabs = [
+  { href: '/stats', label: 'My usage' },
+  { href: '/bench', label: 'Daily bench' },
+];
+---
+<nav class="ai-tabs" aria-label="AI pages">
+  {tabs.map((t) => <a href={t.href} class:list={{ on: path === t.href }} aria-current={path === t.href ? 'page' : undefined}>{t.label}</a>)}
+</nav>

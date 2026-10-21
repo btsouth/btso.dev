@@ -1,6 +1,7 @@
 name: Refresh GitHub data
 
-# Rewrites src/data/github.json (stars, releases, contribution calendar). A
+# Rewrites src/data/github.json (stars, releases, contribution calendar) and
+# src/data/bench.json (the daily model bench from btsouth/model-canary). A
 # commit only happens when the data changed, and each commit deploys the site
 # through Vercel's Git integration.
 #
@@ -59,15 +60,16 @@ jobs:
       - run: node scripts/fetch-github.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: node scripts/fetch-bench.mjs
       - name: Commit if changed
         run: |
-          if git diff --quiet -- src/data/github.json; then
+          if git diff --quiet -- src/data/github.json src/data/bench.json; then
             echo "No changes."
             exit 0
           fi
           # Vercel only deploys commits authored by the account owner on this plan.
           git config user.name "Tyler South"
           git config user.email "tsouth2@gmail.com"
-          git add src/data/github.json
+          git add src/data/github.json src/data/bench.json
           git commit -m "Refresh GitHub data"
           git push

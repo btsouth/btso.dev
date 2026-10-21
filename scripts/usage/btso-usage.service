@@ -1,0 +1,7 @@
+[Unit]
+Description=Publish AI usage stats to btso.dev
+
+[Service]
+Type=oneshot
+ExecStart=%h/.cache/btso-usage/site/scripts/usage/publish.sh
+TimeoutStartSec=30min
