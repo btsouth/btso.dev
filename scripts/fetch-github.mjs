@@ -1,5 +1,6 @@
 // Snapshot the public GitHub data the site renders: stars, releases and the
-// contribution calendar for every repo in src/data/projects.json.
+// contribution calendar for every repo in src/data/projects.json. Repos that
+// deploy without releases get their merged pull requests instead.
 // Needs GITHUB_TOKEN (any token that can read public data). Writes
 // src/data/github.json only when the data changed, so the hourly workflow
 // commits nothing on quiet hours.
@@ -22,6 +23,9 @@ if (!token) {
 const repoFields = `nameWithOwner stargazerCount pushedAt
   releases(first: 100, orderBy: { field: CREATED_AT, direction: DESC }) {
     nodes { tagName name createdAt publishedAt isPrerelease isDraft description url }
+  }
+  pullRequests(states: MERGED, first: 100, orderBy: { field: UPDATED_AT, direction: DESC }) {
+    nodes { number title mergedAt author { __typename } }
   }`;
 const query = `query {
   ${projects.map((p, i) => {
@@ -73,6 +77,12 @@ projects.forEach((p, i) => {
       .filter((n) => n.at >= cutoff)
       .map((n) => ({ tag: n.tagName, title: n.name, at: n.at, pre: n.isPrerelease, url: n.url, body: cleanNotes(n.description) })),
   };
+  if (!releases.length) {
+    repos[p.repo].merged = r.pullRequests.nodes
+      .filter((n) => n.mergedAt >= cutoff && n.author?.__typename !== 'Bot')
+      .map((n) => ({ n: n.number, title: n.title.trim(), at: n.mergedAt }))
+      .sort((a, b) => b.at.localeCompare(a.at));
+  }
 });
 const days = json.data.user.contributionsCollection.contributionCalendar.weeks.flatMap((w) =>
   w.contributionDays.map((d) => [d.date, d.contributionCount]),
