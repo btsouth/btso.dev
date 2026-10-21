@@ -30,6 +30,7 @@ for (const d of prs ? p.merged.map((m) => m.at) : p.releaseDates) {
   if (age >= 0 && age < 120) bins[29 - Math.floor(age / 4)]++;
 }
 const peak = Math.max(1, ...bins);
+const recent = bins.reduce((a, b) => a + b, 0);
 
 // Lets search engines show it as software, with its version and source.
 const schema = [{
@@ -66,7 +67,7 @@ const schema = [{
     <div class="rel-chart" aria-hidden="true">{bins.map((n) => <i style={`height:${n ? 20 + (n / peak) * 80 : 6}%;${n ? 'background:var(--pci)' : ''}`}></i>)}</div>
     <div class="meta">
       <span>{prs ? 'merged pull requests' : 'releases'}, last 120 days</span>
-      <span style="margin-left:auto">{prs ? `${p.merged.length} change${p.merged.length === 1 ? '' : 's'}` : `${own.length} recent release${own.length === 1 ? '' : 's'}`}</span>
+      <span style="margin-left:auto">{prs ? `${recent} change${recent === 1 ? '' : 's'}` : `${own.length} recent release${own.length === 1 ? '' : 's'}`}</span>
     </div>
 
     <h2 class="eyebrow" style="margin-top:40px">Changelog</h2>
