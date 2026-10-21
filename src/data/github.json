@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-21T10:17:42.275Z",
+ "generatedAt": "2026-10-21T11:40:40.375Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 235,
@@ -2445,7 +2445,49 @@
    "pushedAt": "2026-10-16T23:28:08Z",
    "latest": null,
    "releaseDates": [],
-   "releases": []
+   "releases": [],
+   "merged": [
+    {
+     "n": 10,
+     "title": "Find the desktop session when an MCP client leaves it out",
+     "at": "2026-10-16T23:28:07Z"
+    },
+    {
+     "n": 8,
+     "title": "Fix colors on Qt 6.12",
+     "at": "2026-10-09T01:42:59Z"
+    },
+    {
+     "n": 7,
+     "title": "Bound CI work and avoid redundant runs",
+     "at": "2026-10-02T23:17:44Z"
+    },
+    {
+     "n": 6,
+     "title": "Fix approval notification click actions",
+     "at": "2026-10-02T22:20:57Z"
+    },
+    {
+     "n": 4,
+     "title": "Run the test suite on every push and pull request",
+     "at": "2026-09-20T04:55:48Z"
+    },
+    {
+     "n": 3,
+     "title": "Release the approval slot when a call is cancelled",
+     "at": "2026-09-20T04:54:04Z"
+    },
+    {
+     "n": 2,
+     "title": "Add site icons and social sharing image",
+     "at": "2026-08-20T04:44:11Z"
+    },
+    {
+     "n": 1,
+     "title": "Improve site demo and image zoom",
+     "at": "2026-08-20T04:34:11Z"
+    }
+   ]
   },
   "btsouth/omarchy-resurrect": {
    "stars": 7,
@@ -3343,7 +3385,479 @@
    "pushedAt": "2026-10-20T22:45:59Z",
    "latest": null,
    "releaseDates": [],
-   "releases": []
+   "releases": [],
+   "merged": [
+    {
+     "n": 160,
+     "title": "Format the linked history test so CI passes",
+     "at": "2026-10-07T21:48:51Z"
+    },
+    {
+     "n": 159,
+     "title": "Scan history files in parallel",
+     "at": "2026-10-07T13:07:12Z"
+    },
+    {
+     "n": 158,
+     "title": "Describe StackReplay as it is now",
+     "at": "2026-10-07T12:21:09Z"
+    },
+    {
+     "n": 157,
+     "title": "Connect a linked Claude history with the chooser that follows links",
+     "at": "2026-10-07T12:06:08Z"
+    },
+    {
+     "n": 156,
+     "title": "Explain how to connect a linked Claude history",
+     "at": "2026-10-07T11:55:37Z"
+    },
+    {
+     "n": 155,
+     "title": "Give panels room so text never touches the edge",
+     "at": "2026-10-07T01:20:31Z"
+    },
+    {
+     "n": 153,
+     "title": "Find every Claude Code history and never skip one silently",
+     "at": "2026-10-07T01:04:01Z"
+    },
+    {
+     "n": 154,
+     "title": "Show a bar for every day with AI activity",
+     "at": "2026-10-07T00:43:39Z"
+    },
+    {
+     "n": 152,
+     "title": "Fix what the second review found",
+     "at": "2026-10-06T22:15:10Z"
+    },
+    {
+     "n": 151,
+     "title": "Fix the visual defects from the site review",
+     "at": "2026-10-06T20:20:13Z"
+    },
+    {
+     "n": 150,
+     "title": "Make every number honest and every label clear",
+     "at": "2026-10-06T19:22:26Z"
+    },
+    {
+     "n": 149,
+     "title": "Make shared cards unfurl on X and read clearly",
+     "at": "2026-10-06T18:37:41Z"
+    },
+    {
+     "n": 148,
+     "title": "Add insight headlines to the overview",
+     "at": "2026-10-06T17:38:46Z"
+    },
+    {
+     "n": 147,
+     "title": "Make share cards about volume and models, not speed",
+     "at": "2026-10-06T16:19:59Z"
+    },
+    {
+     "n": 146,
+     "title": "Stop the folder chooser from hanging on a home folder",
+     "at": "2026-10-06T16:09:32Z"
+    },
+    {
+     "n": 145,
+     "title": "Retry the GitHub calendar fetch once",
+     "at": "2026-10-06T15:25:48Z"
+    },
+    {
+     "n": 144,
+     "title": "Rebuild the app as a terminal-style overview with speed and GitHub",
+     "at": "2026-10-06T15:13:58Z"
+    },
+    {
+     "n": 143,
+     "title": "Refocus the app on the recap, stats and sharing",
+     "at": "2026-10-06T04:45:01Z"
+    },
+    {
+     "n": 141,
+     "title": "Compute streaks over full history in local time",
+     "at": "2026-10-04T22:42:42Z"
+    },
+    {
+     "n": 142,
+     "title": "Support multiple accounts per plan and restyle plan confirmation",
+     "at": "2026-10-04T22:42:24Z"
+    },
+    {
+     "n": 140,
+     "title": "Redesign the recap with deep stats and accurate attribution",
+     "at": "2026-10-04T21:58:45Z"
+    },
+    {
+     "n": 138,
+     "title": "Add the AI coding recap, share cards and new homepage",
+     "at": "2026-10-04T19:07:53Z"
+    },
+    {
+     "n": 139,
+     "title": "Redesign the homepage around the AI coding recap",
+     "at": "2026-10-04T18:54:00Z"
+    },
+    {
+     "n": 136,
+     "title": "Make featured homepage models easier to compare",
+     "at": "2026-10-04T13:01:11Z"
+    },
+    {
+     "n": 135,
+     "title": "Bring mobile model search into view and explain benchmark gaps",
+     "at": "2026-10-04T11:50:59Z"
+    },
+    {
+     "n": 134,
+     "title": "Target accessible comparison controls in navigation tests",
+     "at": "2026-10-04T10:39:36Z"
+    },
+    {
+     "n": 133,
+     "title": "Clarify model pricing and correct sitemap freshness",
+     "at": "2026-10-04T10:02:52Z"
+    },
+    {
+     "n": 132,
+     "title": "Add sourced RSS and JSON update subscriptions",
+     "at": "2026-10-04T09:14:20Z"
+    },
+    {
+     "n": 131,
+     "title": "Add sourced AI update pages and shareable provider filters",
+     "at": "2026-10-04T08:33:53Z"
+    },
+    {
+     "n": 130,
+     "title": "Resolve plan-detail Compare links before navigation",
+     "at": "2026-10-04T07:56:38Z"
+    },
+    {
+     "n": 129,
+     "title": "Add Kimi benchmark evidence with explicit unknown publication dates",
+     "at": "2026-10-04T07:05:22Z"
+    },
+    {
+     "n": 128,
+     "title": "Add sourced Qwen, GLM and MiniMax benchmark results",
+     "at": "2026-10-04T06:15:42Z"
+    },
+    {
+     "n": 127,
+     "title": "Export readable benchmark comparison images",
+     "at": "2026-10-04T05:36:36Z"
+    },
+    {
+     "n": 126,
+     "title": "Add sourced Epoch GPQA Diamond evidence",
+     "at": "2026-10-04T03:53:44Z"
+    },
+    {
+     "n": 125,
+     "title": "Make benchmark evidence clearer and exportable",
+     "at": "2026-10-04T02:27:52Z"
+    },
+    {
+     "n": 123,
+     "title": "Make mobile plan comparisons easier to read",
+     "at": "2026-10-04T01:28:50Z"
+    },
+    {
+     "n": 124,
+     "title": "Add sourced API token cost estimates",
+     "at": "2026-10-04T01:19:37Z"
+    },
+    {
+     "n": 121,
+     "title": "Put public model and provider discovery first",
+     "at": "2026-10-04T00:22:56Z"
+    },
+    {
+     "n": 122,
+     "title": "Add a Devin Teams seat cost calculator",
+     "at": "2026-10-04T00:07:40Z"
+    },
+    {
+     "n": 119,
+     "title": "Add sourced provider directory and hubs",
+     "at": "2026-10-03T23:41:10Z"
+    },
+    {
+     "n": 120,
+     "title": "Add sourced Amazon, Cohere and Llama model coverage",
+     "at": "2026-10-03T23:35:09Z"
+    },
+    {
+     "n": 118,
+     "title": "Add sourced Mistral Large 3 API pricing",
+     "at": "2026-10-03T22:59:12Z"
+    },
+    {
+     "n": 117,
+     "title": "Add Devin and licensed Gemini Code Assist coverage",
+     "at": "2026-10-03T22:26:57Z"
+    },
+    {
+     "n": 116,
+     "title": "Add missing Kiro tiers and Cursor Teams coverage",
+     "at": "2026-10-03T21:34:56Z"
+    },
+    {
+     "n": 114,
+     "title": "Fix public page previews, freshness dates and benchmark empty state",
+     "at": "2026-10-03T20:39:05Z"
+    },
+    {
+     "n": 115,
+     "title": "Catalog review: Google, Antigravity and Copilot, October 3",
+     "at": "2026-10-03T20:23:50Z"
+    },
+    {
+     "n": 113,
+     "title": "Update October catalog disclosures",
+     "at": "2026-10-03T19:53:20Z"
+    },
+    {
+     "n": 112,
+     "title": "Consolidate docs and fix stale references",
+     "at": "2026-10-03T19:52:13Z"
+    },
+    {
+     "n": 111,
+     "title": "Avoid per-shard apt setup with a pinned Playwright container",
+     "at": "2026-10-02T23:19:10Z"
+    },
+    {
+     "n": 109,
+     "title": "Make catalog watcher signal-driven",
+     "at": "2026-10-02T05:49:15Z"
+    },
+    {
+     "n": 108,
+     "title": "Repair catalog source references",
+     "at": "2026-10-02T05:19:55Z"
+    },
+    {
+     "n": 107,
+     "title": "Reconcile release status and catalog watcher triage",
+     "at": "2026-10-02T04:14:17Z"
+    },
+    {
+     "n": 105,
+     "title": "Name Claude accounts from their local profile, hidden until shown",
+     "at": "2026-10-01T20:16:06Z"
+    },
+    {
+     "n": 104,
+     "title": "Avoid unnecessary cross-location signature reads during browser scans",
+     "at": "2026-10-01T17:42:31Z"
+    },
+    {
+     "n": 103,
+     "title": "Make multiple accounts per provider first-class in workloads and My Stack",
+     "at": "2026-10-01T16:46:58Z"
+    },
+    {
+     "n": 102,
+     "title": "Reuse saved workload pricing and show intentional loading states",
+     "at": "2026-10-01T14:00:41Z"
+    },
+    {
+     "n": 41,
+     "title": "Recompose the homepage around a lead market story and personal relevance",
+     "at": "2026-10-01T07:12:29Z"
+    },
+    {
+     "n": 40,
+     "title": "Price multi-tool workloads past the candidate search route bound",
+     "at": "2026-10-01T05:00:26Z"
+    },
+    {
+     "n": 39,
+     "title": "Raise browser intake limits for large agent histories",
+     "at": "2026-10-01T04:30:03Z"
+    },
+    {
+     "n": 38,
+     "title": "Lead with a sourced AI market feed and rebuild My Stack's first screen",
+     "at": "2026-10-01T04:00:46Z"
+    },
+    {
+     "n": 35,
+     "title": "Reset homepage around public and personal AI intelligence",
+     "at": "2026-10-01T01:11:10Z"
+    },
+    {
+     "n": 37,
+     "title": "Add verified Sol scores and benchmark row highlights",
+     "at": "2026-10-01T00:05:10Z"
+    },
+    {
+     "n": 36,
+     "title": "Run the Playwright suite in four parallel shards",
+     "at": "2026-10-01T00:04:16Z"
+    },
+    {
+     "n": 33,
+     "title": "Turn My Stack into a subscription decision surface",
+     "at": "2026-09-30T23:49:33Z"
+    },
+    {
+     "n": 34,
+     "title": "Add sourced model benchmark comparisons",
+     "at": "2026-09-30T23:21:19Z"
+    },
+    {
+     "n": 32,
+     "title": "Admit Gemini 4 Argon announcement facts",
+     "at": "2026-09-30T22:27:12Z"
+    },
+    {
+     "n": 31,
+     "title": "Polish My Stack editing, model access, and recovery",
+     "at": "2026-09-30T21:07:55Z"
+    },
+    {
+     "n": 30,
+     "title": "Add My Stack overview and multiple-plan confirmation",
+     "at": "2026-09-30T19:51:32Z"
+    },
+    {
+     "n": 29,
+     "title": "Support OpenCode history in the browser alongside Command Code",
+     "at": "2026-09-30T17:40:00Z"
+    },
+    {
+     "n": 28,
+     "title": "Add automatic stack discovery with explicit current-plan confirmation",
+     "at": "2026-09-30T16:15:29Z"
+    },
+    {
+     "n": 24,
+     "title": "Make Compare rows parallel, rename ChatGPT Pro tiers and add use in other apps",
+     "at": "2026-09-30T06:34:03Z"
+    },
+    {
+     "n": 23,
+     "title": "Separate saved Replay compatibility from catalog metadata",
+     "at": "2026-09-30T06:02:53Z"
+    },
+    {
+     "n": 22,
+     "title": "Feature GPT-6.1 Sol on the Models page",
+     "at": "2026-09-30T05:21:59Z"
+    },
+    {
+     "n": 21,
+     "title": "Classify catalog coverage and add release-date sorting",
+     "at": "2026-09-30T04:07:34Z"
+    },
+    {
+     "n": 20,
+     "title": "Detect provider source changes and new model coverage",
+     "at": "2026-09-30T02:30:02Z"
+    },
+    {
+     "n": 19,
+     "title": "Pin Suggested Replay to the admitted DevDay snapshot",
+     "at": "2026-09-30T00:37:41Z"
+    },
+    {
+     "n": 18,
+     "title": "Make Workload to Replay decisions visible and consistent",
+     "at": "2026-09-30T00:06:46Z"
+    },
+    {
+     "n": 17,
+     "title": "Allow Cloudflare Web Analytics under CSP",
+     "at": "2026-09-29T22:55:35Z"
+    },
+    {
+     "n": 16,
+     "title": "Preserve and price Command Code DeepSeek V4.1 Flash Fast routes",
+     "at": "2026-09-29T21:58:43Z"
+    },
+    {
+     "n": 15,
+     "title": "Version subscription terms and add OpenAI processing-tier replay",
+     "at": "2026-09-29T21:58:19Z"
+    },
+    {
+     "n": 3,
+     "title": "Fix homepage hero sticking on Replaying",
+     "at": "2026-09-29T20:41:16Z"
+    },
+    {
+     "n": 14,
+     "title": "Fix CodeQL findings in import paths and benchmark server",
+     "at": "2026-09-29T20:00:04Z"
+    },
+    {
+     "n": 13,
+     "title": "Pin miniflare's undici to 7.29.1",
+     "at": "2026-09-29T19:14:57Z"
+    },
+    {
+     "n": 12,
+     "title": "Models, subscriptions and compare polish: promo prices, cleaner model pages and a model matrix in compare",
+     "at": "2026-09-29T19:14:40Z"
+    },
+    {
+     "n": 11,
+     "title": "Models batch A: lineup links, 18 new models and a table view",
+     "at": "2026-09-29T14:32:35Z"
+    },
+    {
+     "n": 10,
+     "title": "Add catalog coverage audit and models roadmap",
+     "at": "2026-09-29T04:11:07Z"
+    },
+    {
+     "n": 9,
+     "title": "Complete published plan and model decision details",
+     "at": "2026-09-29T03:15:59Z"
+    },
+    {
+     "n": 8,
+     "title": "Polish six post-launch public and Workload issues",
+     "at": "2026-09-25T15:47:11Z"
+    },
+    {
+     "n": 7,
+     "title": "Finalize share-link copy and docs",
+     "at": "2026-09-25T13:18:16Z"
+    },
+    {
+     "n": 6,
+     "title": "Short public share links",
+     "at": "2026-09-25T12:33:26Z"
+    },
+    {
+     "n": 5,
+     "title": "StackReplay release candidate: private workload analysis, honest Replay and Compare",
+     "at": "2026-09-25T11:34:50Z"
+    },
+    {
+     "n": 4,
+     "title": "Find my AI histories, direct history roots and faster local import",
+     "at": "2026-09-24T18:41:28Z"
+    },
+    {
+     "n": 2,
+     "title": "Mark RC1 as shipped in the docs",
+     "at": "2026-09-24T12:58:42Z"
+    },
+    {
+     "n": 1,
+     "title": "RC1: workload analysis, Translated Replay and launch polish",
+     "at": "2026-09-24T12:42:56Z"
+    }
+   ]
   },
   "btsouth/agenttraceback": {
    "stars": 1,
@@ -5006,7 +5520,7 @@
   ],
   [
    "2026-10-21",
-   19
+   24
   ]
  ]
 }
