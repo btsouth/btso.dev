@@ -1,11 +1,12 @@
 {
- "generatedAt": "2026-10-21T00:17:35.489Z",
+ "generatedAt": "2026-10-21T04:20:37.610Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 234,
-   "pushedAt": "2026-10-20T22:09:58Z",
-   "latest": "v2.2.0",
+   "pushedAt": "2026-10-21T04:05:34Z",
+   "latest": "v2.3.0",
    "releaseDates": [
+    "2026-10-21T04:16:20Z",
     "2026-10-18T11:39:59Z",
     "2026-10-15T23:55:07Z",
     "2026-10-15T23:23:20Z",
@@ -87,6 +88,14 @@
     "2026-06-19T23:39:17Z"
    ],
    "releases": [
+    {
+     "tag": "v2.3.0",
+     "title": "Toolport v2.3.0",
+     "at": "2026-10-21T04:16:20Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/toolport/releases/tag/v2.3.0",
+     "body": "Toolport 2.3 gives Servers, Clients and Skills a consistent layout, clearer\ncontrols and full detail pages in both desktop apps. Connect six new clients,\nfind your extra Codex homes automatically, and link missing global rules files\nto the file your other agents already share.\n\nThis is also the update for Toolport 1.24.x. Your servers, sign-ins, access sets\nand saved approvals carry over, and safety, discovery and Code Mode keep your 1.x\nchoices. Toolport 2 removes Collections, agent rules, agent permissions, agent\nactivity hooks, routines and agent control; if you used them, Toolport saves their\nsettings to its exports folder. Read the\n[upgrade guide](https://github.com/btsouth/toolport/blob/main/docs/migration.md)\nbefore updating.\n\n### Fixed\n\n- The Skills page no longer shifts when you hover a column or pick a skill. With\n  many agents in a narrow or tiled window, each skill's name sits above its row of\n  status dots instead of shrinking to an ellipsis, and the detail pane grows with\n  wide windows.\n- Skills and Rules start with connected client profiles, with all detected agents\n  available in the same selector. Codex homes now keep separate skills, rules and\n  switches, matching Claude profile handling and the Clients page.\n\n- Keep uncertain Reasonix skill identifiers read-only in both apps instead of\n  writing an ineffective disable key. Verify only printable ASCII headers with\n  one bare name or no name, rejecting controls, quotes and repeated names.\n\n- OpenClaw Connect edits the active legacy config instead of creating a file\n  that hides it. Skills honor the OS pers"
+    },
     {
      "tag": "v2.2.0",
      "title": "Toolport v2.2.0",
@@ -722,7 +731,7 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 653,
+   "stars": 654,
    "pushedAt": "2026-10-19T13:05:55Z",
    "latest": "v0.12.0",
    "releaseDates": [
@@ -4993,11 +5002,11 @@
   ],
   [
    "2026-10-20",
-   60
+   81
   ],
   [
    "2026-10-21",
-   0
+   8
   ]
  ]
 }
