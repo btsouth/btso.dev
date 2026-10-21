@@ -1,7 +1,7 @@
 # AI usage stats
 
 `collect.py` builds `src/data/usage.json` for [/stats](https://btso.dev/stats): tokens, API-price
-value, models, tools, a weekday-by-hour rhythm and the public apps the work went into.
+value, models and the public apps the work went into.
 
 It reads [Agent Pulse](https://github.com/btsouth/omarchy-usage-dashboard)'s usage ledger, which
 already parses and deduplicates the logs of every coding tool on the machine, adds the

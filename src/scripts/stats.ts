@@ -4,7 +4,7 @@ import { modelColor, short, money, dayLabel } from '../lib/ai';
 type Day = { d: string; t: number; v: number; c: number; m: Record<string, number> };
 type Model = { name: string; tokens: number; tokens30: number; value: number; value30: number };
 const data = JSON.parse(document.getElementById('usageData')?.textContent ?? '{}') as {
-  days: Day[]; models: Model[]; rhythm: number[][];
+  days: Day[]; models: Model[];
 };
 const byDay = new Map(data.days.map((d) => [d.d, d]));
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -76,19 +76,6 @@ daily?.addEventListener('pointerover', (e) => {
   tipAt(dailyTip, col, `<b>${dayLabel(d.d, { weekday: 'short', month: 'short', day: 'numeric' })}</b><br>${short(d.t)} tokens · <span class="r">${money(d.v)}</span>${breakdown(d)}`);
 });
 hideOn(daily, dailyTip);
-
-// Rhythm grid
-const days = ['Mondays', 'Tuesdays', 'Wednesdays', 'Thursdays', 'Fridays', 'Saturdays', 'Sundays'];
-const hour = (h: number) => `${h % 12 || 12}${h < 12 ? 'am' : 'pm'}`;
-const rhythm = document.getElementById('rhythm');
-const rhythmTip = document.getElementById('rhythmTip');
-rhythm?.addEventListener('pointerover', (e) => {
-  const cell = (e.target as Element).closest<HTMLElement>('.d');
-  if (!cell || !rhythmTip) return;
-  const h = Number(cell.dataset.h);
-  tipAt(rhythmTip, cell, `<b>${days[Number(cell.dataset.w)]}, ${hour(h)}-${hour((h + 1) % 24)}</b><br>${Number(cell.dataset.n).toLocaleString('en-US')} model calls`);
-});
-hideOn(rhythm, rhythmTip);
 
 // Model bars: range and measure toggles.
 const panel = document.getElementById('modelPanel');

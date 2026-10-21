@@ -39,9 +39,6 @@ PERSONAL = [str(HOME / p) for p in (
 )] + ["/data/user-data/bts/codex/"]
 WORK_FOLDERS = (str(HOME / "cssi"), str(HOME / "work"), "/cssi/", "-cssi-")
 
-TOOLS = {"claude": "Claude Code", "codex": "Codex", "opencode-go": "OpenCode", "opencode": "OpenCode",
-         "commandcode": "Command Code", "hermes": "Hermes", "grok": "Grok Build", "gemini": "Gemini",
-         "antigravity": "Antigravity", "muse": "Muse"}
 
 NAMES = {
     "claude-opus-5-5": "Opus 5.5", "claude-fable-5-1": "Fable 5.1", "claude-sonnet-5-5": "Sonnet 5.5",
@@ -162,15 +159,11 @@ def main():
     public = public_projects()
     now = dt.datetime.now(TZ)
     cut30 = (now - dt.timedelta(days=30)).date()
-    cut90 = (now - dt.timedelta(days=90)).date()
 
     days = collections.defaultdict(lambda: {"tokens": 0, "value": 0.0, "calls": 0, "models": collections.Counter()})
     models = collections.defaultdict(lambda: {"tokens": 0, "tokens30": 0, "value": 0.0, "value30": 0.0,
                                               "output": 0, "calls": 0, "first": None, "last": None})
-    tools = collections.Counter()
-    tools30 = collections.Counter()
     projects30 = collections.Counter()
-    rhythm = [[0] * 24 for _ in range(7)]
     totals = collections.Counter()
     unpriced = 0
     sessions, sessions30 = set(), set()
@@ -203,8 +196,6 @@ def main():
         m["calls"] += 1
         m["first"] = min(m["first"] or day, day)
         m["last"] = max(m["last"] or day, day)
-        tool = TOOLS.get(r["provider"], r["provider"])
-        tools[tool] += tokens
         totals["tokens"] += tokens
         totals["value"] += value
         totals["cacheRead"] += int(r.get("cacheRead") or 0)
@@ -214,7 +205,6 @@ def main():
         if day >= cut30:
             m["tokens30"] += tokens
             m["value30"] += value
-            tools30[tool] += tokens
             sessions30.add(r.get("session"))
             totals["tokens30"] += tokens
             totals["value30"] += value
@@ -222,8 +212,6 @@ def main():
             pid = project_id(r.get("project"), public)
             if pid:
                 projects30[pid] += tokens
-        if day >= cut90:
-            rhythm[when.weekday()][when.hour] += 1
 
     active = [dt.date.fromisoformat(k) for k, v in days.items() if v["tokens"]]
     current, longest = streaks(active)
@@ -252,9 +240,7 @@ def main():
                     "value30": round(v["value30"], 2), "output": v["output"], "calls": v["calls"],
                     "first": v["first"].isoformat(), "last": v["last"].isoformat()}
                    for n, v in top_models[:12]],
-        "tools": [{"name": n, "tokens": t, "tokens30": tools30.get(n, 0)} for n, t in tools.most_common()],
         "projects30": [{"id": p, "tokens": t} for p, t in projects30.most_common(8)],
-        "rhythm": rhythm,
     }
     Path(args.out).write_text(json.dumps(out, separators=(",", ":")) + "\n")
     t = out["totals"]

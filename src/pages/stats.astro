@@ -36,21 +36,15 @@ for (const d of recent) for (const [name, n] of Object.entries(d.m)) legendTotal
 const legendNames = [...legendTotals.entries()].sort((a, b) => (a[0] === 'Other' ? 1 : b[0] === 'Other' ? -1 : b[1] - a[1])).map(([n]) => n);
 const colorOf = (name: string) => (name === 'Other' ? OTHER : modelColor(name));
 
-const toolColors: Record<string, string> = { 'Claude Code': '#d97757', Codex: '#5b9cf5', 'Command Code': '#e5a54b', OpenCode: '#2bbfd4' };
-const tools = usage.tools.filter((x) => x.tokens30 > 0);
-const toolTotal = tools.reduce((n, x) => n + x.tokens30, 0);
-
 const projects = usage.projects30.map((p) => ({ ...p, project: projectById[p.id] })).filter((p) => p.project);
 const projMax = projects[0]?.tokens ?? 1;
 
-const rhythmMax = Math.max(...usage.rhythm.flat());
-const weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 const bars30 = models.filter((m) => m.tokens30 > 0).sort((a, b) => b.tokens30 - a.tokens30).slice(0, 8);
 const barMax = bars30[0]?.tokens30 ?? 1;
 
-const clientData = JSON.stringify({ days: usage.days, models, rhythm: usage.rhythm }).replace(/</g, '\\u003c');
+const clientData = JSON.stringify({ days: usage.days, models }).replace(/</g, '\\u003c');
 ---
-<Base title="My AI usage | btso.dev" description="How much AI coding I actually do: tokens, models, tools and what it would cost at API prices, from my own logs." path="/stats" image={ogImage('/og/stats.png')} imageAlt="My AI coding usage on btso.dev">
+<Base title="My AI usage | btso.dev" description="How much AI coding I actually do: tokens, models and what it would cost at API prices, from my own logs." path="/stats" image={ogImage('/og/stats.png')} imageAlt="My AI coding usage on btso.dev">
   <section class="page-head">
     <div class="px-band" id="pxBand" aria-hidden="true"></div>
     <div class="wrap" style="position:relative">
@@ -131,34 +125,6 @@ const clientData = JSON.stringify({ days: usage.days, models, rhythm: usage.rhyt
         <div class="daily-x"><span>{dayLabel(recent[0].d)}</span><span>{dayLabel(recent[Math.floor(recent.length / 2)].d)}</span><span>{dayLabel(recent.at(-1)!.d)}</span></div>
         <div class="legend">{legendNames.map((n) => <span style={`--pc:${colorOf(n)}`}><i></i>{n}</span>)}</div>
         <div class="tip" id="dailyTip"></div>
-      </div>
-    </section>
-
-    <section class="ai-sec">
-      <div class="blk-head rv"><div><p class="eyebrow">Habits</p><h2>When and where</h2></div></div>
-      <div class="duo">
-        <div class="panel rv tipbox">
-          <div class="panel-h"><div><h3>When I work</h3><p>Model calls by weekday and hour over the last 90 days, Eastern time.</p></div></div>
-          <div class="rhythm" id="rhythm">
-            <span></span>{Array.from({ length: 24 }, (_, h) => <span class="hr">{['12a', '6a', '12p', '6p'][h / 6] ?? ''}</span>)}
-            {usage.rhythm.map((row, w) => (
-              <>
-                <span class="rl">{weekdays[w]}</span>
-                {row.map((n, h) => <span class="d" data-w={w} data-h={h} data-n={n}><i style={`--s:${rhythmMax ? Math.sqrt(n / rhythmMax) : 0}`}></i></span>)}
-              </>
-            ))}
-          </div>
-          <div class="tip" id="rhythmTip"></div>
-        </div>
-        <div class="panel rv">
-          <div class="panel-h"><div><h3>Which tools</h3><p>Tokens by coding tool over the last 30 days.</p></div></div>
-          <div class="split">
-            {tools.map((x) => <div style={`--pc:${toolColors[x.name] ?? OTHER};--f:${x.tokens30};background:color-mix(in oklab, var(--pc) var(--pc-keep), var(--fg));color:var(--bg)`} title={`${x.name}: ${short(x.tokens30)}`}>{x.tokens30 / toolTotal > 0.12 ? `${Math.round((x.tokens30 / toolTotal) * 100)}%` : ''}</div>)}
-          </div>
-          <div class="tools">
-            {tools.map((x) => <div class="row" style={`--pc:${toolColors[x.name] ?? OTHER}`}><i></i>{x.name}<b>{short(x.tokens30)}</b></div>)}
-          </div>
-        </div>
       </div>
     </section>
 

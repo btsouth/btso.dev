@@ -81,22 +81,6 @@
 .legend span { display: inline-flex; align-items: center; gap: 6px; }
 .legend i { width: 10px; height: 10px; border-radius: 3px; background: var(--pc); }
 
-/* Weekday x hour rhythm */
-.rhythm { display: grid; grid-template-columns: 34px repeat(24, 1fr); gap: 3px; align-items: center; }
-.rhythm .rl { font: 400 10px/1 "JetBrains Mono", monospace; color: var(--fg3); }
-.rhythm .hr { font: 400 9px/1 "JetBrains Mono", monospace; color: var(--fg3); text-align: center; }
-.rhythm .d { aspect-ratio: 1; display: grid; place-items: center; }
-.rhythm .d i { width: calc(var(--s) * 100%); height: calc(var(--s) * 100%); min-width: 2px; min-height: 2px; border-radius: 50%; background: var(--accent); opacity: calc(.25 + var(--s) * .75); transition: transform .15s; }
-.rhythm .d:hover i { transform: scale(1.4); }
-
-/* Tool split and projects */
-.split { display: flex; height: 36px; border-radius: 10px; overflow: hidden; gap: 3px; }
-.split div { --pc: #888; flex: var(--f) 1 0; min-width: 6px; background: color-mix(in oklab, var(--pc) 85%, var(--bg3)); display: flex; align-items: center; padding: 0 10px; font: 700 12px/1 "JetBrains Mono", monospace; color: var(--on-split, #fff); white-space: nowrap; overflow: hidden; transition: filter .15s; }
-.split div:hover { filter: brightness(1.12); }
-.tools { display: grid; gap: 8px; margin-top: 16px; }
-.tools .row { display: flex; align-items: center; gap: 10px; font: 500 13px/1.2 "JetBrains Mono", monospace; color: var(--fg2); }
-.tools .row i { width: 10px; height: 10px; border-radius: 3px; background: var(--pc); }
-.tools .row b { margin-left: auto; color: var(--fg); font-weight: 600; font-variant-numeric: tabular-nums; }
 .projs { display: grid; gap: 4px; }
 .proj { --pc: var(--accent); display: grid; grid-template-columns: 28px 1fr auto; gap: 12px; align-items: center; padding: 7px 10px; margin: 0 -10px; border-radius: 10px; font: 600 13px/1.2 "JetBrains Mono", monospace; transition: background .15s; }
 .proj:hover { background: var(--bg3); }
