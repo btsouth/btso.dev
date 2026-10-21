@@ -11,6 +11,8 @@ const root = new URL('../', import.meta.url);
 const read = (p) => readFileSync(new URL(p, root));
 const projects = JSON.parse(read('src/data/projects.json'));
 const github = JSON.parse(read('src/data/github.json'));
+const usage = JSON.parse(read('src/data/usage.json'));
+const bench = JSON.parse(read('src/data/bench.json'));
 const fontFiles = [400, 700, 800].map((w) => new URL(`scripts/og-fonts/jetbrains-mono-${w}.ttf`, root).pathname);
 
 const W = 1200, H = 630;
@@ -125,6 +127,49 @@ const relDays = new Set(projects.flatMap((p) => repoOf(p).releaseDates.map((d) =
   render(frame(body, 23, [[40, 40, 1160, 590]]), 'public/og/ship.png');
 }
 
+/* ---------- AI usage ---------- */
+{
+  const short = (n) => { for (const [v, u] of [[1e12, 'T'], [1e9, 'B'], [1e6, 'M'], [1e3, 'K']]) if (n >= v) return `${(n / v).toFixed(n / v >= 100 ? 0 : 1).replace(/\.0$/, '')}${u}`; return String(n); };
+  const colors = [[/^opus/i, '#d97757'], [/^fable/i, '#b48cf0'], [/^sol 6\.1/i, '#5b9cf5'], [/^sol 6/i, '#3f74d9'], [/^sol/i, '#8fb8f7'], [/^astra/i, '#3ccf91'], [/^deepseek/i, '#2bbfd4'], [/^sonnet/i, '#e5a54b']];
+  const color = (n) => colors.find(([re]) => re.test(n))?.[1] ?? C.fg3;
+  const t = usage.totals;
+  const top = usage.models.filter((m) => m.tokens30 > 0 && m.name !== 'Unknown').sort((a, b) => b.tokens30 - a.tokens30).slice(0, 5);
+  let bars = '';
+  top.forEach((m, i) => {
+    const y = 300 + i * 52, w = Math.max(6, (m.tokens30 / top[0].tokens30) * 440);
+    bars += text(700, y, m.name, { size: 22, weight: 700 }) + `<rect x="700" y="${y + 12}" width="440" height="12" rx="6" fill="${C.bg3}"/>` +
+      `<rect x="700" y="${y + 12}" width="${w}" height="12" rx="6" fill="${color(m.name)}"/>` + text(1140, y, short(m.tokens30), { size: 20, fill: C.fg2, anchor: 'end' });
+  });
+  const body = logo(70, 60) +
+    text(70, 200, 'My AI usage', { size: 76, weight: 800, spacing: -2 }) +
+    text(70, 330, short(t.tokens30), { size: 110, weight: 800, fill: C.accent, spacing: -4 }) +
+    text(70, 375, 'tokens in the last 30 days', { size: 24, fill: C.fg2 }) +
+    text(70, 470, `$${Math.round(t.value30).toLocaleString('en-US')}`, { size: 56, weight: 800, spacing: -2 }) +
+    text(70, 505, 'of work at API list prices', { size: 22, fill: C.fg3 }) +
+    text(700, 250, 'top models, 30 days', { size: 18, fill: C.fg3 }) + bars;
+  render(frame(body, 53, [[40, 40, 1160, 590]]), 'public/og/stats.png');
+}
+
+/* ---------- Daily bench ---------- */
+{
+  const keys = Object.keys(bench.models || {});
+  const names = { 'claude-opus-5-5': ['Opus 5.5', '#d97757'], 'claude-fable-5-1': ['Fable 5.1', '#b48cf0'], 'gpt-6.1-sol': ['Sol 6.1', '#5b9cf5'], 'gpt-6-astra': ['Astra', '#3ccf91'], 'opencode-go/deepseek-v4.1-flash': ['DeepSeek V4.1 Flash', '#2bbfd4'] };
+  const secs = (s) => (s >= 60 ? `${Math.floor(s / 60)}m ${String(Math.round(s % 60)).padStart(2, '0')}s` : `${Math.round(s)}s`);
+  let rows = '';
+  keys.forEach((k, i) => {
+    const m = bench.models[k], [name, col] = names[m.model] ?? [m.model, C.fg3], y = 318 + i * 54;
+    rows += `<rect x="70" y="${y - 22}" width="16" height="16" rx="3" fill="${col}"/>` + text(104, y - 6, name, { size: 26, weight: 700 }) +
+      text(800, y - 6, `${m.latest.hidden_passed}/${m.latest.hidden_total}`, { size: 26, weight: 700, fill: m.latest.passed ? col : '#ef5f6b', anchor: 'end' }) +
+      text(1130, y - 6, secs(m.latest.wall_seconds), { size: 24, fill: C.fg2, anchor: 'end' });
+  });
+  if (!keys.length) rows = text(70, 340, 'Five models, one task, every morning.', { size: 30, weight: 700 }) + text(70, 390, 'Pass rate, time, tokens and limit use, tracked daily.', { size: 22, fill: C.fg2 });
+  const body = logo(70, 60) +
+    text(70, 200, 'Daily model bench', { size: 72, weight: 800, spacing: -2 }) +
+    text(70, 244, 'Same coding task for every model I pay for, every morning.', { size: 22, fill: C.fg2 }) +
+    `<path d="M70 262h1060" stroke="${C.line}" stroke-width="2"/>` + rows;
+  render(frame(body, 61, [[40, 40, 1160, 590]]), 'public/og/bench.png');
+}
+
 /* ---------- Omarchy hub ---------- */
 {
   const omarchy = projects.filter((p) => p.group === 'omarchy');
@@ -175,4 +220,4 @@ for (const p of projects) {
   render(svg, `public/og/p/${p.id}.png`);
 }
 
-console.log(`Generated ${3 + projects.length} social images in public/og/`);
+console.log(`Generated ${5 + projects.length} social images in public/og/`);
