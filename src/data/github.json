@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-22T00:17:28.392Z",
+ "generatedAt": "2026-10-22T00:35:38.926Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 235,
@@ -732,9 +732,10 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 660,
-   "pushedAt": "2026-10-21T23:08:41Z",
-   "latest": "v0.12.0",
+   "pushedAt": "2026-10-22T00:33:18Z",
+   "latest": "v0.12.1",
    "releaseDates": [
+    "2026-10-22T00:33:18Z",
     "2026-10-14T04:23:32Z",
     "2026-10-14T01:33:16Z",
     "2026-10-09T10:25:57Z",
@@ -777,6 +778,14 @@
     "2026-08-28T00:49:21Z"
    ],
    "releases": [
+    {
+     "tag": "v0.12.1",
+     "title": "v0.12.1",
+     "at": "2026-10-22T00:33:18Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.12.1",
+     "body": "`v0.12.1` fixes setup and updates failing on some home networks.\n\n# Fixes\n\n* Fix setup and update downloads failing with \"winapi error #12167\" on networks where Windows finds a proxy setup server that serves no proxy script, such as Fritz!Box routers and SK Broadband (#356)\n* Finish the Korean translation for Links from Windows and installing updates from downloaded files (#357)\n\n## Dev\n\n* Refresh the guest package lock and give the system image room for it (#363, #364)\n\n## Thanks 🙏\n\n* @AI-Dico for tracking down the proxy failure and fixing it, and for the Korean translation (#356, #357)\n* @Mexican-Judo for confirming it also blocked first setup on a Fritz!Box network (#356)"
+    },
     {
      "tag": "v0.12.0",
      "title": "v0.12.0",
@@ -5529,7 +5538,7 @@
   ],
   [
    "2026-10-22",
-   0
+   1
   ]
  ]
 }
