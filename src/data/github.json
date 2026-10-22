@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-21T18:17:38.220Z",
+ "generatedAt": "2026-10-22T00:17:28.392Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 235,
-   "pushedAt": "2026-10-21T12:06:13Z",
+   "pushedAt": "2026-10-21T23:43:24Z",
    "latest": "v2.3.0",
    "releaseDates": [
     "2026-10-21T04:16:20Z",
@@ -731,8 +731,8 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 657,
-   "pushedAt": "2026-10-19T13:05:55Z",
+   "stars": 660,
+   "pushedAt": "2026-10-21T23:08:41Z",
    "latest": "v0.12.0",
    "releaseDates": [
     "2026-10-14T04:23:32Z",
@@ -2288,7 +2288,7 @@
    ]
   },
   "btsouth/typearchy": {
-   "stars": 5,
+   "stars": 6,
    "pushedAt": "2026-10-09T01:43:54Z",
    "latest": "v1.6.1",
    "releaseDates": [
@@ -2599,7 +2599,7 @@
   },
   "btsouth/ceiling": {
    "stars": 31,
-   "pushedAt": "2026-10-20T07:36:47Z",
+   "pushedAt": "2026-10-21T23:19:06Z",
    "latest": "v1.5.45",
    "releaseDates": [
     "2026-10-15T00:58:19Z",
@@ -2959,7 +2959,7 @@
   },
   "btsouth/cubby-clipboard": {
    "stars": 13,
-   "pushedAt": "2026-10-17T08:34:08Z",
+   "pushedAt": "2026-10-21T22:46:39Z",
    "latest": "v1.3.7",
    "releaseDates": [
     "2026-09-30T20:00:45Z",
@@ -3103,7 +3103,7 @@
   },
   "btsouth/matteshot": {
    "stars": 2,
-   "pushedAt": "2026-10-20T07:44:23Z",
+   "pushedAt": "2026-10-21T21:54:33Z",
    "latest": "v0.21.1",
    "releaseDates": [
     "2026-09-27T01:46:35Z",
@@ -3382,11 +3382,16 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-10-20T22:45:59Z",
+   "pushedAt": "2026-10-21T23:59:59Z",
    "latest": null,
    "releaseDates": [],
    "releases": [],
    "merged": [
+    {
+     "n": 163,
+     "title": "Keep the sample recap inside the default period",
+     "at": "2026-10-21T23:48:58Z"
+    },
     {
      "n": 160,
      "title": "Format the linked history test so CI passes",
@@ -3861,7 +3866,7 @@
   },
   "btsouth/agenttraceback": {
    "stars": 1,
-   "pushedAt": "2026-09-21T00:41:42Z",
+   "pushedAt": "2026-10-21T21:40:04Z",
    "latest": "v0.1.0-alpha.4",
    "releaseDates": [
     "2026-09-21T01:02:58Z",
@@ -5520,7 +5525,11 @@
   ],
   [
    "2026-10-21",
-   28
+   60
+  ],
+  [
+   "2026-10-22",
+   0
   ]
  ]
 }
