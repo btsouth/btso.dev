@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-22T18:17:31.258Z",
+ "generatedAt": "2026-10-22T21:10:30.214Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 235,
@@ -732,9 +732,10 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 666,
-   "pushedAt": "2026-10-22T11:18:40Z",
-   "latest": "v0.12.1",
+   "pushedAt": "2026-10-22T21:08:43Z",
+   "latest": "runtime-v1-r25",
    "releaseDates": [
+    "2026-10-22T21:08:05Z",
     "2026-10-22T00:33:18Z",
     "2026-10-14T04:23:32Z",
     "2026-10-14T01:33:16Z",
@@ -778,6 +779,14 @@
     "2026-08-28T00:49:21Z"
    ],
    "releases": [
+    {
+     "tag": "runtime-v1-r25",
+     "title": "WINQ-EMU r25 runtime",
+     "at": "2026-10-22T21:08:05Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/runtime-v1-r25",
+     "body": "WINQ-EMU r25 runtime component and corresponding source archives for the next signed Try Omarchy app release. This is not a standalone launcher or a new app version.\n\nBuilt from the source-locked recipe at commit `2f5da1b` (`master`) in [Runtime run 39852529917](https://github.com/omacom/try-omarchy-windows/actions/runs/39852529917). `SHA256SUMS` covers both archives. r25 stops Omarchy freezing on Intel Arc graphics on Windows by uploading buffers without mapping them (#361, thanks @Vinluo), and sends each of those uploads in one call so buffer streaming stays fast (#367)."
+    },
     {
      "tag": "v0.12.1",
      "title": "v0.12.1",
@@ -5538,7 +5547,7 @@
   ],
   [
    "2026-10-22",
-   12
+   16
   ]
  ]
 }
