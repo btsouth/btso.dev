@@ -1,8 +1,8 @@
 {
- "generatedAt": "2026-10-23T06:17:20.482Z",
+ "generatedAt": "2026-10-23T09:30:55.951Z",
  "repos": {
   "btsouth/toolport": {
-   "stars": 235,
+   "stars": 236,
    "pushedAt": "2026-10-23T01:22:13Z",
    "latest": "v2.3.0",
    "releaseDates": [
@@ -731,7 +731,7 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 668,
+   "stars": 669,
    "pushedAt": "2026-10-22T21:08:43Z",
    "latest": "runtime-v1-r25",
    "releaseDates": [
@@ -5551,7 +5551,7 @@
   ],
   [
    "2026-10-23",
-   3
+   10
   ]
  ]
 }
