@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-23T18:17:24.013Z",
+ "generatedAt": "2026-10-24T00:17:21.682Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 236,
-   "pushedAt": "2026-10-23T01:22:13Z",
+   "pushedAt": "2026-10-23T23:59:19Z",
    "latest": "v2.3.0",
    "releaseDates": [
     "2026-10-21T04:16:20Z",
@@ -1244,7 +1244,7 @@
    ]
   },
   "btsouth/omakade": {
-   "stars": 438,
+   "stars": 439,
    "pushedAt": "2026-10-22T23:26:27Z",
    "latest": "v1.17.0",
    "releaseDates": [
@@ -1523,7 +1523,7 @@
    ]
   },
   "btsouth/omaroll": {
-   "stars": 73,
+   "stars": 72,
    "pushedAt": "2026-10-19T11:59:51Z",
    "latest": "v1.18.0",
    "releaseDates": [
@@ -1991,7 +1991,7 @@
    ]
   },
   "btsouth/omarchy-usage-dashboard": {
-   "stars": 19,
+   "stars": 18,
    "pushedAt": "2026-10-18T20:36:08Z",
    "latest": "v1.12.0",
    "releaseDates": [
@@ -2207,7 +2207,7 @@
    ]
   },
   "btsouth/omadrop": {
-   "stars": 6,
+   "stars": 5,
    "pushedAt": "2026-10-10T04:45:08Z",
    "latest": "v0.7.0",
    "releaseDates": [
@@ -2306,7 +2306,7 @@
    ]
   },
   "btsouth/typearchy": {
-   "stars": 6,
+   "stars": 5,
    "pushedAt": "2026-10-09T01:43:54Z",
    "latest": "v1.6.1",
    "releaseDates": [
@@ -5551,7 +5551,11 @@
   ],
   [
    "2026-10-23",
-   14
+   18
+  ],
+  [
+   "2026-10-24",
+   0
   ]
  ]
 }
