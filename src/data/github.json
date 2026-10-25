@@ -1,11 +1,12 @@
 {
- "generatedAt": "2026-10-25T00:17:22.299Z",
+ "generatedAt": "2026-10-25T01:20:23.344Z",
  "repos": {
   "btsouth/toolport": {
-   "stars": 234,
-   "pushedAt": "2026-10-25T00:05:18Z",
-   "latest": "v2.3.0",
+   "stars": 233,
+   "pushedAt": "2026-10-25T00:51:05Z",
+   "latest": "v2.3.1",
    "releaseDates": [
+    "2026-10-25T01:19:51Z",
     "2026-10-21T04:16:20Z",
     "2026-10-18T11:39:59Z",
     "2026-10-15T23:55:07Z",
@@ -88,6 +89,14 @@
     "2026-06-19T23:39:17Z"
    ],
    "releases": [
+    {
+     "tag": "v2.3.1",
+     "title": "Toolport v2.3.1",
+     "at": "2026-10-25T01:19:51Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/toolport/releases/tag/v2.3.1",
+     "body": "Toolport 2.3.1 holds a destructive tool for review at Ask when its server stops\nmarking it destructive, so a changed definition can no longer switch off its\napproval. It also keeps every tool visible in Grok Build, shows fewer false\ntool-poisoning warnings, stops a needless tool refresh when clients start, adds\nKeenable to the server catalog and updates TLS certificate checks.\n\nIf you are on Toolport 1.24.x, this is also your update to Toolport 2. Read the\n[upgrade guide](https://github.com/btsouth/toolport/blob/main/docs/migration.md)\nbefore updating.\n\n### Added\n\n- Keenable, a keyless hosted web search and page fetch server, is in the\n  catalog under Search & knowledge.\n\n### Security\n\n- At Ask, a destructive tool whose server drops or flips its `destructiveHint`\n  is now quarantined until you review it. Before, Toolport showed a notice and\n  the tool's calls then ran without asking. A write-named tool such as\n  `delete_rows` that starts claiming `destructiveHint: false` is held the same\n  way.\n- Updated rustls-webpki and the bundled root certificates so Toolport no longer\n  trusts the distrusted emSign roots (RUSTSEC-2026-0381, RUSTSEC-2026-0382 and\n  RUSTSEC-2026-0383).\n\n### Fixed\n\n- `toolport-gateway --http 0` now binds a free port chosen by the system and\n  prints it, instead of falling back to port 8765.\n- Fewer false tool-poisoning warnings. Persian and emoji text, the IEX exchange\n  and SCIEX instruments, enum lists like `python | css`, documented `curl`\n  uploads and accuracy notes like \"do not tell the user a refund is coming\" no\n  longer flag. Bidi overrides, invi"
+    },
     {
      "tag": "v2.3.0",
      "title": "Toolport v2.3.0",
@@ -1245,7 +1254,7 @@
   },
   "btsouth/omakade": {
    "stars": 439,
-   "pushedAt": "2026-10-24T23:59:11Z",
+   "pushedAt": "2026-10-25T00:40:14Z",
    "latest": "v1.17.0",
    "releaseDates": [
     "2026-10-18T23:21:52Z",
@@ -5527,11 +5536,11 @@
   ],
   [
    "2026-10-24",
-   31
+   35
   ],
   [
    "2026-10-25",
-   0
+   1
   ]
  ]
 }
