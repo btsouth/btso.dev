@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-26T00:17:21.923Z",
+ "generatedAt": "2026-10-26T02:15:27.993Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 233,
@@ -740,8 +740,8 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 682,
-   "pushedAt": "2026-10-22T21:08:43Z",
+   "stars": 683,
+   "pushedAt": "2026-10-26T02:13:35Z",
    "latest": "runtime-v1-r25",
    "releaseDates": [
     "2026-10-22T21:08:05Z",
@@ -1128,9 +1128,11 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 4,
-   "pushedAt": "2026-10-14T00:11:14Z",
-   "latest": "linux-app-v0.3.0",
+   "pushedAt": "2026-10-26T02:12:33Z",
+   "latest": "linux-app-v0.3.1",
    "releaseDates": [
+    "2026-10-26T02:12:33Z",
+    "2026-10-26T02:10:24Z",
     "2026-10-06T00:56:19Z",
     "2026-10-06T00:55:37Z",
     "2026-10-04T18:56:57Z",
@@ -1146,6 +1148,22 @@
     "2026-09-28T13:10:23Z"
    ],
    "releases": [
+    {
+     "tag": "linux-app-v0.3.1",
+     "title": "Try Omarchy for Linux v0.3.1",
+     "at": "2026-10-26T02:12:33Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/try-omarchy-linux/releases/tag/linux-app-v0.3.1",
+     "body": "`v0.3.1` fixes updating Omarchy now that Arch ships Qt 6.12, along with other fixes shared with Try Omarchy for Windows.\n\n# Fixes\n\n* Fix Omarchy's bar, menus and panels losing their colors after Update > Omarchy brings Qt 6.12 (#64)\n* Fix Update > Omarchy stopping at Omarchy's Snapper migration (#63)\n* Wait for a running package update instead of offering to restart Omarchy when its desktop is slow to respond (#64)\n* Fix large clipboard images stalling on their way into Omarchy (#64)\n\n## Dev\n\n* Port the October Try Omarchy for Windows guest fixes and refresh the guest package lock (#64)\n\n**Install:** https://tryomarchy.com/linux. Existing installs update through Software or `flatpak update`. The first start after updating uses your current Omarchy while the new one downloads, and the next start applies it."
+    },
+    {
+     "tag": "linux-v0.3.1",
+     "title": "Linux guest image v0.3.1",
+     "at": "2026-10-26T02:10:24Z",
+     "pre": true,
+     "url": "https://github.com/btsouth/try-omarchy-linux/releases/tag/linux-v0.3.1",
+     "body": "Guest image for Try Omarchy for Linux 0.3.1. The Linux app downloads this image on first run and when it updates an existing VM.\n\nThe app verifies every file against `SHA256SUMS`, and pins the SHA256 of `SHA256SUMS` itself:\n\n`34c9596f51a4d666f52d0f5817643382402b262be9c46c48edfd78001df8a3ff`\n\nChanges since linux-v0.3.0 (compatibility revision 66):\n\n- Omarchy's shell keeps its colors with Qt 6.12, including the menu and power panel that show Linux host wording. Runtime `4.0.4-8` carries the fix through later updates.\n- Update > Omarchy no longer stops at Omarchy's Snapper migration; the ext4 guest has no Snapper or Limine.\n- The guest reports a busy desktop while a package update runs, so the launcher does not offer a restart that would interrupt it.\n- Large images from the clipboard arrive without stalling.\n- The factory image grows to 8 GiB, and the package lock is refreshed (Qt 6.12, Quickshell 0.3.2, Linux 7.2.11).\n\nExisting VMs receive these through the compatibility overlay on their next start with the new app."
+    },
     {
      "tag": "linux-app-v0.3.0",
      "title": "Try Omarchy for Linux v0.3.0",
@@ -1254,7 +1272,7 @@
   },
   "btsouth/omakade": {
    "stars": 439,
-   "pushedAt": "2026-10-25T08:03:15Z",
+   "pushedAt": "2026-10-26T02:07:43Z",
    "latest": "v1.17.0",
    "releaseDates": [
     "2026-10-18T23:21:52Z",
@@ -5540,11 +5558,11 @@
   ],
   [
    "2026-10-25",
-   35
+   50
   ],
   [
    "2026-10-26",
-   0
+   2
   ]
  ]
 }
