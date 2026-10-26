@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-26T03:35:25.506Z",
+ "generatedAt": "2026-10-26T03:45:28.370Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 233,
@@ -2663,8 +2663,9 @@
   "btsouth/ceiling": {
    "stars": 33,
    "pushedAt": "2026-10-26T03:15:38Z",
-   "latest": "v1.5.45",
+   "latest": "v1.5.46",
    "releaseDates": [
+    "2026-10-26T03:44:50Z",
     "2026-10-15T00:58:19Z",
     "2026-10-06T04:19:56Z",
     "2026-10-03T00:55:37Z",
@@ -2706,6 +2707,14 @@
     "2026-07-14T05:04:40Z"
    ],
    "releases": [
+    {
+     "tag": "v1.5.46",
+     "title": "Ceiling 1.5.46",
+     "at": "2026-10-26T03:44:50Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/ceiling/releases/tag/v1.5.46",
+     "body": "Claude Enterprise seats show their monthly spend, and the dashboard and taskbar flyout follow the Windows theme.\n\n### Added\n- **Pick Light, Dark or Auto for the dashboard.** The footer's theme toggle is now a Light / Dark / Auto menu. Auto follows the Windows theme as it changes, window frames follow the chosen theme instead of always being dark, and every open window picks up a change. Thanks to @jayn2u.\n- **The taskbar flyout and provider icons follow the Windows theme.** The flyout was always dark. It now has light and dark palettes and follows a live theme change. Thanks to @jayn2u.\n\n### Fixed\n- **Claude Enterprise seats show their monthly spend.** Enterprise accounts have a monthly spend limit instead of a 5-hour window, so the tray and taskbar showed \"Unavailable\". They now show a Monthly spend meter with the amount used against the limit. Fixes #513. Thanks to @gavira-iag.\n\n### Internal\n- Tauri 2.12 and other dependency upgrades (`sha2` 0.11, `rmcp` 3, `toml` 1.1, `aes-gcm` 0.11, `fluent-templates` 0.15, `webview2-com` 0.39), with fixes for the `ctutils`, `@vitest/mocker` and `webpki` advisories."
+    },
     {
      "tag": "v1.5.45",
      "title": "Ceiling 1.5.45",
@@ -5580,7 +5589,7 @@
   ],
   [
    "2026-10-26",
-   5
+   6
   ]
  ]
 }
