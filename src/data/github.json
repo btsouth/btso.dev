@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-26T02:15:27.993Z",
+ "generatedAt": "2026-10-26T03:10:31.830Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 233,
@@ -741,9 +741,10 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 683,
-   "pushedAt": "2026-10-26T02:13:35Z",
-   "latest": "runtime-v1-r25",
+   "pushedAt": "2026-10-26T03:07:09Z",
+   "latest": "v0.13.0",
    "releaseDates": [
+    "2026-10-26T03:07:09Z",
     "2026-10-22T21:08:05Z",
     "2026-10-22T00:33:18Z",
     "2026-10-14T04:23:32Z",
@@ -788,6 +789,14 @@
     "2026-08-28T00:49:21Z"
    ],
    "releases": [
+    {
+     "tag": "v0.13.0",
+     "title": "v0.13.0",
+     "at": "2026-10-26T03:07:09Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.13.0",
+     "body": "`v0.13.0` fixes freezes on Intel graphics, offers CPU rendering when GPU rendering never reaches the screen, and lets Win+G reach Omarchy.\n\n# Fixes\n\n* Fix Omarchy freezing on Intel graphics when opening menus or the Hyprland configuration editor with GPU rendering on (#361, #367, #362)\n* When GPU rendering never shows the desktop in the Omarchy window, the launcher now offers CPU rendering after two minutes instead of Automatic picking GPU again on every start (#366, #358)\n* The health check no longer offers Restart while a system package update is still running (#365, #359)\n* Win+G and Win+Alt+G now reach Omarchy's window grouping. Windows' Xbox Game Bar still opens on them too; press Esc to close it (#369, #370, #368)\n\n## Dev\n\n* Build runtime r25 with the Intel buffer upload fixes (#361, #367)\n* Refresh the guest package lock (#371)\n\n## Thanks 🙏\n\n* @Vinluo for tracking down the Intel freeze, fixing it and testing every build on their Arc B390 (#361, #362, #367)\n* @knothhe for the Win+G fix in their first contribution (#369, #368)\n* @AI-Dico for reporting the black window on their RX 6800 XT and the restart prompt during updates (#358, #359)"
+    },
     {
      "tag": "runtime-v1-r25",
      "title": "WINQ-EMU r25 runtime",
@@ -1128,7 +1137,7 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 4,
-   "pushedAt": "2026-10-26T02:12:33Z",
+   "pushedAt": "2026-10-26T02:16:23Z",
    "latest": "linux-app-v0.3.1",
    "releaseDates": [
     "2026-10-26T02:12:33Z",
@@ -1272,7 +1281,7 @@
   },
   "btsouth/omakade": {
    "stars": 439,
-   "pushedAt": "2026-10-26T02:07:43Z",
+   "pushedAt": "2026-10-26T03:09:15Z",
    "latest": "v1.17.0",
    "releaseDates": [
     "2026-10-18T23:21:52Z",
@@ -2235,7 +2244,7 @@
   },
   "btsouth/omadrop": {
    "stars": 6,
-   "pushedAt": "2026-10-10T04:45:08Z",
+   "pushedAt": "2026-10-26T03:08:23Z",
    "latest": "v0.7.0",
    "releaseDates": [
     "2026-10-09T02:18:26Z",
@@ -2643,8 +2652,8 @@
    ]
   },
   "btsouth/ceiling": {
-   "stars": 32,
-   "pushedAt": "2026-10-21T23:19:06Z",
+   "stars": 33,
+   "pushedAt": "2026-10-26T03:08:23Z",
    "latest": "v1.5.45",
    "releaseDates": [
     "2026-10-15T00:58:19Z",
@@ -5558,11 +5567,11 @@
   ],
   [
    "2026-10-25",
-   50
+   57
   ],
   [
    "2026-10-26",
-   2
+   4
   ]
  ]
 }
