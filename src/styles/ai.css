@@ -132,21 +132,28 @@
 .legend button { display: inline-flex; align-items: center; gap: 6px; padding: 4px 8px; margin: -4px -8px; border-radius: 6px; font: inherit; color: inherit; }
 .legend button:hover, .legend button.on { background: var(--bg3); color: var(--fg); }
 
-.record { display: grid; gap: 10px; }
-.record .row { --pc: #888; display: grid; grid-template-columns: minmax(110px, 160px) 1fr auto; gap: 14px; align-items: center; font: 600 13px/1.2 "JetBrains Mono", monospace; }
-.record .row > span:first-child { display: flex; align-items: center; gap: 8px; }
-.record .row > span:first-child i { width: 10px; height: 10px; border-radius: 3px; background: var(--pc); }
-.record .dots { display: flex; gap: 4px; flex-wrap: wrap; }
-.record .dots i { width: 12px; height: 12px; border-radius: 50%; background: color-mix(in oklab, var(--ok) 80%, var(--bg3)); transition: transform .15s; }
+.record { display: grid; gap: 12px; }
+.record .row { --pc: #888; display: grid; grid-template-columns: minmax(96px, 150px) 1fr 44px 92px; gap: 14px; align-items: center; font: 600 13px/1.2 "JetBrains Mono", monospace; }
+.record .row.head { font: 400 10.5px/1.2 "JetBrains Mono", monospace; color: var(--fg3); letter-spacing: .02em; padding-bottom: 2px; border-bottom: 1px solid var(--line); }
+.record .row.head span:nth-child(n+3) { text-align: right; }
+.record .nm { display: flex; align-items: center; gap: 8px; }
+.record .nm i { width: 10px; height: 10px; border-radius: 3px; background: var(--pc); flex: none; }
+.record .dots { display: flex; align-items: flex-end; gap: 3px; height: 24px; }
+.record .dots i { flex: 0 1 10px; min-width: 4px; height: calc(var(--h, .25) * 100%); border-radius: 3px; background: color-mix(in oklab, var(--ok) 80%, var(--bg3)); transform-origin: bottom; transition: transform .15s, filter .15s; }
 .record .dots i.f { background: #ef5f6b; }
-.record .dots i.x { background: var(--bg3); }
-.record .dots i:hover { transform: scale(1.35); }
-.record .pct { color: var(--fg2); font-weight: 500; font-variant-numeric: tabular-nums; text-align: right; }
+.record .dots i.x { height: 4px; background: var(--bg3); }
+.record .dots i:hover { transform: scaleX(1.4); filter: brightness(1.15); }
+.record .pct, .record .avg { color: var(--fg2); font-weight: 500; font-variant-numeric: tabular-nums; text-align: right; }
+.record .avg { color: var(--fg); font-weight: 600; display: flex; flex-direction: column; align-items: flex-end; gap: 3px; }
+.record .avg small { font: 500 10.5px/1 "JetBrains Mono", monospace; color: var(--fg3); }
+.record .avg small.up { color: color-mix(in oklab, var(--warn) var(--pc-keep), var(--fg)); }
+.record .avg small.down { color: color-mix(in oklab, var(--ok) var(--pc-keep), var(--fg)); }
 @media (max-width: 560px) {
   .today { grid-template-columns: 1fr 1fr; gap: 10px; }
   .run { padding: 14px; }
   .run .score { font-size: 28px; }
-  .record .row { grid-template-columns: 1fr auto; row-gap: 8px; }
+  .record .row { grid-template-columns: 1fr 44px 92px; row-gap: 8px; }
+  .record .row.head span:nth-child(2) { display: none; }
   .record .dots { grid-column: 1 / -1; grid-row: 2; }
 }
 

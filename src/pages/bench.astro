@@ -55,6 +55,21 @@ const twists = hasData ? [
 ] : [];
 
 const days = hasData ? [...new Set(keys.flatMap((k) => data.models[k].history.map((r) => r.date)))].sort().slice(-30) : [];
+
+// Pass record rows: one bar per day, taller when that model was slower, plus its
+// average time over the last 7 days against the 7 before.
+const daysBefore = (d: string) => Math.round((Date.parse(data.date!) - Date.parse(d)) / 864e5);
+const avgTime = (rs: Run[]) => (rs.length ? rs.reduce((n, r) => n + r.wall_seconds, 0) / rs.length : null);
+const record = cards.map((c) => {
+  const runs = c.m.history;
+  const shown = runs.filter((r) => days.includes(r.date));
+  const slowest = Math.max(1, ...shown.map((r) => r.wall_seconds));
+  const week = avgTime(runs.filter((r) => daysBefore(r.date) < 7));
+  const prior = runs.filter((r) => { const n = daysBefore(r.date); return n >= 7 && n < 14; });
+  const change = week != null && prior.length >= 3 ? week / avgTime(prior)! - 1 : null;
+  const trend = change == null ? null : { text: `${change > 0 ? '+' : '−'}${Math.abs(Math.round(change * 100))}%`, cls: change > 0.1 ? 'up' : change < -0.1 ? 'down' : '' };
+  return { c, byDate: new Map(runs.map((r) => [r.date, r])), slowest, week, trend, pass: Math.round((runs.filter((r) => r.passed).length / runs.length) * 100) };
+});
 const clientData = JSON.stringify({ models: keys.map((k) => ({ key: k, name: modelLabel(data.models[k].model), history: data.models[k].history })) }).replace(/</g, '\\u003c');
 ---
 <Base title="Daily model bench | btso.dev" description="Every morning each AI model I pay for gets the same kind of coding task. Pass rate, time, tokens and limit use, tracked daily." path="/bench" image={ogImage('/og/bench.png')} imageAlt="The daily model bench on btso.dev">
@@ -116,19 +131,23 @@ const clientData = JSON.stringify({ models: keys.map((k) => ({ key: k, name: mod
 
           <div class="duo">
             <div class="panel rv">
-              <div class="panel-h"><div><h3>Pass record</h3><p>One dot per day. Red means it missed at least one hidden test.</p></div></div>
+              <div class="panel-h"><div><h3>Pass record</h3><p>One bar per day, taller when that model took longer. Red means it missed at least one hidden test.</p></div></div>
               <div class="record">
-                {cards.map((c) => {
-                  const byDate = new Map(c.m.history.map((r) => [r.date, r]));
-                  const passed = c.m.history.filter((r) => r.passed).length;
-                  return (
-                    <div class="row" style={`--pc:${c.color}`}>
-                      <span><i></i>{c.name}</span>
-                      <span class="dots">{days.map((d) => { const r = byDate.get(d); return <i class:list={{ f: r && !r.passed, x: !r }} title={`${dayLabel(d)}: ${r ? `${Math.round(r.score * (data.hidden_total ?? 157))}/${data.hidden_total ?? 157}` : 'no run'}`}></i>; })}</span>
-                      <span class="pct">{Math.round((passed / c.m.history.length) * 100)}%</span>
-                    </div>
-                  );
-                })}
+                <div class="row head"><span>Model</span><span>Last {days.length} days</span><span>Pass</span><span>Avg time, 7d</span></div>
+                {record.map(({ c, byDate, slowest, week, trend, pass }) => (
+                  <div class="row" style={`--pc:${c.color}`}>
+                    <span class="nm"><i></i>{c.name}</span>
+                    <span class="dots">{days.map((d) => {
+                      const r = byDate.get(d);
+                      const total = data.hidden_total ?? 157;
+                      return r
+                        ? <i class:list={{ f: !r.passed }} style={`--h:${(0.25 + 0.75 * (r.wall_seconds / slowest)).toFixed(3)}`} title={`${dayLabel(d)}: ${Math.round(r.score * total)}/${total} in ${secs(r.wall_seconds)}`}></i>
+                        : <i class="x" title={`${dayLabel(d)}: no run`}></i>;
+                    })}</span>
+                    <span class="pct">{pass}%</span>
+                    <span class="avg">{week == null ? 'n/a' : secs(week)}{trend && <small class={trend.cls} title="Against the 7 days before">{trend.text}</small>}</span>
+                  </div>
+                ))}
               </div>
             </div>
             <div class="panel rv">
