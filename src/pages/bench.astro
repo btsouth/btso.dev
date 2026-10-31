@@ -131,7 +131,7 @@ const clientData = JSON.stringify({ models: keys.map((k) => ({ key: k, name: mod
 
           <div class="duo">
             <div class="panel rv">
-              <div class="panel-h"><div><h3>Pass record</h3><p>One bar per day, taller when that model took longer. Red means it missed at least one hidden test.</p></div></div>
+              <div class="panel-h"><div><h3>Pass record</h3><p>One bar per day, taller when that model took longer. Red means it missed at least one hidden test. The change compares with the week before.</p></div></div>
               <div class="record">
                 <div class="row head"><span>Model</span><span>Last {days.length} days</span><span>Pass</span><span>Avg time, 7d</span></div>
                 {record.map(({ c, byDate, slowest, week, trend, pass }) => (
