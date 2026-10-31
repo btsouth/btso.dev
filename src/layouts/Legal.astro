@@ -17,7 +17,7 @@ const { pageTitle, heading, description, lastUpdated = 'June 4, 2026' } = Astro.
   .legal { padding: 82px 0 100px; }
   .legal > header { padding-bottom: 80px; border-bottom: 1px solid var(--ink); }
   .legal > header h1 { max-width: 1050px; margin: 0; font-size: clamp(4rem, 7vw, 7rem); line-height: .9; letter-spacing: -.07em; }
-  .legal > header > div { max-width: 680px; margin: 38px 0 0 35%; display: flex; justify-content: space-between; gap: 30px; }
+  .legal > header > div { max-width: 680px; margin: 38px 0 0 calc((100% - 70px) * .225 + 70px); display: flex; justify-content: space-between; gap: 30px; }
   .legal > header > div p { max-width: 470px; margin: 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
   .legal > header time { flex: 0 0 auto; color: var(--muted); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
   .legal-grid { display: grid; grid-template-columns: .45fr 1.55fr; gap: 70px; padding-top: 70px; }
