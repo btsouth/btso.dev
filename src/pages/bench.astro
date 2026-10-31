@@ -7,9 +7,10 @@ import { ogImage } from '../lib/og';
 import '../styles/ai.css';
 
 type Limits = { five_hour?: number | null; seven_day?: number | null } | null;
+type Review = { cause: string; checked?: string; note: string };
 type Run = {
   date: string; passed: boolean; score: number; wall_seconds: number; over_limit?: boolean;
-  limits?: { before: Limits; after: Limits }; api_cost_usd?: number | null; tokens?: number; output?: number;
+  limits?: { before: Limits; after: Limits }; api_cost_usd?: number | null; tokens?: number; output?: number; review?: Review;
 };
 type Model = {
   model: string; plan: string; effort?: string; runs: number; pass_rate_30: number;
@@ -84,8 +85,11 @@ const allRuns = record.reduce((n, r) => n + r.runs, 0);
 const allMisses = record.reduce((n, r) => n + r.misses, 0);
 const since = hasData ? keys.map((k) => data.models[k].history[0]?.date).filter(Boolean).sort()[0] : undefined;
 const missLog = cards
-  .flatMap((c) => c.m.history.filter((r) => !r.passed).map((r) => ({ c, date: r.date, missed: Math.max(1, Math.round((1 - r.score) * TOTAL)) })))
+  .flatMap((c) => c.m.history.filter((r) => !r.passed).map((r) => ({ c, date: r.date, review: r.review, missed: Math.max(1, Math.round((1 - r.score) * TOTAL)) })))
   .sort((a, b) => b.date.localeCompare(a.date));
+const unchecked = missLog.filter((m) => !m.review).length;
+/** Review notes are plain text with `code` in backticks. */
+const noteHtml = (note: string) => note.replace(/[&<>"]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[ch]!).replace(/`([^`]+)`/g, '<code>$1</code>');
 const clientData = JSON.stringify({ models: keys.map((k) => ({ key: k, name: modelLabel(data.models[k].model), history: data.models[k].history })) }).replace(/</g, '\\u003c');
 ---
 <Base title="Daily model bench | btso.dev" description="Every morning each AI model I pay for gets the same kind of coding task. Pass rate, time, tokens and limit use, tracked daily." path="/bench" image={ogImage('/og/bench.png')} imageAlt="The daily model bench on btso.dev">
@@ -167,10 +171,10 @@ const clientData = JSON.stringify({ models: keys.map((k) => ({ key: k, name: mod
                 ))}
               </div>
               <div class="misses">
-                <p><b>{allRuns - allMisses} of {allRuns}</b> runs passed{since && <> since {dayLabel(since)}</>}. {allMisses ? `Every miss so far:` : 'No misses yet.'}</p>
+                <p><b>{allRuns - allMisses} of {allRuns}</b> runs passed{since && <> since {dayLabel(since)}</>}. {allMisses ? <>Every miss so far, <a href="#misses">checked below</a>:</> : 'No misses yet.'}</p>
                 {allMisses > 0 && (
                   <ul>
-                    {missLog.map((m) => <li style={`--pc:${m.c.color}`}><span class="d">{dayLabel(m.date)}</span><span class="nm"><i></i>{m.c.name}</span><span class="n">{TOTAL - m.missed}/{TOTAL}</span></li>)}
+                    {missLog.map((m) => <li style={`--pc:${m.c.color}`}><a class="d" href={`#miss-${m.date}-${m.c.key}`}>{dayLabel(m.date)}</a><span class="nm"><i></i>{m.c.name}</span><span class="n">{TOTAL - m.missed}/{TOTAL}</span></li>)}
                   </ul>
                 )}
               </div>
@@ -181,6 +185,28 @@ const clientData = JSON.stringify({ models: keys.map((k) => ({ key: k, name: mod
             </div>
           </div>
         </section>
+
+        {allMisses > 0 && (
+          <section class="ai-sec" id="misses">
+            <div class="blk-head rv"><div><p class="eyebrow">Misses</p><h2>Every miss, checked</h2><p>A red dot is only useful if it's real. Each failed run is graded again from its saved diff to confirm the result, then read against that day's spec to find what went wrong.{unchecked > 0 && ` ${unchecked === 1 ? 'One is' : `${unchecked} are`} still waiting for a look.`}</p></div><a class="link" href={`${REPO}#checking-failures`} target="_blank" rel="noreferrer">How it's checked ↗</a></div>
+            <ol class="miss-notes">
+              {missLog.map((m) => (
+                <li class="panel rv" id={`miss-${m.date}-${m.c.key}`} style={`--pc:${m.c.color}`}>
+                  <div class="mh">
+                    <span class="nm"><i></i>{m.c.name}</span>
+                    <span class="d">{dayLabel(m.date)}</span>
+                    <span class="n">{TOTAL - m.missed}/{TOTAL}</span>
+                    {m.review
+                      ? <span class="badge bad"><i></i>{m.review.cause === 'model' ? "Model's mistake" : 'Checked'}</span>
+                      : <span class="badge dim"><i></i>Not checked yet</span>}
+                  </div>
+                  {m.review ? <p set:html={noteHtml(m.review.note)}></p> : <p>This run hasn't been checked yet. Its diff and transcript are on GitHub.</p>}
+                  <a class="src" href={`${REPO}/tree/main/results/runs/${m.date}/${m.c.key}`} target="_blank" rel="noreferrer">Diff and transcript ↗</a>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
       </>
     )}
 
