@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-30T18:17:53.877Z",
+ "generatedAt": "2026-10-31T00:06:00.607Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 232,
-   "pushedAt": "2026-10-25T01:34:17Z",
+   "pushedAt": "2026-10-31T00:00:36Z",
    "latest": "v2.3.1",
    "releaseDates": [
     "2026-10-25T01:19:51Z",
@@ -740,8 +740,8 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 703,
-   "pushedAt": "2026-10-28T01:04:16Z",
+   "stars": 704,
+   "pushedAt": "2026-10-30T23:41:13Z",
    "latest": "v0.13.0",
    "releaseDates": [
     "2026-10-26T03:07:09Z",
@@ -1281,7 +1281,7 @@
   },
   "btsouth/omakade": {
    "stars": 442,
-   "pushedAt": "2026-10-27T00:27:14Z",
+   "pushedAt": "2026-10-30T23:42:57Z",
    "latest": "v1.18.0",
    "releaseDates": [
     "2026-10-26T03:31:22Z",
@@ -3040,9 +3040,10 @@
   },
   "btsouth/cubby-clipboard": {
    "stars": 14,
-   "pushedAt": "2026-10-24T13:13:51Z",
-   "latest": "v1.3.7",
+   "pushedAt": "2026-10-30T23:47:19Z",
+   "latest": "v1.3.8",
    "releaseDates": [
+    "2026-10-31T00:05:30Z",
     "2026-09-30T20:00:45Z",
     "2026-09-27T04:22:53Z",
     "2026-09-26T19:52:42Z",
@@ -3060,6 +3061,14 @@
     "2026-07-17T05:27:11Z"
    ],
    "releases": [
+    {
+     "tag": "v1.3.8",
+     "title": "Cubby Clipboard v1.3.8",
+     "at": "2026-10-31T00:05:30Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/cubby-clipboard/releases/tag/v1.3.8",
+     "body": "### Added\n- Settings > General can hide the tray icon. Cubby keeps running and opens with your shortcut or by launching it again from the Start menu. The icon still shows for a session where no shortcut could be registered. (#368)\n- Quit Cubby from Settings > General, so quitting no longer depends on the tray menu.\n\n### Security\n- Updated dependencies to resolve advisories in rustls, rustls-webpki, ctutils, source-map-js and brace-expansion. The updater no longer pulls in the zip crate, which removes its open advisories.\n\n### Changed\n- Release publishing on GitHub no longer waits on the Microsoft Store submission, so a slow Partner Center review cannot hold back a validated release.\n\n### Thanks\n- Thanks to [Luiz Bizzio](https://github.com/luizbizzio) for requesting the hidden tray icon option (#368)"
+    },
     {
      "tag": "v1.3.7",
      "title": "Cubby Clipboard v1.3.7",
@@ -3947,7 +3956,7 @@
   },
   "btsouth/agenttraceback": {
    "stars": 1,
-   "pushedAt": "2026-10-21T21:40:04Z",
+   "pushedAt": "2026-10-30T23:22:26Z",
    "latest": "v0.1.0-alpha.4",
    "releaseDates": [
     "2026-09-21T01:02:58Z",
@@ -5614,7 +5623,11 @@
   ],
   [
    "2026-10-30",
-   25
+   63
+  ],
+  [
+   "2026-10-31",
+   0
   ]
  ]
 }
