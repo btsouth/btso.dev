@@ -9,12 +9,13 @@ import { projectById, projects, releases, within } from '../lib/ship';
 import { ogImage } from '../lib/og';
 
 const lead = projectById['try-omarchy'];
-const omarchy = projects.filter((p) => p.group === 'omarchy');
+// Try Omarchy for Windows sits on the Windows shelf but still leads this page.
+const omarchy = projects.filter((p) => p.group === 'omarchy' || p.id === lead.id);
 const list = omarchy
   .filter((p) => p.id !== lead.id)
   .sort((a, b) => b.stars - a.stars || (b.releasedAt ?? '').localeCompare(a.releasedAt ?? ''));
 const totalStars = omarchy.reduce((n, p) => n + p.stars, 0);
-const monthReleases = releases.filter((r) => r.project.group === 'omarchy' && within(r.at, 30)).length;
+const monthReleases = releases.filter((r) => omarchy.includes(r.project) && within(r.at, 30)).length;
 ---
 <Base title="Omarchy apps and plugins | btso.dev" description="Apps, bar widgets and plugins for Omarchy: Try Omarchy for Windows, Omakade, Omaroll, Agent Pulse, Omalink and more." path="/omarchy" image={ogImage('/og/omarchy.png')} imageAlt="Omarchy apps and plugins by Tyler South">
   <section class="page-head">
