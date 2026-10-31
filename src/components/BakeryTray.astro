@@ -11,9 +11,9 @@ const board = startBoard();
   <div class="fbt-bg" aria-hidden="true"></div>
   <div class="fbt-head">
     <div class="fbt-order" data-order>
-      <img class="who" src={`${ART}/${first.who}.webp`} alt="" width="52" height="52" />
-      <div class="say"><p>{first.say}</p><span class="want"><img src={`${ART}/item-${first.tier}.webp`} alt="" width="34" height="34" /><b>{CHAIN[first.tier - 1]}</b></span></div>
-      <button type="button" class="serve" disabled>Serve</button>
+      <img class="fbt-who" src={`${ART}/${first.who}.webp`} alt="" width="52" height="52" />
+      <div class="fbt-say"><p>{first.say}</p><span class="fbt-want"><img src={`${ART}/item-${first.tier}.webp`} alt="" width="34" height="34" /><b>{CHAIN[first.tier - 1]}</b></span></div>
+      <button type="button" class="fbt-serve" disabled>Serve</button>
     </div>
     <span class="fbt-coins" title="Coins earned"><img src={`${ART}/coin.webp`} alt="" width="20" height="20" /><b data-coins>0</b></span>
   </div>

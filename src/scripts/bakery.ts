@@ -11,7 +11,7 @@ for (const root of document.querySelectorAll<HTMLElement>('[data-bakery]')) play
 function play(root: HTMLElement) {
   const cells = [...root.querySelectorAll<HTMLButtonElement>('.cell')];
   const orderEl = root.querySelector<HTMLElement>('[data-order]')!;
-  const serveBtn = orderEl.querySelector<HTMLButtonElement>('.serve')!;
+  const serveBtn = orderEl.querySelector<HTMLButtonElement>('.fbt-serve')!;
   const coinsEl = root.querySelector<HTMLElement>('[data-coins]')!;
   const hint = root.querySelector<HTMLElement>('[data-hint]')!;
   const sayEl = root.querySelector<HTMLElement>('[data-say]')!;
@@ -47,9 +47,9 @@ function play(root: HTMLElement) {
 
   function setOrder() {
     const o = ORDERS[order];
-    const who = orderEl.querySelector<HTMLImageElement>('.who')!;
-    const p = orderEl.querySelector('.say p')!;
-    const want = orderEl.querySelector<HTMLElement>('.want')!;
+    const who = orderEl.querySelector<HTMLImageElement>('.fbt-who')!;
+    const p = orderEl.querySelector('.fbt-say p')!;
+    const want = orderEl.querySelector<HTMLElement>('.fbt-want')!;
     if (o) {
       who.src = `${ART}/${o.who}.webp`;
       p.textContent = o.say;
@@ -97,7 +97,7 @@ function play(root: HTMLElement) {
     board[i] = 0;
     if (selected === i) selected = null;
     draw(i);
-    fly(cells[i], orderEl.querySelector('.want img'), `${ART}/item-${o.tier}.webp`);
+    fly(cells[i], orderEl.querySelector('.fbt-want img'), `${ART}/item-${o.tier}.webp`);
     coins += o.coins;
     coinsEl.textContent = String(coins);
     coinsEl.parentElement!.classList.remove('bump'); void coinsEl.offsetWidth; coinsEl.parentElement!.classList.add('bump');

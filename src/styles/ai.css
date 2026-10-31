@@ -133,8 +133,9 @@
 .legend button:hover, .legend button.on { background: var(--bg3); color: var(--fg); }
 
 .record { display: grid; gap: 12px; }
-.record .row { --pc: #888; display: grid; grid-template-columns: minmax(96px, 150px) 1fr 76px 92px; gap: 14px; align-items: center; font: 600 13px/1.2 "JetBrains Mono", monospace; }
+.record .row { --pc: #888; display: grid; grid-template-columns: minmax(96px, 150px) 1fr 96px 92px; gap: 14px; align-items: center; font: 600 13px/1.2 "JetBrains Mono", monospace; }
 .record .row.head { font: 400 10.5px/1.2 "JetBrains Mono", monospace; color: var(--fg3); letter-spacing: .02em; padding-bottom: 2px; border-bottom: 1px solid var(--line); }
+.record .row.head span { white-space: nowrap; }
 .record .row.head span:nth-child(n+3) { text-align: right; }
 .record .nm { display: flex; align-items: center; gap: 8px; }
 .record .nm i { width: 10px; height: 10px; border-radius: 3px; background: var(--pc); flex: none; }
@@ -164,7 +165,7 @@
   .today { grid-template-columns: 1fr 1fr; gap: 10px; }
   .run { padding: 14px; }
   .run .score { font-size: 28px; }
-  .record .row { grid-template-columns: 1fr 76px 92px; row-gap: 8px; }
+  .record .row { grid-template-columns: 1fr 96px 92px; row-gap: 8px; }
   .record .row.head span:nth-child(2) { display: none; }
   .record .dots { grid-column: 1 / -1; grid-row: 2; }
 }
