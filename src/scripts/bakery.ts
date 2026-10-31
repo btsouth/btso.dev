@@ -5,6 +5,7 @@ import { APP_STORE, ART, CHAIN, COLS, ORDERS, OVEN, PLAY_STORE, STOCK_CELLS, sta
 
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const TOP = CHAIN.length;
+const READY = 'Order up! Tap Serve, or drag it onto the order.';
 
 for (const root of document.querySelectorAll<HTMLElement>('[data-bakery]')) play(root);
 
@@ -43,6 +44,8 @@ function play(root: HTMLElement) {
     const ready = !!o && board.includes(o.tier);
     serveBtn.disabled = serving || (!!o && !ready);
     orderEl.classList.toggle('ready', ready);
+    if (ready) hint.textContent = READY;
+    else if (o && hint.textContent === READY) hint.textContent = 'Tap the bread box for the next egg.';
   }
 
   function setOrder() {
