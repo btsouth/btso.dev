@@ -12,7 +12,7 @@ type Run = {
   limits?: { before: Limits; after: Limits }; api_cost_usd?: number | null; tokens?: number; output?: number;
 };
 type Model = {
-  model: string; plan: string; runs: number; pass_rate_30: number;
+  model: string; plan: string; effort?: string; runs: number; pass_rate_30: number;
   latest: Run & { hidden_passed: number; hidden_total: number; tokens: Record<string, number> };
   history: Run[];
 };
@@ -118,6 +118,7 @@ const clientData = JSON.stringify({ models: keys.map((k) => ({ key: k, name: mod
               </div>
               <div class="score" data-num={c.m.latest.hidden_passed}>{c.m.latest.hidden_passed}<small>/ {c.m.latest.hidden_total}</small></div>
               <dl>
+                <dt>Effort</dt><dd>{c.m.effort === 'default' ? 'model default' : c.m.effort ?? 'medium'}</dd>
                 <dt>Time</dt><dd>{secs(c.last.wall_seconds)}</dd>
                 <dt>Tokens</dt><dd>{short(c.last.tokens ?? 0)}</dd>
                 <dt>API price</dt><dd>{c.last.api_cost_usd != null ? money(c.last.api_cost_usd) : 'n/a'}</dd>
@@ -188,9 +189,9 @@ const clientData = JSON.stringify({ models: keys.map((k) => ({ key: k, name: mod
       <ol class="steps">
         <li class="rv"><b>Same work, new details</b>Nine bugs across five small modules, plus a cron-style scheduler built from a spec. A new variant is generated from the date, so every model gets the same task on the same day.</li>
         <li class="rv"><b>Graded by hidden tests</b>{data.hidden_total ?? 157} tests the model never sees check the work. Their answers come from a reference implementation that's itself checked against a brute-force search.</li>
-        <li class="rv"><b>No peeking</b>Each model runs through its own CLI with fixed settings and none of my instructions. The hidden tests only exist after it's done, and any run that touches the grader is thrown out.</li>
+        <li class="rv"><b>No peeking</b>Each model runs through its own CLI at medium effort (DeepSeek at its default, since OpenCode has no effort setting) and none of my instructions. The hidden tests only exist after it's done, and any run that touches the grader is thrown out.</li>
       </ol>
-      <p class="ai-note rv" style="margin-top:20px">Today's models all pass this task nearly every time, so a red dot matters. Time, tokens and limit use are the trends to watch. Limit readings are whole percents shared with my other work, so a single day's number is rough.</p>
+      <p class="ai-note rv" style="margin-top:20px">Effort names mean different things to each vendor, so compare each model with itself over time more than with the others. Today's models all pass this task nearly every time, so a red dot matters. Time, tokens and limit use are the trends to watch. Limit readings are whole percents shared with my other work, so a single day's number is rough.</p>
     </section>
   </div>
 
