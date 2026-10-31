@@ -167,8 +167,8 @@ const relDays = new Set(projects.flatMap((p) => repoOf(p).releaseDates.map((d) =
   keys.forEach((k, i) => {
     const m = bench.models[k], [name, col] = names[m.model] ?? [m.model, C.fg3];
     const x = 70 + Math.floor(i / perCol) * colW, y = 318 + (i % perCol) * 54;
-    rows += `<rect x="${x}" y="${y - 22}" width="16" height="16" rx="3" fill="${col}"/>` + text(x + 32, y - 6, name, { size: 24, weight: 700 }) +
-      text(x + colW - 108, y - 6, `${m.latest.hidden_passed}/${m.latest.hidden_total}`, { size: 24, weight: 700, fill: m.latest.passed ? col : '#ef5f6b', anchor: 'end' }) +
+    rows += `<rect x="${x}" y="${y - 22}" width="16" height="16" rx="3" fill="${col}"/>` + text(x + 32, y - 6, name, { size: 22, weight: 700 }) +
+      text(x + colW - 118, y - 6, `${m.latest.hidden_passed}/${m.latest.hidden_total}`, { size: 24, weight: 700, fill: m.latest.passed ? col : '#ef5f6b', anchor: 'end' }) +
       text(x + colW - 20, y - 6, secs(m.latest.wall_seconds), { size: 22, fill: C.fg2, anchor: 'end' });
   });
   if (!keys.length) rows = text(70, 340, 'Every model I pay for, one task, every morning.', { size: 30, weight: 700 }) + text(70, 390, 'Pass rate, time, tokens and limit use, tracked daily.', { size: 22, fill: C.fg2 });
