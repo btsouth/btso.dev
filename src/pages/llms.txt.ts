@@ -22,6 +22,9 @@ ${section('omarchy')}
 ## ${GROUPS.windows}
 ${section('windows')}
 
+## Games
+- [Family Bakery: Merge & Bake](${base}/family-bakery): a cozy merge game for iPhone and Android. Merge treats, reopen Grandma's café and follow a family story. No ads, no energy for sale; the first two chapters are free.
+
 ## On this site
 - [Ship log](${base}/ship): every release across every app, with release notes. RSS: ${base}/ship.xml
 - [Omarchy apps and plugins](${base}/omarchy)

@@ -56,6 +56,12 @@ const twists = hasData ? [
 
 const days = hasData ? [...new Set(keys.flatMap((k) => data.models[k].history.map((r) => r.date)))].sort().slice(-30) : [];
 
+/** A pass rate that never rounds a miss away: 99.4% shows as 99%, not 100%. */
+function passPct(passed: number, runs: number) {
+  const pct = (passed / runs) * 100;
+  return passed < runs ? Math.min(99, Math.round(pct)) : 100;
+}
+
 // Pass record rows: one bar per day, taller when that model was slower, plus its
 // average time over the last 7 days against the 7 before.
 const daysBefore = (d: string) => Math.round((Date.parse(data.date!) - Date.parse(d)) / 864e5);
@@ -68,8 +74,18 @@ const record = cards.map((c) => {
   const prior = runs.filter((r) => { const n = daysBefore(r.date); return n >= 7 && n < 14; });
   const change = week != null && prior.length >= 3 ? week / avgTime(prior)! - 1 : null;
   const trend = change == null ? null : { text: `${change > 0 ? '+' : '−'}${Math.abs(Math.round(change * 100))}%`, cls: change > 0.1 ? 'up' : change < -0.1 ? 'down' : '' };
-  return { c, byDate: new Map(runs.map((r) => [r.date, r])), slowest, week, trend, pass: Math.round((runs.filter((r) => r.passed).length / runs.length) * 100) };
+  const misses = runs.filter((r) => !r.passed).length;
+  return { c, byDate: new Map(runs.map((r) => [r.date, r])), slowest, week, trend, misses, runs: runs.length, pass: passPct(runs.length - misses, runs.length) };
 });
+
+// Misses are rare, so every one is listed, long after its bar scrolls out of view.
+const TOTAL = data.hidden_total ?? 157;
+const allRuns = record.reduce((n, r) => n + r.runs, 0);
+const allMisses = record.reduce((n, r) => n + r.misses, 0);
+const since = hasData ? keys.map((k) => data.models[k].history[0]?.date).filter(Boolean).sort()[0] : undefined;
+const missLog = cards
+  .flatMap((c) => c.m.history.filter((r) => !r.passed).map((r) => ({ c, date: r.date, missed: Math.max(1, Math.round((1 - r.score) * TOTAL)) })))
+  .sort((a, b) => b.date.localeCompare(a.date));
 const clientData = JSON.stringify({ models: keys.map((k) => ({ key: k, name: modelLabel(data.models[k].model), history: data.models[k].history })) }).replace(/</g, '\\u003c');
 ---
 <Base title="Daily model bench | btso.dev" description="Every morning each AI model I pay for gets the same kind of coding task. Pass rate, time, tokens and limit use, tracked daily." path="/bench" image={ogImage('/og/bench.png')} imageAlt="The daily model bench on btso.dev">
@@ -131,10 +147,10 @@ const clientData = JSON.stringify({ models: keys.map((k) => ({ key: k, name: mod
 
           <div class="duo">
             <div class="panel rv">
-              <div class="panel-h"><div><h3>Pass record</h3><p>One bar per day, taller when that model took longer. Red means it missed at least one hidden test. The change compares with the week before.</p></div></div>
+              <div class="panel-h"><div><h3>Pass record</h3><p>One bar per day, taller when that model took longer. Red means it missed at least one hidden test. Pass rates count every run; time changes compare with the week before.</p></div></div>
               <div class="record">
-                <div class="row head"><span>Model</span><span>Last {days.length} days</span><span>Pass</span><span>Avg time, 7d</span></div>
-                {record.map(({ c, byDate, slowest, week, trend, pass }) => (
+                <div class="row head"><span>Model</span><span>Last {days.length} days</span><span>Pass, all time</span><span>Avg time, 7d</span></div>
+                {record.map(({ c, byDate, slowest, week, trend, pass, misses, runs }) => (
                   <div class="row" style={`--pc:${c.color}`}>
                     <span class="nm"><i></i>{c.name}</span>
                     <span class="dots">{days.map((d) => {
@@ -144,10 +160,18 @@ const clientData = JSON.stringify({ models: keys.map((k) => ({ key: k, name: mod
                         ? <i class:list={{ f: !r.passed }} style={`--h:${(0.25 + 0.75 * (r.wall_seconds / slowest)).toFixed(3)}`} title={`${dayLabel(d)}: ${Math.round(r.score * total)}/${total} in ${secs(r.wall_seconds)}`}></i>
                         : <i class="x" title={`${dayLabel(d)}: no run`}></i>;
                     })}</span>
-                    <span class="pct">{pass}%</span>
+                    <span class="pct" title={`${runs - misses} of ${runs} runs passed`}>{pass}%<small class:list={{ miss: misses }}>{misses ? `${misses} miss${misses === 1 ? '' : 'es'}` : `${runs} for ${runs}`}</small></span>
                     <span class="avg">{week == null ? 'n/a' : secs(week)}{trend && <small class={trend.cls} title="Against the 7 days before">{trend.text}</small>}</span>
                   </div>
                 ))}
+              </div>
+              <div class="misses">
+                <p><b>{allRuns - allMisses} of {allRuns}</b> runs passed{since && <> since {dayLabel(since)}</>}. {allMisses ? `Every miss so far:` : 'No misses yet.'}</p>
+                {allMisses > 0 && (
+                  <ul>
+                    {missLog.map((m) => <li style={`--pc:${m.c.color}`}><span class="d">{dayLabel(m.date)}</span><span class="nm"><i></i>{m.c.name}</span><span class="n">{TOTAL - m.missed}/{TOTAL}</span></li>)}
+                  </ul>
+                )}
               </div>
             </div>
             <div class="panel rv">

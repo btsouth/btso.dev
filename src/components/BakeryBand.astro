@@ -1,0 +1,34 @@
+---
+import BakeryTray from './BakeryTray.astro';
+import { APP_STORE, ART, PLAY_STORE } from '../lib/bakery';
+---
+<article class="fb rv">
+  <div class="fb-copy">
+    <p class="eyebrow">On your phone · iPhone and Android</p>
+    <div class="tp-id"><img class="fb-icon" src={`${ART}/icon.webp`} alt="" width="52" height="52" /><div><b>Family Bakery</b><div class="meta" style="margin-top:6px"><span>Merge &amp; Bake</span><span>a cozy merge game</span></div></div></div>
+    <h3>Merge, bake and reopen Grandma's café.</h3>
+    <p>Eggs become dough, dough becomes croissants, and the regulars keep coming back. A family story across five chapters, with a café you restore one corner at a time.</p>
+    <ul class="checks">
+      <li>No ads, and no energy for sale</li>
+      <li>The first two chapters are free. One purchase opens the rest</li>
+      <li>Plays offline</li>
+    </ul>
+    <div class="tp-acts"><a class="btn btn-primary" href={APP_STORE} target="_blank" rel="noreferrer">App Store <span class="arr">↗</span></a><a class="btn btn-ghost" href={PLAY_STORE} target="_blank" rel="noreferrer">Google Play ↗</a><a class="btn btn-ghost" href="/family-bakery">About the game</a></div>
+  </div>
+  <div class="fb-stage">
+    <p class="fb-try" aria-hidden="true">try it ↓</p>
+    <BakeryTray />
+  </div>
+</article>
+
+<style>
+  .fb { --pc: #d4567f; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-top: 16px; padding: 48px; border-radius: 22px; border: 1px solid var(--line); background: radial-gradient(600px 400px at 85% 50%, color-mix(in oklab, var(--pc) 16%, transparent), transparent 70%), var(--bg2); overflow: hidden; }
+  .fb-copy h3 { margin: 14px 0 0; font: 700 clamp(26px, 2.8vw, 34px)/1.12 "JetBrains Mono", monospace; letter-spacing: -.03em; }
+  .fb-copy > p { margin: 14px 0 0; color: var(--fg2); font-size: 16px; }
+  .fb-copy .eyebrow { color: color-mix(in oklab, var(--pc) 75%, var(--fg)); }
+  .fb-icon { width: 52px; height: 52px; border-radius: 13px; box-shadow: 0 6px 16px var(--shade); }
+  .fb-stage { position: relative; }
+  .fb-try { position: absolute; top: -30px; right: 8%; margin: 0; font: 500 12px/1 "JetBrains Mono", monospace; color: var(--fg3); transform: rotate(4deg); }
+  @media (max-width: 900px) { .fb { grid-template-columns: 1fr; padding: 28px; gap: 40px; } }
+  @media (max-width: 480px) { .fb { padding: 22px 14px; } }
+</style>
