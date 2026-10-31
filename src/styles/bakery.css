@@ -1,6 +1,6 @@
 /* Family Bakery merge tray. Always the game's own cream and pink, whatever the
    site theme, like a phone screen sitting on the page. */
-.fbt { --fb-ink: #5a3a2e; --fb-pink: #c94a74; --fb-green: #5aa845; --fb-cream: #fffaf4; position: relative; isolation: isolate; width: 100%; max-width: 420px; margin: 0 auto; padding: 16px 16px 14px; border-radius: 26px; overflow: hidden; color: var(--fb-ink); font-family: var(--sans); box-shadow: 0 30px 60px var(--shade), 0 0 0 1px rgba(255,255,255,.08); -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none; }
+.fbt { contain: layout paint style; --fb-ink: #5a3a2e; --fb-pink: #c94a74; --fb-green: #5aa845; --fb-cream: #fffaf4; position: relative; isolation: isolate; width: 100%; max-width: 420px; margin: 0 auto; padding: 16px 16px 14px; border-radius: 26px; overflow: hidden; color: var(--fb-ink); font-family: var(--sans); box-shadow: 0 30px 60px var(--shade), 0 0 0 1px rgba(255,255,255,.08); -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none; }
 .fbt-bg { position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(255,241,233,.5), rgba(255,236,226,.92) 38%), url(/assets/family-bakery/cafe.webp) center top / cover; }
 .fbt-head { display: flex; align-items: flex-start; gap: 8px; }
 .fbt-order { flex: 1; min-width: 0; display: grid; grid-template-columns: 48px 1fr auto; gap: 10px; align-items: center; padding: 9px 10px; border-radius: 18px; background: var(--fb-cream); border: 2px solid transparent; box-shadow: 0 6px 18px rgba(120,60,40,.16); transition: border-color .2s, transform .2s; }
@@ -17,7 +17,7 @@
 .fbt .fbt-serve { padding: 9px 12px; border-radius: 12px; background: var(--fb-green); color: #fff; font: 800 13px/1 var(--sans); box-shadow: 0 3px 0 #3d8530; transition: transform .1s, background .15s; white-space: nowrap; }
 .fbt .fbt-serve:active { transform: translateY(2px); box-shadow: 0 1px 0 #3d8530; }
 .fbt .fbt-serve:disabled { background: #dccdc4; box-shadow: 0 3px 0 #c6b5aa; cursor: default; transform: none; }
-.fbt-order.ready .fbt-serve:not(:disabled) { animation: fbt-pulse 1.3s ease-in-out infinite; }
+.fbt-order.ready .fbt-serve:not(:disabled) { animation: fbt-pulse 1.3s ease-in-out 3; }
 .fbt .fbt-serve:focus-visible, .fbt .cell:focus-visible { outline: 3px solid var(--fb-pink); outline-offset: 2px; }
 .fbt-coins { display: inline-flex; align-items: center; gap: 5px; padding: 6px 10px 6px 6px; border-radius: 99px; background: var(--fb-cream); box-shadow: 0 6px 18px rgba(120,60,40,.16); font: 800 13px/1 var(--sans); color: #a8701c; font-variant-numeric: tabular-nums; }
 .fbt-coins img { width: 20px; height: 20px; }

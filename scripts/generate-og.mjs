@@ -162,7 +162,7 @@ const relDays = new Set(projects.flatMap((p) => repoOf(p).releaseDates.map((d) =
       text(800, y - 6, `${m.latest.hidden_passed}/${m.latest.hidden_total}`, { size: 26, weight: 700, fill: m.latest.passed ? col : '#ef5f6b', anchor: 'end' }) +
       text(1130, y - 6, secs(m.latest.wall_seconds), { size: 24, fill: C.fg2, anchor: 'end' });
   });
-  if (!keys.length) rows = text(70, 340, 'Five models, one task, every morning.', { size: 30, weight: 700 }) + text(70, 390, 'Pass rate, time, tokens and limit use, tracked daily.', { size: 22, fill: C.fg2 });
+  if (!keys.length) rows = text(70, 340, 'Every model I pay for, one task, every morning.', { size: 30, weight: 700 }) + text(70, 390, 'Pass rate, time, tokens and limit use, tracked daily.', { size: 22, fill: C.fg2 });
   const body = logo(70, 60) +
     text(70, 200, 'Daily model bench', { size: 72, weight: 800, spacing: -2 }) +
     text(70, 244, 'Same coding task for every model I pay for, every morning.', { size: 22, fill: C.fg2 }) +
