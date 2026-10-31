@@ -121,7 +121,7 @@ section.blk { padding: 96px 0 0; }
 .blk-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 28px; flex-wrap: wrap; }
 .eyebrow { font: 500 12px/1 "JetBrains Mono", monospace; color: var(--accent); letter-spacing: .08em; text-transform: uppercase; margin: 0 0 12px; display: flex; align-items: center; gap: 8px; }
 .blk-head h2 { margin: 0; font: 700 clamp(26px, 3.4vw, 38px)/1.1 "JetBrains Mono", monospace; letter-spacing: -.03em; }
-.blk-head p { margin: 10px 0 0; color: var(--fg2); max-width: 60ch; }
+.blk-head p:not(.eyebrow) { margin: 10px 0 0; color: var(--fg2); max-width: 60ch; }
 .link { font: 500 14px/1 "JetBrains Mono", monospace; color: var(--fg2); display: inline-flex; gap: 8px; align-items: center; padding: 10px 14px; border: 1px solid var(--line); border-radius: 9px; transition: color .15s, border-color .15s; white-space: nowrap; }
 .link:hover { color: var(--fg); border-color: var(--fg3); }
 .rv { opacity: 0; transform: translateY(18px); transition: opacity .6s cubic-bezier(.2,.8,.2,1), transform .6s cubic-bezier(.2,.8,.2,1); }
@@ -194,7 +194,7 @@ section.blk { padding: 96px 0 0; }
 .tp-shot::before { content: ""; position: absolute; inset: 8% 6%; background: radial-gradient(closest-side, color-mix(in oklab, var(--pc) 45%, transparent), transparent); filter: blur(30px); opacity: .7; }
 .tp-row.rev .tp-shot::before { background: radial-gradient(closest-side, color-mix(in oklab, #4a6cf7 45%, transparent), transparent); }
 .tp-copy h3 { margin: 14px 0 0; font: 700 clamp(28px, 3vw, 38px)/1.1 "JetBrains Mono", monospace; letter-spacing: -.03em; }
-.tp-copy > p { margin: 14px 0 0; color: var(--fg2); font-size: 16px; }
+.tp-copy > p:not(.eyebrow) { margin: 14px 0 0; color: var(--fg2); font-size: 16px; }
 .tp-id { display: flex; align-items: center; gap: 12px; }
 .eyebrow + .tp-id { margin-top: 22px; }
 .tp-id b { font: 700 18px/1.2 "JetBrains Mono", monospace; }
@@ -265,7 +265,7 @@ footer.ft .links { display: flex; gap: 18px; flex-wrap: wrap; }
 /* ---------- Ship log ---------- */
 .page-head { padding: 64px 0 34px; border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
 .page-head h1 { margin: 0; font: 700 clamp(34px, 5vw, 56px)/1.05 "JetBrains Mono", monospace; letter-spacing: -.035em; }
-.page-head p { margin: 14px 0 0; color: var(--fg2); max-width: 62ch; font-size: 17px; }
+.page-head p:not(.eyebrow) { margin: 14px 0 0; color: var(--fg2); max-width: 62ch; font-size: 17px; }
 .page-head .row { display: flex; gap: 12px; margin-top: 26px; flex-wrap: wrap; align-items: center; }
 .px-band { position: absolute; right: -10px; top: 0; bottom: 0; width: 46%; display: grid; grid-template-columns: repeat(24, 1fr); align-content: center; gap: 6px; padding: 16px; opacity: .9; pointer-events: none; mask-image: linear-gradient(90deg, transparent, #000 45%); -webkit-mask-image: linear-gradient(90deg, transparent, #000 45%); }
 .px-band i { aspect-ratio: 1; border-radius: 2px; background: var(--accent); opacity: 0; transition: opacity 1.2s; }
