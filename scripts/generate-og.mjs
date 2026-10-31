@@ -153,14 +153,23 @@ const relDays = new Set(projects.flatMap((p) => repoOf(p).releaseDates.map((d) =
 /* ---------- Daily bench ---------- */
 {
   const keys = Object.keys(bench.models || {});
-  const names = { 'claude-opus-5-5': ['Opus 5.5', '#d97757'], 'claude-fable-5-1': ['Fable 5.1', '#b48cf0'], 'gpt-6.1-sol': ['Sol 6.1', '#5b9cf5'], 'gpt-6-astra': ['Astra', '#3ccf91'], 'opencode-go/deepseek-v4.1-flash': ['DeepSeek V4.1 Flash', '#2bbfd4'] };
+  // Keep in step with LABELS and COLORS in src/lib/ai.ts.
+  const names = {
+    'claude-opus-5-5': ['Opus 5.5', '#d97757'], 'claude-fable-5-1': ['Fable 5.1', '#b48cf0'], 'claude-sonnet-5-5': ['Sonnet 5.5', '#e5a54b'], 'claude-haiku-5-5': ['Haiku 5.5', '#e9c46a'],
+    'gpt-6.1-sol': ['Sol 6.1', '#5b9cf5'], 'gpt-6.1-terra': ['Terra 6.1', '#b7d65a'], 'gpt-6-astra': ['Astra', '#3ccf91'], 'gpt-6-luna': ['Luna 6', '#c3cbe8'],
+    'opencode-go/deepseek-v4.1-flash': ['DeepSeek V4.1 Flash', '#2bbfd4'],
+  };
   const secs = (s) => (s >= 60 ? `${Math.floor(s / 60)}m ${String(Math.round(s % 60)).padStart(2, '0')}s` : `${Math.round(s)}s`);
   let rows = '';
+  // Two columns once there are more models than fit in one.
+  const perCol = keys.length > 5 ? Math.ceil(keys.length / 2) : 5;
+  const colW = keys.length > 5 ? 540 : 1060;
   keys.forEach((k, i) => {
-    const m = bench.models[k], [name, col] = names[m.model] ?? [m.model, C.fg3], y = 318 + i * 54;
-    rows += `<rect x="70" y="${y - 22}" width="16" height="16" rx="3" fill="${col}"/>` + text(104, y - 6, name, { size: 26, weight: 700 }) +
-      text(800, y - 6, `${m.latest.hidden_passed}/${m.latest.hidden_total}`, { size: 26, weight: 700, fill: m.latest.passed ? col : '#ef5f6b', anchor: 'end' }) +
-      text(1130, y - 6, secs(m.latest.wall_seconds), { size: 24, fill: C.fg2, anchor: 'end' });
+    const m = bench.models[k], [name, col] = names[m.model] ?? [m.model, C.fg3];
+    const x = 70 + Math.floor(i / perCol) * colW, y = 318 + (i % perCol) * 54;
+    rows += `<rect x="${x}" y="${y - 22}" width="16" height="16" rx="3" fill="${col}"/>` + text(x + 32, y - 6, name, { size: 24, weight: 700 }) +
+      text(x + colW - 140, y - 6, `${m.latest.hidden_passed}/${m.latest.hidden_total}`, { size: 24, weight: 700, fill: m.latest.passed ? col : '#ef5f6b', anchor: 'end' }) +
+      text(x + colW - 20, y - 6, secs(m.latest.wall_seconds), { size: 22, fill: C.fg2, anchor: 'end' });
   });
   if (!keys.length) rows = text(70, 340, 'Every model I pay for, one task, every morning.', { size: 30, weight: 700 }) + text(70, 390, 'Pass rate, time, tokens and limit use, tracked daily.', { size: 22, fill: C.fg2 });
   const body = logo(70, 60) +
