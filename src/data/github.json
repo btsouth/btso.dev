@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-31T06:17:52.107Z",
+ "generatedAt": "2026-10-31T09:20:05.590Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 232,
@@ -2193,7 +2193,7 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 706,
+   "stars": 707,
    "pushedAt": "2026-10-30T23:41:13Z",
    "latest": "v0.13.0",
    "releaseDates": [
@@ -2959,7 +2959,7 @@
   },
   "btsouth/cubby-clipboard": {
    "stars": 14,
-   "pushedAt": "2026-10-31T00:58:13Z",
+   "pushedAt": "2026-10-31T08:34:04Z",
    "latest": "v1.3.8",
    "releaseDates": [
     "2026-10-31T00:05:30Z",
@@ -5498,7 +5498,7 @@
   ],
   [
    "2026-10-31",
-   7
+   10
   ]
  ]
 }
