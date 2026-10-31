@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-31T00:17:56.252Z",
+ "generatedAt": "2026-10-31T02:37:35.407Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 232,
@@ -739,402 +739,6 @@
     }
    ]
   },
-  "omacom/try-omarchy-windows": {
-   "stars": 704,
-   "pushedAt": "2026-10-30T23:41:13Z",
-   "latest": "v0.13.0",
-   "releaseDates": [
-    "2026-10-26T03:07:09Z",
-    "2026-10-22T21:08:05Z",
-    "2026-10-22T00:33:18Z",
-    "2026-10-14T04:23:32Z",
-    "2026-10-14T01:33:16Z",
-    "2026-10-09T10:25:57Z",
-    "2026-10-09T02:41:32Z",
-    "2026-10-06T21:16:43Z",
-    "2026-10-06T01:17:02Z",
-    "2026-10-05T12:16:07Z",
-    "2026-10-04T20:21:08Z",
-    "2026-10-04T17:55:58Z",
-    "2026-10-02T03:22:58Z",
-    "2026-10-01T03:41:30Z",
-    "2026-10-01T01:33:26Z",
-    "2026-09-29T20:09:22Z",
-    "2026-09-29T18:03:00Z",
-    "2026-09-27T07:00:01Z",
-    "2026-09-27T01:29:19Z",
-    "2026-09-26T17:40:52Z",
-    "2026-09-24T09:06:56Z",
-    "2026-09-24T05:02:12Z",
-    "2026-09-23T13:35:38Z",
-    "2026-09-23T12:25:38Z",
-    "2026-09-23T10:02:28Z",
-    "2026-09-22T23:22:25Z",
-    "2026-09-19T21:38:20Z",
-    "2026-09-16T01:21:39Z",
-    "2026-09-13T22:57:58Z",
-    "2026-09-06T02:33:07Z",
-    "2026-09-05T17:21:34Z",
-    "2026-09-05T06:45:11Z",
-    "2026-09-03T11:12:17Z",
-    "2026-09-03T02:34:02Z",
-    "2026-08-31T00:41:41Z",
-    "2026-08-30T13:32:35Z",
-    "2026-08-30T04:16:04Z",
-    "2026-08-30T02:12:52Z",
-    "2026-08-30T00:28:48Z",
-    "2026-08-29T05:16:40Z",
-    "2026-08-29T00:58:35Z",
-    "2026-08-28T21:53:17Z",
-    "2026-08-28T00:49:21Z"
-   ],
-   "releases": [
-    {
-     "tag": "v0.13.0",
-     "title": "v0.13.0",
-     "at": "2026-10-26T03:07:09Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.13.0",
-     "body": "`v0.13.0` fixes freezes on Intel graphics, offers CPU rendering when GPU rendering never reaches the screen, and lets Win+G reach Omarchy.\n\n# Fixes\n\n* Fix Omarchy freezing on Intel graphics when opening menus or the Hyprland configuration editor with GPU rendering on (#361, #367, #362)\n* When GPU rendering never shows the desktop in the Omarchy window, the launcher now offers CPU rendering after two minutes instead of Automatic picking GPU again on every start (#366, #358)\n* The health check no longer offers Restart while a system package update is still running (#365, #359)\n* Win+G and Win+Alt+G now reach Omarchy's window grouping. Windows' Xbox Game Bar still opens on them too; press Esc to close it (#369, #370, #368)\n\n## Dev\n\n* Build runtime r25 with the Intel buffer upload fixes (#361, #367)\n* Refresh the guest package lock (#371)\n\n## Thanks 🙏\n\n* @Vinluo for tracking down the Intel freeze, fixing it and testing every build on their Arc B390 (#361, #362, #367)\n* @knothhe for the Win+G fix in their first contribution (#369, #368)\n* @AI-Dico for reporting the black window on their RX 6800 XT and the restart prompt during updates (#358, #359)"
-    },
-    {
-     "tag": "runtime-v1-r25",
-     "title": "WINQ-EMU r25 runtime",
-     "at": "2026-10-22T21:08:05Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/runtime-v1-r25",
-     "body": "WINQ-EMU r25 runtime component and corresponding source archives for the next signed Try Omarchy app release. This is not a standalone launcher or a new app version.\n\nBuilt from the source-locked recipe at commit `2f5da1b` (`master`) in [Runtime run 39852529917](https://github.com/omacom/try-omarchy-windows/actions/runs/39852529917). `SHA256SUMS` covers both archives. r25 stops Omarchy freezing on Intel Arc graphics on Windows by uploading buffers without mapping them (#361, thanks @Vinluo), and sends each of those uploads in one call so buffer streaming stays fast (#367)."
-    },
-    {
-     "tag": "v0.12.1",
-     "title": "v0.12.1",
-     "at": "2026-10-22T00:33:18Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.12.1",
-     "body": "`v0.12.1` fixes setup and updates failing on some home networks.\n\n# Fixes\n\n* Fix setup and update downloads failing with \"winapi error #12167\" on networks where Windows finds a proxy setup server that serves no proxy script, such as Fritz!Box routers and SK Broadband (#356)\n* Finish the Korean translation for Links from Windows and installing updates from downloaded files (#357)\n\n## Dev\n\n* Refresh the guest package lock and give the system image room for it (#363, #364)\n\n## Thanks 🙏\n\n* @AI-Dico for tracking down the proxy failure and fixing it, and for the Korean translation (#356, #357)\n* @Mexican-Judo for confirming it also blocked first setup on a Fritz!Box network (#356)"
-    },
-    {
-     "tag": "v0.12.0",
-     "title": "v0.12.0",
-     "at": "2026-10-14T04:23:32Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.12.0",
-     "body": "`v0.12.0` makes the cursor as smooth as the Windows pointer, keeps Omarchy's network working with many connections open, and lets links clicked in Windows open in Omarchy.\n\n# Features\n\n* Links clicked in Windows can open in an Omarchy app. Allow a link type in **Settings > Apps > Links from Windows** (#352, #348)\n* Windows now draws the cursor with Omarchy's own shapes, so it stays smooth when the desktop is busy. Existing installs get it after running **Update > Omarchy** once (#345, #346, #321)\n* When a system update can't download, the launcher keeps retrying while Omarchy runs and gives slow name lookups more time. You can also install it from release files downloaded in your browser, using the tray menu (#344, #277)\n\n# Fixes\n\n* Fix Omarchy's network stopping once more than 64 connections were open, which stalled browsers, package updates and Tailscale until a restart (#347)\n* Fix clicks at the bottom of the screen opening an auto-hidden Windows taskbar in fullscreen. Ctrl+Alt+G still releases the pointer (#330, #320)\n* Fix the window staying larger than the screen after leaving fullscreen with Ctrl+Alt+F (#355)\n* Diagnostics leave out folder paths, account, computer and display names, and private network addresses, so the zip can be shared as is (#350)\n* First setup says the system image is downloading instead of showing \"Checking cached rootfs.ext4.zst...\" (#351)\n\n## Dev\n\n* Build runtime r24 with the network and cursor fixes (#353)\n* Refresh the guest package lock (#354)\n* Check the guest shell against current Arch and Omarchy packages every day (#343)\n\n## Thanks 🙏\n\n"
-    },
-    {
-     "tag": "runtime-v1-r24",
-     "title": "WINQ-EMU r24 runtime",
-     "at": "2026-10-14T01:33:16Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/runtime-v1-r24",
-     "body": "WINQ-EMU r24 runtime component and corresponding source archives for the next signed Try Omarchy app release. This is not a standalone launcher or a new app version.\n\nBuilt from the source-locked recipe at commit `0debd6f` (`master`) in [Runtime run 38487926153](https://github.com/omacom/try-omarchy-windows/actions/runs/38487926153). `SHA256SUMS` covers both archives. r24 keeps Omarchy's network working when it has more than 64 connections open (#347, thanks @pai-scaffolde), and lets Windows draw the Omarchy cursor so it stays smooth when the desktop is busy (#346, for #321)."
-    },
-    {
-     "tag": "v0.11.0",
-     "title": "v0.11.0",
-     "at": "2026-10-09T10:25:57Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.11.0",
-     "body": "`v0.11.0` makes future updates much smaller, fixes the top bar disappearing after **Update > Omarchy**, Chinese input methods and a sound menu freeze, and finishes the Korean translation.\n\nThis update still downloads the full Omarchy system image (about 1.9 GB) one last time. Updates after this one skip it.\n\n# Features\n\n* Updates no longer download the full Omarchy system image. It is only fetched when you install Omarchy or choose **Start fresh**, and an interrupted download resumes where it left off (#312)\n* Backups can leave out the system image, and backups to exFAT drives work (#312)\n* Korean now covers the whole launcher (#318)\n* Simplified Chinese wording is polished and covers the tray messages (#327)\n\n# Fixes\n\n* Fix the top bar disappearing and Win+K / Win+Space opening black screens after **Update > Omarchy**. Installs that already updated are repaired when this version starts (#336)\n* Fix typing and shortcuts not reaching Omarchy while a Windows input method such as Microsoft Pinyin is in Chinese mode (#328)\n* Fix the sound menu freezing Omarchy when Windows has no microphone. Connecting a headset later picks up its microphone (#332)\n* Fix volume sync stopping after choosing **VirtIO PCM 0** in Omarchy's sound menu. Omarchy now switches back to the Windows device (#277)\n* Show a tray message when the Omarchy system update cannot be downloaded, instead of failing silently (#277)\n\n## Dev\n\n* Build runtime r23 with the input method and microphone fixes (#334, #338)\n* Refresh the guest package lock to Qt 6.12 (#340)\n* Allow two backports to change the same file (#342)"
-    },
-    {
-     "tag": "runtime-v1-r23",
-     "title": "WINQ-EMU r23 runtime",
-     "at": "2026-10-09T02:41:32Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/runtime-v1-r23",
-     "body": "WINQ-EMU r23 runtime component and corresponding source archives for the next signed Try Omarchy app release. This is not a standalone launcher or a new app version.\n\nBuilt from the source-locked recipe at commit `00b7bf2` (`master`) in [Runtime run 37874254043](https://github.com/omacom/try-omarchy-windows/actions/runs/37874254043). `SHA256SUMS` covers both archives. r23 keeps typing working while a Windows input method such as Microsoft Pinyin is in Chinese mode (#334), and stops the sound menu from freezing Omarchy when Windows has no microphone (#338)."
-    },
-    {
-     "tag": "v0.10.1",
-     "title": "v0.10.1",
-     "at": "2026-10-06T21:16:43Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.10.1",
-     "body": "`v0.10.1` fixes large images copied from Windows and portable installs on exFAT.\n\n# Fixes\n\n* Fix large images copied from Windows stalling before they reach Omarchy (#319)\n* Fix portable installs on exFAT failing to start after the first launch (#322)\n\n## Dev\n\n* Write release notes as UTF-8 and stop publishing when notes are missing or empty (#319)"
-    },
-    {
-     "tag": "v0.10.0",
-     "title": "v0.10.0",
-     "at": "2026-10-06T01:17:02Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.10.0",
-     "body": "`v0.10.0` brings a faster start, recovery when things go wrong, and a long list of fixes across the clipboard, audio, keyboard, displays and more.\n\n# Features\n\n* Start Omarchy right away. Updates now download in the background while you use it, resume after interruptions, use the Windows proxy settings, and install the next time Omarchy starts, or right away with **Restart to update** in the tray (#307)\n* Detect when the Omarchy desktop stops responding, save diagnostics, and offer to restart it, in CPU mode if graphics froze. Your session stays open until you choose (#303, #315)\n* Resume cleanly after Windows sleep, or show **Resume Omarchy** in the tray if it cannot. Restarting or signing out of Windows shuts Omarchy down cleanly first, and the next start offers recovery if that did not finish (#304, #216)\n* Keep volume and mute in sync between Omarchy and Windows, including playback device changes. Turn off **Sync volume with Windows** in Settings to control them separately (#292, #277)\n* Night light now warms the VM display from the existing menu and keyboard shortcut (#289)\n* Warn when Omarchy's Windows drive is running low or almost full, with guidance for Reclaim and moving the data in Settings (#291)\n* CPU rendering mode now really limits the processor features Omarchy sees (#306)\n* PowerToys and AutoHotkey can see the Win key while Omarchy runs (#306)\n* Follow your Windows display language, plus Dvorak, US-International and Turkish F layouts (#296)\n\n# Fixes\n\n* Fix GPU mode freezing on NVIDIA graphics when Media Player opens, and GTK4 apps such as Files crashing (#2"
-    },
-    {
-     "tag": "runtime-v1-r22",
-     "title": "WINQ-EMU r22 runtime",
-     "at": "2026-10-05T12:16:07Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/runtime-v1-r22",
-     "body": "WINQ-EMU r22 runtime component and corresponding source archives for the next signed Try Omarchy app release. This is not a standalone launcher or a new app version.\n\nBuilt from the source-locked recipe at commit `a8ba148c0e92ae12d928d911165fdff079aea8c0` (`master`) in [Runtime run 37303492481](https://github.com/omacom/try-omarchy-windows/actions/runs/37303492481). `SHA256SUMS` covers both archives. r22 makes CPU rendering mode really limit the processor features Omarchy sees, and lets tools like PowerToys and AutoHotkey see the Win key while Omarchy runs.\n\nThe currently published `v0.9.0` app pins r21. The next signed app release will pin r22."
-    },
-    {
-     "tag": "v0.9.0",
-     "title": "v0.9.0",
-     "at": "2026-10-04T20:21:08Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.9.0",
-     "body": "This update makes Omarchy sound and scroll more like Windows, and adds Simplified Chinese.\n\nAudio now plays at your Windows device's own sample rate and as loud as Windows does. Precision touchpads scroll smoothly in both directions instead of in wheel steps, and Omarchy's battery panel shows the health, capacity and cycle count that Windows reports. Image Viewer and Media Player are more reliable, and Settings no longer smears text while scrolling at higher display scaling.\n\nThe launcher is available in Simplified Chinese, thanks to @Dazzle-sys, and Korean now covers Settings and Help, thanks to @seunghan91. Inside Omarchy there are a few smaller fixes too, like clearer guidance from Update > Omarchy when the disk needs more space and better Traditional Chinese input.\n\n[Download Try Omarchy for Windows](https://tryomarchy.com/download)"
-    },
-    {
-     "tag": "runtime-v1-r21",
-     "title": "WINQ-EMU r21 runtime",
-     "at": "2026-10-04T17:55:58Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/runtime-v1-r21",
-     "body": "WINQ-EMU r21 runtime component and corresponding source archives for the next signed Try Omarchy app release. This is not a standalone launcher or a new app version.\n\nBuilt from the source-locked recipe at commit `8ec4033826e09cbd4c833c059bb0fd1517f18857` (the same tree as `master` at `a02465f`) in [Runtime run 37135317236](https://github.com/omacom/try-omarchy-windows/actions/runs/37135317236). `SHA256SUMS` covers both archives. r21 opens Windows playback and recording at each device's own sample rate, keeps precision touchpad scrolling smooth instead of rounding it to whole wheel clicks, and checks the host GPU driver's exact image import support before sharing images with it.\n\nThe currently published `v0.8.0` app pins r20c. The next signed app release will pin r21."
-    },
-    {
-     "tag": "v0.8.0",
-     "title": "v0.8.0",
-     "at": "2026-10-02T03:22:58Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.8.0",
-     "body": "This update makes starting Omarchy smoother and adds Korean.\n\nOmarchy's window now opens once the desktop is ready, right where you left it, and Omarchy pauses while Windows sleeps so it picks up where it left off. The launcher is available in Korean, thanks to @seunghan91. Inside, Omarchy moves to 4.0.4; run Update > Omarchy to get it. There are also a few smaller fixes in Settings, the clipboard and the importer.\n\n[Download Try Omarchy for Windows](https://tryomarchy.com/download)"
-    },
-    {
-     "tag": "v0.7.1",
-     "title": "v0.7.1",
-     "at": "2026-10-01T03:41:30Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.7.1",
-     "body": "This update makes the Linux importer safer and adds Simplified Chinese to the launcher.\n\nThe import command now checks the package, app and theme names it reads from your trial before handing them to pacman, yay or Flatpak. It only runs the system's own tools, so a script with the same name in your trial's `~/.local/bin` can't stand in for one, and it never follows a link on the trial disk outside the trial. If you already imported your own trial with v0.7.0, there's nothing to redo.\n\nThe list of what to bring over now says that everything checked comes along, so pressing Enter is all most people need to do.\n\nWhen Windows is set to Simplified Chinese, the launcher's About and update screens, first-launch questions and Settings section titles now show in Chinese. Thanks to @Dazzle-sys for the translation.\n\n[Download Try Omarchy for Windows](https://tryomarchy.com/download)"
-    },
-    {
-     "tag": "v0.7.0",
-     "title": "v0.7.0: From trial to install",
-     "at": "2026-10-01T01:33:26Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.7.0",
-     "body": "Make Omarchy yours before you install it.\n\nTry it on Windows, set it up your way, then bring your settings, files and app\ndata to a native Omarchy installation.\n\nOpen **Settings > Recovery > Install Omarchy** for the new walkthrough. It\nchecks BitLocker, helps you prepare Windows, and gives you a short import\ncommand to run after installing Omarchy. You choose what comes along. Files\nare backed up before changes, and browser profiles and sign-ins are optional.\n\nThe launcher also has a cleaner look, remembers USB devices between launches,\nand follows Windows time-zone changes.\n\n[Download Try Omarchy for Windows](https://tryomarchy.com/download)"
-    },
-    {
-     "tag": "v0.6.2",
-     "title": "v0.6.2",
-     "at": "2026-09-29T20:09:22Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.6.2",
-     "body": "# Try Omarchy v0.6.2\n\nDownload **TryOmarchy.exe** below, or let your installed launcher update itself. Your guest disk, files and settings carry over.\n\n- **Security fix for the quick-start account.** If you forwarded a port to Omarchy's SSH (guest port 22), and especially if you made it a LAN forward, anyone who could reach that port could log in as `omarchy` / `omarchy` and use its passwordless sudo. SSH now accepts only keys for the quick-start account, and Try Omarchy authorizes your key when you set up the forward. Existing quick-start installs get this on their first boot after updating. Accounts you created yourself keep password login.\n- **Your own account is the default for new installs.** The first-launch screen now preselects \"Choose my username and password\". The quick start is still one click away. Installs you already set up keep the choice you made.\n- The quick-start welcome notice now suggests running `passwd` to set your own password.\n- Setup now checks for enough free space to unpack Omarchy before downloading it, instead of running out partway through.\n\nSee the [compatibility guide](https://github.com/omacom/try-omarchy-windows/blob/master/docs/COMPATIBILITY.md) for hardware requirements and known limits.\n\n[Changes since v0.6.1](https://github.com/omacom/try-omarchy-windows/compare/v0.6.1...v0.6.2)"
-    },
-    {
-     "tag": "v0.6.1",
-     "title": "v0.6.1",
-     "at": "2026-09-29T18:03:00Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.6.1",
-     "body": "# Try Omarchy v0.6.1\n\nDownload **TryOmarchy.exe** below, or let your installed launcher update itself. Your guest disk, files and settings carry over.\n\n- **Alt+Tab can go back to Windows.** Settings > General has a new \"Send Alt+Tab to Omarchy while its window is focused\" checkbox. It's on by default, so nothing changes unless you turn it off. With it off, Alt+Tab opens the Windows task switcher like it did before v0.1.0. The change applies right away without restarting Omarchy.\n- **No more black screen after a long sleep.** On laptops with Modern Standby, waking Windows after more than a few minutes could make Omarchy restart core services, leaving a black desktop or dropping you back to the login screen. Those restarts no longer happen.\n- **Your monitor scale sticks.** A scale set in `~/.config/hypr/monitors.lua` now survives theme switches and `hyprctl reload` instead of snapping back to the automatic value.\n- Omarchy's packages are refreshed to current Arch versions.\n\nSee the [compatibility guide](https://github.com/omacom/try-omarchy-windows/blob/master/docs/COMPATIBILITY.md) for hardware requirements and known limits.\n\n[Changes since v0.6.0](https://github.com/omacom/try-omarchy-windows/compare/v0.6.0...v0.6.1)"
-    },
-    {
-     "tag": "v0.6.0",
-     "title": "v0.6.0",
-     "at": "2026-09-27T07:00:01Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.6.0",
-     "body": "# Try Omarchy v0.6.0\n\nDownload **TryOmarchy.exe** below, or let your installed launcher update itself. Your guest disk, files and settings carry over.\n\n- **Drop files straight into apps.** Drag a file from File Explorer onto a browser upload area, an editor or an image viewer in Omarchy and that app gets it. The file is also saved to Downloads. Keep the mouse still for a moment after you let go; if it moves, the file just stays in Downloads. Dropping onto a Files folder copies straight into that folder, as before.\n- **Unlock 1Password with Windows Hello.** If you've paired Windows Hello for sudo and installed 1Password in Omarchy, run `sudo try-omarchy-windows-hello onepassword enable` and turn on \"Unlock using system authentication\" in 1Password. The unlock button then asks for Windows Hello, and canceling falls back to your guest password. 1Password still asks for its account password after it restarts.\n- **Port forwards change without a restart.** Adding or removing a local forward under Settings > Advanced takes effect within a couple of seconds. LAN forwards and SSH still change at the next launch.\n- **Older installs catch up on packages.** Running Update > Omarchy now installs packages that newer Try Omarchy images depend on, so features like app drops work on installs created by older versions.\n- **Safer Windows Hello sudo.** Only this Omarchy's own VM can ask for approval, sudo from an SSH session into Omarchy uses the password, an interrupted request no longer confuses the next one, and after you cancel a prompt that terminal uses the password for 30 seconds. The p"
-    },
-    {
-     "tag": "v0.5.0",
-     "title": "v0.5.0",
-     "at": "2026-09-27T01:29:19Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.5.0",
-     "body": "# Try Omarchy v0.5.0\n\nDownload **TryOmarchy.exe** below, or let your installed launcher update itself. Your guest disk, files and settings carry over.\n\n- **Windows Hello for sudo.** Optional. In an Omarchy terminal, run `sudo try-omarchy-windows-hello enable`, enter your guest password once, and approve the Windows passkey prompt. After that, each `sudo` asks for Windows Hello instead of your password. The prompt only appears while the Omarchy window is in front, and canceling it falls back to your password. `sudo try-omarchy-windows-hello disable` turns it off and removes the passkey. Trial accounts don't use a sudo password, so this matters once you've set up your own account.\n- **Theme switches no longer flash.** Changing themes used to blank the Omarchy window for a moment and could snap a resized window back to an older size.\n- **Dark title bar.** The Omarchy window's title bar now follows your Windows light or dark setting, and changes with it.\n- **Hold Alt to switch windows.** Holding Alt and tapping Tab now keeps Alt held inside Omarchy, so window switchers that stay open while Alt is down work the way they do on a normal PC.\n- **More reliable setup downloads.** If a download link stops working after the file already finished downloading, setup now uses the finished file instead of failing.\n- Current Arch packages in the guest image.\n\nResizing the window still dims the display briefly while Omarchy adjusts. See the [compatibility guide](https://github.com/omacom/try-omarchy-windows/blob/master/docs/COMPATIBILITY.md) for hardware requirements and known limits.\n\n[Chan"
-    },
-    {
-     "tag": "v0.4.0",
-     "title": "v0.4.0",
-     "at": "2026-09-26T17:40:52Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.4.0",
-     "body": "- Pinch to zoom on a Windows 11 Precision Touchpad. It is on by default in GPU\n  mode with one display, and `-disable-pinch` turns it off. Existing guests\n  pick up the touchpad rules on their first boot of the new image; a guest\n  whose Hyprland `input.lua` cannot be updated safely keeps ordinary touchpad\n  input.\n- Send Ctrl+Alt+Delete to Omarchy with Ctrl+Alt+End while its window is\n  focused. Windows reserves Ctrl+Alt+Delete for its security screen, so it\n  cannot be passed through.\n- A Hyprland `input.lua` exported to a real Omarchy install no longer fails on\n  the missing Try Omarchy rules file.\n- Update the guest to Linux 7.2.7 and systemd 262 with current Arch packages."
-    },
-    {
-     "tag": "v0.3.0",
-     "title": "v0.3.0",
-     "at": "2026-09-24T09:06:56Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.3.0",
-     "body": "- Switch Windows playback and recording devices while Omarchy runs. Saving\n  audio choices in Settings reroutes the running VM, and Omarchy's own audio\n  picker lists the Windows speakers and microphones so a choice made there is\n  saved back to Windows. Choices carry across guest reboots.\n- An idle VM no longer holds the Windows speaker open before anything plays.\n- Update the bundled runtime to the source-built r20c WINQ-EMU build. Turning\n  microphone access on or off still takes effect at the next VM start."
-    },
-    {
-     "tag": "runtime-v1-r20c",
-     "title": "WINQ-EMU r20c runtime candidate",
-     "at": "2026-09-24T05:02:12Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/runtime-v1-r20c",
-     "body": "WINQ-EMU r20c runtime component and corresponding source archives for the next signed Try Omarchy app release. This is not a standalone launcher or a new app version.\n\nBuilt from the source-locked recipe at commit `3ae8213ce5436eb6ec551f764360f08784e19b18` in [Runtime run 35931045895](https://github.com/omacom/try-omarchy-windows/actions/runs/35931045895). `SHA256SUMS` covers both archives. r20c adds live SDL audio routes, so Windows playback and recording endpoints can change while the guest runs, and defers the initial playback open so an idle VM does not hold the Windows speaker. The AMD Windows 11 laptop passed a signed candidate with this runtime, including GPU desktop, live routing, reboot persistence and idle release; see the [physical record](https://github.com/omacom/try-omarchy-windows/blob/master/docs/evidence/LIVE-AUDIO-R20-2026-09-23.md).\n\nThe currently published `v0.2.0` app still pins r19. The next signed app release will pin r20c."
-    },
-    {
-     "tag": "v0.2.0",
-     "title": "v0.2.0",
-     "at": "2026-09-23T13:35:38Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.2.0",
-     "body": "- Open native Windows Settings from the Omarchy launcher and mirror the host\n  laptop's battery and AC state inside the guest.\n- Return unused guest RAM to Windows through the source-built r19 WHPX runtime\n  while keeping the guest's configured memory capacity available for reuse.\n- Approve specific Windows executables in Settings and launch them from the\n  Omarchy app menu; removing approval revokes later launches.\n- Choose the Windows monitor for fullscreen Omarchy, with primary-display\n  fallback when a saved monitor is disconnected."
-    },
-    {
-     "tag": "runtime-v1-r19",
-     "title": "WINQ-EMU r19 runtime candidate",
-     "at": "2026-09-23T12:25:38Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/runtime-v1-r19",
-     "body": "WINQ-EMU r19 runtime component and corresponding source archives for the next signed Try Omarchy app release. This is not a standalone launcher or a new app version.\n\nBuilt from the source-locked recipe at commit `751a845359c98f0d31af9d5deee9d3d31ac5497f` in [Runtime run 35852652612](https://github.com/omacom/try-omarchy-windows/actions/runs/35852652612). `SHA256SUMS` covers both archives. The r19 patch adds WHPX free-page reclamation; the launcher enables balloon reporting only when runtime provenance includes this patch. The AMD Windows 11 laptop passed measured 4 GiB guest memory return and reuse plus a full GPU desktop boot; see the [physical record](https://github.com/omacom/try-omarchy-windows/blob/master/docs/evidence/FEATURE-GAPS-2026-09-23.md).\n\nThe currently published `v0.1.0` app still pins r18. A future signed app release will pin r19 after its candidate checks."
-    },
-    {
-     "tag": "v0.1.0",
-     "title": "v0.1.0",
-     "at": "2026-09-23T10:02:28Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.1.0",
-     "body": "# Try Omarchy for Windows v0.1.0\n\nThe first normal 0.x Try Omarchy for Windows release. Download **TryOmarchy.exe** below and run it on a 64-bit Windows 10 or 11 PC with hardware virtualization enabled. Existing preview installations retain their guest disk, files, and settings. Older launchers update through the signed v0.0.20-preview bridge before reaching this version.\n\n- Open Settings before boot, then choose **Launch Omarchy**. Start-menu and Desktop shortcuts can optionally launch Omarchy directly, with a separate Settings shortcut. Settings can also launch Omarchy at Windows sign-in and open it fullscreen.\n- A second installation preserves shortcuts owned by the first and places its own launchers beside the new installation when those Windows shortcut names are already in use.\n- Choose playback and microphone devices for the next boot. An unavailable saved device falls back to the Windows default.\n- Use Alt+Tab inside the focused Omarchy window, and Ctrl+Alt+Tab for the Windows task switcher.\n- Use camera and microphone access controls, the clipboard, folder sharing, file drops, snapshots, backups, recovery, and GPU rendering with automatic CPU fallback.\n- Hosts that support nested virtualization can run nested Linux workloads. Hosts without it continue to boot Omarchy normally.\n- Send a diagnostic bundle with a structured bug report when hardware or startup problems arise.\n\nThe Precision Touchpad pinch bridge is experimental and disabled by default. Graphics acceleration depends on the Windows driver; automatic CPU rendering is available when the GPU path fails. An "
-    },
-    {
-     "tag": "runtime-v1-r18",
-     "title": "WINQ-EMU r18 runtime for Try Omarchy v1.0.0",
-     "at": "2026-09-22T23:22:25Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/runtime-v1-r18",
-     "body": "WINQ-EMU r18 support archives for Try Omarchy v1.0.0. These are runtime and corresponding source assets, not a standalone Try Omarchy launcher release.\n\nBuilt from the source-locked recipe at commit 5b01ecfe6b068a4bc53bde2b9a95a7b9e33b3d18 in [Runtime run 35794436367](https://github.com/omacom/try-omarchy-windows/actions/runs/35794436367). `SHA256SUMS` covers both archives. The Windows Precision Touchpad pinch bridge in this runtime remains opt-in."
-    },
-    {
-     "tag": "v0.0.20-preview",
-     "title": "v0.0.20-preview",
-     "at": "2026-09-19T21:38:20Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.20-preview",
-     "body": "# Try Omarchy v0.0.20-preview\n\nCamera, microphone and file-drop improvements for Windows x64.\n\n- Use the Windows camera and microphone in guest apps. Camera capture starts on demand and stops when the app closes it.\n- Drop Windows files into an open local Files folder without a transfer window taking over. Other destinations use Downloads with a notification. Duplicate names keep both files.\n- Existing guests receive matching camera and TUN modules automatically. Interrupted module delivery retries on the next boot.\n- Recover from orphaned package-manager locks after interrupted updates, without removing locks owned by a running transaction.\n- Pause the guest during Windows sleep and resume it on wake with clock synchronization.\n\nExisting installations keep their disk, files and settings. Use **Update > Omarchy** inside the guest for the full system package update.\n\nThis remains a preview. Windows sleep/wake recovery has not been verified on physical hardware. Direct drops into arbitrary applications, portable-drive lifecycle, native migration and broader Windows/GPU coverage remain unfinished. Accelerated RAM resume and Windows ARM64 are not supported.\n\nThanks to everyone testing and reporting issues, and to the Omarchy, WINQ-EMU, QEMU and Mesa communities.\n\n[Changes since v0.0.19-preview](https://github.com/omacom/try-omarchy-windows/compare/v0.0.19-preview...v0.0.20-preview)"
-    },
-    {
-     "tag": "v0.0.19-preview",
-     "title": "v0.0.19-preview",
-     "at": "2026-09-16T01:21:39Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.19-preview",
-     "body": "# Try Omarchy v0.0.19-preview\n\nA reliability preview. Download **TryOmarchy.exe** below and run it on Windows x64. Existing installations keep their guest disk, files, and settings. The launcher updates its guest integration automatically; use **Update > Omarchy** inside the guest for the full system package update.\n\n## What's new\n\n- **Lighter portable copies.** Creating a portable copy, or copying an existing portable installation, now writes an independently verified QCOW2 disk directly instead of staging a full backup and raw restore. Moves and snapshots also retry transient Windows file locks.\n- **Clean guest package ownership.** The guest runtime package no longer claims the two Neovim helper commands owned by the editor package. Existing guests keep both helpers, including administrator edits, and the package database reports no duplicate ownership.\n- **Restored Neovim theming.** New accounts get the packaged Neovim theme link again, and existing guests receive it when the launcher integration updates. Neovim follows the active Omarchy theme, and `omarchy-nvim` reports no missing files.\n\n## Validation and remaining preview limitations\n\nAutomated launcher, guest, and factory-image checks pass on the pinned candidate. The guest update path was exercised end to end on the checksum-verified v0.0.18-preview image, including the five-boot preservation run and the new compatibility-revision delivery, and the physical Windows draft test verifies preserved data, the new kernel boot, reboot and poweroff, rollback, and the one-time compatibility repair before publication.\n\nThis "
-    },
-    {
-     "tag": "v0.0.18-preview",
-     "title": "v0.0.18-preview",
-     "at": "2026-09-13T22:57:58Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.18-preview",
-     "body": "# Try Omarchy v0.0.18-preview\n\nA larger Windows preview with better file sharing, recovery tools, and graphics reliability. This is the recommended upgrade from v0.0.14-preview, the previous public release; it includes the changes developed in the unpublished v0.0.15�17 candidates.\n\nDownload **TryOmarchy.exe** below and run it on Windows x64. Existing installations keep their guest disk, files, and settings. The launcher updates its guest integration automatically; use **Update > Omarchy** inside the guest for the full system package update.\n\n## What's new\n\n- **Copy files and folders between Windows and Omarchy.** Clipboard transfers preserve originals, and dedicated transfer windows support native Windows drag and drop and larger transfers.\n- **Snapshots and recovery.** Create snapshots, restore a separate copy, or roll back an installation with disk verification and recovery data retained if something interrupts the operation.\n- **Move your installation from Settings.** Verified copying, cancellation, interrupted-move recovery, and shortcuts that follow the new location make moving to another drive easier.\n- **More accessible Settings.** Adjust guest resources, disk capacity, rendering, displays, and sharing. Settings remain usable on smaller screens, and disk reclaim now has tray access and progress reporting.\n- **Better configuration migration.** Native monitor settings and the Omarchy runtime location survive restoration. Incomplete package or theme restoration is reported, and repeated restores retain separate backups.\n- **Omarchy 4.0.3 guest image.** Includes repaire"
-    },
-    {
-     "tag": "v0.0.14-preview",
-     "title": "v0.0.14-preview",
-     "at": "2026-09-06T02:33:07Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.14-preview",
-     "body": "v0.0.14-preview follows v0.0.13-preview from earlier today. It ships a rebuilt guest image (integration revision 12) and a launcher fix worth not waiting for.\n\n### Fixed\n\n- Choosing Suspend inside Omarchy no longer freezes the VM window. The guest can no longer enter the S3 or S4 sleep states, and new guests have Omarchy's suspend-off toggle on so the system menu does not offer it.\n- A runtime archive that is unchanged between releases is kept instead of being downloaded and unpacked again.\n\n### New\n\n- The guest follows the Windows display language, alongside the time zone and keyboard layout it already follows. The locale is generated inside Omarchy and takes effect at the next login. `-locale` overrides it.\n- Existing guests catch up with the image defaults on the first boot after an image update, without touching anything you changed: an untouched `monitors.lua` gets the current profile, the toggles an older image switched on by mistake are removed, and Suspend leaves the system menu.\n- New guest images include the Noto CJK fonts.\n\nFile drag and drop and file clipboard transfers are not included yet. Use `Omarchy Shared` for files."
-    },
-    {
-     "tag": "v0.0.13-preview",
-     "title": "v0.0.13-preview",
-     "at": "2026-09-05T17:21:34Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.13-preview",
-     "body": "v0.0.13-preview follows v0.0.12-preview. It ships a rebuilt guest image (integration revision 9) and a launcher that adapts to the machine it runs on. Existing guest disks keep their data and gain the new guest services on the next launch.\n\n### New\n\n- Images cross the clipboard in both directions: a screenshot copied in Windows pastes into Omarchy, and an image copied in Omarchy pastes into Windows apps. Text keeps working as before.\n- The guest follows the Windows time zone and default keyboard layout, and a small guest agent keeps the Omarchy clock in step with Windows, including after sleep. A layout or zone chosen inside Omarchy stays until Windows changes.\n- Automatic rendering remembers when this PC cannot run the GPU path and goes straight to CPU rendering on later launches, retrying daily or after a runtime or driver change. A new Rendering setting (Automatic, GPU, CPU) overrides it. New guests on CPU rendering start with animations off; existing guests keep their current setting.\n- Guest CPUs are sized to the machine (all logical processors but two, between two and eight) with a Guest CPUs setting and `-cpus`. CPU rendering also gets a larger automatic RAM ceiling; GPU rendering keeps its 6 GiB.\n- The VM window remembers its size and position between launches.\n- Try Omarchy registers under Windows Apps & features and can be removed from there, from **Remove Try Omarchy** in Settings, or with `-uninstall`, with a full backup offered first.\n- `TryOmarchy.exe -reclaim` gives the space of deleted Omarchy files back to Windows after the next shutdown, within a budget th"
-    },
-    {
-     "tag": "v0.0.12-preview",
-     "title": "v0.0.12-preview",
-     "at": "2026-09-05T06:45:11Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.12-preview",
-     "body": "v0.0.12-preview replaces v0.0.11-preview. It ships a rebuilt guest payload with Linux 7.2.3 and current Arch packages. Existing guest disks keep their data and receive the updated clipboard bridge on the next launch.\n\n### New\n\n- Backup, restore, and reset controls in Settings for stopped standard installs, plus `-backup` and `-restore` on the command line. Backups cover the guest disk, boot files, bundled runtime, and settings, and every file is checksum-verified on restore. Restore creates a separate installation with its own shortcuts and never replaces an existing one.\n- Reset offers a full backup first, prepares the new disk before moving the old one, and keeps the previous disk in a recovery folder\n- Disk capacity setting for standard installs with in-place growth and Windows free-space information. Lowering the setting never shrinks an existing disk.\n- First-run choice between Local AppData and another local drive or folder, remembered across launches and shortcuts\n- Windows folder pickers for install locations and shared folders, and an optional repair when preferences are unreadable\n- Stable-release update support with a bridge for older preview launchers\n- Official Omarchy mark in the app icon, setup splash, and VM window\n\n### Fixed\n\n- Clipboard sharing after reconnects and when copying an earlier value again; trailing newlines are kept, failed sends retry, and overlapping transfers no longer suppress a later copy\n- Interrupted setup reuses a completed download after a server outage or an ignored resume request, verified before use\n- Cancelling setup on an existing"
-    },
-    {
-     "tag": "v0.0.11-preview",
-     "title": "v0.0.11-preview",
-     "at": "2026-09-03T11:12:17Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.11-preview",
-     "body": "v0.0.11-preview replaces v0.0.9-preview and the withdrawn v0.0.10-preview. It includes all changes since v0.0.8-preview.\n\n### New\n\n- Recommended `Omarchy Shared` folder for moving files between Windows and Omarchy. It opens once when first attached, stays pinned in Files, and is available from the tray.\n- Tray menu for reopening Omarchy, opening the shared folder, Settings, diagnostics, and clean shutdown\n- Settings for fullscreen, memory, folder sharing, port forwarding, and SSH keys, plus a Start menu Settings shortcut\n- Offline portable USB mode with persistent guest data\n- Loopback-only SSH and port forwarding\n- Redacted diagnostics bundles and `try-omarchy-export`\n- Omarchy 4.0.2 for new and reset guests\n- yay, base-devel, clang, Omarchy's Neovim configuration, screen recording, and missing menu and keybinding tools\n\n### Fixed\n\n- Upgraded v0.8 through v0.10 guest disks now receive the current launcher integration without replacing the guest or user data\n- Updates are verified before switching versions, and a failed first boot restores the previous guest and runtime\n- Folder sharing works with CPU rendering through the bundled runtime\n- Unsafe or unavailable shared folders no longer prevent startup\n- Startup no longer fails solely because nested virtualization is unavailable\n- Reduced idle CPU use from excessive QEMU redraw polling\n- Reduced QEMU HDA audio underruns\n- Fixed notification close behavior and kept notifications private on the lock screen\n- Fixed Settings opening behind the Omarchy window\n\nFile drag and drop and file clipboard transfers are not included yet."
-    },
-    {
-     "tag": "v0.0.9-preview",
-     "title": "v0.0.9-preview",
-     "at": "2026-09-03T02:34:02Z",
-     "pre": true,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.9-preview",
-     "body": "This preview focuses on safer upgrades, a more complete Omarchy guest, and better Windows integration.\n\n### New\n\n- Settings window for fullscreen, memory, shared folders, port forwarding, and SSH keys\n- Offline portable USB mode with persistent guest data\n- Loopback-only SSH and port forwarding\n- Windows shared-folder links in the guest home directory\n- Redacted diagnostics bundles for bug reports\n- `try-omarchy-export` for moving files and supported settings to a real Omarchy install\n- Omarchy 4.0.2 for new and reset guests\n- yay, base-devel, clang, Omarchy's Neovim configuration, screen recording, and missing menu and keybinding tools\n\n### Fixed\n\n- Existing writable guests and user files are preserved during upgrades\n- Updates are fully downloaded and verified before switching versions\n- A failed first boot automatically restores the previous guest and runtime\n- Interrupted downloads and low disk space fail cleanly\n- Startup no longer fails solely because nested virtualization is unavailable\n- Lower idle CPU use by fixing excessive QEMU redraw polling\n- Fewer QEMU HDA audio underruns\n- Notification close behavior and notification privacy fixes\n\nThis is a public prerelease and is not offered as an automatic update."
-    },
-    {
-     "tag": "v0.0.8-preview",
-     "title": "v0.0.8-preview",
-     "at": "2026-08-31T00:41:41Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.8-preview",
-     "body": "- Fixed the launcher quitting on its own after about half an hour. Omarchy kept running, but the Windows key and every Windows shortcut went back to Windows, and the window could no longer be closed normally.\n- Fixed setup blaming your connection when the real problem was a full disk.\n- Removed a stall of about a minute when the bundled runtime rolled back to its previous version.\n- Added resumable downloads so an interrupted setup continues where it stopped instead of fetching the payload again, with bounded retries when antivirus or indexing briefly locks a finished file.\n- Added version details to the launcher, so Explorer, Task Manager and the Windows permission prompt now show Try Omarchy instead of a blank entry.\n- Added a source-locked CI build for the patched Windows QEMU runtime, including matching source, licenses, package inventory, provenance, and per-file hashes.\n- Added isolated signed test launchers so runtime candidates can be exercised without changing the production payload.\n- Hardened runtime packaging and validated clean setup, CPU fallback, scoped Windows-key handling, clipboard sharing, shutdown, relaunch, and persistent guest data in a nested Windows VM.\n- Made text clipboard sharing survive late guest startup, Wayland reconnects, early Windows copies, and temporary Windows clipboard contention.\n- Updated the guest image to nautilus 50.3 and fd 10.5.\n- Known limitation: Win+L still locks Windows instead of reaching Omarchy. Windows reserves that shortcut and no application can intercept it, so rebind the Omarchy action if you need it.\n\nThanks to [Tom "
-    },
-    {
-     "tag": "runtime-ci-alpha10-r1",
-     "title": "WINQ-EMU alpha10 source build test 1",
-     "at": "2026-08-30T13:32:35Z",
-     "pre": true,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/runtime-ci-alpha10-r1",
-     "body": "Test-only runtime built from locked source in GitHub Actions. Includes corresponding source and checksums. Not a Try Omarchy release."
-    },
-    {
-     "tag": "v0.0.7-preview",
-     "title": "v0.0.7-preview",
-     "at": "2026-08-30T04:16:04Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.7-preview",
-     "body": "- Added CI for launcher builds, release-pin validation, and guest patch contracts.\n- Added a two-phase release workflow that rebuilds and smoke-tests the guest, signs the optimized launcher through Azure OIDC, and verifies public downloads before marking a release Latest.\n- Added authenticated automatic updates for the launcher, bundled runtime, and factory guest image, with staged installs and automatic rollback after a failed first boot.\n- Added bounded retries for temporary DNS, connection, rate-limit, and server failures during setup downloads.\n- Made instant-mode credentials explicit in the account choice, setup splash, and a one-time first-desktop notification.\n- Removed the duplicate Windows pointer over the guest-rendered cursor, with `-host-cursor` retained as a diagnostic fallback.\n\nThanks to everyone testing Try Omarchy on real hardware and over remote sessions."
-    },
-    {
-     "tag": "v0.0.6-preview",
-     "title": "v0.0.6-preview",
-     "at": "2026-08-30T02:12:52Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.6-preview",
-     "body": "Try Omarchy can now take you straight to the desktop with a ready-to-use trial account. This release also adds branded Start-menu and Desktop shortcut choices, plus a compatibility guide for common Linux apps and packages.\n\nThanks to [Marx-Bray](https://github.com/Marx-Bray) for suggesting the launcher shortcuts in [issue #1](https://github.com/tsouth89/try-omarchy-windows/issues/1), and to everyone testing Try Omarchy across different Windows setups."
-    },
-    {
-     "tag": "v0.0.5-preview",
-     "title": "v0.0.5-preview",
-     "at": "2026-08-30T00:28:48Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.5-preview",
-     "body": "This preview polishes the first-run experience and fixes the rough edges found during launch-day testing.\n\n- Reworked the setup splash with a clear SUPER-key explanation and starter shortcuts\n- Added safe cancellation that stops downloads, removes partial setup data, and keeps the launcher\n- Authenticated the release manifest before downloading payloads and added recovery for incomplete installs\n- Prevented QEMU from trapping the Windows cursor in RDP sessions\n- Added essential keys, uninstall instructions, compatibility notes, and a FAQ\n\nThanks to [Tom Ballard](https://github.com/tcballard) for the manifest hardening and incomplete-install recovery in [PR #2](https://github.com/tsouth89/try-omarchy-windows/pull/2). Thanks also to everyone who tested the early previews and reported the problems that shaped this release.\n\nThe EXE is signed with Azure Trusted Signing. It uses the unchanged Omarchy image and WINQ-EMU payload from v0.0.3-preview."
-    },
-    {
-     "tag": "v0.0.4-preview",
-     "title": "v0.0.4-preview",
-     "at": "2026-08-29T05:16:40Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.4-preview",
-     "body": "Fixes the first-launch failures found on a busy 8 GB Windows PC.\n\n- Keeps the progress window visible until Omarchy opens\n- Sizes guest memory to what the PC can spare and retries with less if needed\n- Keeps errors above other windows instead of hiding them\n\nThe exe is signed with Azure Trusted Signing. It uses the unchanged guest image and WINQ-EMU bundle from v0.0.3-preview."
-    },
-    {
-     "tag": "v0.0.3-preview",
-     "title": "v0.0.3-preview",
-     "at": "2026-08-29T00:58:35Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.3-preview",
-     "body": "**Download: [TryOmarchy.exe](https://github.com/tsouth89/try-omarchy-windows/releases/download/v0.0.3-preview/TryOmarchy.exe)** (8 MB, signed). Open it - first run switches on Windows' virtualization if needed (one permission prompt, one restart; machines with Memory Integrity on skip this entirely), downloads the GPU runtime and the Omarchy image, and boots you into setup. Checksum in TryOmarchy.exe.sha256.\n\n---\n\nSame Omarchy 4.0.1 image as v0.0.2 plus two guest-side fixes for the native app shell: a reboot-notify unit (reports reboot intent on lifecycle port 4450, so TryOmarchy.exe relaunches instead of exiting even when stock WHPX QEMU wedges during guest reset) and a silenced clipboard-bridge push when no host listener is up.\n\nHardware-validated on a Ryzen 5 5625U laptop: regression, runtime download, signed-binary smoke, close guard, clipboard, folder sharing, reboot lifecycle. The exe is signed with Azure Trusted Signing (publisher: Brandon South)."
-    },
-    {
-     "tag": "v0.0.2-preview",
-     "title": "v0.0.2-preview",
-     "at": "2026-08-28T21:53:17Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.2-preview",
-     "body": "Second preview image. Omarchy 4.0.1 (was 4.0.0.alpha), all 22 upstream themes, screensavers working out of the box (ttfx + hypridle), Venus ICD (vulkan-virtio) preinstalled, permanent SDDM autologin written by first-boot provisioning (no greeter, ever), baked-in two-way clipboard bridge, /mnt/host automount for the launcher's -Share folder, and a visible cursor under SDL.\n\nValidated end to end under KVM before publishing: setup form to desktop, reboot straight back into the desktop, 3.45s to graphical.target on the test box. Use scripts/bootstrap.ps1 from the repo to install; rerun with a deleted %LOCALAPPDATA%\\TryOmarchy\\guest to upgrade from v0.0.1, and launch with -Fresh.\n\nGuest image built from jorge-huxley/try-omarchy-win (win branch) plus the patches in guest-build/."
-    },
-    {
-     "tag": "v0.0.1-preview",
-     "title": "v0.0.1 developer preview",
-     "at": "2026-08-28T00:49:21Z",
-     "pre": false,
-     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.1-preview",
-     "body": "First developer preview: Omarchy boots to a rendered Hyprland desktop under QEMU/WHPX on Windows. CPU rendering only (llvmpipe, SSE4.2-tier flags — see docs/FINDINGS.md for the WHPX XSAVE cliff). Validated in a nested dev environment; bare-metal validation in progress. Use scripts/bootstrap.ps1 from the repo. Guest image built from the pinned Omarchy revision via jorge-huxley/try-omarchy-win's x86_64 builder."
-    }
-   ]
-  },
   "btsouth/try-omarchy-linux": {
    "stars": 4,
    "pushedAt": "2026-10-26T02:16:23Z",
@@ -1281,7 +885,7 @@
   },
   "btsouth/omakade": {
    "stars": 442,
-   "pushedAt": "2026-10-31T00:17:09Z",
+   "pushedAt": "2026-10-31T00:49:59Z",
    "latest": "v1.18.0",
    "releaseDates": [
     "2026-10-26T03:31:22Z",
@@ -2588,84 +2192,399 @@
     }
    ]
   },
-  "btsouth/notestrip": {
-   "stars": 1,
-   "pushedAt": "2026-10-02T23:17:38Z",
-   "latest": "v0.3.0",
+  "omacom/try-omarchy-windows": {
+   "stars": 704,
+   "pushedAt": "2026-10-30T23:41:13Z",
+   "latest": "v0.13.0",
    "releaseDates": [
-    "2026-09-03T23:32:18Z",
-    "2026-09-03T23:22:03Z",
-    "2026-09-03T23:18:07Z",
-    "2026-08-30T13:23:13Z"
+    "2026-10-26T03:07:09Z",
+    "2026-10-22T21:08:05Z",
+    "2026-10-22T00:33:18Z",
+    "2026-10-14T04:23:32Z",
+    "2026-10-14T01:33:16Z",
+    "2026-10-09T10:25:57Z",
+    "2026-10-09T02:41:32Z",
+    "2026-10-06T21:16:43Z",
+    "2026-10-06T01:17:02Z",
+    "2026-10-05T12:16:07Z",
+    "2026-10-04T20:21:08Z",
+    "2026-10-04T17:55:58Z",
+    "2026-10-02T03:22:58Z",
+    "2026-10-01T03:41:30Z",
+    "2026-10-01T01:33:26Z",
+    "2026-09-29T20:09:22Z",
+    "2026-09-29T18:03:00Z",
+    "2026-09-27T07:00:01Z",
+    "2026-09-27T01:29:19Z",
+    "2026-09-26T17:40:52Z",
+    "2026-09-24T09:06:56Z",
+    "2026-09-24T05:02:12Z",
+    "2026-09-23T13:35:38Z",
+    "2026-09-23T12:25:38Z",
+    "2026-09-23T10:02:28Z",
+    "2026-09-22T23:22:25Z",
+    "2026-09-19T21:38:20Z",
+    "2026-09-16T01:21:39Z",
+    "2026-09-13T22:57:58Z",
+    "2026-09-06T02:33:07Z",
+    "2026-09-05T17:21:34Z",
+    "2026-09-05T06:45:11Z",
+    "2026-09-03T11:12:17Z",
+    "2026-09-03T02:34:02Z",
+    "2026-08-31T00:41:41Z",
+    "2026-08-30T13:32:35Z",
+    "2026-08-30T04:16:04Z",
+    "2026-08-30T02:12:52Z",
+    "2026-08-30T00:28:48Z",
+    "2026-08-29T05:16:40Z",
+    "2026-08-29T00:58:35Z",
+    "2026-08-28T21:53:17Z",
+    "2026-08-28T00:49:21Z"
    ],
    "releases": [
     {
-     "tag": "v0.3.0",
-     "title": "NoteStrip 0.3.0",
-     "at": "2026-09-03T23:32:18Z",
+     "tag": "v0.13.0",
+     "title": "v0.13.0",
+     "at": "2026-10-26T03:07:09Z",
      "pre": false,
-     "url": "https://github.com/btsouth/notestrip/releases/tag/v0.3.0",
-     "body": "Adds per-note workspace following. Use the globe control on a popped-out note, or `notestrip follow <id>`.\n\nThe global `floatFollows` setting remains the default."
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.13.0",
+     "body": "`v0.13.0` fixes freezes on Intel graphics, offers CPU rendering when GPU rendering never reaches the screen, and lets Win+G reach Omarchy.\n\n# Fixes\n\n* Fix Omarchy freezing on Intel graphics when opening menus or the Hyprland configuration editor with GPU rendering on (#361, #367, #362)\n* When GPU rendering never shows the desktop in the Omarchy window, the launcher now offers CPU rendering after two minutes instead of Automatic picking GPU again on every start (#366, #358)\n* The health check no longer offers Restart while a system package update is still running (#365, #359)\n* Win+G and Win+Alt+G now reach Omarchy's window grouping. Windows' Xbox Game Bar still opens on them too; press Esc to close it (#369, #370, #368)\n\n## Dev\n\n* Build runtime r25 with the Intel buffer upload fixes (#361, #367)\n* Refresh the guest package lock (#371)\n\n## Thanks 🙏\n\n* @Vinluo for tracking down the Intel freeze, fixing it and testing every build on their Arc B390 (#361, #362, #367)\n* @knothhe for the Win+G fix in their first contribution (#369, #368)\n* @AI-Dico for reporting the black window on their RX 6800 XT and the restart prompt during updates (#358, #359)"
     },
     {
-     "tag": "v0.2.1",
-     "title": "NoteStrip 0.2.1",
-     "at": "2026-09-03T23:22:03Z",
+     "tag": "runtime-v1-r25",
+     "title": "WINQ-EMU r25 runtime",
+     "at": "2026-10-22T21:08:05Z",
      "pre": false,
-     "url": "https://github.com/btsouth/notestrip/releases/tag/v0.2.1",
-     "body": "Prevents the systemd service from starting a duplicate NoteStrip instance."
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/runtime-v1-r25",
+     "body": "WINQ-EMU r25 runtime component and corresponding source archives for the next signed Try Omarchy app release. This is not a standalone launcher or a new app version.\n\nBuilt from the source-locked recipe at commit `2f5da1b` (`master`) in [Runtime run 39852529917](https://github.com/omacom/try-omarchy-windows/actions/runs/39852529917). `SHA256SUMS` covers both archives. r25 stops Omarchy freezing on Intel Arc graphics on Windows by uploading buffers without mapping them (#361, thanks @Vinluo), and sends each of those uploads in one call so buffer streaming stays fast (#367)."
+    },
+    {
+     "tag": "v0.12.1",
+     "title": "v0.12.1",
+     "at": "2026-10-22T00:33:18Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.12.1",
+     "body": "`v0.12.1` fixes setup and updates failing on some home networks.\n\n# Fixes\n\n* Fix setup and update downloads failing with \"winapi error #12167\" on networks where Windows finds a proxy setup server that serves no proxy script, such as Fritz!Box routers and SK Broadband (#356)\n* Finish the Korean translation for Links from Windows and installing updates from downloaded files (#357)\n\n## Dev\n\n* Refresh the guest package lock and give the system image room for it (#363, #364)\n\n## Thanks 🙏\n\n* @AI-Dico for tracking down the proxy failure and fixing it, and for the Korean translation (#356, #357)\n* @Mexican-Judo for confirming it also blocked first setup on a Fritz!Box network (#356)"
+    },
+    {
+     "tag": "v0.12.0",
+     "title": "v0.12.0",
+     "at": "2026-10-14T04:23:32Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.12.0",
+     "body": "`v0.12.0` makes the cursor as smooth as the Windows pointer, keeps Omarchy's network working with many connections open, and lets links clicked in Windows open in Omarchy.\n\n# Features\n\n* Links clicked in Windows can open in an Omarchy app. Allow a link type in **Settings > Apps > Links from Windows** (#352, #348)\n* Windows now draws the cursor with Omarchy's own shapes, so it stays smooth when the desktop is busy. Existing installs get it after running **Update > Omarchy** once (#345, #346, #321)\n* When a system update can't download, the launcher keeps retrying while Omarchy runs and gives slow name lookups more time. You can also install it from release files downloaded in your browser, using the tray menu (#344, #277)\n\n# Fixes\n\n* Fix Omarchy's network stopping once more than 64 connections were open, which stalled browsers, package updates and Tailscale until a restart (#347)\n* Fix clicks at the bottom of the screen opening an auto-hidden Windows taskbar in fullscreen. Ctrl+Alt+G still releases the pointer (#330, #320)\n* Fix the window staying larger than the screen after leaving fullscreen with Ctrl+Alt+F (#355)\n* Diagnostics leave out folder paths, account, computer and display names, and private network addresses, so the zip can be shared as is (#350)\n* First setup says the system image is downloading instead of showing \"Checking cached rootfs.ext4.zst...\" (#351)\n\n## Dev\n\n* Build runtime r24 with the network and cursor fixes (#353)\n* Refresh the guest package lock (#354)\n* Check the guest shell against current Arch and Omarchy packages every day (#343)\n\n## Thanks 🙏\n\n"
+    },
+    {
+     "tag": "runtime-v1-r24",
+     "title": "WINQ-EMU r24 runtime",
+     "at": "2026-10-14T01:33:16Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/runtime-v1-r24",
+     "body": "WINQ-EMU r24 runtime component and corresponding source archives for the next signed Try Omarchy app release. This is not a standalone launcher or a new app version.\n\nBuilt from the source-locked recipe at commit `0debd6f` (`master`) in [Runtime run 38487926153](https://github.com/omacom/try-omarchy-windows/actions/runs/38487926153). `SHA256SUMS` covers both archives. r24 keeps Omarchy's network working when it has more than 64 connections open (#347, thanks @pai-scaffolde), and lets Windows draw the Omarchy cursor so it stays smooth when the desktop is busy (#346, for #321)."
+    },
+    {
+     "tag": "v0.11.0",
+     "title": "v0.11.0",
+     "at": "2026-10-09T10:25:57Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.11.0",
+     "body": "`v0.11.0` makes future updates much smaller, fixes the top bar disappearing after **Update > Omarchy**, Chinese input methods and a sound menu freeze, and finishes the Korean translation.\n\nThis update still downloads the full Omarchy system image (about 1.9 GB) one last time. Updates after this one skip it.\n\n# Features\n\n* Updates no longer download the full Omarchy system image. It is only fetched when you install Omarchy or choose **Start fresh**, and an interrupted download resumes where it left off (#312)\n* Backups can leave out the system image, and backups to exFAT drives work (#312)\n* Korean now covers the whole launcher (#318)\n* Simplified Chinese wording is polished and covers the tray messages (#327)\n\n# Fixes\n\n* Fix the top bar disappearing and Win+K / Win+Space opening black screens after **Update > Omarchy**. Installs that already updated are repaired when this version starts (#336)\n* Fix typing and shortcuts not reaching Omarchy while a Windows input method such as Microsoft Pinyin is in Chinese mode (#328)\n* Fix the sound menu freezing Omarchy when Windows has no microphone. Connecting a headset later picks up its microphone (#332)\n* Fix volume sync stopping after choosing **VirtIO PCM 0** in Omarchy's sound menu. Omarchy now switches back to the Windows device (#277)\n* Show a tray message when the Omarchy system update cannot be downloaded, instead of failing silently (#277)\n\n## Dev\n\n* Build runtime r23 with the input method and microphone fixes (#334, #338)\n* Refresh the guest package lock to Qt 6.12 (#340)\n* Allow two backports to change the same file (#342)"
+    },
+    {
+     "tag": "runtime-v1-r23",
+     "title": "WINQ-EMU r23 runtime",
+     "at": "2026-10-09T02:41:32Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/runtime-v1-r23",
+     "body": "WINQ-EMU r23 runtime component and corresponding source archives for the next signed Try Omarchy app release. This is not a standalone launcher or a new app version.\n\nBuilt from the source-locked recipe at commit `00b7bf2` (`master`) in [Runtime run 37874254043](https://github.com/omacom/try-omarchy-windows/actions/runs/37874254043). `SHA256SUMS` covers both archives. r23 keeps typing working while a Windows input method such as Microsoft Pinyin is in Chinese mode (#334), and stops the sound menu from freezing Omarchy when Windows has no microphone (#338)."
+    },
+    {
+     "tag": "v0.10.1",
+     "title": "v0.10.1",
+     "at": "2026-10-06T21:16:43Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.10.1",
+     "body": "`v0.10.1` fixes large images copied from Windows and portable installs on exFAT.\n\n# Fixes\n\n* Fix large images copied from Windows stalling before they reach Omarchy (#319)\n* Fix portable installs on exFAT failing to start after the first launch (#322)\n\n## Dev\n\n* Write release notes as UTF-8 and stop publishing when notes are missing or empty (#319)"
+    },
+    {
+     "tag": "v0.10.0",
+     "title": "v0.10.0",
+     "at": "2026-10-06T01:17:02Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.10.0",
+     "body": "`v0.10.0` brings a faster start, recovery when things go wrong, and a long list of fixes across the clipboard, audio, keyboard, displays and more.\n\n# Features\n\n* Start Omarchy right away. Updates now download in the background while you use it, resume after interruptions, use the Windows proxy settings, and install the next time Omarchy starts, or right away with **Restart to update** in the tray (#307)\n* Detect when the Omarchy desktop stops responding, save diagnostics, and offer to restart it, in CPU mode if graphics froze. Your session stays open until you choose (#303, #315)\n* Resume cleanly after Windows sleep, or show **Resume Omarchy** in the tray if it cannot. Restarting or signing out of Windows shuts Omarchy down cleanly first, and the next start offers recovery if that did not finish (#304, #216)\n* Keep volume and mute in sync between Omarchy and Windows, including playback device changes. Turn off **Sync volume with Windows** in Settings to control them separately (#292, #277)\n* Night light now warms the VM display from the existing menu and keyboard shortcut (#289)\n* Warn when Omarchy's Windows drive is running low or almost full, with guidance for Reclaim and moving the data in Settings (#291)\n* CPU rendering mode now really limits the processor features Omarchy sees (#306)\n* PowerToys and AutoHotkey can see the Win key while Omarchy runs (#306)\n* Follow your Windows display language, plus Dvorak, US-International and Turkish F layouts (#296)\n\n# Fixes\n\n* Fix GPU mode freezing on NVIDIA graphics when Media Player opens, and GTK4 apps such as Files crashing (#2"
+    },
+    {
+     "tag": "runtime-v1-r22",
+     "title": "WINQ-EMU r22 runtime",
+     "at": "2026-10-05T12:16:07Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/runtime-v1-r22",
+     "body": "WINQ-EMU r22 runtime component and corresponding source archives for the next signed Try Omarchy app release. This is not a standalone launcher or a new app version.\n\nBuilt from the source-locked recipe at commit `a8ba148c0e92ae12d928d911165fdff079aea8c0` (`master`) in [Runtime run 37303492481](https://github.com/omacom/try-omarchy-windows/actions/runs/37303492481). `SHA256SUMS` covers both archives. r22 makes CPU rendering mode really limit the processor features Omarchy sees, and lets tools like PowerToys and AutoHotkey see the Win key while Omarchy runs.\n\nThe currently published `v0.9.0` app pins r21. The next signed app release will pin r22."
+    },
+    {
+     "tag": "v0.9.0",
+     "title": "v0.9.0",
+     "at": "2026-10-04T20:21:08Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.9.0",
+     "body": "This update makes Omarchy sound and scroll more like Windows, and adds Simplified Chinese.\n\nAudio now plays at your Windows device's own sample rate and as loud as Windows does. Precision touchpads scroll smoothly in both directions instead of in wheel steps, and Omarchy's battery panel shows the health, capacity and cycle count that Windows reports. Image Viewer and Media Player are more reliable, and Settings no longer smears text while scrolling at higher display scaling.\n\nThe launcher is available in Simplified Chinese, thanks to @Dazzle-sys, and Korean now covers Settings and Help, thanks to @seunghan91. Inside Omarchy there are a few smaller fixes too, like clearer guidance from Update > Omarchy when the disk needs more space and better Traditional Chinese input.\n\n[Download Try Omarchy for Windows](https://tryomarchy.com/download)"
+    },
+    {
+     "tag": "runtime-v1-r21",
+     "title": "WINQ-EMU r21 runtime",
+     "at": "2026-10-04T17:55:58Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/runtime-v1-r21",
+     "body": "WINQ-EMU r21 runtime component and corresponding source archives for the next signed Try Omarchy app release. This is not a standalone launcher or a new app version.\n\nBuilt from the source-locked recipe at commit `8ec4033826e09cbd4c833c059bb0fd1517f18857` (the same tree as `master` at `a02465f`) in [Runtime run 37135317236](https://github.com/omacom/try-omarchy-windows/actions/runs/37135317236). `SHA256SUMS` covers both archives. r21 opens Windows playback and recording at each device's own sample rate, keeps precision touchpad scrolling smooth instead of rounding it to whole wheel clicks, and checks the host GPU driver's exact image import support before sharing images with it.\n\nThe currently published `v0.8.0` app pins r20c. The next signed app release will pin r21."
+    },
+    {
+     "tag": "v0.8.0",
+     "title": "v0.8.0",
+     "at": "2026-10-02T03:22:58Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.8.0",
+     "body": "This update makes starting Omarchy smoother and adds Korean.\n\nOmarchy's window now opens once the desktop is ready, right where you left it, and Omarchy pauses while Windows sleeps so it picks up where it left off. The launcher is available in Korean, thanks to @seunghan91. Inside, Omarchy moves to 4.0.4; run Update > Omarchy to get it. There are also a few smaller fixes in Settings, the clipboard and the importer.\n\n[Download Try Omarchy for Windows](https://tryomarchy.com/download)"
+    },
+    {
+     "tag": "v0.7.1",
+     "title": "v0.7.1",
+     "at": "2026-10-01T03:41:30Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.7.1",
+     "body": "This update makes the Linux importer safer and adds Simplified Chinese to the launcher.\n\nThe import command now checks the package, app and theme names it reads from your trial before handing them to pacman, yay or Flatpak. It only runs the system's own tools, so a script with the same name in your trial's `~/.local/bin` can't stand in for one, and it never follows a link on the trial disk outside the trial. If you already imported your own trial with v0.7.0, there's nothing to redo.\n\nThe list of what to bring over now says that everything checked comes along, so pressing Enter is all most people need to do.\n\nWhen Windows is set to Simplified Chinese, the launcher's About and update screens, first-launch questions and Settings section titles now show in Chinese. Thanks to @Dazzle-sys for the translation.\n\n[Download Try Omarchy for Windows](https://tryomarchy.com/download)"
+    },
+    {
+     "tag": "v0.7.0",
+     "title": "v0.7.0: From trial to install",
+     "at": "2026-10-01T01:33:26Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.7.0",
+     "body": "Make Omarchy yours before you install it.\n\nTry it on Windows, set it up your way, then bring your settings, files and app\ndata to a native Omarchy installation.\n\nOpen **Settings > Recovery > Install Omarchy** for the new walkthrough. It\nchecks BitLocker, helps you prepare Windows, and gives you a short import\ncommand to run after installing Omarchy. You choose what comes along. Files\nare backed up before changes, and browser profiles and sign-ins are optional.\n\nThe launcher also has a cleaner look, remembers USB devices between launches,\nand follows Windows time-zone changes.\n\n[Download Try Omarchy for Windows](https://tryomarchy.com/download)"
+    },
+    {
+     "tag": "v0.6.2",
+     "title": "v0.6.2",
+     "at": "2026-09-29T20:09:22Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.6.2",
+     "body": "# Try Omarchy v0.6.2\n\nDownload **TryOmarchy.exe** below, or let your installed launcher update itself. Your guest disk, files and settings carry over.\n\n- **Security fix for the quick-start account.** If you forwarded a port to Omarchy's SSH (guest port 22), and especially if you made it a LAN forward, anyone who could reach that port could log in as `omarchy` / `omarchy` and use its passwordless sudo. SSH now accepts only keys for the quick-start account, and Try Omarchy authorizes your key when you set up the forward. Existing quick-start installs get this on their first boot after updating. Accounts you created yourself keep password login.\n- **Your own account is the default for new installs.** The first-launch screen now preselects \"Choose my username and password\". The quick start is still one click away. Installs you already set up keep the choice you made.\n- The quick-start welcome notice now suggests running `passwd` to set your own password.\n- Setup now checks for enough free space to unpack Omarchy before downloading it, instead of running out partway through.\n\nSee the [compatibility guide](https://github.com/omacom/try-omarchy-windows/blob/master/docs/COMPATIBILITY.md) for hardware requirements and known limits.\n\n[Changes since v0.6.1](https://github.com/omacom/try-omarchy-windows/compare/v0.6.1...v0.6.2)"
+    },
+    {
+     "tag": "v0.6.1",
+     "title": "v0.6.1",
+     "at": "2026-09-29T18:03:00Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.6.1",
+     "body": "# Try Omarchy v0.6.1\n\nDownload **TryOmarchy.exe** below, or let your installed launcher update itself. Your guest disk, files and settings carry over.\n\n- **Alt+Tab can go back to Windows.** Settings > General has a new \"Send Alt+Tab to Omarchy while its window is focused\" checkbox. It's on by default, so nothing changes unless you turn it off. With it off, Alt+Tab opens the Windows task switcher like it did before v0.1.0. The change applies right away without restarting Omarchy.\n- **No more black screen after a long sleep.** On laptops with Modern Standby, waking Windows after more than a few minutes could make Omarchy restart core services, leaving a black desktop or dropping you back to the login screen. Those restarts no longer happen.\n- **Your monitor scale sticks.** A scale set in `~/.config/hypr/monitors.lua` now survives theme switches and `hyprctl reload` instead of snapping back to the automatic value.\n- Omarchy's packages are refreshed to current Arch versions.\n\nSee the [compatibility guide](https://github.com/omacom/try-omarchy-windows/blob/master/docs/COMPATIBILITY.md) for hardware requirements and known limits.\n\n[Changes since v0.6.0](https://github.com/omacom/try-omarchy-windows/compare/v0.6.0...v0.6.1)"
+    },
+    {
+     "tag": "v0.6.0",
+     "title": "v0.6.0",
+     "at": "2026-09-27T07:00:01Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.6.0",
+     "body": "# Try Omarchy v0.6.0\n\nDownload **TryOmarchy.exe** below, or let your installed launcher update itself. Your guest disk, files and settings carry over.\n\n- **Drop files straight into apps.** Drag a file from File Explorer onto a browser upload area, an editor or an image viewer in Omarchy and that app gets it. The file is also saved to Downloads. Keep the mouse still for a moment after you let go; if it moves, the file just stays in Downloads. Dropping onto a Files folder copies straight into that folder, as before.\n- **Unlock 1Password with Windows Hello.** If you've paired Windows Hello for sudo and installed 1Password in Omarchy, run `sudo try-omarchy-windows-hello onepassword enable` and turn on \"Unlock using system authentication\" in 1Password. The unlock button then asks for Windows Hello, and canceling falls back to your guest password. 1Password still asks for its account password after it restarts.\n- **Port forwards change without a restart.** Adding or removing a local forward under Settings > Advanced takes effect within a couple of seconds. LAN forwards and SSH still change at the next launch.\n- **Older installs catch up on packages.** Running Update > Omarchy now installs packages that newer Try Omarchy images depend on, so features like app drops work on installs created by older versions.\n- **Safer Windows Hello sudo.** Only this Omarchy's own VM can ask for approval, sudo from an SSH session into Omarchy uses the password, an interrupted request no longer confuses the next one, and after you cancel a prompt that terminal uses the password for 30 seconds. The p"
+    },
+    {
+     "tag": "v0.5.0",
+     "title": "v0.5.0",
+     "at": "2026-09-27T01:29:19Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.5.0",
+     "body": "# Try Omarchy v0.5.0\n\nDownload **TryOmarchy.exe** below, or let your installed launcher update itself. Your guest disk, files and settings carry over.\n\n- **Windows Hello for sudo.** Optional. In an Omarchy terminal, run `sudo try-omarchy-windows-hello enable`, enter your guest password once, and approve the Windows passkey prompt. After that, each `sudo` asks for Windows Hello instead of your password. The prompt only appears while the Omarchy window is in front, and canceling it falls back to your password. `sudo try-omarchy-windows-hello disable` turns it off and removes the passkey. Trial accounts don't use a sudo password, so this matters once you've set up your own account.\n- **Theme switches no longer flash.** Changing themes used to blank the Omarchy window for a moment and could snap a resized window back to an older size.\n- **Dark title bar.** The Omarchy window's title bar now follows your Windows light or dark setting, and changes with it.\n- **Hold Alt to switch windows.** Holding Alt and tapping Tab now keeps Alt held inside Omarchy, so window switchers that stay open while Alt is down work the way they do on a normal PC.\n- **More reliable setup downloads.** If a download link stops working after the file already finished downloading, setup now uses the finished file instead of failing.\n- Current Arch packages in the guest image.\n\nResizing the window still dims the display briefly while Omarchy adjusts. See the [compatibility guide](https://github.com/omacom/try-omarchy-windows/blob/master/docs/COMPATIBILITY.md) for hardware requirements and known limits.\n\n[Chan"
+    },
+    {
+     "tag": "v0.4.0",
+     "title": "v0.4.0",
+     "at": "2026-09-26T17:40:52Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.4.0",
+     "body": "- Pinch to zoom on a Windows 11 Precision Touchpad. It is on by default in GPU\n  mode with one display, and `-disable-pinch` turns it off. Existing guests\n  pick up the touchpad rules on their first boot of the new image; a guest\n  whose Hyprland `input.lua` cannot be updated safely keeps ordinary touchpad\n  input.\n- Send Ctrl+Alt+Delete to Omarchy with Ctrl+Alt+End while its window is\n  focused. Windows reserves Ctrl+Alt+Delete for its security screen, so it\n  cannot be passed through.\n- A Hyprland `input.lua` exported to a real Omarchy install no longer fails on\n  the missing Try Omarchy rules file.\n- Update the guest to Linux 7.2.7 and systemd 262 with current Arch packages."
+    },
+    {
+     "tag": "v0.3.0",
+     "title": "v0.3.0",
+     "at": "2026-09-24T09:06:56Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.3.0",
+     "body": "- Switch Windows playback and recording devices while Omarchy runs. Saving\n  audio choices in Settings reroutes the running VM, and Omarchy's own audio\n  picker lists the Windows speakers and microphones so a choice made there is\n  saved back to Windows. Choices carry across guest reboots.\n- An idle VM no longer holds the Windows speaker open before anything plays.\n- Update the bundled runtime to the source-built r20c WINQ-EMU build. Turning\n  microphone access on or off still takes effect at the next VM start."
+    },
+    {
+     "tag": "runtime-v1-r20c",
+     "title": "WINQ-EMU r20c runtime candidate",
+     "at": "2026-09-24T05:02:12Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/runtime-v1-r20c",
+     "body": "WINQ-EMU r20c runtime component and corresponding source archives for the next signed Try Omarchy app release. This is not a standalone launcher or a new app version.\n\nBuilt from the source-locked recipe at commit `3ae8213ce5436eb6ec551f764360f08784e19b18` in [Runtime run 35931045895](https://github.com/omacom/try-omarchy-windows/actions/runs/35931045895). `SHA256SUMS` covers both archives. r20c adds live SDL audio routes, so Windows playback and recording endpoints can change while the guest runs, and defers the initial playback open so an idle VM does not hold the Windows speaker. The AMD Windows 11 laptop passed a signed candidate with this runtime, including GPU desktop, live routing, reboot persistence and idle release; see the [physical record](https://github.com/omacom/try-omarchy-windows/blob/master/docs/evidence/LIVE-AUDIO-R20-2026-09-23.md).\n\nThe currently published `v0.2.0` app still pins r19. The next signed app release will pin r20c."
     },
     {
      "tag": "v0.2.0",
-     "title": "NoteStrip 0.2.0",
-     "at": "2026-09-03T23:18:07Z",
+     "title": "v0.2.0",
+     "at": "2026-09-23T13:35:38Z",
      "pre": false,
-     "url": "https://github.com/btsouth/notestrip/releases/tag/v0.2.0",
-     "body": "Ledge is now NoteStrip.\n\n- Renames the app, CLI, package, service, and desktop integration.\n- Migrates existing 0.1 notes and settings safely, with compatibility aliases.\n- Adds clickable links, note copying, reminder snoozing, and keyboard-first detaching from All Notes.\n- Improves floating-note focus, placement, and Hyprland parser handling.\n- Fixes live Omarchy theme reloads and adds migration and theme regression coverage.\n\nThe attached Arch package installs with `sudo pacman -U notestrip-0.2.0-1-any.pkg.tar.zst`."
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.2.0",
+     "body": "- Open native Windows Settings from the Omarchy launcher and mirror the host\n  laptop's battery and AC state inside the guest.\n- Return unused guest RAM to Windows through the source-built r19 WHPX runtime\n  while keeping the guest's configured memory capacity available for reuse.\n- Approve specific Windows executables in Settings and launch them from the\n  Omarchy app menu; removing approval revokes later launches.\n- Choose the Windows monitor for fullscreen Omarchy, with primary-display\n  fallback when a saved monitor is disconnected."
+    },
+    {
+     "tag": "runtime-v1-r19",
+     "title": "WINQ-EMU r19 runtime candidate",
+     "at": "2026-09-23T12:25:38Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/runtime-v1-r19",
+     "body": "WINQ-EMU r19 runtime component and corresponding source archives for the next signed Try Omarchy app release. This is not a standalone launcher or a new app version.\n\nBuilt from the source-locked recipe at commit `751a845359c98f0d31af9d5deee9d3d31ac5497f` in [Runtime run 35852652612](https://github.com/omacom/try-omarchy-windows/actions/runs/35852652612). `SHA256SUMS` covers both archives. The r19 patch adds WHPX free-page reclamation; the launcher enables balloon reporting only when runtime provenance includes this patch. The AMD Windows 11 laptop passed measured 4 GiB guest memory return and reuse plus a full GPU desktop boot; see the [physical record](https://github.com/omacom/try-omarchy-windows/blob/master/docs/evidence/FEATURE-GAPS-2026-09-23.md).\n\nThe currently published `v0.1.0` app still pins r18. A future signed app release will pin r19 after its candidate checks."
     },
     {
      "tag": "v0.1.0",
-     "title": "Ledge 0.1.0",
-     "at": "2026-08-30T13:23:13Z",
+     "title": "v0.1.0",
+     "at": "2026-09-23T10:02:28Z",
      "pre": false,
-     "url": "https://github.com/btsouth/notestrip/releases/tag/v0.1.0",
-     "body": "Sticky notes that live on the edge of your screen, for Hyprland.\n\nThe dash on the edge *is* the note: reach for the strip and it fans out its\nlabels, land on one and that same rectangle grows into the editable note.\nNothing slides out from behind anything else, and everything else on the\nsurface is click-through.\n\n- Edge strip with hover peek, drag reorder, and scrolling past ten notes\n- Markdown styled in place, with no edit/preview mode\n- Pop a note out into a real window: move it, resize it, drag it between monitors\n- All Notes: search, archived notes, trash with restore, and export\n- Reminders, checklists, and pasted images\n- Follows the active Omarchy theme, with note colours generated per theme\n- Notes are plain markdown files. Everything has a CLI and an IPC call\n\n### Install\n\nThe AUR is closed to new submissions at the moment, so either build it:\n\n```bash\ngit clone https://github.com/tsouth89/ledge\ncd ledge && makepkg -si\n```\n\nor install the package attached below, which is built from this tag and\ncontains no compiled code:\n\n```bash\nsudo pacman -U ledge-0.1.0-1-any.pkg.tar.zst\n```\n\nThen `systemctl --user enable --now ledge`, or `exec-once = ledge start` in your\nHyprland config.\n\nRequires `quickshell`. Developed on Hyprland; other wlroots compositors should\nrun the strip, but popped-out notes rely on Hyprland window rules for placement."
-    }
-   ]
-  },
-  "btsouth/signal": {
-   "stars": 0,
-   "pushedAt": "2026-10-09T01:42:46Z",
-   "latest": "v1.0.2",
-   "releaseDates": [
-    "2026-10-09T01:44:01Z",
-    "2026-08-21T10:26:12Z",
-    "2026-08-20T21:22:16Z"
-   ],
-   "releases": [
-    {
-     "tag": "v1.0.2",
-     "title": "Signal v1.0.2",
-     "at": "2026-10-09T01:44:01Z",
-     "pre": false,
-     "url": "https://github.com/btsouth/signal/releases/tag/v1.0.2",
-     "body": "Colors work again on Qt 6.12. QtQuick 6.12 added its own `Color` type, which hid the shell's color palette and left the plugin's colors undefined. It now reads the palette as `Commons.Color`, the same fix Omarchy made for its own shell."
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.1.0",
+     "body": "# Try Omarchy for Windows v0.1.0\n\nThe first normal 0.x Try Omarchy for Windows release. Download **TryOmarchy.exe** below and run it on a 64-bit Windows 10 or 11 PC with hardware virtualization enabled. Existing preview installations retain their guest disk, files, and settings. Older launchers update through the signed v0.0.20-preview bridge before reaching this version.\n\n- Open Settings before boot, then choose **Launch Omarchy**. Start-menu and Desktop shortcuts can optionally launch Omarchy directly, with a separate Settings shortcut. Settings can also launch Omarchy at Windows sign-in and open it fullscreen.\n- A second installation preserves shortcuts owned by the first and places its own launchers beside the new installation when those Windows shortcut names are already in use.\n- Choose playback and microphone devices for the next boot. An unavailable saved device falls back to the Windows default.\n- Use Alt+Tab inside the focused Omarchy window, and Ctrl+Alt+Tab for the Windows task switcher.\n- Use camera and microphone access controls, the clipboard, folder sharing, file drops, snapshots, backups, recovery, and GPU rendering with automatic CPU fallback.\n- Hosts that support nested virtualization can run nested Linux workloads. Hosts without it continue to boot Omarchy normally.\n- Send a diagnostic bundle with a structured bug report when hardware or startup problems arise.\n\nThe Precision Touchpad pinch bridge is experimental and disabled by default. Graphics acceleration depends on the Windows driver; automatic CPU rendering is available when the GPU path fails. An "
     },
     {
-     "tag": "v1.0.1",
-     "title": "Signal v1.0.1",
-     "at": "2026-08-21T10:26:12Z",
+     "tag": "runtime-v1-r18",
+     "title": "WINQ-EMU r18 runtime for Try Omarchy v1.0.0",
+     "at": "2026-09-22T23:22:25Z",
      "pre": false,
-     "url": "https://github.com/btsouth/signal/releases/tag/v1.0.1",
-     "body": "Security hardening requested during marketplace review: remote Sentry data is bounded and rendered only as plain text, authenticated API responses have strict size limits, and plugin-owned config/cache state rejects symbolic links and uses atomic writes."
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/runtime-v1-r18",
+     "body": "WINQ-EMU r18 support archives for Try Omarchy v1.0.0. These are runtime and corresponding source assets, not a standalone Try Omarchy launcher release.\n\nBuilt from the source-locked recipe at commit 5b01ecfe6b068a4bc53bde2b9a95a7b9e33b3d18 in [Runtime run 35794436367](https://github.com/omacom/try-omarchy-windows/actions/runs/35794436367). `SHA256SUMS` covers both archives. The Windows Precision Touchpad pinch bridge in this runtime remains opt-in."
     },
     {
-     "tag": "v1.0.0",
-     "title": "Signal 1.0.0",
-     "at": "2026-08-20T21:22:16Z",
+     "tag": "v0.0.20-preview",
+     "title": "v0.0.20-preview",
+     "at": "2026-09-19T21:38:20Z",
      "pre": false,
-     "url": "https://github.com/btsouth/signal/releases/tag/v1.0.0",
-     "body": "First public release of Signal: a quiet, native Sentry incident inbox for the Omarchy Quattro bar.\n\nHighlights:\n- Regression and escalation alerts with a quiet first-run baseline\n- Project, lifecycle, environment, search, and sort filtering\n- Keyboard-first issue triage with Resolve and Archive actions\n- Secret Service credential storage and hardened HTTPS transport\n- Origin-scoped offline cache with rate-limit and outage fallback\n- Deterministic demo mode for evaluation\n\nSee the README for installation and connection instructions."
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.20-preview",
+     "body": "# Try Omarchy v0.0.20-preview\n\nCamera, microphone and file-drop improvements for Windows x64.\n\n- Use the Windows camera and microphone in guest apps. Camera capture starts on demand and stops when the app closes it.\n- Drop Windows files into an open local Files folder without a transfer window taking over. Other destinations use Downloads with a notification. Duplicate names keep both files.\n- Existing guests receive matching camera and TUN modules automatically. Interrupted module delivery retries on the next boot.\n- Recover from orphaned package-manager locks after interrupted updates, without removing locks owned by a running transaction.\n- Pause the guest during Windows sleep and resume it on wake with clock synchronization.\n\nExisting installations keep their disk, files and settings. Use **Update > Omarchy** inside the guest for the full system package update.\n\nThis remains a preview. Windows sleep/wake recovery has not been verified on physical hardware. Direct drops into arbitrary applications, portable-drive lifecycle, native migration and broader Windows/GPU coverage remain unfinished. Accelerated RAM resume and Windows ARM64 are not supported.\n\nThanks to everyone testing and reporting issues, and to the Omarchy, WINQ-EMU, QEMU and Mesa communities.\n\n[Changes since v0.0.19-preview](https://github.com/omacom/try-omarchy-windows/compare/v0.0.19-preview...v0.0.20-preview)"
+    },
+    {
+     "tag": "v0.0.19-preview",
+     "title": "v0.0.19-preview",
+     "at": "2026-09-16T01:21:39Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.19-preview",
+     "body": "# Try Omarchy v0.0.19-preview\n\nA reliability preview. Download **TryOmarchy.exe** below and run it on Windows x64. Existing installations keep their guest disk, files, and settings. The launcher updates its guest integration automatically; use **Update > Omarchy** inside the guest for the full system package update.\n\n## What's new\n\n- **Lighter portable copies.** Creating a portable copy, or copying an existing portable installation, now writes an independently verified QCOW2 disk directly instead of staging a full backup and raw restore. Moves and snapshots also retry transient Windows file locks.\n- **Clean guest package ownership.** The guest runtime package no longer claims the two Neovim helper commands owned by the editor package. Existing guests keep both helpers, including administrator edits, and the package database reports no duplicate ownership.\n- **Restored Neovim theming.** New accounts get the packaged Neovim theme link again, and existing guests receive it when the launcher integration updates. Neovim follows the active Omarchy theme, and `omarchy-nvim` reports no missing files.\n\n## Validation and remaining preview limitations\n\nAutomated launcher, guest, and factory-image checks pass on the pinned candidate. The guest update path was exercised end to end on the checksum-verified v0.0.18-preview image, including the five-boot preservation run and the new compatibility-revision delivery, and the physical Windows draft test verifies preserved data, the new kernel boot, reboot and poweroff, rollback, and the one-time compatibility repair before publication.\n\nThis "
+    },
+    {
+     "tag": "v0.0.18-preview",
+     "title": "v0.0.18-preview",
+     "at": "2026-09-13T22:57:58Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.18-preview",
+     "body": "# Try Omarchy v0.0.18-preview\n\nA larger Windows preview with better file sharing, recovery tools, and graphics reliability. This is the recommended upgrade from v0.0.14-preview, the previous public release; it includes the changes developed in the unpublished v0.0.15�17 candidates.\n\nDownload **TryOmarchy.exe** below and run it on Windows x64. Existing installations keep their guest disk, files, and settings. The launcher updates its guest integration automatically; use **Update > Omarchy** inside the guest for the full system package update.\n\n## What's new\n\n- **Copy files and folders between Windows and Omarchy.** Clipboard transfers preserve originals, and dedicated transfer windows support native Windows drag and drop and larger transfers.\n- **Snapshots and recovery.** Create snapshots, restore a separate copy, or roll back an installation with disk verification and recovery data retained if something interrupts the operation.\n- **Move your installation from Settings.** Verified copying, cancellation, interrupted-move recovery, and shortcuts that follow the new location make moving to another drive easier.\n- **More accessible Settings.** Adjust guest resources, disk capacity, rendering, displays, and sharing. Settings remain usable on smaller screens, and disk reclaim now has tray access and progress reporting.\n- **Better configuration migration.** Native monitor settings and the Omarchy runtime location survive restoration. Incomplete package or theme restoration is reported, and repeated restores retain separate backups.\n- **Omarchy 4.0.3 guest image.** Includes repaire"
+    },
+    {
+     "tag": "v0.0.14-preview",
+     "title": "v0.0.14-preview",
+     "at": "2026-09-06T02:33:07Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.14-preview",
+     "body": "v0.0.14-preview follows v0.0.13-preview from earlier today. It ships a rebuilt guest image (integration revision 12) and a launcher fix worth not waiting for.\n\n### Fixed\n\n- Choosing Suspend inside Omarchy no longer freezes the VM window. The guest can no longer enter the S3 or S4 sleep states, and new guests have Omarchy's suspend-off toggle on so the system menu does not offer it.\n- A runtime archive that is unchanged between releases is kept instead of being downloaded and unpacked again.\n\n### New\n\n- The guest follows the Windows display language, alongside the time zone and keyboard layout it already follows. The locale is generated inside Omarchy and takes effect at the next login. `-locale` overrides it.\n- Existing guests catch up with the image defaults on the first boot after an image update, without touching anything you changed: an untouched `monitors.lua` gets the current profile, the toggles an older image switched on by mistake are removed, and Suspend leaves the system menu.\n- New guest images include the Noto CJK fonts.\n\nFile drag and drop and file clipboard transfers are not included yet. Use `Omarchy Shared` for files."
+    },
+    {
+     "tag": "v0.0.13-preview",
+     "title": "v0.0.13-preview",
+     "at": "2026-09-05T17:21:34Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.13-preview",
+     "body": "v0.0.13-preview follows v0.0.12-preview. It ships a rebuilt guest image (integration revision 9) and a launcher that adapts to the machine it runs on. Existing guest disks keep their data and gain the new guest services on the next launch.\n\n### New\n\n- Images cross the clipboard in both directions: a screenshot copied in Windows pastes into Omarchy, and an image copied in Omarchy pastes into Windows apps. Text keeps working as before.\n- The guest follows the Windows time zone and default keyboard layout, and a small guest agent keeps the Omarchy clock in step with Windows, including after sleep. A layout or zone chosen inside Omarchy stays until Windows changes.\n- Automatic rendering remembers when this PC cannot run the GPU path and goes straight to CPU rendering on later launches, retrying daily or after a runtime or driver change. A new Rendering setting (Automatic, GPU, CPU) overrides it. New guests on CPU rendering start with animations off; existing guests keep their current setting.\n- Guest CPUs are sized to the machine (all logical processors but two, between two and eight) with a Guest CPUs setting and `-cpus`. CPU rendering also gets a larger automatic RAM ceiling; GPU rendering keeps its 6 GiB.\n- The VM window remembers its size and position between launches.\n- Try Omarchy registers under Windows Apps & features and can be removed from there, from **Remove Try Omarchy** in Settings, or with `-uninstall`, with a full backup offered first.\n- `TryOmarchy.exe -reclaim` gives the space of deleted Omarchy files back to Windows after the next shutdown, within a budget th"
+    },
+    {
+     "tag": "v0.0.12-preview",
+     "title": "v0.0.12-preview",
+     "at": "2026-09-05T06:45:11Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.12-preview",
+     "body": "v0.0.12-preview replaces v0.0.11-preview. It ships a rebuilt guest payload with Linux 7.2.3 and current Arch packages. Existing guest disks keep their data and receive the updated clipboard bridge on the next launch.\n\n### New\n\n- Backup, restore, and reset controls in Settings for stopped standard installs, plus `-backup` and `-restore` on the command line. Backups cover the guest disk, boot files, bundled runtime, and settings, and every file is checksum-verified on restore. Restore creates a separate installation with its own shortcuts and never replaces an existing one.\n- Reset offers a full backup first, prepares the new disk before moving the old one, and keeps the previous disk in a recovery folder\n- Disk capacity setting for standard installs with in-place growth and Windows free-space information. Lowering the setting never shrinks an existing disk.\n- First-run choice between Local AppData and another local drive or folder, remembered across launches and shortcuts\n- Windows folder pickers for install locations and shared folders, and an optional repair when preferences are unreadable\n- Stable-release update support with a bridge for older preview launchers\n- Official Omarchy mark in the app icon, setup splash, and VM window\n\n### Fixed\n\n- Clipboard sharing after reconnects and when copying an earlier value again; trailing newlines are kept, failed sends retry, and overlapping transfers no longer suppress a later copy\n- Interrupted setup reuses a completed download after a server outage or an ignored resume request, verified before use\n- Cancelling setup on an existing"
+    },
+    {
+     "tag": "v0.0.11-preview",
+     "title": "v0.0.11-preview",
+     "at": "2026-09-03T11:12:17Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.11-preview",
+     "body": "v0.0.11-preview replaces v0.0.9-preview and the withdrawn v0.0.10-preview. It includes all changes since v0.0.8-preview.\n\n### New\n\n- Recommended `Omarchy Shared` folder for moving files between Windows and Omarchy. It opens once when first attached, stays pinned in Files, and is available from the tray.\n- Tray menu for reopening Omarchy, opening the shared folder, Settings, diagnostics, and clean shutdown\n- Settings for fullscreen, memory, folder sharing, port forwarding, and SSH keys, plus a Start menu Settings shortcut\n- Offline portable USB mode with persistent guest data\n- Loopback-only SSH and port forwarding\n- Redacted diagnostics bundles and `try-omarchy-export`\n- Omarchy 4.0.2 for new and reset guests\n- yay, base-devel, clang, Omarchy's Neovim configuration, screen recording, and missing menu and keybinding tools\n\n### Fixed\n\n- Upgraded v0.8 through v0.10 guest disks now receive the current launcher integration without replacing the guest or user data\n- Updates are verified before switching versions, and a failed first boot restores the previous guest and runtime\n- Folder sharing works with CPU rendering through the bundled runtime\n- Unsafe or unavailable shared folders no longer prevent startup\n- Startup no longer fails solely because nested virtualization is unavailable\n- Reduced idle CPU use from excessive QEMU redraw polling\n- Reduced QEMU HDA audio underruns\n- Fixed notification close behavior and kept notifications private on the lock screen\n- Fixed Settings opening behind the Omarchy window\n\nFile drag and drop and file clipboard transfers are not included yet."
+    },
+    {
+     "tag": "v0.0.9-preview",
+     "title": "v0.0.9-preview",
+     "at": "2026-09-03T02:34:02Z",
+     "pre": true,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.9-preview",
+     "body": "This preview focuses on safer upgrades, a more complete Omarchy guest, and better Windows integration.\n\n### New\n\n- Settings window for fullscreen, memory, shared folders, port forwarding, and SSH keys\n- Offline portable USB mode with persistent guest data\n- Loopback-only SSH and port forwarding\n- Windows shared-folder links in the guest home directory\n- Redacted diagnostics bundles for bug reports\n- `try-omarchy-export` for moving files and supported settings to a real Omarchy install\n- Omarchy 4.0.2 for new and reset guests\n- yay, base-devel, clang, Omarchy's Neovim configuration, screen recording, and missing menu and keybinding tools\n\n### Fixed\n\n- Existing writable guests and user files are preserved during upgrades\n- Updates are fully downloaded and verified before switching versions\n- A failed first boot automatically restores the previous guest and runtime\n- Interrupted downloads and low disk space fail cleanly\n- Startup no longer fails solely because nested virtualization is unavailable\n- Lower idle CPU use by fixing excessive QEMU redraw polling\n- Fewer QEMU HDA audio underruns\n- Notification close behavior and notification privacy fixes\n\nThis is a public prerelease and is not offered as an automatic update."
+    },
+    {
+     "tag": "v0.0.8-preview",
+     "title": "v0.0.8-preview",
+     "at": "2026-08-31T00:41:41Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.8-preview",
+     "body": "- Fixed the launcher quitting on its own after about half an hour. Omarchy kept running, but the Windows key and every Windows shortcut went back to Windows, and the window could no longer be closed normally.\n- Fixed setup blaming your connection when the real problem was a full disk.\n- Removed a stall of about a minute when the bundled runtime rolled back to its previous version.\n- Added resumable downloads so an interrupted setup continues where it stopped instead of fetching the payload again, with bounded retries when antivirus or indexing briefly locks a finished file.\n- Added version details to the launcher, so Explorer, Task Manager and the Windows permission prompt now show Try Omarchy instead of a blank entry.\n- Added a source-locked CI build for the patched Windows QEMU runtime, including matching source, licenses, package inventory, provenance, and per-file hashes.\n- Added isolated signed test launchers so runtime candidates can be exercised without changing the production payload.\n- Hardened runtime packaging and validated clean setup, CPU fallback, scoped Windows-key handling, clipboard sharing, shutdown, relaunch, and persistent guest data in a nested Windows VM.\n- Made text clipboard sharing survive late guest startup, Wayland reconnects, early Windows copies, and temporary Windows clipboard contention.\n- Updated the guest image to nautilus 50.3 and fd 10.5.\n- Known limitation: Win+L still locks Windows instead of reaching Omarchy. Windows reserves that shortcut and no application can intercept it, so rebind the Omarchy action if you need it.\n\nThanks to [Tom "
+    },
+    {
+     "tag": "runtime-ci-alpha10-r1",
+     "title": "WINQ-EMU alpha10 source build test 1",
+     "at": "2026-08-30T13:32:35Z",
+     "pre": true,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/runtime-ci-alpha10-r1",
+     "body": "Test-only runtime built from locked source in GitHub Actions. Includes corresponding source and checksums. Not a Try Omarchy release."
+    },
+    {
+     "tag": "v0.0.7-preview",
+     "title": "v0.0.7-preview",
+     "at": "2026-08-30T04:16:04Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.7-preview",
+     "body": "- Added CI for launcher builds, release-pin validation, and guest patch contracts.\n- Added a two-phase release workflow that rebuilds and smoke-tests the guest, signs the optimized launcher through Azure OIDC, and verifies public downloads before marking a release Latest.\n- Added authenticated automatic updates for the launcher, bundled runtime, and factory guest image, with staged installs and automatic rollback after a failed first boot.\n- Added bounded retries for temporary DNS, connection, rate-limit, and server failures during setup downloads.\n- Made instant-mode credentials explicit in the account choice, setup splash, and a one-time first-desktop notification.\n- Removed the duplicate Windows pointer over the guest-rendered cursor, with `-host-cursor` retained as a diagnostic fallback.\n\nThanks to everyone testing Try Omarchy on real hardware and over remote sessions."
+    },
+    {
+     "tag": "v0.0.6-preview",
+     "title": "v0.0.6-preview",
+     "at": "2026-08-30T02:12:52Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.6-preview",
+     "body": "Try Omarchy can now take you straight to the desktop with a ready-to-use trial account. This release also adds branded Start-menu and Desktop shortcut choices, plus a compatibility guide for common Linux apps and packages.\n\nThanks to [Marx-Bray](https://github.com/Marx-Bray) for suggesting the launcher shortcuts in [issue #1](https://github.com/tsouth89/try-omarchy-windows/issues/1), and to everyone testing Try Omarchy across different Windows setups."
+    },
+    {
+     "tag": "v0.0.5-preview",
+     "title": "v0.0.5-preview",
+     "at": "2026-08-30T00:28:48Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.5-preview",
+     "body": "This preview polishes the first-run experience and fixes the rough edges found during launch-day testing.\n\n- Reworked the setup splash with a clear SUPER-key explanation and starter shortcuts\n- Added safe cancellation that stops downloads, removes partial setup data, and keeps the launcher\n- Authenticated the release manifest before downloading payloads and added recovery for incomplete installs\n- Prevented QEMU from trapping the Windows cursor in RDP sessions\n- Added essential keys, uninstall instructions, compatibility notes, and a FAQ\n\nThanks to [Tom Ballard](https://github.com/tcballard) for the manifest hardening and incomplete-install recovery in [PR #2](https://github.com/tsouth89/try-omarchy-windows/pull/2). Thanks also to everyone who tested the early previews and reported the problems that shaped this release.\n\nThe EXE is signed with Azure Trusted Signing. It uses the unchanged Omarchy image and WINQ-EMU payload from v0.0.3-preview."
+    },
+    {
+     "tag": "v0.0.4-preview",
+     "title": "v0.0.4-preview",
+     "at": "2026-08-29T05:16:40Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.4-preview",
+     "body": "Fixes the first-launch failures found on a busy 8 GB Windows PC.\n\n- Keeps the progress window visible until Omarchy opens\n- Sizes guest memory to what the PC can spare and retries with less if needed\n- Keeps errors above other windows instead of hiding them\n\nThe exe is signed with Azure Trusted Signing. It uses the unchanged guest image and WINQ-EMU bundle from v0.0.3-preview."
+    },
+    {
+     "tag": "v0.0.3-preview",
+     "title": "v0.0.3-preview",
+     "at": "2026-08-29T00:58:35Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.3-preview",
+     "body": "**Download: [TryOmarchy.exe](https://github.com/tsouth89/try-omarchy-windows/releases/download/v0.0.3-preview/TryOmarchy.exe)** (8 MB, signed). Open it - first run switches on Windows' virtualization if needed (one permission prompt, one restart; machines with Memory Integrity on skip this entirely), downloads the GPU runtime and the Omarchy image, and boots you into setup. Checksum in TryOmarchy.exe.sha256.\n\n---\n\nSame Omarchy 4.0.1 image as v0.0.2 plus two guest-side fixes for the native app shell: a reboot-notify unit (reports reboot intent on lifecycle port 4450, so TryOmarchy.exe relaunches instead of exiting even when stock WHPX QEMU wedges during guest reset) and a silenced clipboard-bridge push when no host listener is up.\n\nHardware-validated on a Ryzen 5 5625U laptop: regression, runtime download, signed-binary smoke, close guard, clipboard, folder sharing, reboot lifecycle. The exe is signed with Azure Trusted Signing (publisher: Brandon South)."
+    },
+    {
+     "tag": "v0.0.2-preview",
+     "title": "v0.0.2-preview",
+     "at": "2026-08-28T21:53:17Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.2-preview",
+     "body": "Second preview image. Omarchy 4.0.1 (was 4.0.0.alpha), all 22 upstream themes, screensavers working out of the box (ttfx + hypridle), Venus ICD (vulkan-virtio) preinstalled, permanent SDDM autologin written by first-boot provisioning (no greeter, ever), baked-in two-way clipboard bridge, /mnt/host automount for the launcher's -Share folder, and a visible cursor under SDL.\n\nValidated end to end under KVM before publishing: setup form to desktop, reboot straight back into the desktop, 3.45s to graphical.target on the test box. Use scripts/bootstrap.ps1 from the repo to install; rerun with a deleted %LOCALAPPDATA%\\TryOmarchy\\guest to upgrade from v0.0.1, and launch with -Fresh.\n\nGuest image built from jorge-huxley/try-omarchy-win (win branch) plus the patches in guest-build/."
+    },
+    {
+     "tag": "v0.0.1-preview",
+     "title": "v0.0.1 developer preview",
+     "at": "2026-08-28T00:49:21Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.0.1-preview",
+     "body": "First developer preview: Omarchy boots to a rendered Hyprland desktop under QEMU/WHPX on Windows. CPU rendering only (llvmpipe, SSE4.2-tier flags — see docs/FINDINGS.md for the WHPX XSAVE cliff). Validated in a nested dev environment; bare-metal validation in progress. Use scripts/bootstrap.ps1 from the repo. Guest image built from the pinned Omarchy revision via jorge-huxley/try-omarchy-win's x86_64 builder."
     }
    ]
   },
@@ -3040,7 +2959,7 @@
   },
   "btsouth/cubby-clipboard": {
    "stars": 14,
-   "pushedAt": "2026-10-31T00:10:11Z",
+   "pushedAt": "2026-10-31T00:58:13Z",
    "latest": "v1.3.8",
    "releaseDates": [
     "2026-10-31T00:05:30Z",
@@ -3193,7 +3112,7 @@
   },
   "btsouth/matteshot": {
    "stars": 2,
-   "pushedAt": "2026-10-27T07:45:18Z",
+   "pushedAt": "2026-10-31T02:00:20Z",
    "latest": "v0.21.1",
    "releaseDates": [
     "2026-09-27T01:46:35Z",
@@ -3954,48 +3873,27 @@
     }
    ]
   },
-  "btsouth/agenttraceback": {
-   "stars": 1,
-   "pushedAt": "2026-10-30T23:22:26Z",
-   "latest": "v0.1.0-alpha.4",
-   "releaseDates": [
-    "2026-09-21T01:02:58Z",
-    "2026-09-20T23:39:49Z",
-    "2026-09-20T23:02:05Z",
-    "2026-09-20T22:05:29Z"
-   ],
-   "releases": [
+  "btsouth/t3code-customize": {
+   "stars": 9,
+   "pushedAt": "2026-10-15T22:20:30Z",
+   "latest": null,
+   "releaseDates": [],
+   "releases": [],
+   "merged": [
     {
-     "tag": "v0.1.0-alpha.4",
-     "title": "AgentTraceback v0.1.0-alpha.4",
-     "at": "2026-09-21T01:02:58Z",
-     "pre": true,
-     "url": "https://github.com/btsouth/agenttraceback/releases/tag/v0.1.0-alpha.4",
-     "body": "This is an experimental prerelease for evaluation. Stable v0.1.0 release gates\nremain open, including the seven-day soak and packaged installation, uninstall,\nand reboot tests across supported platforms.\n\nInstallers may be unsigned. Windows may show an unknown-publisher warning, and\nmacOS builds may lack Developer ID signing and notarization. Do not disable\nplatform security controls to install these builds. Use a source build if your\nplatform rejects an installer. SHA-256 checksum files accompany the artifacts.\n\nSigned automatic updates are not a supported distribution path for this alpha.\nBuild-time updater hooks exist, but published update metadata and end-to-end\nsignature verification remain release gates. See `docs/release.md` for details.\n\nThe Windows MSI uses numeric installer version `0.0.4` for this alpha; the application reports `0.1.0-alpha.4`. This keeps the installer version below the eventual stable `0.1.0` upgrade.\n\nAlpha.2 fixes the desktop startup panic when updater configuration is absent. The\nrelease workflow now launches the packaged Linux desktop and requires a visible\nwindow plus a healthy daemon started through frontend IPC.\n\nOn the tested Omarchy/Arch machine with newer NVIDIA drivers, the AppImage also\nrequires the system Wayland client library to avoid a bundled-library/EGL conflict:\n\n```bash\nLD_PRELOAD=/usr/lib/libwayland-client.so.0 ~/Downloads/AgentTraceback_0.1.0-alpha.4_amd64.AppImage\n```\n\nThis per-launch workaround changes no system files. It was verified locally with\nthe published AppImage; other Linux distributions can use different library"
+     "n": 4,
+     "title": "Add Windows desktop support",
+     "at": "2026-10-15T22:20:30Z"
     },
     {
-     "tag": "v0.1.0-alpha.3",
-     "title": "AgentTraceback v0.1.0-alpha.3",
-     "at": "2026-09-20T23:39:49Z",
-     "pre": true,
-     "url": "https://github.com/btsouth/agenttraceback/releases/tag/v0.1.0-alpha.3",
-     "body": "This is an experimental prerelease for evaluation. Stable v0.1.0 release gates\nremain open, including the seven-day soak and packaged installation, uninstall,\nand reboot tests across supported platforms.\n\nInstallers may be unsigned. Windows may show an unknown-publisher warning, and\nmacOS builds may lack Developer ID signing and notarization. Do not disable\nplatform security controls to install these builds. Use a source build if your\nplatform rejects an installer. SHA-256 checksum files accompany the artifacts.\n\nSigned automatic updates are not a supported distribution path for this alpha.\nBuild-time updater hooks exist, but published update metadata and end-to-end\nsignature verification remain release gates. See `docs/release.md` for details.\n\nThe Windows MSI uses numeric installer version `0.0.3` for this alpha; the application reports `0.1.0-alpha.3`. This keeps the installer version below the eventual stable `0.1.0` upgrade.\n\nAlpha.2 fixes the desktop startup panic when updater configuration is absent. The\nrelease workflow now launches the packaged Linux desktop and requires a visible\nwindow plus a healthy daemon started through frontend IPC.\n\nOn the tested Omarchy/Arch machine with newer NVIDIA drivers, the AppImage also\nrequires the system Wayland client library to avoid a bundled-library/EGL conflict:\n\n```bash\nLD_PRELOAD=/usr/lib/libwayland-client.so.0 ~/Downloads/AgentTraceback_0.1.0-alpha.3_amd64.AppImage\n```\n\nThis per-launch workaround changes no system files. It was verified locally with\nthe published AppImage; other Linux distributions can use different library"
+     "n": 1,
+     "title": "Support macOS without re-signing the app",
+     "at": "2026-10-15T21:56:15Z"
     },
     {
-     "tag": "v0.1.0-alpha.2",
-     "title": "AgentTraceback v0.1.0-alpha.2",
-     "at": "2026-09-20T23:02:05Z",
-     "pre": true,
-     "url": "https://github.com/btsouth/agenttraceback/releases/tag/v0.1.0-alpha.2",
-     "body": "This is an experimental prerelease for evaluation. Stable v0.1.0 release gates\nremain open, including the seven-day soak and packaged installation, uninstall,\nand reboot tests across supported platforms.\n\nInstallers may be unsigned. Windows may show an unknown-publisher warning, and\nmacOS builds may lack Developer ID signing and notarization. Do not disable\nplatform security controls to install these builds. Use a source build if your\nplatform rejects an installer. SHA-256 checksum files accompany the artifacts.\n\nSigned automatic updates are not a supported distribution path for this alpha.\nBuild-time updater hooks exist, but published update metadata and end-to-end\nsignature verification remain release gates. See `docs/release.md` for details.\n\nThe Windows MSI uses numeric installer version `0.0.2` for this alpha; the application reports `0.1.0-alpha.2`. This keeps the installer version below the eventual stable `0.1.0` upgrade.\n\n\n\n\nAlpha.2 fixes the updater initialization crash in unsigned desktop builds. Packaged desktop startup passed on Ubuntu CI.\n\nOn the tested Omarchy/Arch machine with newer NVIDIA drivers, use the system Wayland client library to avoid the bundled-library/EGL conflict (verified locally):\n\n```bash\nLD_PRELOAD=/usr/lib/libwayland-client.so.0 ~/Downloads/AgentTraceback_0.1.0-alpha.2_amd64.AppImage\n```\n\nThis applies only to this launch and changes no system files. Other distributions may use a different library path."
-    },
-    {
-     "tag": "v0.1.0-alpha.1",
-     "title": "AgentTraceback v0.1.0-alpha.1",
-     "at": "2026-09-20T22:05:29Z",
-     "pre": true,
-     "url": "https://github.com/btsouth/agenttraceback/releases/tag/v0.1.0-alpha.1",
-     "body": "> **Desktop startup issue:** This version can panic while initializing the updater. Use [v0.1.0-alpha.2](https://github.com/btsouth/agenttraceback/releases/tag/v0.1.0-alpha.2), which fixes that bug and adds a packaged desktop startup check.\n\nThis is an experimental prerelease for evaluation. Stable v0.1.0 release gates\nremain open, including the seven-day soak and packaged installation, uninstall,\nand reboot tests across supported platforms.\n\nInstallers may be unsigned. Windows may show an unknown-publisher warning, and\nmacOS builds may lack Developer ID signing and notarization. Do not disable\nplatform security controls to install these builds. Use a source build if your\nplatform rejects an installer. SHA-256 checksum files accompany the artifacts.\n\nSigned automatic updates are not a supported distribution path for this alpha.\nBuild-time updater hooks exist, but published update metadata and end-to-end\nsignature verification remain release gates. See `docs/release.md` for details.\n\nThe Windows MSI uses numeric installer version `0.0.1` for this alpha; the application reports `0.1.0-alpha.1`. This keeps the installer version below the eventual stable `0.1.0` upgrade."
+     "n": 2,
+     "title": "Suggest the same model on a subscription with more room",
+     "at": "2026-10-15T21:46:11Z"
     }
    ]
   },
@@ -4113,33 +4011,6 @@
      "pre": true,
      "url": "https://github.com/btsouth/agent-board/releases/tag/v0.1.0",
      "body": "# Agent Board 0.1.0\n\nAgent Board is one native WoW addon and one bridge for T3 Code and Hermes.\n\nThis preview combines the tested HermesWoW interaction model with a T3 Code\nprovider adapter. The live desktop overlay is the primary interface; the native\naddon remains as a reload-based fallback. The T3 adapter attaches to the\nalready-running T3 Code server, so it does not require a second desktop instance\nor a patched nightly build.\n\n## Included\n\n- One addon, `AgentBoard`, opened with `/agents` or `/ag`.\n- One bridge service, `agent-board.service`.\n- One provider-neutral action protocol for replies, new T3 sessions, approvals,\n  declines, input answers, stops, mark-read actions, and live overlay hand-off.\n- Provider-labeled rows from Hermes and T3 Code in the same board.\n- A persistent live socket with conversation history, direct replies, approvals,\n  input answers, stops, and new T3 sessions without a UI reload.\n- Game-aware overlay startup and hiding from the existing bridge service.\n- Guided setup, managed update, rollback, and uninstall for Linux.\n- An optional desktop overlay that can be focused on a selected session.\n\n## Install\n\nAfter the release is published:\n\n```bash\ncurl -fsSL https://raw.githubusercontent.com/btsouth/agent-board/v0.1.0/install.sh | bash\n```\n\nStart World of Warcraft in Windowed or Windowed Fullscreen mode. The bridge\nopens the Agent Board badge when the game starts; click it or press\n`Super+Alt+C` to toggle the board. The native addon fallback opens with\n`/agents` and updates on **Sync**.\n\n## Notes\n\n- Linux and systemd user services are the tested "
-    }
-   ]
-  },
-  "btsouth/hermes-wow": {
-   "stars": 0,
-   "pushedAt": "2026-10-01T22:34:18Z",
-   "latest": "v0.7.0",
-   "releaseDates": [
-    "2026-09-19T22:11:43Z",
-    "2026-09-19T21:44:31Z"
-   ],
-   "releases": [
-    {
-     "tag": "v0.7.0",
-     "title": "v0.7.0",
-     "at": "2026-09-19T22:11:43Z",
-     "pre": true,
-     "url": "https://github.com/btsouth/hermes-wow/releases/tag/v0.7.0",
-     "body": "One-command setup for the Hermes WoW bridge on Linux.\n\n- Finds your game and Hermes installation, installs the addon, and verifies the first snapshot.\n- Starts the bridge automatically at login, with no terminal left open.\n- Adds status, update and uninstall commands. Failed updates restore the previous installation.\n- Improves first-run instructions and snapshot recovery guidance.\n\nRequires an existing Hermes installation and Linux with a systemd user session, Python 3.10+, Git and curl. The addon ZIP alone does not provide the bridge.\n\nLive setup, uninstall and reinstall passed on Linux. Offline gates cover update rollback and duplicate watchers. This remains a Classic beta preview for interface 16001; in-game controls and other clients are unverified.\n\n[Install and limitations](https://github.com/btsouth/hermes-wow#readme) · [Validation](https://github.com/btsouth/hermes-wow/blob/v0.7.0/docs/validation-0.7.0.md)"
-    },
-    {
-     "tag": "v0.6.0",
-     "title": "v0.6.0",
-     "at": "2026-09-19T21:44:31Z",
-     "pre": true,
-     "url": "https://github.com/btsouth/hermes-wow/releases/tag/v0.6.0",
-     "body": "Hermes agents in Azeroth: see what needs you, reply, and manage sessions from a native WoW board.\n\n- Clickable sync toasts for new attention and completed work.\n- First-run setup card and a visible Sync button.\n- Mark read without changing Hermes's database. New activity resurfaces the session.\n- Clickable session links in chat.\n- Stop a local desktop-backend turn at sync. It targets the turn active when delivered and clears queued prompts and approvals.\n- Fixes for late CLI failures, corrupt dispatch state, notifications, and panel layout.\n\nRequires a local Hermes installation and the Python bridge. The addon zip alone is not enough. Update both halves together for payload schema 3.\n\nThis is a preview release for the tested Classic beta client, interface 16001. Offline gates and rendered previews pass; the new controls still need an in-game check. Other client builds and bridge operating systems are unverified.\n\n[Setup and limitations](https://github.com/btsouth/hermes-wow#readme) · [Changes](https://github.com/btsouth/hermes-wow/blob/main/CHANGELOG.md)"
     }
    ]
   }
@@ -5623,11 +5494,11 @@
   ],
   [
    "2026-10-30",
-   64
+   72
   ],
   [
    "2026-10-31",
-   1
+   2
   ]
  ]
 }
