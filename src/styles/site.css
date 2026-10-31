@@ -196,6 +196,7 @@ section.blk { padding: 96px 0 0; }
 .tp-copy h3 { margin: 14px 0 0; font: 700 clamp(28px, 3vw, 38px)/1.1 "JetBrains Mono", monospace; letter-spacing: -.03em; }
 .tp-copy > p { margin: 14px 0 0; color: var(--fg2); font-size: 16px; }
 .tp-id { display: flex; align-items: center; gap: 12px; }
+.eyebrow + .tp-id { margin-top: 22px; }
 .tp-id b { font: 700 18px/1.2 "JetBrains Mono", monospace; }
 .checks { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 10px; }
 .checks li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; color: var(--fg2); font-size: 15px; line-height: 1.45; }
