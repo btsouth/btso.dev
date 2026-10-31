@@ -4,6 +4,7 @@ import AppCard from '../components/AppCard.astro';
 import ShipCard from '../components/ShipCard.astro';
 import FeatureCard from '../components/FeatureCard.astro';
 import ToolportBand from '../components/ToolportBand.astro';
+import BakeryBand from '../components/BakeryBand.astro';
 import { GROUPS, days, projectById, projects, releases, releasesPerWeek, stats, within, type Group } from '../lib/ship';
 import { ago } from '../lib/time';
 import { gridDays } from '../lib/grid';
@@ -97,6 +98,7 @@ const termLines = [
     <div class="blk-head rv"><div><p class="eyebrow">Featured</p><h2>Where to start</h2></div></div>
     <ToolportBand />
     <div class="feat2"><FeatureCard project={projectById['try-omarchy']} /><FeatureCard project={projectById.omakade} /></div>
+    <BakeryBand />
   </section>
 
   <section class="blk wrap" id="apps">

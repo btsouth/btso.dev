@@ -1,39 +1,113 @@
 ---
-import Legal from '../../layouts/Legal.astro';
+import Base from '../../layouts/Base.astro';
+import BakeryTray from '../../components/BakeryTray.astro';
+import { APP_STORE, ART, PLAY_STORE } from '../../lib/bakery';
+import { SITE_URL } from '../../lib/site';
+
 const EMAIL = 'tsouth2@gmail.com';
+const shots = [
+  ['merge', 'Merge, bake and serve'],
+  ['restore', "Restore Grandma's café"],
+  ['story', 'A cozy family story'],
+  ['style', 'Make it yours'],
+  ['treats', '100+ treats to discover'],
+  ['regulars', 'Charming regulars'],
+];
+const app = {
+  '@type': 'MobileApplication',
+  name: 'Family Bakery: Merge & Bake',
+  operatingSystem: 'iOS, Android',
+  applicationCategory: 'GameApplication',
+  url: `${SITE_URL}/family-bakery`,
+  image: `${SITE_URL}${ART}/og.jpg`,
+  author: { '@id': `${SITE_URL}/#person` },
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  sameAs: [APP_STORE, PLAY_STORE],
+};
 ---
-<Legal
-  pageTitle="Family Bakery: Merge & Bake | Help"
-  heading="Family Bakery help"
-  description="Help for Family Bakery: Merge & Bake, a cozy merge game with one purchase, no ads and no energy for sale."
-  lastUpdated="October 10, 2026"
+<Base
+  title="Family Bakery: Merge & Bake | btso.dev"
+  description="A cozy merge game for iPhone and Android: merge treats, reopen Grandma's café and find her lost recipe book. No ads, no energy for sale."
+  path="/family-bakery"
+  image={`${SITE_URL}${ART}/og.jpg`}
+  imageAlt="Family Bakery: reopen Grandma's café. No ads. No energy for sale."
+  schema={[app]}
 >
-  <p>
-    Merge ingredients, bake for your regulars and follow a missing family recipe book across five chapters.
-    The first two chapters are free. One purchase opens the rest, with no ads and no subscriptions.
-  </p>
+  <section class="fbp-hero">
+    <div class="wrap fbp-grid">
+      <div class="fbp-copy">
+        <img class="fbp-icon" src={`${ART}/icon.webp`} alt="" width="76" height="76" />
+        <p class="eyebrow">Merge &amp; Bake · iPhone and Android</p>
+        <h1>Family Bakery</h1>
+        <p class="lede">Merge treats, reopen Grandma's café and help Becca find the family's lost recipe book. No ads. No energy for sale. Just a cozy café, a family story and a lot of cake.</p>
+        <div class="acts"><a class="btn btn-primary" href={APP_STORE} target="_blank" rel="noreferrer">App Store <span class="arr">↗</span></a><a class="btn btn-ghost" href={PLAY_STORE} target="_blank" rel="noreferrer">Google Play ↗</a></div>
+        <ul class="facts">
+          <li><b>Free to start</b>The first two chapters are free. One purchase opens the rest, with no subscriptions.</li>
+          <li><b>Plays offline</b>No connection needed, except once to buy or restore.</li>
+          <li><b>Need a hand?</b><a href="#help">Help</a> and the <a href="/family-bakery/privacy">privacy policy</a> are below.</li>
+        </ul>
+      </div>
+      <div class="fbp-play">
+        <p class="fbp-try">Have a go: a tiny taste of the real board</p>
+        <BakeryTray />
+      </div>
+    </div>
+  </section>
 
-  <h2>I bought the game on another phone</h2>
-  <p>
-    Open Settings and tap Restore purchases while signed in to the same Google Play or Apple account you
-    bought with. The whole café opens again.
-  </p>
+  <section class="blk wrap">
+    <div class="blk-head rv"><div><p class="eyebrow">Inside the café</p><h2>A look around</h2><p>From one egg to a whole bakery hamper, with a café that changes as the story does.</p></div></div>
+    <div class="fbp-shots rv">
+      {shots.map(([id, alt]) => <img src={`${ART}/shot-${id}.webp`} alt={alt} width="480" height="1040" loading="lazy" />)}
+    </div>
+  </section>
 
-  <h2>Moving to a new phone</h2>
-  <p>
-    Your café is saved on your phone. Before you switch, open Settings, tap Move my café and copy your café
-    code somewhere safe, such as a note or an email to yourself. On the new phone, paste the code in the same
-    screen and tap Bring this café here.
-  </p>
+  <section class="blk wrap" id="help">
+    <div class="blk-head rv"><div><p class="eyebrow">Help</p><h2>Family Bakery help</h2></div></div>
+    <div class="fbp-help">
+      <article class="rv">
+        <h3>I bought the game on another phone</h3>
+        <p>Open Settings and tap Restore purchases while signed in to the same Google Play or Apple account you bought with. The whole café opens again.</p>
+      </article>
+      <article class="rv">
+        <h3>Moving to a new phone</h3>
+        <p>Your café is saved on your phone. Before you switch, open Settings, tap Move my café and copy your café code somewhere safe, such as a note or an email to yourself. On the new phone, paste the code in the same screen and tap Bring this café here.</p>
+      </article>
+      <article class="rv">
+        <h3>Do I need the internet?</h3>
+        <p>No. The game plays offline. Buying or restoring the full café needs a connection once.</p>
+      </article>
+      <article class="rv">
+        <h3>Something else</h3>
+        <p>Email <a href={`mailto:${EMAIL}`}>{EMAIL}</a> with your phone model and what happened, and I'll help. Privacy details are in the <a href="/family-bakery/privacy">privacy policy</a>.</p>
+      </article>
+    </div>
+  </section>
+</Base>
 
-  <h2>Do I need the internet?</h2>
-  <p>
-    No. The game plays offline. Buying or restoring the full café needs a connection once.
-  </p>
-
-  <h2>Something else</h2>
-  <p>
-    Email <a href={`mailto:${EMAIL}`}>{EMAIL}</a> with your phone model and what happened, and I'll help.
-    Privacy details are in the <a href="/family-bakery/privacy">privacy policy</a>.
-  </p>
-</Legal>
+<style>
+  .fbp-hero { position: relative; padding: 72px 0 40px; border-bottom: 1px solid var(--line); overflow: hidden; }
+  .fbp-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(700px 480px at 78% 45%, color-mix(in oklab, #d4567f 18%, transparent), transparent 70%); }
+  .fbp-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; }
+  .fbp-icon { width: 76px; height: 76px; border-radius: 18px; box-shadow: 0 12px 30px var(--shade); margin-bottom: 22px; }
+  .fbp-copy .eyebrow { color: color-mix(in oklab, #d4567f 75%, var(--fg)); }
+  .fbp-copy h1 { margin: 0; font: 700 clamp(44px, 6vw, 72px)/1 "JetBrains Mono", monospace; letter-spacing: -.05em; }
+  .lede { margin: 18px 0 0; max-width: 52ch; color: var(--fg2); font-size: 17px; line-height: 1.6; }
+  .fbp-copy .acts { display: flex; gap: 10px; margin-top: 26px; flex-wrap: wrap; }
+  .facts { list-style: none; margin: 30px 0 0; padding: 0; display: grid; gap: 12px; max-width: 54ch; }
+  .facts li { padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line); background: var(--bg2); color: var(--fg2); font-size: 14px; line-height: 1.5; }
+  .facts b { display: block; margin-bottom: 2px; color: var(--fg); font: 600 13px/1.4 "JetBrains Mono", monospace; }
+  .facts a, .fbp-help a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .fbp-try { margin: 0 0 14px; text-align: center; font: 500 12px/1 "JetBrains Mono", monospace; color: var(--fg3); }
+  .fbp-shots { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(180px, 1fr); gap: 14px; overflow-x: auto; padding-bottom: 10px; scroll-snap-type: x mandatory; }
+  .fbp-shots img { width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); scroll-snap-align: start; background: #fbe7dc; }
+  .fbp-help { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .fbp-help article { padding: 22px 24px; border-radius: 16px; border: 1px solid var(--line); background: var(--bg2); }
+  .fbp-help h3 { margin: 0 0 8px; font: 700 16px/1.3 "JetBrains Mono", monospace; letter-spacing: -.01em; }
+  .fbp-help p { margin: 0; color: var(--fg2); line-height: 1.65; }
+  @media (max-width: 900px) {
+    .fbp-grid { grid-template-columns: 1fr; gap: 44px; }
+    .fbp-hero { padding-top: 48px; }
+    .fbp-help { grid-template-columns: 1fr; }
+    .fbp-shots { grid-auto-columns: 62%; }
+  }
+</style>

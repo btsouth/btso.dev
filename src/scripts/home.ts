@@ -146,11 +146,22 @@ if (term && termIn && dataEl) {
   };
   const find = (q: string) => apps.find(([id, name]) => id === q || name.toLowerCase() === q);
   const commands: Record<string, (args: string[]) => string | void> = {
-    help: () => 'whoami  ls  open <app>  theme [name]  stars  ship  clear',
+    help: () => 'whoami  ls  open <app>  theme [name]  stars  ship  bake  clear',
     whoami: () => 'tyler south. i make omarchy apps, windows utilities and tools for ai agents.',
     ls: () => apps.map(([id]) => id).join('  '),
     stars: () => `${stars.toLocaleString('en-US')} stars across ${apps.length} repos. thank you.`,
     ship: () => { setTimeout(() => (location.href = '/ship'), 400); return 'opening the ship log...'; },
+    bake: () => {
+      const oven = document.querySelector<HTMLElement>('#bakery .oven');
+      if (!oven) return 'the bakery is closed.';
+      setTimeout(() => {
+        oven.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' });
+        oven.focus({ preventScroll: true });
+        // Bake once the scroll settles, so the egg flies to where the tray ends up.
+        setTimeout(() => oven.click(), reduced ? 0 : 800);
+      }, 400);
+      return 'preheating the oven... first egg is on the tray.';
+    },
     open: ([q = '']) => {
       const app = find(q.toLowerCase());
       if (!app) return q ? `no app called ${q}. try ls.` : 'open what? try ls.';
