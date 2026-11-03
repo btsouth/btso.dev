@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-11-03T01:26:11.581Z",
+ "generatedAt": "2026-11-03T01:46:12.124Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 233,
-   "pushedAt": "2026-11-03T01:19:44Z",
+   "pushedAt": "2026-11-03T01:38:47Z",
    "latest": "v2.3.1",
    "releaseDates": [
     "2026-10-25T01:19:51Z",
@@ -2591,8 +2591,9 @@
   "btsouth/ceiling": {
    "stars": 33,
    "pushedAt": "2026-11-03T01:15:41Z",
-   "latest": "v1.5.46",
+   "latest": "v1.5.47",
    "releaseDates": [
+    "2026-11-03T01:43:20Z",
     "2026-10-26T03:44:50Z",
     "2026-10-15T00:58:19Z",
     "2026-10-06T04:19:56Z",
@@ -2635,6 +2636,14 @@
     "2026-07-14T05:04:40Z"
    ],
    "releases": [
+    {
+     "tag": "v1.5.47",
+     "title": "Ceiling 1.5.47",
+     "at": "2026-11-03T01:43:20Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/ceiling/releases/tag/v1.5.47",
+     "body": "Cursor shows Grok Bot usage, and reads the right meter on The X Subscription.\n\n### Added\n- **Cursor shows Grok Bot usage.** On a Cursor plan or a linked Grok subscription, Grok Bot has its own weekly allowance. Once it has been used, it appears as a Grok Bot row beside Plan, Auto and API, with its on-demand spend for the billing month. Fixes #524. Thanks to @slvslvslv.\n\n### Fixed\n- **Cursor reads the right meter on The X Subscription.** These accounts share one weekly pool across Cursor, Grok Bot and the Grok apps, but Cursor's monthly summary reports 0% for them, so Ceiling showed an empty plan with the wrong reset. The Cursor card now shows the weekly pool, its reset, the X plan name and any prepaid credits spent.\n- **The Settings window follows the Windows theme all the way to its edges.** Its native background stayed dark in a light theme, so it showed before the page painted and in the strip a resize exposes. It now matches the page and updates when the theme changes. Thanks to @sharmis-tp.\n- **The Available to track card keeps its size on short dashboards.** On a short window it could shrink until its title and footer were clipped. Thanks to @jayn2u."
+    },
     {
      "tag": "v1.5.46",
      "title": "Ceiling 1.5.46",
@@ -5487,11 +5496,11 @@
   ],
   [
    "2026-11-02",
-   105
+   107
   ],
   [
    "2026-11-03",
-   3
+   4
   ]
  ]
 }
