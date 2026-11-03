@@ -1,11 +1,12 @@
 {
- "generatedAt": "2026-11-03T12:18:11.609Z",
+ "generatedAt": "2026-11-03T14:46:25.279Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 233,
    "pushedAt": "2026-11-03T04:47:51Z",
-   "latest": "v2.3.1",
+   "latest": "v2.3.2",
    "releaseDates": [
+    "2026-11-03T14:41:42Z",
     "2026-10-25T01:19:51Z",
     "2026-10-21T04:16:20Z",
     "2026-10-18T11:39:59Z",
@@ -89,6 +90,14 @@
     "2026-06-19T23:39:17Z"
    ],
    "releases": [
+    {
+     "tag": "v2.3.2",
+     "title": "Toolport v2.3.2",
+     "at": "2026-11-03T14:41:42Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/toolport/releases/tag/v2.3.2",
+     "body": "Toolport 2.3.2 lets idle clients recover on their own after the shared gateway\nstops, and keeps OAuth servers' cached tools across token refreshes. It also\nfixes process checks on Windows, adds agent-qa to the server catalog and updates\ndependencies with security fixes.\n\nIf you are on Toolport 1.24.x, this is also your update to Toolport 2. Read the\n[upgrade guide](https://github.com/btsouth/toolport/blob/main/docs/migration.md)\nbefore updating.\n\n### Added\n\n- agent-qa, for natural-language web and mobile testing, is in the catalog under\n  Local tools. Thanks @pranshuchittora. (#1283)\n- `gateway.log` now records how long each stage of a stdio client's connection\n  took, so a client that hits its startup deadline shows what it was waiting\n  for. It records fixed stage names and timings, never credentials or request\n  contents. Thanks @1llum1n4t1s. (#1299)\n- The gateway container image now lists its Rust crates, so image scanners can\n  see them. Thanks @TechLuddite. (#1292)\n\n### Security\n\n- Updated tokio for RUSTSEC-2026-0386. Thanks @TechLuddite. (#1294)\n- Updated plist so quick-xml moves past RUSTSEC-2026-0194 and RUSTSEC-2026-0195.\n  Thanks @TechLuddite. (#1293)\n- Updated candle so the gateway uses zip 9 instead of a version with open\n  advisories. (#1295)\n\n### Fixed\n\n- An idle stdio client now recovers its session and notifications after the\n  shared gateway stops, without waiting for its next request. Restarts back off\n  from 5 seconds up to 60 seconds. Thanks @1llum1n4t1s. (#1289)\n- OAuth servers keep their cached tool list when their token refreshes. Before,\n  almost ev"
+    },
     {
      "tag": "v2.3.1",
      "title": "Toolport v2.3.1",
@@ -2590,7 +2599,7 @@
   },
   "btsouth/ceiling": {
    "stars": 33,
-   "pushedAt": "2026-11-03T07:36:05Z",
+   "pushedAt": "2026-11-03T13:35:20Z",
    "latest": "v1.5.48",
    "releaseDates": [
     "2026-11-03T03:27:47Z",
@@ -5509,7 +5518,7 @@
   ],
   [
    "2026-11-03",
-   10
+   12
   ]
  ]
 }
