@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-11-03T00:18:19.265Z",
+ "generatedAt": "2026-11-03T01:26:11.581Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 233,
-   "pushedAt": "2026-11-01T02:59:47Z",
+   "pushedAt": "2026-11-03T01:19:44Z",
    "latest": "v2.3.1",
    "releaseDates": [
     "2026-10-25T01:19:51Z",
@@ -2590,7 +2590,7 @@
   },
   "btsouth/ceiling": {
    "stars": 33,
-   "pushedAt": "2026-10-31T03:17:10Z",
+   "pushedAt": "2026-11-03T01:15:41Z",
    "latest": "v1.5.46",
    "releaseDates": [
     "2026-10-26T03:44:50Z",
@@ -2959,9 +2959,10 @@
   },
   "btsouth/cubby-clipboard": {
    "stars": 15,
-   "pushedAt": "2026-11-02T23:42:35Z",
-   "latest": "v1.3.8",
+   "pushedAt": "2026-11-03T01:12:22Z",
+   "latest": "v1.3.9",
    "releaseDates": [
+    "2026-11-03T01:23:04Z",
     "2026-10-31T00:05:30Z",
     "2026-09-30T20:00:45Z",
     "2026-09-27T04:22:53Z",
@@ -2980,6 +2981,14 @@
     "2026-07-17T05:27:11Z"
    ],
    "releases": [
+    {
+     "tag": "v1.3.9",
+     "title": "Cubby Clipboard v1.3.9",
+     "at": "2026-11-03T01:23:04Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/cubby-clipboard/releases/tag/v1.3.9",
+     "body": "### Fixed\n- Win+V could open Windows Clipboard History after a restart even though \"Replace Windows clipboard shortcut\" was on, until the setting was turned off and on again. Cubby now keeps Win+V working when another app holds its hotkey during startup, gets the hotkey back once it is free, and keeps its keyboard hook ahead of apps that start after it. (#376)\n\n### Thanks\n- Thanks to [stefanmm](https://github.com/stefanmm) for reporting the Win+V restart bug (#376)"
+    },
     {
      "tag": "v1.3.8",
      "title": "Cubby Clipboard v1.3.8",
@@ -5474,15 +5483,15 @@
   ],
   [
    "2026-11-01",
-   200
+   199
   ],
   [
    "2026-11-02",
-   95
+   105
   ],
   [
    "2026-11-03",
-   0
+   3
   ]
  ]
 }
