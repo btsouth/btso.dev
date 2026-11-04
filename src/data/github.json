@@ -1,13 +1,12 @@
 {
- "generatedAt": "2026-11-04T02:36:11.143Z",
+ "generatedAt": "2026-11-04T06:18:07.960Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 233,
-   "pushedAt": "2026-11-04T02:21:49Z",
+   "pushedAt": "2026-11-04T05:43:33Z",
    "latest": "v2.3.3",
    "releaseDates": [
     "2026-11-04T02:34:26Z",
-    "2026-11-04T01:30:27Z",
     "2026-11-03T14:41:42Z",
     "2026-10-25T01:19:51Z",
     "2026-10-21T04:16:20Z",
@@ -99,14 +98,6 @@
      "pre": false,
      "url": "https://github.com/btsouth/toolport/releases/tag/v2.3.3",
      "body": "Toolport 2.3.3 fixes the Servers page getting stuck on Initializing or Installing,\nand local servers going Unreachable after the npm cache is cleared. It also updates\nthe in-app updater.\n\nIf you are on Toolport 1.24.x, this is also your update to Toolport 2. Read the\n[upgrade guide](https://github.com/btsouth/toolport/blob/main/docs/migration.md)\nbefore updating.\n\n### Security\n\n- Updated the Tauri updater so it no longer depends on zip 4 (RUSTSEC-2026-0429).\n  (#1303)\n\n### Fixed\n\n- The Servers page now checks every enabled server. Before, it only checked servers\n  in the Default access set, so the rest stayed on Initializing or Installing and\n  Refresh could not finish. (#1305, #1306)\n- Clearing the npm cache no longer breaks running npx servers. The gateway kept\n  launching a path it remembered, and every start failed until it restarted. It now\n  falls back to npx, which reinstalls the package. (#1306)\n- Servers with a secret now report their exit status when they stop, instead of one\n  generic error. Their output stays hidden. (#1306)\n- Ctrl+R rechecks servers on the GTK Servers page, as the refresh button says. (#1306)\n- Programs started from the AppImage no longer pick up its bundled GIO modules. (#1308)\n\n\n---\n\n**Full changelog:** https://github.com/btsouth/toolport/blob/v2.3.3/CHANGELOG.md"
-    },
-    {
-     "tag": "v2.3.3-rc.6",
-     "title": "Toolport v2.3.3-rc.6",
-     "at": "2026-11-04T01:30:27Z",
-     "pre": true,
-     "url": "https://github.com/btsouth/toolport/releases/tag/v2.3.3-rc.6",
-     "body": "Test build for the in-app updater.\n\n\n---\n\n**Full changelog:** https://github.com/btsouth/toolport/blob/v2.3.3-rc.6/CHANGELOG.md"
     },
     {
      "tag": "v2.3.2",
@@ -912,7 +903,7 @@
   },
   "btsouth/omakade": {
    "stars": 440,
-   "pushedAt": "2026-11-01T22:27:53Z",
+   "pushedAt": "2026-11-04T05:05:41Z",
    "latest": "v1.18.0",
    "releaseDates": [
     "2026-10-26T03:31:22Z",
@@ -1200,7 +1191,7 @@
   },
   "btsouth/omaroll": {
    "stars": 76,
-   "pushedAt": "2026-11-01T00:45:03Z",
+   "pushedAt": "2026-11-04T04:33:51Z",
    "latest": "v1.18.0",
    "releaseDates": [
     "2026-10-15T04:48:25Z",
@@ -2617,7 +2608,7 @@
   },
   "btsouth/ceiling": {
    "stars": 33,
-   "pushedAt": "2026-11-03T13:35:20Z",
+   "pushedAt": "2026-11-04T04:33:47Z",
    "latest": "v1.5.48",
    "releaseDates": [
     "2026-11-03T03:27:47Z",
@@ -3004,7 +2995,7 @@
   },
   "btsouth/cubby-clipboard": {
    "stars": 15,
-   "pushedAt": "2026-11-03T01:12:22Z",
+   "pushedAt": "2026-11-04T04:33:48Z",
    "latest": "v1.3.9",
    "releaseDates": [
     "2026-11-03T01:23:04Z",
@@ -5536,11 +5527,11 @@
   ],
   [
    "2026-11-03",
-   24
+   43
   ],
   [
    "2026-11-04",
-   3
+   4
   ]
  ]
 }
