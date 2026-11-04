@@ -1,11 +1,12 @@
 {
- "generatedAt": "2026-11-04T00:18:08.209Z",
+ "generatedAt": "2026-11-04T01:31:11.554Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 233,
-   "pushedAt": "2026-11-03T23:39:14Z",
-   "latest": "v2.3.2",
+   "pushedAt": "2026-11-04T00:59:19Z",
+   "latest": "v2.3.3-rc.6",
    "releaseDates": [
+    "2026-11-04T01:30:27Z",
     "2026-11-03T14:41:42Z",
     "2026-10-25T01:19:51Z",
     "2026-10-21T04:16:20Z",
@@ -90,6 +91,14 @@
     "2026-06-19T23:39:17Z"
    ],
    "releases": [
+    {
+     "tag": "v2.3.3-rc.6",
+     "title": "Toolport v2.3.3-rc.6",
+     "at": "2026-11-04T01:30:27Z",
+     "pre": true,
+     "url": "https://github.com/btsouth/toolport/releases/tag/v2.3.3-rc.6",
+     "body": "Test build for the in-app updater.\n\n\n---\n\n**Full changelog:** https://github.com/btsouth/toolport/blob/v2.3.3-rc.6/CHANGELOG.md"
+    },
     {
      "tag": "v2.3.2",
      "title": "Toolport v2.3.2",
@@ -5518,11 +5527,11 @@
   ],
   [
    "2026-11-03",
-   19
+   20
   ],
   [
    "2026-11-04",
-   0
+   1
   ]
  ]
 }
