@@ -1,11 +1,12 @@
 {
- "generatedAt": "2026-11-04T01:31:11.554Z",
+ "generatedAt": "2026-11-04T02:36:11.143Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 233,
-   "pushedAt": "2026-11-04T00:59:19Z",
-   "latest": "v2.3.3-rc.6",
+   "pushedAt": "2026-11-04T02:21:49Z",
+   "latest": "v2.3.3",
    "releaseDates": [
+    "2026-11-04T02:34:26Z",
     "2026-11-04T01:30:27Z",
     "2026-11-03T14:41:42Z",
     "2026-10-25T01:19:51Z",
@@ -91,6 +92,14 @@
     "2026-06-19T23:39:17Z"
    ],
    "releases": [
+    {
+     "tag": "v2.3.3",
+     "title": "Toolport v2.3.3",
+     "at": "2026-11-04T02:34:26Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/toolport/releases/tag/v2.3.3",
+     "body": "Toolport 2.3.3 fixes the Servers page getting stuck on Initializing or Installing,\nand local servers going Unreachable after the npm cache is cleared. It also updates\nthe in-app updater.\n\nIf you are on Toolport 1.24.x, this is also your update to Toolport 2. Read the\n[upgrade guide](https://github.com/btsouth/toolport/blob/main/docs/migration.md)\nbefore updating.\n\n### Security\n\n- Updated the Tauri updater so it no longer depends on zip 4 (RUSTSEC-2026-0429).\n  (#1303)\n\n### Fixed\n\n- The Servers page now checks every enabled server. Before, it only checked servers\n  in the Default access set, so the rest stayed on Initializing or Installing and\n  Refresh could not finish. (#1305, #1306)\n- Clearing the npm cache no longer breaks running npx servers. The gateway kept\n  launching a path it remembered, and every start failed until it restarted. It now\n  falls back to npx, which reinstalls the package. (#1306)\n- Servers with a secret now report their exit status when they stop, instead of one\n  generic error. Their output stays hidden. (#1306)\n- Ctrl+R rechecks servers on the GTK Servers page, as the refresh button says. (#1306)\n- Programs started from the AppImage no longer pick up its bundled GIO modules. (#1308)\n\n\n---\n\n**Full changelog:** https://github.com/btsouth/toolport/blob/v2.3.3/CHANGELOG.md"
+    },
     {
      "tag": "v2.3.3-rc.6",
      "title": "Toolport v2.3.3-rc.6",
@@ -5527,11 +5536,11 @@
   ],
   [
    "2026-11-03",
-   20
+   24
   ],
   [
    "2026-11-04",
-   1
+   3
   ]
  ]
 }
