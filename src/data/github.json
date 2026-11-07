@@ -1,8 +1,8 @@
 {
- "generatedAt": "2026-11-07T06:18:05.220Z",
+ "generatedAt": "2026-11-07T09:19:50.062Z",
  "repos": {
   "btsouth/toolport": {
-   "stars": 236,
+   "stars": 237,
    "pushedAt": "2026-11-06T04:30:18Z",
    "latest": "v2.3.3",
    "releaseDates": [
@@ -2211,7 +2211,7 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 749,
+   "stars": 750,
    "pushedAt": "2026-11-07T00:27:59Z",
    "latest": "v0.13.0",
    "releaseDates": [
@@ -2995,7 +2995,7 @@
   },
   "btsouth/cubby-clipboard": {
    "stars": 15,
-   "pushedAt": "2026-11-06T05:02:58Z",
+   "pushedAt": "2026-11-07T08:44:01Z",
    "latest": "v1.3.9",
    "releaseDates": [
     "2026-11-03T01:23:04Z",
@@ -3919,7 +3919,7 @@
    ]
   },
   "btsouth/t3code-customize": {
-   "stars": 9,
+   "stars": 10,
    "pushedAt": "2026-10-15T22:20:30Z",
    "latest": null,
    "releaseDates": [],
@@ -5543,7 +5543,7 @@
   ],
   [
    "2026-11-07",
-   1
+   2
   ]
  ]
 }
