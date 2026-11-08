@@ -1,11 +1,12 @@
 {
- "generatedAt": "2026-11-08T18:18:07.214Z",
+ "generatedAt": "2026-11-08T20:06:14.672Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 238,
-   "pushedAt": "2026-11-06T04:30:18Z",
-   "latest": "v2.3.3",
+   "pushedAt": "2026-11-08T19:51:42Z",
+   "latest": "v2.3.4",
    "releaseDates": [
+    "2026-11-08T20:04:57Z",
     "2026-11-04T02:34:26Z",
     "2026-11-03T14:41:42Z",
     "2026-10-25T01:19:51Z",
@@ -91,6 +92,14 @@
     "2026-06-19T23:39:17Z"
    ],
    "releases": [
+    {
+     "tag": "v2.3.4",
+     "title": "Toolport v2.3.4",
+     "at": "2026-11-08T20:04:57Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/toolport/releases/tag/v2.3.4",
+     "body": "Toolport 2.3.4 keeps your comments and layout when it edits Codex and Grok Build\nconfigs, and keeps those configs valid when a server switches between a command\nand a URL.\n\nIf you are on Toolport 1.24.x, this is also your update to Toolport 2. Read the\n[upgrade guide](https://github.com/btsouth/toolport/blob/main/docs/migration.md)\nbefore updating.\n\n### Fixed\n\n- Editing a server in a TOML config (Codex, Grok Build) no longer drops the comment\n  above the next section. Unknown settings, formatting and comments on keys,\n  arguments and environment values stay as they were. Thanks @1llum1n4t1s. (#1315)\n- Moving servers into Toolport and restoring them no longer duplicates comments or\n  puts entries back outside their BEGIN/END blocks after you edit the file. (#1315)\n- Switching a server between a command and a URL now removes the other transport's\n  settings, which Codex refuses to load. (#1315)\n\n\n---\n\n**Full changelog:** https://github.com/btsouth/toolport/blob/v2.3.4/CHANGELOG.md"
+    },
     {
      "tag": "v2.3.3",
      "title": "Toolport v2.3.3",
@@ -759,7 +768,7 @@
   },
   "btsouth/try-omarchy-linux": {
    "stars": 4,
-   "pushedAt": "2026-11-08T16:53:23Z",
+   "pushedAt": "2026-11-08T18:22:41Z",
    "latest": "linux-app-v0.3.1",
    "releaseDates": [
     "2026-10-26T02:12:33Z",
@@ -2212,7 +2221,7 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 762,
-   "pushedAt": "2026-11-08T16:53:21Z",
+   "pushedAt": "2026-11-08T18:22:39Z",
    "latest": "v0.14.0",
    "releaseDates": [
     "2026-11-08T15:21:38Z",
@@ -5537,7 +5546,7 @@
   ],
   [
    "2026-11-08",
-   19
+   28
   ]
  ]
 }
