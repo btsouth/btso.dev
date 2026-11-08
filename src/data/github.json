@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-08T12:18:05.594Z",
+ "generatedAt": "2026-11-08T15:26:08.186Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 238,
@@ -2211,10 +2211,11 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 761,
-   "pushedAt": "2026-11-08T06:28:02Z",
-   "latest": "runtime-v1-r26",
+   "stars": 762,
+   "pushedAt": "2026-11-08T15:21:37Z",
+   "latest": "v0.14.0",
    "releaseDates": [
+    "2026-11-08T15:21:38Z",
     "2026-11-08T05:19:45Z",
     "2026-10-26T03:07:09Z",
     "2026-10-22T21:08:05Z",
@@ -2261,6 +2262,14 @@
     "2026-08-28T00:49:21Z"
    ],
    "releases": [
+    {
+     "tag": "v0.14.0",
+     "title": "v0.14.0",
+     "at": "2026-11-08T15:21:38Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/v0.14.0",
+     "body": "`v0.14.0` fixes the black Omarchy window on Hyprland 0.57, stops sounds freezing the VM on PCs without a working audio device, and lets the default terminal setting work.\n\n# Features\n\n* On Korean Windows, Omarchy offers Hangul input instead of Chewing. Existing installs get it with their next Update > Omarchy (#376)\n* Settings > Apps can list file types that Omarchy may open in Windows apps. Opening them from Omarchy arrives in a later update (#381, #375)\n\n# Fixes\n\n* Fix notifications and other transparent layers covering the Omarchy window in black with GPU rendering on Hyprland 0.57 (#379, #358)\n* A desktop that shows for a moment and then turns black now gets the prompt to switch to CPU rendering, instead of counting as a working GPU boot (#377, #358)\n* Fix the VM freezing for eight seconds at a time when Windows has no working playback device and Omarchy plays a sound (#389, #384)\n* Mute Hyprland 0.57's sound for every terminal bell, so missed Tab completions no longer chime. Existing installs get it with their next Update > Omarchy (#388, #384)\n* Super+Return and the Omarchy menu now open the terminal chosen in Omarchy's default terminal setting instead of always opening Foot (#386, #385)\n* CPU rendering always uses the bundled runtime instead of a separately installed QEMU (#380)\n* Translate the blank-window prompt into Korean and the remaining Simplified Chinese messages (#372, #373)\n\n## Dev\n\n* Build runtime r26 with the audio endpoint checks (#389)\n* Refresh the guest package lock, which brings in Hyprland 0.57.1 and kernel 7.2.14 (#376)\n* Rebuild aquamarine 0.16.0 "
+    },
     {
      "tag": "runtime-v1-r26",
      "title": "WINQ-EMU r26 runtime",
@@ -5528,7 +5537,7 @@
   ],
   [
    "2026-11-08",
-   12
+   15
   ]
  ]
 }
