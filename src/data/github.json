@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-09T03:31:12.821Z",
+ "generatedAt": "2026-11-09T05:46:09.067Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 238,
@@ -912,7 +912,7 @@
   },
   "btsouth/omakade": {
    "stars": 441,
-   "pushedAt": "2026-11-09T03:27:37Z",
+   "pushedAt": "2026-11-09T05:45:38Z",
    "latest": "v1.18.0",
    "releaseDates": [
     "2026-10-26T03:31:22Z",
@@ -1200,7 +1200,7 @@
   },
   "btsouth/omaroll": {
    "stars": 76,
-   "pushedAt": "2026-11-09T03:24:55Z",
+   "pushedAt": "2026-11-09T05:45:41Z",
    "latest": "v1.18.0",
    "releaseDates": [
     "2026-10-15T04:48:25Z",
@@ -2221,9 +2221,10 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 764,
-   "pushedAt": "2026-11-08T18:22:39Z",
-   "latest": "v0.14.0",
+   "pushedAt": "2026-11-09T05:44:01Z",
+   "latest": "runtime-v1-r27",
    "releaseDates": [
+    "2026-11-09T05:44:02Z",
     "2026-11-08T15:21:38Z",
     "2026-11-08T05:19:45Z",
     "2026-10-26T03:07:09Z",
@@ -2271,6 +2272,14 @@
     "2026-08-28T00:49:21Z"
    ],
    "releases": [
+    {
+     "tag": "runtime-v1-r27",
+     "title": "WINQ-EMU r27 runtime",
+     "at": "2026-11-09T05:44:02Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/runtime-v1-r27",
+     "body": "WINQ-EMU r27 runtime component and corresponding source archives for the next signed Try Omarchy app release. This is not a standalone launcher or a new app version.\n\nBuilt from the source-locked recipe at commit `95ed4a1` (`master`) in [Runtime run 42566930573](https://github.com/omacom/try-omarchy-windows/actions/runs/42566930573). `SHA256SUMS` covers both archives. r27 draws Vulkan windows straight on Intel graphics at every width: the renderer now reads Venus images with their own row pitch when OpenGL shows them (#395, #394)."
+    },
     {
      "tag": "v0.14.0",
      "title": "v0.14.0",
@@ -5555,11 +5564,11 @@
   ],
   [
    "2026-11-08",
-   79
+   106
   ],
   [
    "2026-11-09",
-   4
+   5
   ]
  ]
 }
