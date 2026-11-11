@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-11T00:17:17.259Z",
+ "generatedAt": "2026-11-11T06:17:22.883Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 238,
@@ -1992,7 +1992,7 @@
   },
   "btsouth/typearchy": {
    "stars": 6,
-   "pushedAt": "2026-10-09T01:43:54Z",
+   "pushedAt": "2026-11-11T02:14:46Z",
    "latest": "v1.6.1",
    "releaseDates": [
     "2026-10-09T01:44:00Z",
@@ -2144,7 +2144,7 @@
    ]
   },
   "btsouth/omarchy-omcp": {
-   "stars": 11,
+   "stars": 12,
    "pushedAt": "2026-10-16T23:28:08Z",
    "latest": null,
    "releaseDates": [],
@@ -2221,7 +2221,7 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 770,
-   "pushedAt": "2026-11-11T00:03:58Z",
+   "pushedAt": "2026-11-11T01:25:11Z",
    "latest": "v0.15.0",
    "releaseDates": [
     "2026-11-11T00:03:58Z",
@@ -3490,11 +3490,16 @@
   },
   "btsouth/stackreplay": {
    "stars": 4,
-   "pushedAt": "2026-11-11T00:07:34Z",
+   "pushedAt": "2026-11-11T02:29:52Z",
    "latest": null,
    "releaseDates": [],
    "releases": [],
    "merged": [
+    {
+     "n": 168,
+     "title": "Patch React Server Components RCE (CVE-2026-126187)",
+     "at": "2026-11-11T02:27:38Z"
+    },
     {
      "n": 165,
      "title": "Pin catalog dates in tests past the review horizon",
@@ -3964,11 +3969,6 @@
      "n": 4,
      "title": "Find my AI histories, direct history roots and faster local import",
      "at": "2026-09-24T18:41:28Z"
-    },
-    {
-     "n": 2,
-     "title": "Mark RC1 as shipped in the docs",
-     "at": "2026-09-24T12:58:42Z"
     }
    ]
   },
@@ -5581,11 +5581,11 @@
   ],
   [
    "2026-11-10",
-   18
+   28
   ],
   [
    "2026-11-11",
-   1
+   2
   ]
  ]
 }
