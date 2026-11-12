@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-12T18:17:23.192Z",
+ "generatedAt": "2026-11-12T22:30:25.018Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 239,
@@ -1200,9 +1200,10 @@
   },
   "btsouth/omaroll": {
    "stars": 76,
-   "pushedAt": "2026-11-12T17:00:45Z",
-   "latest": "v1.18.0",
+   "pushedAt": "2026-11-12T22:05:14Z",
+   "latest": "v1.19.0",
    "releaseDates": [
+    "2026-11-12T22:29:00Z",
     "2026-10-15T04:48:25Z",
     "2026-10-15T02:44:46Z",
     "2026-10-14T12:43:57Z",
@@ -1233,6 +1234,14 @@
     "2026-09-02T01:06:06Z"
    ],
    "releases": [
+    {
+     "tag": "v1.19.0",
+     "title": "Omaroll 1.19.0",
+     "at": "2026-11-12T22:29:00Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaroll/releases/tag/v1.19.0",
+     "body": "A redesigned library and viewer, with date sections, file-manager selection,\nricher search, and sort, rename, move and copy in the viewer. Omaroll now\nreads tags and ratings from other photo tools, undoes Trash and backs up your\nalbums, tags and ratings every day.\n\n### Added\n\n- Keywords, star ratings and descriptions other photo tools keep in a file's\n  XMP or IPTC data, or in a darktable, Lightroom or digiKam `.xmp` sidecar,\n  show as tags, stars and captions in Browse, search and the viewer.\n  Hierarchical keywords nest, darktable's own tags are left out, and local\n  edits win. Removing a keyword or clearing a rating is kept in Omaroll's\n  settings and backups; files and sidecars are never written. Renaming a file\n  or moving it to Trash takes its sidecar along, and undo brings both back.\n- Sort in the viewer's View menu: name, date taken, date modified or size, and\n  Reverse order, remembered across launches. Stepping and the filmstrip follow\n  it and the open file stays open. A selection of files keeps its own order.\n- Rename (`N`), Move to folder and Copy to folder in the viewer. A file never\n  replaces one already in the folder; it arrives as \"name (2)\". After a move\n  the next file is shown, and favourites, ratings, albums and tags go with it.\n- `,` and `.` step a paused GIF or animated WebP frame by frame.\n- The viewer's details show where a photo or video was taken when the file\n  says, with Copy location for the decimal coordinates. Nothing is looked up\n  online.\n- A checkerboard in the theme's colours behind transparent pictures in the\n  viewer, as in the library"
+    },
     {
      "tag": "v1.18.0",
      "title": "Omaroll 1.18.0",
@@ -2220,7 +2229,7 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 774,
+   "stars": 775,
    "pushedAt": "2026-11-12T13:03:46Z",
    "latest": "v0.15.0",
    "releaseDates": [
@@ -5589,7 +5598,7 @@
   ],
   [
    "2026-11-12",
-   34
+   35
   ]
  ]
 }
