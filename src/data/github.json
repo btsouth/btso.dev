@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-12T22:30:25.018Z",
+ "generatedAt": "2026-11-13T00:17:21.685Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 239,
@@ -2229,7 +2229,7 @@
    ]
   },
   "omacom/try-omarchy-windows": {
-   "stars": 775,
+   "stars": 776,
    "pushedAt": "2026-11-12T13:03:46Z",
    "latest": "v0.15.0",
    "releaseDates": [
@@ -5598,7 +5598,11 @@
   ],
   [
    "2026-11-12",
-   35
+   36
+  ],
+  [
+   "2026-11-13",
+   0
   ]
  ]
 }
