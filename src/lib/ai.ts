@@ -4,6 +4,7 @@
 
 const COLORS: [RegExp, string][] = [
   [/^opus/i, '#d97757'],
+  [/^fable 5\.1/i, '#8f6ad8'],
   [/^fable/i, '#b48cf0'],
   [/^sonnet/i, '#e5a54b'],
   [/^haiku/i, '#e9c46a'],
@@ -47,7 +48,7 @@ export const dayLabel = (iso: string, opts: Intl.DateTimeFormatOptions = { month
   new Date(`${iso}T12:00:00`).toLocaleDateString('en-US', opts);
 
 const LABELS: Record<string, string> = {
-  'claude-opus-5-5': 'Opus 5.5', 'claude-fable-5-1': 'Fable 5.1', 'claude-sonnet-5-5': 'Sonnet 5.5', 'claude-haiku-5-5': 'Haiku 5.5', 'gpt-6.1-sol': 'Sol 6.1', 'gpt-6.1-terra': 'Terra 6.1', 'gpt-6-astra': 'Astra', 'gpt-6-luna': 'Luna 6',
+  'claude-opus-5-5': 'Opus 5.5', 'claude-fable-5-2': 'Fable 5.2', 'claude-fable-5-1': 'Fable 5.1', 'claude-sonnet-5-5': 'Sonnet 5.5', 'claude-haiku-5-5': 'Haiku 5.5', 'gpt-6.1-sol': 'Sol 6.1', 'gpt-6.1-terra': 'Terra 6.1', 'gpt-6-astra': 'Astra', 'gpt-6-luna': 'Luna 6',
   'opencode-go/deepseek-v4.1-flash': 'DeepSeek V4.1 Flash',
 };
 /** A bench model id as a name: "claude-opus-5-5" -> "Opus 5.5". */

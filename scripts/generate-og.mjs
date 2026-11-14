@@ -130,7 +130,7 @@ const relDays = new Set(projects.flatMap((p) => repoOf(p).releaseDates.map((d) =
 /* ---------- AI usage ---------- */
 {
   const short = (n) => { for (const [v, u] of [[1e12, 'T'], [1e9, 'B'], [1e6, 'M'], [1e3, 'K']]) if (n >= v) return `${(n / v).toFixed(n / v >= 100 ? 0 : 1).replace(/\.0$/, '')}${u}`; return String(n); };
-  const colors = [[/^opus/i, '#d97757'], [/^fable/i, '#b48cf0'], [/^sol 6\.1/i, '#5b9cf5'], [/^sol 6/i, '#3f74d9'], [/^sol/i, '#8fb8f7'], [/^astra/i, '#3ccf91'], [/^deepseek/i, '#2bbfd4'], [/^sonnet/i, '#e5a54b']];
+  const colors = [[/^opus/i, '#d97757'], [/^fable 5\.1/i, '#8f6ad8'], [/^fable/i, '#b48cf0'], [/^sol 6\.1/i, '#5b9cf5'], [/^sol 6/i, '#3f74d9'], [/^sol/i, '#8fb8f7'], [/^astra/i, '#3ccf91'], [/^deepseek/i, '#2bbfd4'], [/^sonnet/i, '#e5a54b']];
   const color = (n) => colors.find(([re]) => re.test(n))?.[1] ?? C.fg3;
   const t = usage.totals;
   const top = usage.models.filter((m) => m.tokens30 > 0 && m.name !== 'Unknown').sort((a, b) => b.tokens30 - a.tokens30).slice(0, 5);
@@ -155,7 +155,7 @@ const relDays = new Set(projects.flatMap((p) => repoOf(p).releaseDates.map((d) =
   const keys = Object.keys(bench.models || {});
   // Keep in step with LABELS and COLORS in src/lib/ai.ts.
   const names = {
-    'claude-opus-5-5': ['Opus 5.5', '#d97757'], 'claude-fable-5-1': ['Fable 5.1', '#b48cf0'], 'claude-sonnet-5-5': ['Sonnet 5.5', '#e5a54b'], 'claude-haiku-5-5': ['Haiku 5.5', '#e9c46a'],
+    'claude-opus-5-5': ['Opus 5.5', '#d97757'], 'claude-fable-5-2': ['Fable 5.2', '#b48cf0'], 'claude-fable-5-1': ['Fable 5.1', '#8f6ad8'], 'claude-sonnet-5-5': ['Sonnet 5.5', '#e5a54b'], 'claude-haiku-5-5': ['Haiku 5.5', '#e9c46a'],
     'gpt-6.1-sol': ['Sol 6.1', '#5b9cf5'], 'gpt-6.1-terra': ['Terra 6.1', '#b7d65a'], 'gpt-6-astra': ['Astra', '#3ccf91'], 'gpt-6-luna': ['Luna 6', '#c3cbe8'],
     'opencode-go/deepseek-v4.1-flash': ['DeepSeek V4.1 Flash', '#2bbfd4'],
   };
