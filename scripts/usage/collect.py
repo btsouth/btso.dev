@@ -15,6 +15,7 @@ import collections
 import datetime as dt
 import json
 import os
+import re
 import sqlite3
 import subprocess
 import sys
@@ -52,11 +53,10 @@ def model_name(model):
     model = (model or "unknown").split("/")[-1].lower()
     if model in NAMES:
         return NAMES[model]
-    for prefix, name in (("claude-opus-", "Opus "), ("claude-sonnet-", "Sonnet "), ("claude-haiku-", "Haiku "),
-                         ("claude-fable-", "Fable ")):
-        if model.startswith(prefix):
-            version = model[len(prefix):].split("-20")[0]
-            return name + version.replace("-", ".")
+    # Any Claude family, so a new one needs no change here: claude-mythos-5-2 -> Mythos 5.2.
+    claude = re.fullmatch(r"claude-([a-z]+)-(\d+(?:-\d)?)(?:-20\d{6})?", model)
+    if claude:
+        return claude[1].capitalize() + " " + claude[2].replace("-", ".")
     parts = [p for p in model.replace(".", "-").split("-") if p and p not in DROP]
     # Rejoin version numbers that the split broke apart: v4 1 -> V4.1, 5 3 -> 5.3.
     out = []

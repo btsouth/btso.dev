@@ -6,6 +6,7 @@ const COLORS: [RegExp, string][] = [
   [/^opus/i, '#d97757'],
   [/^fable 5\.1/i, '#8f6ad8'],
   [/^fable/i, '#b48cf0'],
+  [/^mythos/i, '#8f6fe8'],
   [/^sonnet/i, '#e5a54b'],
   [/^haiku/i, '#e9c46a'],
   [/^sol 6\.1/i, '#5b9cf5'],
