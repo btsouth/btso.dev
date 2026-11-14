@@ -1,11 +1,12 @@
 {
- "generatedAt": "2026-11-14T00:58:04.585Z",
+ "generatedAt": "2026-11-14T02:05:24.255Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 240,
-   "pushedAt": "2026-11-14T00:41:06Z",
-   "latest": "v2.3.4",
+   "pushedAt": "2026-11-14T02:01:26Z",
+   "latest": "v2.3.5",
    "releaseDates": [
+    "2026-11-14T02:04:46Z",
     "2026-11-08T20:04:57Z",
     "2026-11-04T02:34:26Z",
     "2026-11-03T14:41:42Z",
@@ -92,6 +93,14 @@
     "2026-06-19T23:39:17Z"
    ],
    "releases": [
+    {
+     "tag": "v2.3.5",
+     "title": "Toolport v2.3.5",
+     "at": "2026-11-14T02:04:46Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/toolport/releases/tag/v2.3.5",
+     "body": "Toolport 2.3.5 lets you hide a server's prompts while keeping its tools, keeps\nclients answering after the background gateway restarts, and gets large results\nfrom tools with output schemas through to Claude Code.\n\nIf you are on Toolport 1.24.x, this is also your update to Toolport 2. Read the\n[upgrade guide](https://github.com/btsouth/toolport/blob/main/docs/migration.md)\nbefore updating.\n\n### Added\n\n- A new **Hide prompts** switch on each server keeps its MCP prompts out of your\n  clients and leaves its tools available. Clients like Claude Code show prompts as\n  slash commands, so this clears out commands you never use. The registry key is\n  `hidePrompts`, and changing it takes effect without restarting the server.\n  Thanks @1llum1n4t1s. (#1320)\n\n### Fixed\n\n- A client no longer stops getting answers after the background gateway restarts\n  while it holds a subscription open. Calls used to wait behind that subscription\n  until the client gave up, so the client had to be restarted. Thanks\n  @1llum1n4t1s. (#1321)\n- Large results from tools that declare an output schema now reach strict clients\n  like Claude Code. Toolport shortens oversized results to a preview, which Claude\n  Code rejected because the tool still advertised its output schema. Toolport no\n  longer passes those schemas on. Thanks @wsj040303 and @Farisarditiyanto.\n  (#1322, #1323)\n\n\n---\n\n**Full changelog:** https://github.com/btsouth/toolport/blob/v2.3.5/CHANGELOG.md"
+    },
     {
      "tag": "v2.3.4",
      "title": "Toolport v2.3.4",
@@ -5602,11 +5611,11 @@
   ],
   [
    "2026-11-13",
-   18
+   25
   ],
   [
    "2026-11-14",
-   2
+   4
   ]
  ]
 }
