@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-11-15T12:17:56.792Z",
+ "generatedAt": "2026-11-15T12:45:58.419Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 241,
-   "pushedAt": "2026-11-15T12:05:24Z",
+   "pushedAt": "2026-11-15T12:43:40Z",
    "latest": "v2.3.5",
    "releaseDates": [
     "2026-11-14T02:04:46Z",
@@ -921,9 +921,10 @@
   },
   "btsouth/omakade": {
    "stars": 446,
-   "pushedAt": "2026-11-15T12:14:36Z",
-   "latest": "v1.18.0",
+   "pushedAt": "2026-11-15T12:33:35Z",
+   "latest": "v1.19.0",
    "releaseDates": [
+    "2026-11-15T12:43:36Z",
     "2026-10-26T03:31:22Z",
     "2026-10-18T23:21:52Z",
     "2026-10-13T01:02:57Z",
@@ -957,6 +958,14 @@
     "2026-09-01T02:14:44Z"
    ],
    "releases": [
+    {
+     "tag": "v1.19.0",
+     "title": "Omakade 1.19.0",
+     "at": "2026-11-15T12:43:36Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omakade/releases/tag/v1.19.0",
+     "body": "Steam play recording, a Lichii source, Text size, and a Game Mode that handles Steam's\nprompts with a controller.\n\n### Upgrading\n\n- The package no longer starts `omakade-sessiond` for every account. If you record\n  playtime or Highlights, open Omakade once after updating, or run\n  `systemctl --user enable --now omakade-sessiond.service`. The package reminds you when\n  it updates.\n\n### Play recording and Stats\n\n- Steam games are recorded while they run, whether started from Omakade or from Steam,\n  and show in Stats, Year in Review, Play History and Discord Status.\n- Stats charts leave out paused time, and Stats and Home load in the background.\n- An empty Stats says when recording is off and offers Turn On Recording.\n\n### Game Mode and controllers\n\n- The Starting screen says what Steam is waiting for, such as a EULA or Vulkan shaders,\n  and the controller becomes a pointer so you can answer it. If Steam does not start the\n  game after you accept, Omakade starts it again.\n- When Steam signs out during Game Mode, such as after the account signs in on another\n  computer, Game Mode offers Restart Steam, which usually signs it back in.\n- Home opens the Game Mode controls in front of any other window, and a Steam window\n  with no game running no longer keeps Home from leaving Game Mode.\n- Games started through Sunshine, such as from Moonlight, get the same Starting screen as\n  Play, with launcher windows kept out of sight.\n- If Steam's Guide Button Chords would also open its overlay on Home, Omakade tells you\n  once how to turn them off.\n- The large game above the library cards al"
+    },
     {
      "tag": "v1.18.0",
      "title": "Omakade 1.18.0",
@@ -1209,7 +1218,7 @@
   },
   "btsouth/omaroll": {
    "stars": 84,
-   "pushedAt": "2026-11-15T12:16:53Z",
+   "pushedAt": "2026-11-15T12:35:46Z",
    "latest": "v1.19.1",
    "releaseDates": [
     "2026-11-15T05:35:03Z",
@@ -5609,7 +5618,7 @@
   ],
   [
    "2026-11-15",
-   32
+   34
   ]
  ]
 }
