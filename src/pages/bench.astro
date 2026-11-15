@@ -23,6 +23,8 @@ const data = bench as Bench;
 const keys = Object.keys(data.models);
 const hasData = keys.length > 0;
 const REPO = 'https://github.com/btsouth/model-canary';
+/** A model run at a second effort level is its own entry, named for it: "Haiku 5.5 high". */
+const nameOf = (m: Model) => modelLabel(m.model) + (m.effort && m.effort !== 'medium' && m.effort !== 'default' ? ` ${m.effort}` : '');
 
 // Today's card for each model, with a status against its own earlier runs.
 const cards = keys.map((key) => {
@@ -30,7 +32,7 @@ const cards = keys.map((key) => {
   const runs = m.history;
   const last = runs.at(-1)!;
   const earlier = runs.slice(0, -1);
-  const name = modelLabel(m.model);
+  const name = nameOf(m);
   const before = last.limits?.before?.five_hour;
   const after = last.limits?.after?.five_hour;
   const used = before != null && after != null && !last.over_limit ? Math.max(0, after - before) : null;
@@ -90,7 +92,7 @@ const missLog = cards
 const unchecked = missLog.filter((m) => !m.review).length;
 /** Review notes are plain text with `code` in backticks. */
 const noteHtml = (note: string) => note.replace(/[&<>"]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[ch]!).replace(/`([^`]+)`/g, '<code>$1</code>');
-const clientData = JSON.stringify({ models: keys.map((k) => ({ key: k, name: modelLabel(data.models[k].model), history: data.models[k].history })) }).replace(/</g, '\\u003c');
+const clientData = JSON.stringify({ models: keys.map((k) => ({ key: k, name: nameOf(data.models[k]), history: data.models[k].history })) }).replace(/</g, '\\u003c');
 ---
 <Base title="Daily model bench | btso.dev" description="Every morning each AI model I pay for gets the same kind of coding task. Pass rate, time, tokens and limit use, tracked daily." path="/bench" image={ogImage('/og/bench.png')} imageAlt="The daily model bench on btso.dev">
   <section class="page-head">
@@ -215,7 +217,7 @@ const clientData = JSON.stringify({ models: keys.map((k) => ({ key: k, name: mod
       <ol class="steps">
         <li class="rv"><b>Same work, new details</b>Nine bugs across five small modules, plus a cron-style scheduler built from a spec. A new variant is generated from the date, so every model gets the same task on the same day.</li>
         <li class="rv"><b>Graded by hidden tests</b>{data.hidden_total ?? 157} tests the model never sees check the work. Their answers come from a reference implementation that's itself checked against a brute-force search.</li>
-        <li class="rv"><b>No peeking</b>Each model runs through its own CLI at medium effort (DeepSeek at its default, since OpenCode has no effort setting) and none of my instructions. The hidden tests only exist after it's done, and any run that touches the grader is thrown out.</li>
+        <li class="rv"><b>No peeking</b>Each model runs through its own CLI with none of my instructions, at medium effort unless its card says otherwise: Haiku and Luna also run at high, and DeepSeek runs at its default because it has no medium. The hidden tests only exist after it's done, and any run that touches the grader is thrown out.</li>
       </ol>
       <p class="ai-note rv" style="margin-top:20px">Effort names mean different things to each vendor, so compare each model with itself over time more than with the others. Today's models all pass this task nearly every time, so a red dot matters. Time, tokens and limit use are the trends to watch. Limit readings are whole percents shared with my other work, so a single day's number is rough.</p>
     </section>
