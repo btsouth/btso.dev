@@ -1,11 +1,12 @@
 {
- "generatedAt": "2026-11-16T18:18:14.532Z",
+ "generatedAt": "2026-11-16T22:40:37.489Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 241,
-   "pushedAt": "2026-11-16T18:17:16Z",
-   "latest": "v2.3.5",
+   "pushedAt": "2026-11-16T22:37:59Z",
+   "latest": "v2.3.7",
    "releaseDates": [
+    "2026-11-16T22:36:54Z",
     "2026-11-14T02:04:46Z",
     "2026-11-08T20:04:57Z",
     "2026-11-04T02:34:26Z",
@@ -93,6 +94,14 @@
     "2026-06-19T23:39:17Z"
    ],
    "releases": [
+    {
+     "tag": "v2.3.7",
+     "title": "Toolport v2.3.7",
+     "at": "2026-11-16T22:36:54Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/toolport/releases/tag/v2.3.7",
+     "body": "Toolport 2.3.7 keeps your stored secrets out of logs and messages, protects the\ncredentials in client config backups, fixes uninstall and client setup on macOS,\nand helps you connect the agents T3 Code runs.\n\n2.3.6 was not released; everything planned for it is in 2.3.7.\n\nIf you are on Toolport 1.24.x, this is also your update to Toolport 2. Read the\n[upgrade guide](https://github.com/btsouth/toolport/blob/main/docs/migration.md)\nbefore updating.\n\n### Security\n\n- Secrets you store for a server are replaced with `[secret:NAME]` in the\n  Activity log, daemon log, error messages and tool results, even when a server\n  echoes them back encoded, or split across lines, JSON strings or output\n  chunks. Toolport also cleans them out of logs written by earlier versions.\n  (#1343, #1366)\n- Client config backups no longer keep credentials in plain text. They live in\n  your system keyring or Toolport's vault. (#1342)\n- Servers from a shared setup file are now imported switched off, so nothing in\n  someone else's file starts or connects until you turn it on in Servers. (#1348)\n\n### Changed\n\n- Starting Toolport, opening Clients and showing a recovery card no longer ask\n  to unlock your keyring on Linux. Servers whose stored values are locked show\n  **Keyring locked** until you unlock it and choose Retry, and the first real use\n  of a server can still ask once. A Shared HTTP endpoint that is on also waits\n  until the keyring is unlocked, then starts by itself. With KeePassXC locked,\n  checking a server may still ask once. (#1343, #1368, #1376, #1380)\n- Toolport now writes its entry where G"
+    },
     {
      "tag": "v2.3.5",
      "title": "Toolport v2.3.5",
@@ -5618,11 +5627,11 @@
   ],
   [
    "2026-11-15",
-   145
+   148
   ],
   [
    "2026-11-16",
-   47
+   56
   ]
  ]
 }
