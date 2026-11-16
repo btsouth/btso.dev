@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-11-16T22:40:37.489Z",
+ "generatedAt": "2026-11-16T23:50:30.948Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 241,
-   "pushedAt": "2026-11-16T22:37:59Z",
+   "pushedAt": "2026-11-16T23:34:43Z",
    "latest": "v2.3.7",
    "releaseDates": [
     "2026-11-16T22:36:54Z",
@@ -1227,9 +1227,10 @@
   },
   "btsouth/omaroll": {
    "stars": 86,
-   "pushedAt": "2026-11-16T03:24:34Z",
-   "latest": "v1.19.1",
+   "pushedAt": "2026-11-16T23:23:47Z",
+   "latest": "v1.20.0",
    "releaseDates": [
+    "2026-11-16T23:49:06Z",
     "2026-11-15T05:35:03Z",
     "2026-11-12T22:29:00Z",
     "2026-10-15T04:48:25Z",
@@ -1262,6 +1263,14 @@
     "2026-09-02T01:06:06Z"
    ],
    "releases": [
+    {
+     "tag": "v1.20.0",
+     "title": "Omaroll 1.20.0",
+     "at": "2026-11-16T23:49:06Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/omaroll/releases/tag/v1.20.0",
+     "body": "Albums, tags and dates in the sidebar, tags and albums edited where you look\nat a file, Jump to date, and fixes from a full check on a real desktop.\n[Install or update](https://github.com/btsouth/omaroll#install-or-update).\n\n### Added\n\n- A file's albums and tags show as chips under its caption in the preview and\n  in the viewer's details. Delete or Backspace on a chip removes it; a chip\n  from the file's own keywords has a file icon, and removing it hides it here\n  without changing the file.\n- A tag field under the chips: `Alt+T` reaches it, suggestions match the start\n  of any word ignoring case and accents, Tab takes a suggestion, Enter adds it\n  or creates a new tag, and a comma adds one and keeps typing.\n- Organize opens with a filter and a check for every album and tag, showing\n  whether all, some or none of the selection holds it. Space or a click adds\n  or removes the whole selection, and a name that matches nothing can be\n  created as an album or a tag.\n- Ctrl+Z undoes adding, removing, creating, renaming and deleting albums and\n  tags, saved views included, one step per action. The viewer's details have\n  their own status line with Undo.\n- Settings has a switch for reading keywords and ratings from files.\n- `Ctrl+Shift+O` opens a file with the desktop's file chooser, from the\n  library, the preview or the viewer.\n- The `F9` sidebar lists albums with a cover, tags as an indented tree with a\n  file icon on keywords that come only from files, and dates by year and\n  month, above the folders. A row filters like Browse, choosing it again\n  clears it, and each section co"
+    },
     {
      "tag": "v1.19.1",
      "title": "Omaroll 1.19.1",
@@ -5631,7 +5640,7 @@
   ],
   [
    "2026-11-16",
-   56
+   65
   ]
  ]
 }
