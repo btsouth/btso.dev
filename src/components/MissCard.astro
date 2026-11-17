@@ -1,0 +1,22 @@
+---
+// One checked (or not yet checked) miss on /bench, anchored as #miss-<date>-<key>.
+import { dayLabel } from '../lib/ai';
+import type { Review } from '../lib/bench';
+
+interface Props { date: string; mkey: string; name: string; color: string; passed: number; total: number; review?: Review; repo: string }
+const { date, mkey, name, color, passed, total, review, repo } = Astro.props;
+/** Review notes are plain text with `code` in backticks. */
+const noteHtml = (note: string) => note.replace(/[&<>"]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[ch]!).replace(/`([^`]+)`/g, '<code>$1</code>');
+---
+<li class="panel rv" id={`miss-${date}-${mkey}`} style={`--pc:${color}`}>
+  <div class="mh">
+    <span class="nm"><i></i>{name}</span>
+    <span class="d">{dayLabel(date)}</span>
+    <span class="n">{passed}/{total}</span>
+    {review
+      ? <span class="badge bad"><i></i>{review.cause === 'model' ? "Model's mistake" : 'Checked'}</span>
+      : <span class="badge dim"><i></i>Not checked yet</span>}
+  </div>
+  {review ? <p set:html={noteHtml(review.note)}></p> : <p>This run hasn't been checked yet. Its diff and transcript are on GitHub.</p>}
+  <a class="src" href={`${repo}/tree/main/results/runs/${date}/${mkey}`} target="_blank" rel="noreferrer">Diff and transcript ↗</a>
+</li>
