@@ -1,28 +1,11 @@
 // Shared bits for the AI pages (/stats and /bench): model colors and number formats.
 // Model colors are fixed per model, like project colors, and go through --pc so light
 // themes darken them (--pci) wherever they draw text or thin marks.
+import colorList from '../data/model-colors.json';
 
-const COLORS: [RegExp, string][] = [
-  [/^opus/i, '#d97757'],
-  [/^fable 5\.1/i, '#8f6ad8'],
-  [/^fable/i, '#b48cf0'],
-  [/^mythos/i, '#8f6fe8'],
-  [/^sonnet/i, '#e5a54b'],
-  [/^haiku .* high/i, '#c9962e'],
-  [/^haiku/i, '#e9c46a'],
-  [/^sol 6\.1/i, '#5b9cf5'],
-  [/^sol 6/i, '#3f74d9'],
-  [/^sol/i, '#8fb8f7'],
-  [/^terra/i, '#b7d65a'],
-  [/^astra/i, '#3ccf91'],
-  [/^luna .* high/i, '#8d9bd6'],
-  [/^luna/i, '#c3cbe8'],
-  [/^deepseek/i, '#2bbfd4'],
-  [/^glm/i, '#e8719a'],
-  [/^kimi/i, '#9d8cf0'],
-  [/^grok/i, '#a8a29e'],
-  [/^gpt/i, '#7fb3a4'],
-];
+// One list for the site and the social images (scripts/generate-og.mjs): [pattern, color],
+// first match wins, so a specific version comes before its family.
+const COLORS: [RegExp, string][] = (colorList as [string, string][]).map(([re, c]) => [new RegExp(re, 'i'), c]);
 
 export const OTHER = '#8a8479';
 
@@ -50,8 +33,10 @@ export const secs = (s: number) => (s >= 60 ? `${Math.floor(s / 60)}m ${String(M
 export const dayLabel = (iso: string, opts: Intl.DateTimeFormatOptions = { month: 'short', day: 'numeric' }) =>
   new Date(`${iso}T12:00:00`).toLocaleDateString('en-US', opts);
 
+// Bench summaries carry their own labels now; these cover older summaries without them.
 const LABELS: Record<string, string> = {
-  'claude-opus-5-5': 'Opus 5.5', 'claude-fable-5-2': 'Fable 5.2', 'claude-fable-5-1': 'Fable 5.1', 'claude-sonnet-5-5': 'Sonnet 5.5', 'claude-haiku-5-5': 'Haiku 5.5', 'gpt-6.1-sol': 'Sol 6.1', 'gpt-6.1-terra': 'Terra 6.1', 'gpt-6-astra': 'Astra', 'gpt-6-luna': 'Luna 6',
+  'claude-opus-5-5': 'Opus 5.5', 'claude-fable-5-2': 'Fable 5.2', 'claude-fable-5-1': 'Fable 5.1', 'claude-sonnet-5-5': 'Sonnet 5.5', 'claude-haiku-5-5': 'Haiku 5.5',
+  'gpt-6.2-sol': 'Sol 6.2', 'gpt-6.1-sol': 'Sol 6.1', 'gpt-6.1-terra': 'Terra 6.1', 'gpt-6.2-astra': 'Astra 6.2', 'gpt-6-astra': 'Astra 6', 'gpt-6-luna': 'Luna 6',
   'opencode-go/deepseek-v4.1-flash': 'DeepSeek V4.1 Flash',
 };
 /** A bench model id as a name: "claude-opus-5-5" -> "Opus 5.5". */

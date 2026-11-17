@@ -1,0 +1,23 @@
+[
+  ["^opus", "#d97757"],
+  ["^fable 5\\.1", "#8f6ad8"],
+  ["^fable", "#b48cf0"],
+  ["^mythos", "#8f6fe8"],
+  ["^sonnet", "#e5a54b"],
+  ["^haiku .* high", "#c9962e"],
+  ["^haiku", "#e9c46a"],
+  ["^sol 6\\.2", "#3d5ff2"],
+  ["^sol 6\\.1", "#5b9cf5"],
+  ["^sol 6", "#3f74d9"],
+  ["^sol", "#8fb8f7"],
+  ["^terra", "#b7d65a"],
+  ["^astra 6\\.2", "#14a88f"],
+  ["^astra", "#3ccf91"],
+  ["^luna .* high", "#8d9bd6"],
+  ["^luna", "#c3cbe8"],
+  ["^deepseek", "#2bbfd4"],
+  ["^glm", "#e8719a"],
+  ["^kimi", "#9d8cf0"],
+  ["^grok", "#a8a29e"],
+  ["^gpt", "#7fb3a4"]
+]

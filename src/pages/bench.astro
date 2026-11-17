@@ -2,49 +2,45 @@
 import Base from '../layouts/Base.astro';
 import AiTabs from '../components/AiTabs.astro';
 import bench from '../data/bench.json';
-import { modelColor, modelLabel, short, money, secs, dayLabel, median } from '../lib/ai';
+import { short, money, secs, dayLabel, median } from '../lib/ai';
+import { normalize, GROUPS, lifetime, paired, pctChange, daysBetween, PAIRED_MIN, type Model, type Run, type RawBench } from '../lib/bench';
 import { ogImage } from '../lib/og';
 import '../styles/ai.css';
 
-type Limits = { five_hour?: number | null; seven_day?: number | null } | null;
-type Review = { cause: string; checked?: string; note: string };
-type Run = {
-  date: string; passed: boolean; score: number; wall_seconds: number; over_limit?: boolean;
-  limits?: { before: Limits; after: Limits }; api_cost_usd?: number | null; tokens?: number; output?: number; review?: Review;
-};
-type Model = {
-  model: string; plan: string; effort?: string; runs: number; pass_rate_30: number;
-  latest: Run & { hidden_passed: number; hidden_total: number; tokens: Record<string, number> };
-  history: Run[];
-};
-type Bench = { updated?: string; date?: string; hidden_total?: number; variant?: Record<string, any>; models: Record<string, Model> };
-
-const data = bench as Bench;
-const keys = Object.keys(data.models);
-const hasData = keys.length > 0;
+const data = normalize(bench as RawBench);
+const { models, active, retired, axis } = data;
+const hasData = models.length > 0;
 const REPO = 'https://github.com/btsouth/model-canary';
-/** A model run at a second effort level is its own entry, named for it: "Haiku 5.5 high". */
-const nameOf = (m: Model) => modelLabel(m.model) + (m.effort && m.effort !== 'medium' && m.effort !== 'default' ? ` ${m.effort}` : '');
+const byKey = new Map(models.map((m) => [m.key, m]));
+const inGroups = (list: Model[]) => GROUPS.map((g) => ({ g, list: list.filter((m) => m.group === g) })).filter((x) => x.list.length);
 
-// Today's card for each model, with a status against its own earlier runs.
-const cards = keys.map((key) => {
-  const m = data.models[key];
+/** Limit use for one run: the 5-hour window when the plan reports one, else the weekly one. */
+function limitUse(r: Run) {
+  const b = r.limits?.before, a = r.limits?.after;
+  const pick = (w: 'five_hour' | 'seven_day') => (b?.[w] != null && a?.[w] != null ? Math.max(0, a[w]! - b[w]!) : undefined);
+  const five = pick('five_hour');
+  if (five !== undefined) return { label: '5h limit', used: r.over_limit ? null : five };
+  const week = pick('seven_day');
+  if (week !== undefined) return { label: 'Week limit', used: r.over_limit ? null : week };
+  return { label: 'Limit', used: null };
+}
+
+// Today's card for each active model, with a status against its own earlier runs.
+const cards = new Map(active.map((m) => {
   const runs = m.history;
   const last = runs.at(-1)!;
   const earlier = runs.slice(0, -1);
-  const name = nameOf(m);
-  const before = last.limits?.before?.five_hour;
-  const after = last.limits?.after?.five_hour;
-  const used = before != null && after != null && !last.over_limit ? Math.max(0, after - before) : null;
+  const limit = limitUse(last);
   let status = { cls: 'ok', text: 'Passed' };
-  if (!last.passed) status = { cls: 'bad', text: `Missed ${m.latest.hidden_total - m.latest.hidden_passed} tests` };
+  if (m.last < data.date) status = { cls: 'warn', text: 'No run today' };
+  else if (!last.passed) status = { cls: 'bad', text: `Missed ${m.latest.hidden_total - m.latest.hidden_passed} tests` };
   else if (earlier.length < 3) status = { cls: 'dim', text: earlier.length ? 'Passed · new' : 'First run' };
   else if (last.wall_seconds > 1.5 * median(earlier.map((r) => r.wall_seconds))) status = { cls: 'warn', text: 'Slower than usual' };
   else if ((last.tokens ?? 0) > 1.5 * median(earlier.map((r) => r.tokens ?? 0))) status = { cls: 'warn', text: 'More tokens than usual' };
-  return { key, m, last, name, used, status, color: modelColor(name) };
-});
+  return [m.key, { m, last, limit, status }];
+}));
 
-const v = data.variant ?? {};
+const v = data.variant;
 const s = v.schedule ?? {};
 const twists = hasData ? [
   ['Leftover cent goes to', `the ${v.tie} share`],
@@ -57,51 +53,81 @@ const twists = hasData ? [
   ['Split function is called', `<code>${v.split}()</code>`],
 ] : [];
 
-const days = hasData ? [...new Set(keys.flatMap((k) => data.models[k].history.map((r) => r.date)))].sort().slice(-30) : [];
-
-/** A pass rate that never rounds a miss away: 99.4% shows as 99%, not 100%. */
-function passPct(passed: number, runs: number) {
-  const pct = (passed / runs) * 100;
-  return passed < runs ? Math.min(99, Math.round(pct)) : 100;
-}
-
-// Pass record rows: one bar per day, taller when that model was slower, plus its
-// average time over the last 7 days against the 7 before.
-const daysBefore = (d: string) => Math.round((Date.parse(data.date!) - Date.parse(d)) / 864e5);
+// Pass record rows: one bar per calendar day, taller when that model was slower, plus
+// its average time over the last 7 days against the 7 before. Retired models show the
+// 30 days up to their last run.
+const WINDOW = 30;
+const daysBefore = (d: string) => daysBetween(d, data.date);
 const avgTime = (rs: Run[]) => (rs.length ? rs.reduce((n, r) => n + r.wall_seconds, 0) / rs.length : null);
-const record = cards.map((c) => {
-  const runs = c.m.history;
-  const shown = runs.filter((r) => days.includes(r.date));
-  const slowest = Math.max(1, ...shown.map((r) => r.wall_seconds));
+const recordRow = (m: Model) => {
+  const runs = m.history;
+  const days = m.retired ? axis.slice(0, axis.indexOf(m.last) + 1).slice(-WINDOW) : axis.slice(-WINDOW);
+  const byDate = new Map(runs.map((r) => [r.date, r]));
+  const slowest = Math.max(1, ...days.map((d) => byDate.get(d)?.wall_seconds ?? 0));
   const week = avgTime(runs.filter((r) => daysBefore(r.date) < 7));
   const prior = runs.filter((r) => { const n = daysBefore(r.date); return n >= 7 && n < 14; });
   const change = week != null && prior.length >= 3 ? week / avgTime(prior)! - 1 : null;
-  const trend = change == null ? null : { text: `${change > 0 ? '+' : '−'}${Math.abs(Math.round(change * 100))}%`, cls: change > 0.1 ? 'up' : change < -0.1 ? 'down' : '' };
+  const trend = change == null ? null : { text: pctChange(change), cls: change > 0.1 ? 'up' : change < -0.1 ? 'down' : '' };
   const misses = runs.filter((r) => !r.passed).length;
-  return { c, byDate: new Map(runs.map((r) => [r.date, r])), slowest, week, trend, misses, runs: runs.length, pass: passPct(runs.length - misses, runs.length) };
-});
+  return { m, days, byDate, slowest, week, trend, misses, runs: runs.length, pass: lifetime(m).pass };
+};
+const record = inGroups(active).map(({ g, list }) => ({ g, rows: list.map(recordRow) }));
+const retiredRows = retired.map(recordRow);
 
 // Misses are rare, so every one is listed, long after its bar scrolls out of view.
-const TOTAL = data.hidden_total ?? 157;
-const allRuns = record.reduce((n, r) => n + r.runs, 0);
-const allMisses = record.reduce((n, r) => n + r.misses, 0);
-const since = hasData ? keys.map((k) => data.models[k].history[0]?.date).filter(Boolean).sort()[0] : undefined;
-const missLog = cards
-  .flatMap((c) => c.m.history.filter((r) => !r.passed).map((r) => ({ c, date: r.date, review: r.review, missed: Math.max(1, Math.round((1 - r.score) * TOTAL)) })))
+const TOTAL = data.hidden_total;
+const allRuns = models.reduce((n, m) => n + m.history.length, 0);
+const allMisses = models.reduce((n, m) => n + m.history.filter((r) => !r.passed).length, 0);
+const since = axis[0];
+const missLog = models
+  .flatMap((m) => m.history.filter((r) => !r.passed).map((r) => ({ m, date: r.date, review: r.review, missed: Math.max(1, Math.round((1 - r.score) * TOTAL)) })))
   .sort((a, b) => b.date.localeCompare(a.date));
-const unchecked = missLog.filter((m) => !m.review).length;
+const unchecked = missLog.filter((x) => !x.review).length;
 /** Review notes are plain text with `code` in backticks. */
 const noteHtml = (note: string) => note.replace(/[&<>"]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[ch]!).replace(/`([^`]+)`/g, '<code>$1</code>');
-const clientData = JSON.stringify({ models: keys.map((k) => ({ key: k, name: nameOf(data.models[k]), history: data.models[k].history })) }).replace(/</g, '\\u003c');
+
+// Generations: every model there has been, family by family, newest first, with lifetime
+// medians and, where it replaced an older version, the change on the days both ran.
+const families = [...new Set(models.map((m) => m.family))].map((f) => models.filter((m) => m.family === f));
+const generations = families.map((list) => list.map((m) => {
+  const prev = m.predecessor ? byKey.get(m.predecessor)! : null;
+  return { m, life: lifetime(m), prev, vs: prev ? paired(m, prev) : null };
+}));
+const changeCls = (x: number | null | undefined) => (x == null ? '' : x > 0.05 ? 'up' : x < -0.05 ? 'down' : '');
+
+// "No peeking" names the extra effort levels from the data, so it stays true.
+const listJoin = (xs: string[]) => (xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} and ${xs.at(-1)}`);
+const firstWord = (m: Model) => m.label.split(' ')[0];
+const variantEfforts = [...new Set(active.filter((m) => m.base).map((m) => m.effort))];
+const variantText = variantEfforts.map((e) => `${listJoin([...new Set(active.filter((m) => m.base && m.effort === e).map(firstWord))])} also run${active.filter((m) => m.base && m.effort === e).length === 1 ? 's' : ''} at ${e}`);
+const defaults = [...new Set(active.filter((m) => m.effort === 'default').map(firstWord))];
+const defaultText = defaults.length ? `${listJoin(defaults)} run${defaults.length === 1 ? 's at its' : ' at their'} default because ${defaults.length === 1 ? 'it has' : 'they have'} no medium` : '';
+const effortNote = [listJoin(variantText), defaultText].filter(Boolean).join(', and ');
+
+// The chart script gets compact arrays per model: day index on the axis, then one value per run.
+const dayIndex = new Map(axis.map((d, i) => [d, i]));
+const clientData = JSON.stringify({
+  start: axis[0], days: axis.length,
+  events: data.events.filter((e) => dayIndex.has(e.date)).map((e) => ({ i: dayIndex.get(e.date), g: e.group, t: e.text })),
+  models: models.map((m) => ({
+    k: m.key, n: m.name, c: m.color, l: m.line, g: m.group, r: m.retired ? 1 : 0,
+    d: m.history.map((r) => dayIndex.get(r.date)),
+    s: m.history.map((r) => r.wall_seconds),
+    t: m.history.map((r) => r.tokens ?? null),
+    p: m.history.map((r) => (r.api_cost_usd == null ? null : Math.round(r.api_cost_usd * 1e4) / 1e4)),
+    q: m.history.map((r) => r.score),
+    f: m.history.map((r) => (r.passed ? 1 : 0)),
+  })),
+}).replace(/</g, '\\u003c');
 ---
 <Base title="Daily model bench | btso.dev" description="Every morning each AI model I pay for gets the same kind of coding task. Pass rate, time, tokens and limit use, tracked daily." path="/bench" image={ogImage('/og/bench.png')} imageAlt="The daily model bench on btso.dev">
   <section class="page-head">
     <div class="px-band" id="pxBand" aria-hidden="true"></div>
     <div class="wrap" style="position:relative">
-      <p class="eyebrow"><span class="live"></span> Runs every morning at 6:00 ET</p>
+      <p class="eyebrow" id="benchEyebrow" data-date={data.date}><span class="live"></span> <span class="t">Runs every morning at 6:00 ET</span></p>
       <h1>Daily model bench</h1>
       <p>Every morning each model I pay for gets the same kind of coding job: fix nine bugs, then build a scheduler from a written spec. The details change daily so nothing can be memorized, but the work stays the same size. If time, tokens or the pass rate move, the model or the plan changed.</p>
-      <div class="row"><AiTabs />{hasData && <span class="ai-note">last run {dayLabel(data.date!, { weekday: 'long', month: 'short', day: 'numeric' })} · <a href={REPO} target="_blank" rel="noreferrer">every run on GitHub</a></span>}</div>
+      <div class="row"><AiTabs />{hasData && <span class="ai-note">last run {dayLabel(data.date, { weekday: 'long', month: 'short', day: 'numeric' })} · <a href={REPO} target="_blank" rel="noreferrer">every run on GitHub</a></span>}</div>
     </div>
   </section>
 
@@ -115,75 +141,156 @@ const clientData = JSON.stringify({ models: keys.map((k) => ({ key: k, name: nam
 
     {hasData && (
       <>
-        <div class="today">
-          {cards.map((c, i) => (
-            <article class="run glow rv" style={`--pc:${c.color};transition-delay:${i * 50}ms`}>
-              <div class="top">
-                <h4>{c.name}</h4><div class="plan">{c.m.plan}</div>
-                <span class:list={['badge', c.status.cls]}><i></i>{c.status.text}</span>
-              </div>
-              <div class="score" data-num={c.m.latest.hidden_passed}>{c.m.latest.hidden_passed}<small>/ {c.m.latest.hidden_total}</small></div>
-              <dl>
-                <dt>Effort</dt><dd>{c.m.effort === 'default' ? 'model default' : c.m.effort ?? 'medium'}</dd>
-                <dt>Time</dt><dd>{secs(c.last.wall_seconds)}</dd>
-                <dt>Tokens</dt><dd>{short(c.last.tokens ?? 0)}</dd>
-                <dt>API price</dt><dd>{c.last.api_cost_usd != null ? money(c.last.api_cost_usd) : 'n/a'}</dd>
-                <dt>5h limit</dt><dd>{c.used == null ? 'n/a' : c.used === 0 ? 'under 1%' : `${Math.round(c.used * 100)}%`}</dd>
-              </dl>
-            </article>
-          ))}
-        </div>
+        {inGroups(active).map(({ g, list }) => (
+          <div class="vendor">
+            <h3 class="vendor-h rv">{g}</h3>
+            <div class="today">
+              {list.map((m, i) => {
+                const c = cards.get(m.key)!;
+                return (
+                  <article class:list={['run', 'glow', 'rv', { stale: m.last < data.date }]} style={`--pc:${m.color};transition-delay:${i * 50}ms`}>
+                    <div class="top">
+                      <h4>{m.name}</h4><div class="plan">{m.plan}{m.last < data.date && ` · last ran ${dayLabel(m.last)}`}{m.successor && !m.retired && m.until && ` · retires after ${dayLabel(m.until)}`}</div>
+                      <span class:list={['badge', c.status.cls]}><i></i>{c.status.text}</span>
+                    </div>
+                    <div class="score" data-num={m.latest.hidden_passed}>{m.latest.hidden_passed}<small>/ {m.latest.hidden_total}</small></div>
+                    <dl>
+                      <dt>Effort</dt><dd>{m.effort === 'default' ? 'model default' : m.effort}</dd>
+                      <dt>Time</dt><dd>{secs(c.last.wall_seconds)}</dd>
+                      <dt>Tokens</dt><dd>{short(c.last.tokens ?? 0)}</dd>
+                      <dt>API price</dt><dd>{c.last.api_cost_usd != null ? money(c.last.api_cost_usd) : 'n/a'}</dd>
+                      <dt>{c.limit.label}</dt><dd>{c.limit.used == null ? 'n/a' : Math.round(c.limit.used * 100) === 0 ? 'under 1%' : `${Math.round(c.limit.used * 100)}%`}</dd>
+                    </dl>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        ))}
 
         <section class="ai-sec">
-          <div class="blk-head rv"><div><p class="eyebrow">Trends</p><h2>Same work, every day</h2><p>Each line is one model on the day's task. Hover for the numbers, or click a name to pick it out.</p></div></div>
+          <div class="blk-head rv"><div><p class="eyebrow">Trends</p><h2>Same work, every day</h2><p>Each line is one model on the day's task, one chart per vendor. Dashed lines are older versions on their way out, dotted ones the same model at a higher effort. Ticks mark a CLI or plan change. Hover for the numbers, or click a name to pick it out.</p></div></div>
           <div class="panel rv tipbox" id="trendPanel">
-            <div class="panel-h">
+            <div class="panel-h trend-h">
               <div class="chips" role="group" aria-label="Measure">
-                <button type="button" class="chip on" data-metric="wall_seconds">Time to finish</button>
-                <button type="button" class="chip" data-metric="tokens">Tokens</button>
-                <button type="button" class="chip" data-metric="api_cost_usd">API price</button>
-                <button type="button" class="chip" data-metric="score">Score</button>
+                <button type="button" class="chip on" data-metric="s">Time to finish</button>
+                <button type="button" class="chip" data-metric="t">Tokens</button>
+                <button type="button" class="chip" data-metric="p">API price</button>
+                <button type="button" class="chip" data-metric="q">Score</button>
+              </div>
+              <div class="chips" role="group" aria-label="Range">
+                <button type="button" class="chip on" data-range="30" title="Daily, last 30 days">30 days</button>
+                <button type="button" class="chip" data-range="90" title="Weekly medians, last 90 days">90 days</button>
+                <button type="button" class="chip" data-range="all" title="Weekly medians since the first run">All</button>
+                {retired.length > 0 && <button type="button" class="chip" id="showRetired" aria-pressed="false">Show retired</button>}
               </div>
             </div>
-            <div class="chart" id="trend"></div>
-            <div class="legend" id="trendLegend">
-              {cards.map((c) => <button type="button" data-key={c.key} style={`--pc:${c.color}`}><i></i>{c.name}</button>)}
+            <div class="vcharts">
+              {GROUPS.map((g) => {
+                const list = models.filter((m) => m.group === g);
+                if (!list.length) return null;
+                return (
+                  <div class="vchart" data-group={g} data-retired-only={list.every((m) => m.retired) ? '1' : undefined} hidden={list.every((m) => m.retired)}>
+                    <h4>{g}</h4>
+                    <div class="chart"></div>
+                    <div class="legend">
+                      {list.map((m) => <button type="button" data-key={m.key} class={m.line} style={`--pc:${m.color}`} hidden={!!m.retired}><i></i>{m.name}</button>)}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
+            <p class="ai-note range-note" id="rangeNote">Daily runs over the last 30 days. Gaps are days without a run.</p>
             <div class="tip" id="trendTip"></div>
           </div>
 
           <div class="duo">
             <div class="panel rv">
-              <div class="panel-h"><div><h3>Pass record</h3><p>One bar per day, taller when that model took longer. Red means it missed at least one hidden test. Pass rates count every run; time changes compare with the week before.</p></div></div>
+              <div class="panel-h"><div><h3>Pass record</h3><p>One bar per day, taller when that model took longer. Red means it missed at least one hidden test; a flat grey bar is a day with no run. Pass rates count every run; time changes compare with the week before.</p></div></div>
               <div class="record">
-                <div class="row head"><span>Model</span><span>Last {days.length} days</span><span>Pass, all time</span><span>Avg time, 7d</span></div>
-                {record.map(({ c, byDate, slowest, week, trend, pass, misses, runs }) => (
-                  <div class="row" style={`--pc:${c.color}`}>
-                    <span class="nm"><i></i>{c.name}</span>
-                    <span class="dots">{days.map((d) => {
-                      const r = byDate.get(d);
-                      const total = data.hidden_total ?? 157;
-                      return r
-                        ? <i class:list={{ f: !r.passed }} style={`--h:${(0.25 + 0.75 * (r.wall_seconds / slowest)).toFixed(3)}`} title={`${dayLabel(d)}: ${Math.round(r.score * total)}/${total} in ${secs(r.wall_seconds)}`}></i>
-                        : <i class="x" title={`${dayLabel(d)}: no run`}></i>;
-                    })}</span>
-                    <span class="pct" title={`${runs - misses} of ${runs} runs passed`}>{pass}%<small class:list={{ miss: misses }}>{misses ? `${misses} miss${misses === 1 ? '' : 'es'}` : `${runs} for ${runs}`}</small></span>
-                    <span class="avg">{week == null ? 'n/a' : secs(week)}{trend && <small class={trend.cls} title="Against the 7 days before">{trend.text}</small>}</span>
-                  </div>
+                <div class="row head"><span>Model</span><span>Last {WINDOW} days</span><span>Pass, all time</span><span>Avg time, 7d</span></div>
+                {record.map(({ g, rows }) => (
+                  <>
+                    <div class="row grp"><span>{g}</span></div>
+                    {rows.map(({ m, days, byDate, slowest, week, trend, pass, misses, runs }) => (
+                      <div class:list={['row', m.line]} style={`--pc:${m.color}`}>
+                        <span class="nm"><i></i>{m.name}</span>
+                        <span class="dots">{days.map((d) => {
+                          const r = byDate.get(d);
+                          return r
+                            ? <i class:list={{ f: !r.passed }} style={`--h:${(0.25 + 0.75 * (r.wall_seconds / slowest)).toFixed(3)}`} title={`${dayLabel(d)}: ${Math.round(r.score * TOTAL)}/${TOTAL} in ${secs(r.wall_seconds)}`}></i>
+                            : <i class="x" title={`${dayLabel(d)}: no run`}></i>;
+                        })}</span>
+                        <span class="pct" title={`${runs - misses} of ${runs} runs passed`}>{pass}%<small class:list={{ miss: misses }}>{misses ? `${misses} miss${misses === 1 ? '' : 'es'}` : `${runs} for ${runs}`}</small></span>
+                        <span class="avg">{week == null ? 'n/a' : secs(week)}{trend && <small class={trend.cls} title="Against the 7 days before">{trend.text}</small>}</span>
+                      </div>
+                    ))}
+                  </>
                 ))}
               </div>
+              {retiredRows.length > 0 && (
+                <details class="retired">
+                  <summary>Retired models ({retiredRows.length})</summary>
+                  <div class="record">
+                    {retiredRows.map(({ m, days, byDate, slowest, pass, misses, runs }) => (
+                      <div class:list={['row', m.line]} style={`--pc:${m.color}`}>
+                        <span class="nm"><i></i>{m.name}</span>
+                        <span class="dots">{days.map((d) => {
+                          const r = byDate.get(d);
+                          return r
+                            ? <i class:list={{ f: !r.passed }} style={`--h:${(0.25 + 0.75 * (r.wall_seconds / slowest)).toFixed(3)}`} title={`${dayLabel(d)}: ${Math.round(r.score * TOTAL)}/${TOTAL} in ${secs(r.wall_seconds)}`}></i>
+                            : <i class="x" title={`${dayLabel(d)}: no run`}></i>;
+                        })}</span>
+                        <span class="pct" title={`${runs - misses} of ${runs} runs passed`}>{pass}%<small class:list={{ miss: misses }}>{misses ? `${misses} miss${misses === 1 ? '' : 'es'}` : `${runs} for ${runs}`}</small></span>
+                        <span class="avg">{dayLabel(m.last)}<small>last run</small></span>
+                      </div>
+                    ))}
+                  </div>
+                </details>
+              )}
               <div class="misses">
                 <p><b>{allRuns - allMisses} of {allRuns}</b> runs passed{since && <> since {dayLabel(since)}</>}. {allMisses ? <>Every miss so far, <a href="#misses">checked below</a>:</> : 'No misses yet.'}</p>
                 {allMisses > 0 && (
                   <ul>
-                    {missLog.map((m) => <li style={`--pc:${m.c.color}`}><a class="d" href={`#miss-${m.date}-${m.c.key}`}>{dayLabel(m.date)}</a><span class="nm"><i></i>{m.c.name}</span><span class="n">{TOTAL - m.missed}/{TOTAL}</span></li>)}
+                    {missLog.map((x) => <li style={`--pc:${x.m.color}`}><a class="d" href={`#miss-${x.date}-${x.m.key}`}>{dayLabel(x.date)}</a><span class="nm"><i></i>{x.m.name}</span><span class="n">{TOTAL - x.missed}/{TOTAL}</span></li>)}
                   </ul>
                 )}
               </div>
             </div>
             <div class="panel rv">
-              <div class="panel-h"><div><h3>Today's twist</h3><p>What changed in {dayLabel(data.date!)}'s version of the task.</p></div></div>
+              <div class="panel-h"><div><h3>Today's twist</h3><p>What changed in {dayLabel(data.date)}'s version of the task.</p></div></div>
               <dl class="twist">{twists.map(([k, val]) => <div><dt>{k}</dt><dd set:html={val}></dd></div>)}</dl>
+            </div>
+          </div>
+        </section>
+
+        <section class="ai-sec" id="generations">
+          <div class="blk-head rv"><div><p class="eyebrow">Generations</p><h2>Every version, side by side</h2><p>Each model's whole history in medians, newest version first. When a new version replaces an old one, both run the same task for two weeks, and the change is measured only on those shared days.</p></div></div>
+          <div class="panel rv gen-panel">
+            <div class="gen-scroll">
+              <table class="gen">
+                <thead><tr><th>Model</th><th>Ran</th><th>Runs</th><th>Pass</th><th>Time</th><th>Tokens</th><th>API price</th><th>Against the previous version</th></tr></thead>
+                {generations.map((rows) => (
+                  <tbody>
+                    {rows.map(({ m, life, prev, vs }) => (
+                      <tr class:list={[m.line, { old: m.retired }]} style={`--pc:${m.color}`}>
+                        <th scope="row"><span class="nm"><i></i>{m.name}</span>{m.retired ? <small>retired</small> : m.successor ? <small>retiring</small> : null}</th>
+                        <td class="when">{m.retired ? `${dayLabel(m.first)} to ${dayLabel(m.last)}` : `since ${dayLabel(m.first)}`}</td>
+                        <td>{life.runs}</td>
+                        <td>{life.pass}%</td>
+                        <td>{life.time == null ? 'n/a' : secs(life.time)}</td>
+                        <td>{life.tokens == null ? 'n/a' : short(life.tokens)}</td>
+                        <td>{life.price == null ? 'n/a' : money(life.price)}</td>
+                        <td class="vs">{prev && vs ? (
+                          'time' in vs
+                            ? <><span class="ch">{[['time', vs.time], ['tokens', vs.tokens], ['price', vs.price]].map(([k, x]) => x != null && <span class={changeCls(x as number)}>{k} <b>{pctChange(x as number)}</b></span>)}</span><small>vs {prev.name}, {vs.n} shared days</small></>
+                            : <small>vs {prev.name}: {vs.n} shared day{vs.n === 1 ? '' : 's'} so far, compared once there are {PAIRED_MIN}</small>
+                        ) : <small>–</small>}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                ))}
+              </table>
             </div>
           </div>
         </section>
@@ -192,18 +299,18 @@ const clientData = JSON.stringify({ models: keys.map((k) => ({ key: k, name: nam
           <section class="ai-sec" id="misses">
             <div class="blk-head rv"><div><p class="eyebrow">Misses</p><h2>Every miss, checked</h2><p>A red dot is only useful if it's real. Each failed run is graded again from its saved diff to confirm the result, then read against that day's spec to find what went wrong.{unchecked > 0 && ` ${unchecked === 1 ? 'One is' : `${unchecked} are`} still waiting for a look.`}</p></div><a class="link" href={`${REPO}#checking-failures`} target="_blank" rel="noreferrer">How it's checked ↗</a></div>
             <ol class="miss-notes">
-              {missLog.map((m) => (
-                <li class="panel rv" id={`miss-${m.date}-${m.c.key}`} style={`--pc:${m.c.color}`}>
+              {missLog.map((x) => (
+                <li class="panel rv" id={`miss-${x.date}-${x.m.key}`} style={`--pc:${x.m.color}`}>
                   <div class="mh">
-                    <span class="nm"><i></i>{m.c.name}</span>
-                    <span class="d">{dayLabel(m.date)}</span>
-                    <span class="n">{TOTAL - m.missed}/{TOTAL}</span>
-                    {m.review
-                      ? <span class="badge bad"><i></i>{m.review.cause === 'model' ? "Model's mistake" : 'Checked'}</span>
+                    <span class="nm"><i></i>{x.m.name}</span>
+                    <span class="d">{dayLabel(x.date)}</span>
+                    <span class="n">{TOTAL - x.missed}/{TOTAL}</span>
+                    {x.review
+                      ? <span class="badge bad"><i></i>{x.review.cause === 'model' ? "Model's mistake" : 'Checked'}</span>
                       : <span class="badge dim"><i></i>Not checked yet</span>}
                   </div>
-                  {m.review ? <p set:html={noteHtml(m.review.note)}></p> : <p>This run hasn't been checked yet. Its diff and transcript are on GitHub.</p>}
-                  <a class="src" href={`${REPO}/tree/main/results/runs/${m.date}/${m.c.key}`} target="_blank" rel="noreferrer">Diff and transcript ↗</a>
+                  {x.review ? <p set:html={noteHtml(x.review.note)}></p> : <p>This run hasn't been checked yet. Its diff and transcript are on GitHub.</p>}
+                  <a class="src" href={`${REPO}/tree/main/results/runs/${x.date}/${x.m.key}`} target="_blank" rel="noreferrer">Diff and transcript ↗</a>
                 </li>
               ))}
             </ol>
@@ -216,10 +323,10 @@ const clientData = JSON.stringify({ models: keys.map((k) => ({ key: k, name: nam
       <div class="blk-head rv"><div><p class="eyebrow">How it works</p><h2>Fair, boring, every day</h2></div><a class="link" href={REPO} target="_blank" rel="noreferrer">Source and every result ↗</a></div>
       <ol class="steps">
         <li class="rv"><b>Same work, new details</b>Nine bugs across five small modules, plus a cron-style scheduler built from a spec. A new variant is generated from the date, so every model gets the same task on the same day.</li>
-        <li class="rv"><b>Graded by hidden tests</b>{data.hidden_total ?? 157} tests the model never sees check the work. Their answers come from a reference implementation that's itself checked against a brute-force search.</li>
-        <li class="rv"><b>No peeking</b>Each model runs through its own CLI with none of my instructions, at medium effort unless its card says otherwise: Haiku and Luna also run at high, and DeepSeek runs at its default because it has no medium. The hidden tests only exist after it's done, and any run that touches the grader is thrown out.</li>
+        <li class="rv"><b>Graded by hidden tests</b>{TOTAL} tests the model never sees check the work. Their answers come from a reference implementation that's itself checked against a brute-force search.</li>
+        <li class="rv"><b>No peeking</b>Each model runs through its own CLI with none of my instructions, at medium effort unless its card says otherwise{effortNote ? `: ${effortNote}` : ''}. The hidden tests only exist after it's done, and any run that touches the grader is thrown out.</li>
       </ol>
-      <p class="ai-note rv" style="margin-top:20px">Effort names mean different things to each vendor, so compare each model with itself over time more than with the others. Today's models all pass this task nearly every time, so a red dot matters. Time, tokens and limit use are the trends to watch. Limit readings are whole percents shared with my other work, so a single day's number is rough.</p>
+      <p class="ai-note rv" style="margin-top:20px">Effort names mean different things to each vendor, so compare each model with itself over time more than with the others. When a vendor ships a new version, it runs beside the old one for two weeks, then the old one retires from the daily run and stays in <a href="#generations">Generations</a>. Today's models all pass this task nearly every time, so a red dot matters. Time, tokens and limit use are the trends to watch. Limit readings are whole percents shared with my other work, so a single day's number is rough.</p>
     </section>
   </div>
 

@@ -176,6 +176,72 @@
 .miss-notes code { padding: 1px 5px; border-radius: 5px; background: var(--bg3); color: var(--accent); font: 500 12.5px "JetBrains Mono", monospace; white-space: pre; }
 .miss-notes .src { margin-top: auto; font: 500 11.5px/1 "JetBrains Mono", monospace; color: var(--fg3); text-decoration: none; }
 .miss-notes .src:hover { color: var(--accent); }
+/* Today's cards, one group per vendor. */
+.vendor + .vendor .vendor-h { margin-top: 28px; }
+.vendor-h { margin: 40px 0 0; font: 500 12px/1 "JetBrains Mono", monospace; color: var(--fg3); letter-spacing: .08em; text-transform: uppercase; display: flex; align-items: center; gap: 12px; }
+.vendor-h::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.vendor .today { margin-top: 14px; }
+.run.stale { border-style: dashed; }
+.run.stale .score { color: var(--fg3); }
+.eyebrow.stale { color: var(--warn); }
+.eyebrow.stale .live { background: var(--warn); }
+.eyebrow.stale .live::after { display: none; }
+
+/* Older versions draw dashed and higher-effort variants dotted, in charts and swatches. */
+.chart .ln.dashed { stroke-dasharray: 7 5; stroke-linecap: butt; }
+.chart .ln.dotted { stroke-dasharray: 0.1 5.5; stroke-width: 3; }
+.chart .ln.dotted.on { stroke-width: 4; }
+.legend .dashed i, .dashed .nm i { background: repeating-linear-gradient(90deg, var(--pc) 0 4px, transparent 4px 6px); height: 4px; border-radius: 1px; width: 14px; }
+.legend .dotted i, .dotted .nm i { background: radial-gradient(circle, var(--pc) 1.7px, transparent 2px) 0 50% / 5px 5px repeat-x; height: 5px; border-radius: 0; width: 14px; }
+
+/* Trend: one small chart per vendor. */
+.trend-h { align-items: center; }
+.vcharts { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px 28px; }
+.vchart[hidden] { display: none; }
+.vchart h4 { margin: 0 0 8px; font: 700 13px/1.2 "JetBrains Mono", monospace; color: var(--fg2); }
+.vchart .chart { height: 200px; }
+.vchart .legend { margin-top: 12px; gap: 8px 14px; font-size: 11.5px; }
+.legend button[hidden] { display: none; }
+.chart .ev line { stroke: var(--fg3); stroke-dasharray: 2 3; opacity: .45; }
+.chart .ev rect { fill: var(--fg3); opacity: .6; }
+.range-note { margin: 16px 0 0; }
+.tip .evt { color: var(--fg3); font-size: 11px; }
+.tip .r0 { color: var(--fg3); }
+
+/* Pass record: vendor rows and the retired drawer. */
+.record .row.grp { font: 500 10.5px/1 "JetBrains Mono", monospace; color: var(--fg3); letter-spacing: .08em; text-transform: uppercase; margin-top: 4px; }
+.record .row.grp span { grid-column: 1 / -1; }
+.record .row.head + .row.grp { margin-top: 0; }
+.retired { margin-top: 16px; padding-top: 12px; border-top: 1px dashed var(--line); }
+.retired summary { cursor: pointer; font: 500 12px/1.4 "JetBrains Mono", monospace; color: var(--fg2); }
+.retired summary:hover { color: var(--fg); }
+.retired[open] summary { margin-bottom: 12px; }
+
+/* Generations table */
+.gen-panel { padding: 8px 0; }
+.gen-scroll { overflow-x: auto; scrollbar-width: thin; }
+.gen { width: 100%; border-collapse: collapse; font: 400 12.5px/1.3 "JetBrains Mono", monospace; font-variant-numeric: tabular-nums; }
+.gen thead th { padding: 12px 12px 10px; font: 400 10.5px/1.2 "JetBrains Mono", monospace; color: var(--fg3); letter-spacing: .02em; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--line); }
+.gen thead th:first-child, .gen thead th:nth-child(2), .gen thead th:last-child { text-align: left; }
+.gen th:first-child, .gen td:first-child { padding-left: 24px; }
+.gen th:last-child, .gen td:last-child { padding-right: 24px; }
+.gen tbody + tbody tr:first-child > * { border-top: 1px solid var(--line); }
+.gen tr { --pc: #888; }
+.gen tbody th, .gen td { padding: 9px 12px; text-align: right; color: var(--fg); white-space: nowrap; vertical-align: middle; }
+.gen tbody th { text-align: left; font-weight: 600; }
+.gen tbody th small { display: block; margin: 3px 0 0 18px; font-weight: 400; font-size: 10.5px; color: var(--fg3); }
+.gen .nm { display: inline-flex; align-items: center; gap: 8px; }
+.gen .nm i { width: 10px; height: 10px; border-radius: 3px; background: var(--pc); flex: none; }
+.gen td.when { text-align: left; color: var(--fg2); }
+.gen tr.old th, .gen tr.old td { color: var(--fg2); }
+.gen td.vs { text-align: left; white-space: normal; min-width: 230px; }
+.gen td.vs small { display: block; font-size: 10.5px; color: var(--fg3); }
+.gen td.vs .ch { display: flex; flex-wrap: wrap; gap: 2px 12px; margin-bottom: 3px; color: var(--fg2); }
+.gen td.vs .ch b { font-weight: 600; color: var(--fg); }
+.gen td.vs .up b { color: color-mix(in oklab, var(--warn) var(--pc-keep), var(--fg)); }
+.gen td.vs .down b { color: color-mix(in oklab, var(--ok) var(--pc-keep), var(--fg)); }
+.gen tbody tr:hover > * { background: var(--bg3); }
+
 @media (max-width: 560px) {
   .today { grid-template-columns: 1fr 1fr; gap: 10px; }
   .run { padding: 14px; }
@@ -183,6 +249,9 @@
   .record .row { grid-template-columns: 1fr 96px 92px; row-gap: 8px; }
   .record .row.head span:nth-child(2) { display: none; }
   .record .dots { grid-column: 1 / -1; grid-row: 2; }
+  .record .row.grp { grid-template-columns: 1fr; }
+  .gen th:first-child, .gen td:first-child { padding-left: 16px; }
+  .vcharts { grid-template-columns: 1fr; }
 }
 
 .twist { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
