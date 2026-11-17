@@ -152,7 +152,6 @@ export function paired(m: Model, prev: Model) {
   if (n < PAIRED_MIN) return { n };
   return {
     n, time: change((r) => r.wall_seconds), tokens: change((r) => r.tokens), price: change((r) => r.api_cost_usd),
-    passed: pairs.filter(([a]) => a.passed).length, prevPassed: pairs.filter(([, b]) => b.passed).length,
   };
 }
 

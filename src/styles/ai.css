@@ -271,14 +271,18 @@
   .gen tbody tr:hover > * { background: none; }
 }
 
-@media (max-width: 560px) {
-  .today { grid-template-columns: 1fr 1fr; gap: 10px; }
-  .run { padding: 14px; }
-  .run .score { font-size: 28px; }
+/* The four-column pass record needs about 540px inside its panel; below that the bars get their own line. */
+@media (max-width: 680px) {
   .record .row { grid-template-columns: 1fr 96px 92px; row-gap: 8px; }
   .record .row.head span:nth-child(2) { display: none; }
   .record .dots { grid-column: 1 / -1; grid-row: 2; }
   .record .row.grp { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .today { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .run { padding: 14px; }
+  .run .score { font-size: 28px; }
   .gen th:first-child, .gen td:first-child { padding-left: 16px; }
   .vcharts { grid-template-columns: 1fr; }
 }

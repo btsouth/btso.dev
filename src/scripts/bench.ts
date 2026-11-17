@@ -48,6 +48,9 @@ function addDays(iso: string, n: number) {
   return new Date(Date.parse(`${iso}T00:00:00Z`) + n * 864e5).toISOString().slice(0, 10);
 }
 
+/** Names and event text come from the data, so they go into the readout as text. */
+const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
+
 const fmt: Record<Metric, (n: number) => string> = {
   s: secs, t: short, p: money, q: (n) => `${Math.round(n * 100)}%`,
 };
@@ -128,9 +131,11 @@ function draw(box: HTMLElement) {
   // Harness and plan changes: a faint tick, explained in the hover readout.
   const evs = el('g', { class: 'ev' });
   for (const e of data.events ?? []) {
-    if (e.g !== group || e.i < from || e.i > to) continue;
-    evs.append(el('line', { x1: x(e.i), x2: x(e.i), y1: pad.t, y2: h - pad.b }));
-    evs.append(el('rect', { x: x(e.i) - 2.5, y: pad.t - 5, width: 5, height: 5, rx: 1 }));
+    // Weekly charts put the tick on its week's point, where hovering finds it.
+    const at = daily() ? e.i : END - Math.floor((END - e.i) / 7) * 7;
+    if (e.g !== group || at < from || at > to) continue;
+    evs.append(el('line', { x1: x(at), x2: x(at), y1: pad.t, y2: h - pad.b }));
+    evs.append(el('rect', { x: x(at) - 2.5, y: pad.t - 5, width: 5, height: 5, rx: 1 }));
   }
   svg.append(evs);
   const clipId = `plot-${group}`;
@@ -194,8 +199,8 @@ function hover(box: HTMLElement, e: PointerEvent) {
   const head = daily() ? dayLabel(axis[i], { weekday: 'short', month: 'short', day: 'numeric' }) : `Week to ${dayLabel(axis[i])}, median`;
   tip.innerHTML = `<b>${head}</b>` +
     (rows.length ? '' : '<br><span class="r0">No run</span>') +
-    rows.map(({ m, p, missed }) => `<br><span class="sw" style="background:${m.c}"></span>${m.n} <b>${fmt[metric](p!.v)}</b>${missed ? ' <span class="r">missed tests</span>' : ''}`).join('') +
-    evs.map((ev) => `<br><span class="evt">${dayLabel(axis[ev.i])}: ${ev.t}</span>`).join('');
+    rows.map(({ m, p, missed }) => `<br><span class="sw" style="background:${m.c}"></span>${esc(m.n)} <b>${fmt[metric](p!.v)}</b>${missed ? ' <span class="r">missed tests</span>' : ''}`).join('') +
+    evs.map((ev) => `<br><span class="evt">${dayLabel(axis[ev.i])}: ${esc(ev.t)}</span>`).join('');
   tip.classList.add('show');
   const pb = panel.getBoundingClientRect();
   const half = tip.offsetWidth / 2 + 8;

@@ -75,7 +75,7 @@ const recordRow = (m: Model) => {
 const record = inGroups(active).map(({ g, list }) => ({ g, rows: list.map(recordRow) }));
 const retiredRows = retired.map(recordRow);
 
-// Misses are rare, so every one is listed, long after its bar scrolls out of view.
+// Every miss is listed: the last 30 days in view, older ones by month further down.
 const TOTAL = data.hidden_total;
 const allRuns = models.reduce((n, m) => n + m.history.length, 0);
 const allMisses = models.reduce((n, m) => n + m.history.filter((r) => !r.passed).length, 0);
@@ -84,10 +84,10 @@ const missLog = models
   .flatMap((m) => m.history.filter((r) => !r.passed).map((r) => ({ m, date: r.date, review: r.review, missed: Math.max(1, Math.round((1 - r.score) * TOTAL)) })))
   .sort((a, b) => b.date.localeCompare(a.date));
 const unchecked = missLog.filter((x) => !x.review).length;
-// The last 30 days of misses stay in view; older ones, and every miss of a retired model,
-// fold into one drawer per month so the lists don't grow forever.
+// The last 30 days of misses stay in view; older ones fold into one drawer per month so
+// the lists don't grow forever.
 const recentFrom = axis.slice(-WINDOW)[0] ?? '';
-const isRecent = (x: (typeof missLog)[number]) => x.date >= recentFrom && !x.m.retired;
+const isRecent = (x: (typeof missLog)[number]) => x.date >= recentFrom;
 const recentMisses = missLog.filter(isRecent);
 const olderMisses = missLog.filter((x) => !isRecent(x));
 const monthLabel = (ym: string) => dayLabel(`${ym}-01`, { month: 'long', year: 'numeric' });
