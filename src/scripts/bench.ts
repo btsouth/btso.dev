@@ -133,7 +133,7 @@ function draw(box: HTMLElement) {
   for (const e of data.events ?? []) {
     // Weekly charts put the tick on its week's point, where hovering finds it.
     const at = daily() ? e.i : END - Math.floor((END - e.i) / 7) * 7;
-    if (e.g !== group || at < from || at > to) continue;
+    if (e.g !== group || e.i < from || at > to) continue;
     evs.append(el('line', { x1: x(at), x2: x(at), y1: pad.t, y2: h - pad.b }));
     evs.append(el('rect', { x: x(at) - 2.5, y: pad.t - 5, width: 5, height: 5, rx: 1 }));
   }
@@ -190,7 +190,7 @@ function hover(box: HTMLElement, e: PointerEvent) {
     .map((m) => ({ m, p: points(m).find((p) => p.i === i), missed: daily() && m.d.some((d, k) => d === i && !m.f[k]) }))
     .filter((x) => x.p)
     .sort((a, b) => b.p!.v - a.p!.v);
-  const evs = (data.events ?? []).filter((ev) => ev.g === box.dataset.group && bucket.includes(ev.i));
+  const evs = (data.events ?? []).filter((ev) => ev.g === box.dataset.group && ev.i >= g.from && bucket.includes(ev.i));
   const cx = g.left + (i - g.from) * g.step;
   const cross = chart.querySelector('.cross');
   cross?.setAttribute('x1', String(cx));

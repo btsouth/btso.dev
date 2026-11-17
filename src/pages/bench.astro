@@ -297,7 +297,7 @@ const clientData = JSON.stringify({
                           'time' in vs
                             ? <><span class="ch">{[['time', vs.time], ['tokens', vs.tokens], ['price', vs.price]].map(([k, x]) => x != null && <span class={changeCls(x as number)}>{k} <b>{pctChange(x as number)}</b></span>)}</span><small>vs {prev.name}, {vs.n} shared days</small></>
                             : <small>vs {prev.name}: {vs.n} shared day{vs.n === 1 ? '' : 's'} so far, compared once there are {PAIRED_MIN}</small>
-                        ) : <small>–</small>}</td>
+                        ) : <small class="none">–</small>}</td>
                       </tr>
                     ))}
                   </tbody>

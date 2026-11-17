@@ -267,7 +267,7 @@
   .gen td.when { grid-column: 4 / -1; text-align: right; font-size: 11.5px; }
   .gen td[data-l]::before { content: attr(data-l); display: block; margin-bottom: 4px; font-size: 10px; color: var(--fg3); }
   .gen td.vs { grid-column: 1 / -1; min-width: 0; }
-  .gen td.vs:has(> small:only-child) { display: none; }
+  .gen td.vs:has(> small.none) { display: none; }
   .gen tbody tr:hover > * { background: none; }
 }
 
