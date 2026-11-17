@@ -16,9 +16,10 @@ type RawModel = {
   label?: string; vendor?: string; family?: string; base?: string | null; successor?: string | null;
   retired?: string | null; until?: string | null; first?: string; last?: string;
 };
+export type Variant = { tie?: string; rounding?: string; sep?: string; quote?: string; units?: string; split?: string; schedule?: { rule?: string; wrap?: boolean; years?: number } };
 export type RawBench = {
   schema?: number; updated?: string; date?: string; hidden_total?: number; task_version?: number;
-  variant?: Record<string, any>; events?: { date: string; vendor: string; kind?: string; text: string }[];
+  variant?: Variant; events?: { date: string; vendor: string; kind?: string; text: string }[];
   models: Record<string, RawModel>;
 };
 
@@ -32,7 +33,7 @@ export type Model = {
 };
 export type BenchEvent = { date: string; group: Group; text: string };
 export type Bench = {
-  date: string; hidden_total: number; variant: Record<string, any>;
+  date: string; hidden_total: number; variant: Variant;
   models: Model[]; active: Model[]; retired: Model[]; axis: string[]; events: BenchEvent[];
 };
 
@@ -169,4 +170,7 @@ export function weekly(pts: { i: number; v: number }[], end: number) {
 }
 
 /** "+12%" / "−8%", with a real minus sign. */
-export const pctChange = (x: number) => `${x > 0 ? '+' : x < 0 ? '−' : '±'}${Math.abs(Math.round(x * 100))}%`;
+export const pctChange = (x: number) => {
+  const n = Math.round(x * 100);
+  return `${n > 0 ? '+' : n < 0 ? '−' : '±'}${Math.abs(n)}%`;
+};

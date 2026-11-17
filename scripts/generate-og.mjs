@@ -15,6 +15,7 @@ const usage = JSON.parse(read('src/data/usage.json'));
 const bench = JSON.parse(read('src/data/bench.json'));
 // Model colors, shared with src/lib/ai.ts: [pattern, color], first match wins.
 const modelColors = JSON.parse(read('src/data/model-colors.json')).map(([re, c]) => [new RegExp(re, 'i'), c]);
+const modelLabels = JSON.parse(read('src/data/model-labels.json'));
 const modelColor = (name) => modelColors.find(([re]) => re.test(name))?.[1] ?? C.fg3;
 const fontFiles = [400, 700, 800].map((w) => new URL(`scripts/og-fonts/jetbrains-mono-${w}.ttf`, root).pathname);
 
@@ -155,14 +156,14 @@ const relDays = new Set(projects.flatMap((p) => repoOf(p).releaseDates.map((d) =
 {
   const all = bench.models || {};
   // Models still in the daily run, minus old versions whose successor is already running,
-  // in the summary's order. Labels come from the data; older summaries fall back to the id.
+  // in the summary's order. Labels come from the data, or src/data/model-labels.json for older summaries.
   const keys = Object.keys(all).filter((k) => {
     const m = all[k];
     const next = m.successor && all[m.successor];
     return m.history?.length && !m.retired && !(next && !next.retired && next.history?.length);
   });
-  const nameOf = (m) => (m.label ?? m.model.split('/').pop()) + (m.effort && m.effort !== 'medium' && m.effort !== 'default' ? ` ${m.effort}` : '');
-  const secs = (s) => (s >= 60 ? `${Math.floor(s / 60)}m ${String(Math.round(s % 60)).padStart(2, '0')}s` : `${Math.round(s)}s`);
+  const nameOf = (m) => (m.label ?? modelLabels[m.model] ?? m.model.split('/').pop()) + (m.effort && m.effort !== 'medium' && m.effort !== 'default' ? ` ${m.effort}` : '');
+  const secs = (s) => { const r = Math.round(s); return r >= 60 ? `${Math.floor(r / 60)}m ${String(r % 60).padStart(2, '0')}s` : `${r}s`; };
   let rows = '';
   // Two columns once there are more models than fit in one, and rows tighten to fit
   // above the bottom edge however many there are.
@@ -177,7 +178,7 @@ const relDays = new Set(projects.flatMap((p) => repoOf(p).releaseDates.map((d) =
     const x = 70 + Math.floor(i / perCol) * colW, y = 318 + (i % perCol) * pitch;
     const label = name.length > 20 ? `${name.slice(0, 19)}…` : name;
     rows += `<rect x="${x}" y="${y - 22}" width="16" height="16" rx="3" fill="${col}"/>` + text(x + 32, y - 6, label, { size, weight: 700 }) +
-      text(x + colW - 118, y - 6, `${m.latest.hidden_passed}/${m.latest.hidden_total}`, { size: size + 2, weight: 700, fill: m.latest.passed ? col : '#ef5f6b', anchor: 'end' }) +
+      text(x + colW - 132, y - 6, `${m.latest.hidden_passed}/${m.latest.hidden_total}`, { size: size + 2, weight: 700, fill: m.latest.passed ? col : '#ef5f6b', anchor: 'end' }) +
       text(x + colW - 20, y - 6, secs(m.latest.wall_seconds), { size, fill: C.fg2, anchor: 'end' });
   });
   if (!shown.length) rows = text(70, 340, 'Every model I pay for, one task, every morning.', { size: 30, weight: 700 }) + text(70, 390, 'Pass rate, time, tokens and limit use, tracked daily.', { size: 22, fill: C.fg2 });

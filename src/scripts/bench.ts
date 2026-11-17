@@ -44,10 +44,14 @@ const el = (tag: string, attrs: Record<string, string | number>) => {
   return e;
 };
 
-function niceMax(v: number) {
-  if (v <= 0) return 1;
-  const p = 10 ** Math.floor(Math.log10(v));
-  return [1, 2, 2.5, 5, 10].map((m) => m * p).find((m) => m >= v)!;
+/** A round tick step and the top of the scale: at most five steps, in whole minutes for longer times. */
+function niceScale(v: number) {
+  if (v <= 0) return { step: 1, max: 1 };
+  const unit = metric === 's' && v > 120 ? 60 : 1;
+  const u = v / unit;
+  const p = 10 ** Math.floor(Math.log10(u / 5));
+  const step = (unit > 1 ? [1, 2, 5, 10] : [1, 2, 2.5, 5, 10]).map((m) => m * p).find((m) => u / m <= 5)! * unit;
+  return { step, max: Math.ceil(v / step - 1e-9) * step };
 }
 
 const daily = () => range === '30';
@@ -84,8 +88,10 @@ function draw(box: HTMLElement) {
   // A picked model gets the whole scale, so a slow model doesn't flatten a fast one.
   const scaled = series.filter((s) => s.m.k === focus);
   const values = (scaled.length ? scaled : series).flatMap((s) => s.pts.map((p) => p.v));
-  const max = metric === 'q' ? 1 : niceMax(Math.max(...values) * 1.08);
+  const scale = metric === 'q' ? { step: 0, max: 1 } : niceScale(Math.max(...values) * 1.05);
+  const max = scale.max;
   const min = metric === 'q' ? Math.min(0.8, ...values) : 0;
+  const ticks = metric === 'q' ? [0, 1, 2, 3, 4].map((k) => min + ((max - min) * k) / 4) : [...Array(Math.round(max / scale.step) + 1)].map((_, k) => k * scale.step);
   const span = Math.max(1, to - from);
   const x = (i: number) => pad.l + ((i - from) / span) * (w - pad.l - pad.r);
   const y = (val: number) => pad.t + (1 - (val - min) / (max - min || 1)) * (h - pad.t - pad.b);
@@ -93,11 +99,10 @@ function draw(box: HTMLElement) {
 
   const svg = el('svg', { viewBox: `0 0 ${w} ${h}`, role: 'img', 'aria-label': `${group} trend per model` });
   const grid = el('g', { class: 'grid' });
-  for (let k = 0; k <= 4; k++) {
-    const val = min + ((max - min) * k) / 4;
+  for (const val of ticks) {
     grid.append(el('line', { x1: pad.l, x2: w - pad.r, y1: y(val), y2: y(val) }));
     const label = el('text', { x: pad.l - 7, y: y(val) + 3, 'text-anchor': 'end' });
-    label.textContent = fmt[metric](val);
+    label.textContent = metric === 's' && val >= 60 && val % 60 === 0 ? `${val / 60}m` : fmt[metric](val);
     grid.append(label);
   }
   for (const i of new Set([from, Math.round((from + to) / 2), to])) {

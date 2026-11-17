@@ -2,6 +2,7 @@
 // Model colors are fixed per model, like project colors, and go through --pc so light
 // themes darken them (--pci) wherever they draw text or thin marks.
 import colorList from '../data/model-colors.json';
+import labels from '../data/model-labels.json';
 
 // One list for the site and the social images (scripts/generate-og.mjs): [pattern, color],
 // first match wins, so a specific version comes before its family.
@@ -28,17 +29,17 @@ export function short(n: number) {
 export const money = (n: number) =>
   n >= 1000 ? `$${Math.round(n).toLocaleString('en-US')}` : `$${n.toFixed(n < 10 ? 2 : 0)}`;
 
-export const secs = (s: number) => (s >= 60 ? `${Math.floor(s / 60)}m ${String(Math.round(s % 60)).padStart(2, '0')}s` : `${Math.round(s)}s`);
+export const secs = (s: number) => {
+  const r = Math.round(s);
+  return r >= 60 ? `${Math.floor(r / 60)}m ${String(r % 60).padStart(2, '0')}s` : `${r}s`;
+};
 
 export const dayLabel = (iso: string, opts: Intl.DateTimeFormatOptions = { month: 'short', day: 'numeric' }) =>
   new Date(`${iso}T12:00:00`).toLocaleDateString('en-US', opts);
 
-// Bench summaries carry their own labels now; these cover older summaries without them.
-const LABELS: Record<string, string> = {
-  'claude-opus-5-5': 'Opus 5.5', 'claude-fable-5-2': 'Fable 5.2', 'claude-fable-5-1': 'Fable 5.1', 'claude-sonnet-5-5': 'Sonnet 5.5', 'claude-haiku-5-5': 'Haiku 5.5',
-  'gpt-6.2-sol': 'Sol 6.2', 'gpt-6.1-sol': 'Sol 6.1', 'gpt-6.1-terra': 'Terra 6.1', 'gpt-6.2-astra': 'Astra 6.2', 'gpt-6-astra': 'Astra 6', 'gpt-6-luna': 'Luna 6',
-  'opencode-go/deepseek-v4.1-flash': 'DeepSeek V4.1 Flash',
-};
+// Bench summaries carry their own labels now; these cover older summaries without them
+// (shared with scripts/generate-og.mjs).
+const LABELS: Record<string, string> = labels;
 /** A bench model id as a name: "claude-opus-5-5" -> "Opus 5.5". */
 export const modelLabel = (id: string) => LABELS[id] ?? id.split('/').pop()!;
 

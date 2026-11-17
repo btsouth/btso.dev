@@ -41,7 +41,7 @@ const cards = new Map(active.map((m) => {
 }));
 
 const v = data.variant;
-const s = v.schedule ?? {};
+const s: NonNullable<typeof v.schedule> = v.schedule ?? {};
 const twists = hasData ? [
   ['Leftover cent goes to', `the ${v.tie} share`],
   ['Exact halves round', v.rounding === 'half_up' ? 'up' : 'to the even cent'],
@@ -276,11 +276,11 @@ const clientData = JSON.stringify({
                       <tr class:list={[m.line, { old: m.retired }]} style={`--pc:${m.color}`}>
                         <th scope="row"><span class="nm"><i></i>{m.name}</span>{m.retired ? <small>retired</small> : m.successor ? <small>retiring</small> : null}</th>
                         <td class="when">{m.retired ? `${dayLabel(m.first)} to ${dayLabel(m.last)}` : `since ${dayLabel(m.first)}`}</td>
-                        <td>{life.runs}</td>
-                        <td>{life.pass}%</td>
-                        <td>{life.time == null ? 'n/a' : secs(life.time)}</td>
-                        <td>{life.tokens == null ? 'n/a' : short(life.tokens)}</td>
-                        <td>{life.price == null ? 'n/a' : money(life.price)}</td>
+                        <td data-l="Runs">{life.runs}</td>
+                        <td data-l="Pass">{life.pass}%</td>
+                        <td data-l="Time">{life.time == null ? 'n/a' : secs(life.time)}</td>
+                        <td data-l="Tokens">{life.tokens == null ? 'n/a' : short(life.tokens)}</td>
+                        <td data-l="API price">{life.price == null ? 'n/a' : money(life.price)}</td>
                         <td class="vs">{prev && vs ? (
                           'time' in vs
                             ? <><span class="ch">{[['time', vs.time], ['tokens', vs.tokens], ['price', vs.price]].map(([k, x]) => x != null && <span class={changeCls(x as number)}>{k} <b>{pctChange(x as number)}</b></span>)}</span><small>vs {prev.name}, {vs.n} shared days</small></>
