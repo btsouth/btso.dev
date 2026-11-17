@@ -22,7 +22,8 @@ if (eyebrow && last) {
 
 // A link to a miss in a folded month opens that month first, so it lands on the card.
 function openHash() {
-  const id = decodeURIComponent(location.hash.slice(1));
+  let id = location.hash.slice(1);
+  try { id = decodeURIComponent(id); } catch { return; }
   const target = id && document.getElementById(id);
   if (!target) return;
   const month = target.closest('details');
