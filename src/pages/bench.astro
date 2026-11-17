@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import AiTabs from '../components/AiTabs.astro';
+import MissCard from '../components/MissCard.astro';
 import bench from '../data/bench.json';
 import { short, money, secs, dayLabel, median } from '../lib/ai';
 import { normalize, GROUPS, lifetime, paired, pctChange, daysBetween, PAIRED_MIN, type Model, type Run, type RawBench } from '../lib/bench';
@@ -83,8 +84,15 @@ const missLog = models
   .flatMap((m) => m.history.filter((r) => !r.passed).map((r) => ({ m, date: r.date, review: r.review, missed: Math.max(1, Math.round((1 - r.score) * TOTAL)) })))
   .sort((a, b) => b.date.localeCompare(a.date));
 const unchecked = missLog.filter((x) => !x.review).length;
-/** Review notes are plain text with `code` in backticks. */
-const noteHtml = (note: string) => note.replace(/[&<>"]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[ch]!).replace(/`([^`]+)`/g, '<code>$1</code>');
+// The last 30 days of misses stay in view; older ones, and every miss of a retired model,
+// fold into one drawer per month so the lists don't grow forever.
+const recentFrom = axis.slice(-WINDOW)[0] ?? '';
+const isRecent = (x: (typeof missLog)[number]) => x.date >= recentFrom && !x.m.retired;
+const recentMisses = missLog.filter(isRecent);
+const olderMisses = missLog.filter((x) => !isRecent(x));
+const monthLabel = (ym: string) => dayLabel(`${ym}-01`, { month: 'long', year: 'numeric' });
+const missMonths = [...new Set(olderMisses.map((x) => x.date.slice(0, 7)))].sort().reverse()
+  .map((ym) => ({ ym, list: olderMisses.filter((x) => x.date.startsWith(ym)) }));
 
 // Generations: every model there has been, family by family, newest first, with lifetime
 // medians and, where it replaced an older version, the change on the days both ran.
@@ -205,7 +213,7 @@ const clientData = JSON.stringify({
           </div>
 
           <div class="duo">
-            <div class="panel rv">
+            <div class="panel rv record-panel">
               <div class="panel-h"><div><h3>Pass record</h3><p>One bar per day, taller when that model took longer. Red means it missed at least one hidden test; a flat grey bar is a day with no run. Pass rates count every run; time changes compare with the week before.</p></div></div>
               <div class="record">
                 <div class="row head"><span>Model</span><span>Last {WINDOW} days</span><span>Pass, all time</span><span>Avg time, 7d</span></div>
@@ -248,18 +256,22 @@ const clientData = JSON.stringify({
                   </div>
                 </details>
               )}
-              <div class="misses">
-                <p><b>{allRuns - allMisses} of {allRuns}</b> runs passed{since && <> since {dayLabel(since)}</>}. {allMisses ? <>Every miss so far, <a href="#misses">checked below</a>:</> : 'No misses yet.'}</p>
-                {allMisses > 0 && (
-                  <ul>
-                    {missLog.map((x) => <li style={`--pc:${x.m.color}`}><a class="d" href={`#miss-${x.date}-${x.m.key}`}>{dayLabel(x.date)}</a><span class="nm"><i></i>{x.m.name}</span><span class="n">{TOTAL - x.missed}/{TOTAL}</span></li>)}
-                  </ul>
-                )}
-              </div>
             </div>
             <div class="panel rv">
               <div class="panel-h"><div><h3>Today's twist</h3><p>What changed in {dayLabel(data.date)}'s version of the task.</p></div></div>
               <dl class="twist">{twists.map(([k, val]) => <div><dt>{k}</dt><dd set:html={val}></dd></div>)}</dl>
+            </div>
+            <div class="panel rv">
+              <div class="panel-h"><div><h3>Recent misses</h3></div></div>
+                <div class="misses">
+                  <p><b>{allRuns - allMisses} of {allRuns}</b> runs passed{since && <> since {dayLabel(since)}</>}. {!allMisses ? 'No misses yet.' : recentMisses.length ? <>Misses in the last {WINDOW} days, <a href="#misses">checked below</a>:</> : <>None in the last {WINDOW} days.</>}</p>
+                {recentMisses.length > 0 && (
+                  <ul>
+                    {recentMisses.map((x) => <li style={`--pc:${x.m.color}`}><a class="d" href={`#miss-${x.date}-${x.m.key}`}>{dayLabel(x.date)}</a><span class="nm"><i></i>{x.m.name}</span><span class="n">{TOTAL - x.missed}/{TOTAL}</span></li>)}
+                  </ul>
+                )}
+                {olderMisses.length > 0 && <p class="older"><a href="#misses-older">{olderMisses.length} earlier miss{olderMisses.length === 1 ? '' : 'es'}</a>, by month below.</p>}
+              </div>
             </div>
           </div>
         </section>
@@ -298,22 +310,17 @@ const clientData = JSON.stringify({
         {allMisses > 0 && (
           <section class="ai-sec" id="misses">
             <div class="blk-head rv"><div><p class="eyebrow">Misses</p><h2>Every miss, checked</h2><p>A red dot is only useful if it's real. Each failed run is graded again from its saved diff to confirm the result, then read against that day's spec to find what went wrong.{unchecked > 0 && ` ${unchecked === 1 ? 'One is' : `${unchecked} are`} still waiting for a look.`}</p></div><a class="link" href={`${REPO}#checking-failures`} target="_blank" rel="noreferrer">How it's checked ↗</a></div>
-            <ol class="miss-notes">
-              {missLog.map((x) => (
-                <li class="panel rv" id={`miss-${x.date}-${x.m.key}`} style={`--pc:${x.m.color}`}>
-                  <div class="mh">
-                    <span class="nm"><i></i>{x.m.name}</span>
-                    <span class="d">{dayLabel(x.date)}</span>
-                    <span class="n">{TOTAL - x.missed}/{TOTAL}</span>
-                    {x.review
-                      ? <span class="badge bad"><i></i>{x.review.cause === 'model' ? "Model's mistake" : 'Checked'}</span>
-                      : <span class="badge dim"><i></i>Not checked yet</span>}
-                  </div>
-                  {x.review ? <p set:html={noteHtml(x.review.note)}></p> : <p>This run hasn't been checked yet. Its diff and transcript are on GitHub.</p>}
-                  <a class="src" href={`${REPO}/tree/main/results/runs/${x.date}/${x.m.key}`} target="_blank" rel="noreferrer">Diff and transcript ↗</a>
-                </li>
-              ))}
-            </ol>
+            {recentMisses.length > 0 && <ol class="miss-notes">{recentMisses.map((x) => <MissCard date={x.date} mkey={x.m.key} name={x.m.name} color={x.m.color} passed={TOTAL - x.missed} total={TOTAL} review={x.review} repo={REPO} />)}</ol>}
+            {missMonths.length > 0 && (
+              <div class="miss-months" id="misses-older">
+                {missMonths.map(({ ym, list }) => (
+                  <details class="miss-month" id={`misses-${ym}`}>
+                    <summary>{monthLabel(ym)} <small>{list.length} miss{list.length === 1 ? '' : 'es'}</small></summary>
+                    <ol class="miss-notes">{list.map((x) => <MissCard date={x.date} mkey={x.m.key} name={x.m.name} color={x.m.color} passed={TOTAL - x.missed} total={TOTAL} review={x.review} repo={REPO} />)}</ol>
+                  </details>
+                ))}
+              </div>
+            )}
           </section>
         )}
       </>

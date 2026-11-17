@@ -20,6 +20,20 @@ if (eyebrow && last) {
   }
 }
 
+// A link to a miss in a folded month opens that month first, so it lands on the card.
+function openHash() {
+  const id = decodeURIComponent(location.hash.slice(1));
+  const target = id && document.getElementById(id);
+  if (!target) return;
+  const month = target.closest('details');
+  if (month && !month.open) {
+    month.open = true;
+    target.scrollIntoView();
+  }
+}
+openHash();
+addEventListener('hashchange', openHash);
+
 const panel = document.getElementById('trendPanel');
 const tip = document.getElementById('trendTip');
 const note = document.getElementById('rangeNote');
