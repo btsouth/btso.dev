@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-11-21T00:18:19.571Z",
+ "generatedAt": "2026-11-21T02:15:33.835Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 242,
-   "pushedAt": "2026-11-20T04:32:08Z",
+   "pushedAt": "2026-11-21T01:50:00Z",
    "latest": "v2.3.8",
    "releaseDates": [
     "2026-11-20T03:53:57Z",
@@ -2293,9 +2293,10 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 793,
-   "pushedAt": "2026-11-20T23:48:41Z",
-   "latest": "v0.15.0",
+   "pushedAt": "2026-11-21T02:13:54Z",
+   "latest": "runtime-v1-r28",
    "releaseDates": [
+    "2026-11-21T02:12:45Z",
     "2026-11-11T00:03:58Z",
     "2026-11-09T05:44:02Z",
     "2026-11-08T15:21:38Z",
@@ -2345,6 +2346,14 @@
     "2026-08-28T00:49:21Z"
    ],
    "releases": [
+    {
+     "tag": "runtime-v1-r28",
+     "title": "WINQ-EMU r28 runtime",
+     "at": "2026-11-21T02:12:45Z",
+     "pre": false,
+     "url": "https://github.com/omacom/try-omarchy-windows/releases/tag/runtime-v1-r28",
+     "body": "WINQ-EMU r28 runtime component and corresponding source archives for the next signed Try Omarchy app release. This is not a standalone launcher or a new app version.\n\nBuilt from the source-locked recipe at commit `06ccf06` (`master`) in [Runtime run 44813765393](https://github.com/omacom/try-omarchy-windows/actions/runs/44813765393). `SHA256SUMS` covers both archives. r28 fixes swapped red and blue in Vulkan windows on Intel graphics (#404), Ghostty's empty window on AMD graphics (#405) and the guest freezing when one Vulkan app closes and another starts (#416). Omarchy's window now stays hidden until its first frame is drawn (#415, #430), and full screen and Ctrl+Alt+F behave correctly on a fast press and after leaving full screen (#423, #427, #428)."
+    },
     {
      "tag": "v0.15.0",
      "title": "v0.15.0",
@@ -5665,11 +5674,11 @@
   ],
   [
    "2026-11-20",
-   26
+   28
   ],
   [
    "2026-11-21",
-   0
+   1
   ]
  ]
 }
