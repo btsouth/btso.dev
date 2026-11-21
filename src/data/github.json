@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-11-21T02:15:33.835Z",
+ "generatedAt": "2026-11-21T05:05:30.830Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 242,
-   "pushedAt": "2026-11-21T01:50:00Z",
+   "pushedAt": "2026-11-21T05:04:44Z",
    "latest": "v2.3.8",
    "releaseDates": [
     "2026-11-20T03:53:57Z",
@@ -1731,9 +1731,10 @@
   },
   "btsouth/omarchy-usage-dashboard": {
    "stars": 19,
-   "pushedAt": "2026-11-18T14:12:32Z",
-   "latest": "v1.12.2",
+   "pushedAt": "2026-11-21T05:04:24Z",
+   "latest": "v1.13.0",
    "releaseDates": [
+    "2026-11-21T05:04:25Z",
     "2026-11-15T06:35:21Z",
     "2026-10-27T22:08:37Z",
     "2026-10-18T20:34:05Z",
@@ -1761,6 +1762,14 @@
     "2026-09-16T01:35:59Z"
    ],
    "releases": [
+    {
+     "tag": "v1.13.0",
+     "title": "Agent Pulse v1.13.0",
+     "at": "2026-11-21T05:04:25Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/agent-pulse/releases/tag/v1.13.0",
+     "body": "Antigravity now shows every quota group it reports, for every Google account you have signed in.\n\n- **Every quota group.** Gemini models, Claude and GPT models, and Gemini 4 Argon each get their own meters, titled after the group (\"Gemini · Weekly\", \"Claude & GPT · 5-hour\", \"Gemini 4 Argon · Weekly\"). Before, Argon's weekly window showed up as a second \"Gemini weekly\" and the bar panel listed five rows called just Session or Weekly. Existing pins keep working, and the dashboard lists the models each group covers.\n- **Tokens per group.** The tokens beside a window, and View usage on it, count only that group's models instead of everything Antigravity recorded.\n- **Every account.** A T3 Code Antigravity instance signed in to another Google account gets its own bar panel source and dashboard account, with its own limits, plan and history. Its quota is read with `agy` from a private, temporary home holding a copy of that instance's sign-in; T3's own file is never changed.\n- **Plan.** The account card and bar panel show your plan, for example Google AI Pro.\n- Agent Pulse no longer lets `agy` update itself while it reads quota.\n- Prices GPT-6.2 Sol and GPT-6.2 Astra, and GPT-6.1 Sol Ultrafast.\n\nAntigravity is off by default; turn it on in Settings → Sources if you use it.\n\nUpdate with:\n\n```sh\ncurl -fsSL https://raw.githubusercontent.com/btsouth/agent-pulse/main/install.sh | OMARCHY_USAGE_REF=v1.13.0 bash -s -- --with-plugin\n```\n\nOmit `--with-plugin` if you use only the dashboard. Restart the Omarchy shell afterwards (`omarchy restart shell`) so the bar panel loads the new version"
+    },
     {
      "tag": "v1.12.2",
      "title": "Agent Pulse v1.12.2",
@@ -2293,7 +2302,7 @@
   },
   "omacom/try-omarchy-windows": {
    "stars": 793,
-   "pushedAt": "2026-11-21T02:13:54Z",
+   "pushedAt": "2026-11-21T02:27:55Z",
    "latest": "runtime-v1-r28",
    "releaseDates": [
     "2026-11-21T02:12:45Z",
@@ -5674,11 +5683,11 @@
   ],
   [
    "2026-11-20",
-   28
+   35
   ],
   [
    "2026-11-21",
-   1
+   3
   ]
  ]
 }
