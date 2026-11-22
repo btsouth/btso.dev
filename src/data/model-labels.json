@@ -10,5 +10,6 @@
   "gpt-6.2-astra": "Astra 6.2",
   "gpt-6-astra": "Astra 6",
   "gpt-6-luna": "Luna 6",
+  "gemini-4-neon": "Gemini 4 Neon",
   "opencode-go/deepseek-v4.1-flash": "DeepSeek V4.1 Flash"
 }

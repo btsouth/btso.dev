@@ -15,6 +15,7 @@
   ["^astra", "#3ccf91"],
   ["^luna .* high", "#8d9bd6"],
   ["^luna", "#c3cbe8"],
+  ["^gemini", "#46c95b"],
   ["^deepseek", "#2bbfd4"],
   ["^glm", "#e8719a"],
   ["^kimi", "#9d8cf0"],

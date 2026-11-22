@@ -23,8 +23,8 @@ export type RawBench = {
   models: Record<string, RawModel>;
 };
 
-export type Group = 'Anthropic' | 'OpenAI' | 'Other';
-export const GROUPS: Group[] = ['Anthropic', 'OpenAI', 'Other'];
+export type Group = 'Anthropic' | 'OpenAI' | 'Google' | 'Other';
+export const GROUPS: Group[] = ['Anthropic', 'OpenAI', 'Google', 'Other'];
 export type Line = 'solid' | 'dashed' | 'dotted';
 export type Model = {
   key: string; model: string; label: string; name: string; vendor: string; group: Group; family: string;
@@ -44,10 +44,12 @@ export const displayName = (label: string, effort?: string) => label + (plainEff
 export function guessVendor(id: string) {
   if (/^claude|anthropic/i.test(id)) return 'Anthropic';
   if (/^(gpt|o\d|codex)|openai/i.test(id)) return 'OpenAI';
+  if (/^gemini|google/i.test(id)) return 'Google';
   if (/deepseek/i.test(id)) return 'DeepSeek';
   return 'Other';
 }
-export const groupOf = (vendor: string): Group => (vendor === 'Anthropic' || vendor === 'OpenAI' ? vendor : 'Other');
+export const groupOf = (vendor: string): Group =>
+  (vendor === 'Anthropic' || vendor === 'OpenAI' || vendor === 'Google' ? vendor : 'Other');
 
 const DAY = 864e5;
 const toDay = (iso: string) => Math.round(Date.parse(`${iso}T00:00:00Z`) / DAY);
