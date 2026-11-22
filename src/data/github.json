@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-22T18:18:21.507Z",
+ "generatedAt": "2026-11-22T23:06:40.052Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 245,
@@ -3148,7 +3148,7 @@
   },
   "btsouth/cubby-clipboard": {
    "stars": 16,
-   "pushedAt": "2026-11-21T08:39:54Z",
+   "pushedAt": "2026-11-22T22:35:38Z",
    "latest": "v1.3.9",
    "releaseDates": [
     "2026-11-03T01:23:04Z",
@@ -3310,7 +3310,7 @@
   },
   "btsouth/matteshot": {
    "stars": 2,
-   "pushedAt": "2026-11-20T20:17:07Z",
+   "pushedAt": "2026-11-22T22:46:29Z",
    "latest": "v0.21.1",
    "releaseDates": [
     "2026-09-27T01:46:35Z",
@@ -5672,7 +5672,7 @@
   ],
   [
    "2026-11-22",
-   10
+   16
   ]
  ]
 }
