@@ -1,8 +1,8 @@
 {
- "generatedAt": "2026-11-22T12:18:19.593Z",
+ "generatedAt": "2026-11-22T18:15:30.032Z",
  "repos": {
   "btsouth/toolport": {
-   "stars": 244,
+   "stars": 245,
    "pushedAt": "2026-11-21T14:45:15Z",
    "latest": "v2.3.8",
    "releaseDates": [
@@ -1731,9 +1731,10 @@
   },
   "btsouth/omarchy-usage-dashboard": {
    "stars": 19,
-   "pushedAt": "2026-11-21T05:06:47Z",
-   "latest": "v1.13.0",
+   "pushedAt": "2026-11-22T18:10:15Z",
+   "latest": "v1.13.1",
    "releaseDates": [
+    "2026-11-22T18:10:16Z",
     "2026-11-21T05:04:25Z",
     "2026-11-15T06:35:21Z",
     "2026-10-27T22:08:37Z",
@@ -1762,6 +1763,14 @@
     "2026-09-16T01:35:59Z"
    ],
    "releases": [
+    {
+     "tag": "v1.13.1",
+     "title": "Agent Pulse v1.13.1",
+     "at": "2026-11-22T18:10:16Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/agent-pulse/releases/tag/v1.13.1",
+     "body": "A T3 Code Antigravity instance signed in to the same Google account as the `agy` CLI no longer shows up as a second Antigravity account. Signing T3's own Antigravity instance in again leaves a sign-in file in its profile, which made it look like a separate account: a duplicate \"Antigravity\" appeared in the bar panel and dashboard, and that instance's history left the main account. It now counts toward the main account again.\n\nAgent Pulse tells the accounts apart by the Google account each sign-in names, and keeps only which instances matched, never the email. It reads the keyring for this only when a sign-in changes, and once a day.\n\nUpdate with:\n\n```sh\ncurl -fsSL https://raw.githubusercontent.com/btsouth/agent-pulse/main/install.sh | OMARCHY_USAGE_REF=v1.13.1 bash -s -- --with-plugin\n```\n\nOmit `--with-plugin` if you use only the dashboard. Restart the Omarchy shell afterwards (`omarchy restart shell`) so the bar panel loads the new version."
+    },
     {
      "tag": "v1.13.0",
      "title": "Agent Pulse v1.13.0",
@@ -5663,7 +5672,7 @@
   ],
   [
    "2026-11-22",
-   6
+   9
   ]
  ]
 }
