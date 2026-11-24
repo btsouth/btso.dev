@@ -1,7 +1,7 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import Chart107InteractiveChart from '../../../components/Chart107InteractiveChart.astro';
-import { APP_STORE, ART, CHART107_LESSONS, PLAY_STORE, type WebChartLesson } from '../../../lib/chart107';
+import { APP_STORE, ART, CHART107_LESSONS, type WebChartLesson } from '../../../lib/chart107';
 import { SITE_URL } from '../../../lib/site';
 
 export function getStaticPaths() {
@@ -96,13 +96,12 @@ const learningSchema = {
 
     <section class="fig-cta">
       <div>
-        <p class="eyebrow">Practice Offline on iOS &amp; Android</p>
+        <p class="eyebrow">Practice Offline on iPhone</p>
         <h2>Drill all 12 FAA figures &amp; 480 cited Part 107 questions</h2>
         <p>Pinch-zoom every FAA-CT-8080-2H chart, play the 60-target Chart Gauntlet, decode METARs, and take realistic 60-question timed mock exams. Free to start — $14.99 once, no subscription.</p>
       </div>
       <div class="acts">
-        <a class="btn btn-primary" href={APP_STORE} target="_blank" rel="noreferrer">App Store ↗</a>
-        <a class="btn btn-ghost" href={PLAY_STORE} target="_blank" rel="noreferrer">Google Play ↗</a>
+        <a class="btn btn-primary" href={APP_STORE} target="_blank" rel="noreferrer">Download on the App Store ↗</a>
       </div>
     </section>
 

@@ -2,7 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import Chart107InteractiveChart from '../../components/Chart107InteractiveChart.astro';
 import Chart107MetarWidget from '../../components/Chart107MetarWidget.astro';
-import { APP_STORE, ART, CHART107_LESSONS, PLAY_STORE, SUPPORT_EMAIL } from '../../lib/chart107';
+import { APP_STORE, ART, CHART107_LESSONS, SUPPORT_EMAIL } from '../../lib/chart107';
 import { SITE_URL } from '../../lib/site';
 
 const heroLesson = CHART107_LESSONS[0];
@@ -17,7 +17,7 @@ const shots = [
 const appSchema = {
   '@type': 'MobileApplication',
   name: 'Chart107: Part 107 Test Prep',
-  operatingSystem: 'iOS, Android',
+  operatingSystem: 'iOS',
   applicationCategory: 'EducationalApplication',
   url: `${SITE_URL}/chart107`,
   image: `${SITE_URL}${ART}/og.jpg`,
@@ -26,7 +26,7 @@ const appSchema = {
     { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: 'Free tier with 3 chart lessons, 112 questions, all trainers, and 1 mock exam' },
     { '@type': 'Offer', price: '14.99', priceCurrency: 'USD', description: 'One-time Pro unlock, no subscription' },
   ],
-  sameAs: [APP_STORE, PLAY_STORE],
+  sameAs: [APP_STORE],
 };
 ---
 <Base
@@ -41,14 +41,14 @@ const appSchema = {
     <div class="wrap c107-hero-grid">
       <div class="c107-copy">
         <img class="c107-icon" src={`${ART}/icon.webp`} alt="" width="76" height="76" />
-        <p class="eyebrow">FAA Part 107 · iPhone &amp; Android</p>
+        <p class="eyebrow">FAA Part 107 · iPhone</p>
         <h1>Chart107</h1>
         <p class="lede">
           Read FAA sectional charts like the real Part 107 test does. Tap real FAA-CT-8080-2H airspace rings, decode METARs token-by-token, and drill 480 FAA-cited questions offline — for <b>$14.99 once</b>, no subscription.
         </p>
         <div class="acts">
-          <a class="btn btn-primary" href={APP_STORE} target="_blank" rel="noreferrer">App Store <span class="arr">↗</span></a>
-          <a class="btn btn-ghost" href={PLAY_STORE} target="_blank" rel="noreferrer">Google Play ↗</a>
+          <a class="btn btn-primary" href={APP_STORE} target="_blank" rel="noreferrer">Download on the App Store <span class="arr">↗</span></a>
+          <a class="btn btn-ghost" href="#figures">Browse all 12 FAA figures ↓</a>
         </div>
         <ul class="facts">
           <li><b>Generous free tier</b>3 full sectional chart lessons, 15 Chart Gauntlet targets, all 3 visual trainers, 112 practice questions, and 1 full 60-question timed mock exam free.</li>
