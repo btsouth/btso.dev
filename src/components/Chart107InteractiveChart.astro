@@ -1,0 +1,245 @@
+---
+import { ART, KIND_COLOR, type WebChartLesson } from '../lib/chart107';
+
+export interface Props {
+  lesson: WebChartLesson;
+  compact?: boolean;
+}
+
+const { lesson, compact = false } = Astro.props;
+const first = lesson.hotspots[0];
+const aspect = (lesson.height / lesson.width) * 100;
+const uid = `c107-${lesson.id}`;
+---
+<div class:list={['c107-widget', compact && 'c107-compact']} id={uid} data-c107-chart>
+  <div class="c107-stage" style={`padding-bottom: ${aspect.toFixed(3)}%;`}>
+    <img
+      src={`${ART}/figures/${lesson.figureId}.webp`}
+      alt={`FAA-CT-8080-2H ${lesson.figureLabel}: ${lesson.title}`}
+      width={lesson.width}
+      height={lesson.height}
+      loading={compact ? 'eager' : 'lazy'}
+    />
+    <span class="c107-hud">FAA-CT-8080-2H · {lesson.figureLabel}</span>
+    {lesson.hotspots.map((hs, idx) => {
+      const color = KIND_COLOR[hs.kind] ?? '#38BDF8';
+      return (
+        <button
+          type="button"
+          class:list={['c107-pin', idx === 0 && 'is-active']}
+          style={`left:${(hs.x * 100).toFixed(2)}%; top:${(hs.y * 100).toFixed(2)}%; --pin:${color};`}
+          data-idx={idx}
+          aria-label={`Pin ${idx + 1}: ${hs.title}`}
+        >
+          <span>{idx + 1}</span>
+        </button>
+      );
+    })}
+  </div>
+
+  <div class="c107-pills" role="tablist" aria-label="Chart hotspots">
+    {lesson.hotspots.map((hs, idx) => (
+      <button
+        type="button"
+        role="tab"
+        aria-selected={idx === 0 ? 'true' : 'false'}
+        class:list={['c107-pill', idx === 0 && 'is-active']}
+        data-idx={idx}
+      >
+        {idx + 1}. {hs.badge}
+      </button>
+    ))}
+  </div>
+
+  {first && (
+    <div class="c107-callout" data-callout>
+      <div class="c107-callout-top">
+        <span class="c107-badge" data-field="badge">{first.badge}</span>
+        <span class="c107-laanc" data-field="laanc">LAANC / ATC: {first.laancRequired}</span>
+      </div>
+      <h3 class="c107-title" data-field="title">{first.title}</h3>
+      <div class="c107-metrics">
+        <div><span>FLOOR</span><b data-field="floor">{first.floor}</b></div>
+        <div><span>CEILING</span><b data-field="ceiling">{first.ceiling}</b></div>
+        <div data-freq-wrap style={first.frequency ? '' : 'display:none;'}>
+          <span>FREQ</span><b data-field="frequency">{first.frequency ?? ''}</b>
+        </div>
+      </div>
+      <p class="c107-summary" data-field="summary">{first.summary}</p>
+      <p class="c107-trap"><b>Exam Trap:</b> <span data-field="trap">{first.examTrap}</span></p>
+    </div>
+  )}
+
+  <script type="application/json" data-hotspots set:html={JSON.stringify(lesson.hotspots).replace(/</g, '\\u003c')} />
+</div>
+
+<script is:inline>
+  (function () {
+    document.querySelectorAll('[data-c107-chart]').forEach(function (root) {
+      if (root.dataset.bound) return;
+      root.dataset.bound = '1';
+      var dataEl = root.querySelector('[data-hotspots]');
+      if (!dataEl) return;
+      var hotspots = JSON.parse(dataEl.textContent || '[]');
+      var pins = root.querySelectorAll('.c107-pin');
+      var pills = root.querySelectorAll('.c107-pill');
+      var q = function (f) { return root.querySelector('[data-field="' + f + '"]'); };
+      var freqWrap = root.querySelector('[data-freq-wrap]');
+
+      function select(idx) {
+        var hs = hotspots[idx];
+        if (!hs) return;
+        pins.forEach(function (el, i) { el.classList.toggle('is-active', i === idx); });
+        pills.forEach(function (el, i) {
+          el.classList.toggle('is-active', i === idx);
+          el.setAttribute('aria-selected', i === idx ? 'true' : 'false');
+        });
+        q('badge').textContent = hs.badge;
+        q('laanc').textContent = 'LAANC / ATC: ' + hs.laancRequired;
+        q('title').textContent = hs.title;
+        q('floor').textContent = hs.floor;
+        q('ceiling').textContent = hs.ceiling;
+        if (hs.frequency) {
+          freqWrap.style.display = '';
+          q('frequency').textContent = hs.frequency;
+        } else {
+          freqWrap.style.display = 'none';
+        }
+        q('summary').textContent = hs.summary;
+        q('trap').textContent = hs.examTrap;
+      }
+
+      pins.forEach(function (el) {
+        el.addEventListener('click', function () { select(Number(el.dataset.idx)); });
+      });
+      pills.forEach(function (el) {
+        el.addEventListener('click', function () { select(Number(el.dataset.idx)); });
+      });
+    });
+  })();
+</script>
+
+<style>
+  .c107-widget { display: grid; gap: 12px; }
+  .c107-stage {
+    position: relative;
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: #0a111d;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  }
+  .c107-stage img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .c107-hud {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: rgba(10, 17, 29, 0.86);
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    color: #e2e8f0;
+    font: 700 11px/1 "JetBrains Mono", monospace;
+    letter-spacing: 0.04em;
+    pointer-events: none;
+  }
+  .c107-pin {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 999px;
+    border: 2.5px solid #ffffff;
+    background: rgba(10, 17, 29, 0.88);
+    color: #ffffff;
+    font: 800 13px/1 "JetBrains Mono", monospace;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--pin) 45%, transparent), 0 4px 12px rgba(0, 0, 0, 0.55);
+    transition: transform 0.14s ease, background 0.14s ease;
+  }
+  .c107-pin:hover { transform: translate(-50%, -50%) scale(1.12); }
+  .c107-pin.is-active {
+    background: var(--pin);
+    transform: translate(-50%, -50%) scale(1.18);
+    box-shadow: 0 0 0 6px color-mix(in oklab, var(--pin) 45%, transparent), 0 6px 16px rgba(0, 0, 0, 0.6);
+    z-index: 3;
+  }
+  .c107-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .c107-pill {
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--bg2);
+    color: var(--fg2);
+    font: 700 11.5px/1.2 "JetBrains Mono", monospace;
+    cursor: pointer;
+  }
+  .c107-pill.is-active {
+    background: rgba(56, 189, 248, 0.16);
+    border-color: #38bdf8;
+    color: #38bdf8;
+  }
+  .c107-callout {
+    padding: 16px 18px;
+    border-radius: 14px;
+    border: 1px solid color-mix(in oklab, #38bdf8 40%, var(--line));
+    background: var(--bg2);
+    display: grid;
+    gap: 10px;
+  }
+  .c107-callout-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+  .c107-badge {
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(56, 189, 248, 0.15);
+    color: #38bdf8;
+    font: 800 11px/1 "JetBrains Mono", monospace;
+  }
+  .c107-laanc {
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(245, 158, 11, 0.15);
+    color: #f59e0b;
+    font: 700 11px/1 "JetBrains Mono", monospace;
+  }
+  .c107-title { margin: 0; font: 700 17px/1.3 "JetBrains Mono", monospace; color: var(--fg); }
+  .c107-metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 8px;
+  }
+  .c107-metrics > div {
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    display: grid;
+    gap: 2px;
+  }
+  .c107-metrics span { font: 700 10px/1 "JetBrains Mono", monospace; color: var(--fg3); letter-spacing: 0.06em; }
+  .c107-metrics b { font: 700 13px/1.3 "JetBrains Mono", monospace; color: var(--fg); }
+  .c107-summary { margin: 0; font-size: 14px; line-height: 1.6; color: var(--fg2); }
+  .c107-trap {
+    margin: 0;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: rgba(245, 158, 11, 0.12);
+    color: #f59e0b;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+</style>

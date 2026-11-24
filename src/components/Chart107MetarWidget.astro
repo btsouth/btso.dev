@@ -1,0 +1,206 @@
+---
+const SAMPLES = [
+  {
+    id: 'kink',
+    label: '1. Low Ceiling Trap (KINK)',
+    status: 'CAUTION — MAX 200 FT AGL',
+    tone: 'warn',
+    legal: 'Ceiling is 700 ft AGL (BKN007). Under 14 CFR §107.51(c), staying 500 ft below clouds caps your drone at 200 ft AGL — not 400 ft.',
+    tokens: [
+      { raw: 'METAR', role: 'Report Type', desc: 'Routine hourly aviation weather observation.' },
+      { raw: 'KINK', role: 'Station (ICAO)', desc: 'Wink, Texas (FAA Figure 12 exam station).' },
+      { raw: '121845Z', role: 'Day & Time (UTC)', desc: '12th day of the month at 18:45 Zulu (UTC).' },
+      { raw: '11012G18KT', role: 'Wind', desc: 'Wind from 110° true at 12 knots, gusting to 18 knots.' },
+      { raw: '5SM', role: 'Visibility', desc: '5 statute miles — legal for Part 107 (minimum is 3 SM).' },
+      { raw: '-RA', role: 'Weather', desc: 'Light rain ("-" means light, RA = rain).' },
+      { raw: 'BKN007', role: 'Official Ceiling', desc: 'Broken clouds at 700 ft AGL. BKN/OVC/VV count as an official ceiling. Max drone altitude: 700 - 500 = 200 ft AGL.' },
+      { raw: 'OVC015', role: 'Cloud Layer', desc: 'Overcast clouds at 1,500 ft AGL.' },
+      { raw: '16/14', role: 'Temp / Dewpoint', desc: '16°C temperature, 14°C dewpoint. Tight 2°C spread warns of fog/low clouds.' },
+      { raw: 'A2985', role: 'Altimeter', desc: '29.85 inches of mercury (inHg).' },
+      { raw: 'RMK AO2', role: 'Remarks', desc: 'Automated station with a precipitation discriminator.' },
+    ],
+  },
+  {
+    id: 'klax',
+    label: '2. Illegal Visibility (KLAX)',
+    status: 'ILLEGAL — BELOW 3 SM VISIBILITY',
+    tone: 'danger',
+    legal: 'Visibility is 1 1/2 SM, below the 3 statute mile minimum under 14 CFR §107.51(b). OVC004 (400 ft ceiling) also leaves zero room for 500 ft cloud clearance.',
+    tokens: [
+      { raw: 'SPECI', role: 'Report Type', desc: 'Unscheduled special weather report issued for significant changes.' },
+      { raw: 'KLAX', role: 'Station (ICAO)', desc: 'Los Angeles International Airport.' },
+      { raw: '141353Z', role: 'Day & Time (UTC)', desc: '14th day of the month at 13:53 Zulu.' },
+      { raw: '24004KT', role: 'Wind', desc: 'Wind from 240° true at 4 knots.' },
+      { raw: '1 1/2SM', role: 'Visibility (Illegal)', desc: '1.5 statute miles — illegal under §107.51(b) (requires at least 3 SM).' },
+      { raw: 'BR', role: 'Weather', desc: 'Mist (BR = French "brume"). Reduces visibility between 5/8 and 6 SM.' },
+      { raw: 'OVC004', role: 'Official Ceiling', desc: 'Overcast at 400 ft AGL. Cannot stay 500 ft below clouds.' },
+      { raw: '14/13', role: 'Temp / Dewpoint', desc: '14°C temp, 13°C dewpoint — 1°C spread indicates fog/mist conditions.' },
+      { raw: 'A2996', role: 'Altimeter', desc: '29.96 inHg.' },
+    ],
+  },
+  {
+    id: 'kmdw',
+    label: '3. Scattered vs. Ceiling (KMDW)',
+    status: 'CAUTION — 500 FT BELOW FEW008',
+    tone: 'warn',
+    legal: 'FEW008 and SCT012 are NOT official ceilings (official ceiling is BKN035 at 3,500 ft), but §107.51(c) still requires 500 ft vertical clearance below ANY cloud — capping you at 300 ft AGL under FEW008.',
+    tokens: [
+      { raw: 'METAR', role: 'Report Type', desc: 'Routine hourly aviation weather report.' },
+      { raw: 'KMDW', role: 'Station (ICAO)', desc: 'Chicago Midway International Airport.' },
+      { raw: '121856Z', role: 'Day & Time (UTC)', desc: '12th day at 18:56 UTC.' },
+      { raw: '32008KT', role: 'Wind', desc: 'Wind from 320° true at 8 knots.' },
+      { raw: '10SM', role: 'Visibility', desc: '10 statute miles or greater — legal.' },
+      { raw: 'FEW008', role: 'Cloud Layer (Not Ceiling)', desc: 'Few clouds (1/8–2/8 sky) at 800 ft AGL. Not an official ceiling, yet you must stay 500 ft below clouds (max 300 ft AGL underneath).' },
+      { raw: 'SCT012', role: 'Cloud Layer', desc: 'Scattered clouds (3/8–4/8 sky) at 1,200 ft AGL.' },
+      { raw: 'BKN035', role: 'Official Ceiling', desc: 'Broken clouds (5/8–7/8 sky) at 3,500 ft AGL — lowest official ceiling.' },
+      { raw: '22/11', role: 'Temp / Dewpoint', desc: '22°C temp, 11°C dewpoint (11°C spread, low fog risk).' },
+      { raw: 'A3012', role: 'Altimeter', desc: '30.12 inHg.' },
+    ],
+  },
+];
+---
+<div class="c107-metar" data-c107-metar>
+  <div class="c107-m-tabs">
+    {SAMPLES.map((s, idx) => (
+      <button type="button" class:list={['c107-m-tab', idx === 0 && 'is-active']} data-sample={idx}>
+        {s.label}
+      </button>
+    ))}
+  </div>
+
+  <div class="c107-m-tokens" data-tokens></div>
+
+  <div class="c107-m-detail">
+    <div class="c107-m-dhead">
+      <b data-tok-raw>BKN007</b>
+      <span data-tok-role>Official Ceiling</span>
+    </div>
+    <p data-tok-desc>Broken clouds at 700 ft AGL. BKN/OVC/VV count as an official ceiling. Max drone altitude: 700 - 500 = 200 ft AGL.</p>
+  </div>
+
+  <div class="c107-m-legal is-warn" data-legal-box>
+    <b data-legal-status>CAUTION — MAX 200 FT AGL</b>
+    <p data-legal-text>Ceiling is 700 ft AGL (BKN007). Under 14 CFR §107.51(c), staying 500 ft below clouds caps your drone at 200 ft AGL — not 400 ft.</p>
+  </div>
+
+  <script type="application/json" data-metar-samples set:html={JSON.stringify(SAMPLES).replace(/</g, '\\u003c')} />
+</div>
+
+<script is:inline>
+  (function () {
+    document.querySelectorAll('[data-c107-metar]').forEach(function (root) {
+      if (root.dataset.bound) return;
+      root.dataset.bound = '1';
+      var samples = JSON.parse(root.querySelector('[data-metar-samples]').textContent || '[]');
+      var tabs = root.querySelectorAll('[data-sample]');
+      var tokBox = root.querySelector('[data-tokens]');
+      var rawEl = root.querySelector('[data-tok-raw]');
+      var roleEl = root.querySelector('[data-tok-role]');
+      var descEl = root.querySelector('[data-tok-desc]');
+      var legalBox = root.querySelector('[data-legal-box]');
+      var legalStatus = root.querySelector('[data-legal-status]');
+      var legalText = root.querySelector('[data-legal-text]');
+
+      function renderSample(sIdx) {
+        var s = samples[sIdx];
+        if (!s) return;
+        tabs.forEach(function (t, i) { t.classList.toggle('is-active', i === sIdx); });
+        tokBox.innerHTML = '';
+        var defaultTok = sIdx === 0 ? 6 : sIdx === 1 ? 4 : 5;
+        s.tokens.forEach(function (tok, tIdx) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'c107-tok' + (tIdx === defaultTok ? ' is-active' : '');
+          b.textContent = tok.raw;
+          b.addEventListener('click', function () {
+            tokBox.querySelectorAll('.c107-tok').forEach(function (x, i) { x.classList.toggle('is-active', i === tIdx); });
+            rawEl.textContent = tok.raw;
+            roleEl.textContent = tok.role;
+            descEl.textContent = tok.desc;
+          });
+          tokBox.appendChild(b);
+        });
+        var dt = s.tokens[defaultTok] || s.tokens[0];
+        rawEl.textContent = dt.raw;
+        roleEl.textContent = dt.role;
+        descEl.textContent = dt.desc;
+        legalStatus.textContent = s.status;
+        legalText.textContent = s.legal;
+        legalBox.className = 'c107-m-legal ' + (s.tone === 'danger' ? 'is-danger' : 'is-warn');
+      }
+
+      tabs.forEach(function (t) {
+        t.addEventListener('click', function () { renderSample(Number(t.dataset.sample)); });
+      });
+      renderSample(0);
+    });
+  })();
+</script>
+
+<style>
+  .c107-metar {
+    padding: 22px;
+    border-radius: 18px;
+    border: 1px solid var(--line);
+    background: var(--bg2);
+    display: grid;
+    gap: 16px;
+  }
+  .c107-m-tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+  .c107-m-tab {
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    color: var(--fg2);
+    font: 700 12px/1 "JetBrains Mono", monospace;
+    cursor: pointer;
+  }
+  .c107-m-tab.is-active {
+    background: rgba(56, 189, 248, 0.16);
+    border-color: #38bdf8;
+    color: #38bdf8;
+  }
+  .c107-m-tokens { display: flex; flex-wrap: wrap; gap: 8px; }
+  .c107-m-tokens :global(.c107-tok) {
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    color: var(--fg);
+    font: 700 14px/1 "JetBrains Mono", monospace;
+    cursor: pointer;
+  }
+  .c107-m-tokens :global(.c107-tok.is-active) {
+    background: #38bdf8;
+    border-color: #38bdf8;
+    color: #080f1c;
+  }
+  .c107-m-detail {
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    display: grid;
+    gap: 6px;
+  }
+  .c107-m-dhead { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .c107-m-dhead b { font: 800 16px/1 "JetBrains Mono", monospace; color: #38bdf8; }
+  .c107-m-dhead span { font: 600 12px/1 "JetBrains Mono", monospace; color: var(--fg3); }
+  .c107-m-detail p { margin: 0; font-size: 14px; line-height: 1.55; color: var(--fg2); }
+  .c107-m-legal {
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(245, 158, 11, 0.45);
+    background: rgba(245, 158, 11, 0.1);
+    display: grid;
+    gap: 4px;
+  }
+  .c107-m-legal.is-danger {
+    border-color: rgba(239, 68, 68, 0.5);
+    background: rgba(239, 68, 68, 0.12);
+  }
+  .c107-m-legal b { font: 800 12.5px/1.2 "JetBrains Mono", monospace; color: #f59e0b; }
+  .c107-m-legal.is-danger b { color: #f87171; }
+  .c107-m-legal p { margin: 0; font-size: 13.5px; line-height: 1.55; color: var(--fg2); }
+</style>

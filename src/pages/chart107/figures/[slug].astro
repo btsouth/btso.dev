@@ -1,0 +1,155 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Chart107InteractiveChart from '../../../components/Chart107InteractiveChart.astro';
+import { APP_STORE, ART, CHART107_LESSONS, PLAY_STORE, type WebChartLesson } from '../../../lib/chart107';
+import { SITE_URL } from '../../../lib/site';
+
+export function getStaticPaths() {
+  return CHART107_LESSONS.map((lesson, idx) => ({
+    params: { slug: lesson.slug },
+    props: {
+      lesson,
+      prev: idx > 0 ? CHART107_LESSONS[idx - 1] : null,
+      next: idx + 1 < CHART107_LESSONS.length ? CHART107_LESSONS[idx + 1] : null,
+    },
+  }));
+}
+
+interface Props {
+  lesson: WebChartLesson;
+  prev: WebChartLesson | null;
+  next: WebChartLesson | null;
+}
+
+const { lesson, prev, next } = Astro.props;
+
+const faqSchema = {
+  '@type': 'FAQPage',
+  mainEntity: lesson.hotspots.map((hs) => ({
+    '@type': 'Question',
+    name: `How do you read ${hs.title} on FAA ${lesson.figureLabel}?`,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: `${hs.summary} Floor: ${hs.floor}. Ceiling: ${hs.ceiling}. LAANC / ATC authorization: ${hs.laancRequired}. Exam trap: ${hs.examTrap}`,
+    },
+  })),
+};
+
+const learningSchema = {
+  '@type': 'LearningResource',
+  name: `FAA ${lesson.figureLabel} Explained: ${lesson.title}`,
+  description: lesson.subtitle,
+  educationalUse: 'FAA Part 107 Remote Pilot Knowledge Test preparation',
+  url: `${SITE_URL}/chart107/figures/${lesson.slug}`,
+  image: `${SITE_URL}${ART}/figures/${lesson.figureId}.webp`,
+};
+---
+<Base
+  title={`FAA ${lesson.figureLabel} Explained (${lesson.title}) — Part 107 Guide | Chart107`}
+  description={`Interactive FAA-CT-8080-2H ${lesson.figureLabel} sectional chart guide for the Part 107 exam: ${lesson.subtitle} Tap every airspace ring for floors, ceilings, LAANC rules, and exam traps.`}
+  path={`/chart107/figures/${lesson.slug}`}
+  image={`${SITE_URL}${ART}/og.jpg`}
+  imageAlt={`FAA ${lesson.figureLabel} Part 107 sectional chart guide`}
+  schema={[learningSchema, faqSchema]}
+>
+  <article class="wrap fig-page">
+    <nav class="fig-crumb" aria-label="Breadcrumb">
+      <a href="/chart107">Chart107</a>
+      <span>/</span>
+      <a href="/chart107#figures">FAA Figures</a>
+      <span>/</span>
+      <span>{lesson.figureLabel}</span>
+    </nav>
+
+    <header class="fig-head">
+      <p class="eyebrow">FAA-CT-8080-2H Testing Supplement · Lesson {lesson.order} of {CHART107_LESSONS.length}</p>
+      <h1>FAA {lesson.figureLabel}: {lesson.title}</h1>
+      <p class="fig-sub">{lesson.subtitle}</p>
+    </header>
+
+    <Chart107InteractiveChart lesson={lesson} />
+
+    <section class="fig-takeaway">
+      <p class="eyebrow">Key Part 107 Takeaway</p>
+      <p>{lesson.keyTakeaway}</p>
+    </section>
+
+    <section class="fig-table-sec">
+      <h2>Every Airspace &amp; Symbol on {lesson.figureLabel}</h2>
+      <div class="fig-cards">
+        {lesson.hotspots.map((hs, i) => (
+          <div class="fig-item">
+            <div class="fig-item-top">
+              <span class="fig-item-idx">{i + 1}. {hs.badge}</span>
+              <span class="fig-item-laanc">LAANC / ATC: {hs.laancRequired}</span>
+            </div>
+            <h3>{hs.title}</h3>
+            <p class="fig-item-meta">
+              <b>Floor:</b> {hs.floor} · <b>Ceiling:</b> {hs.ceiling}{hs.frequency ? ` · Freq: ${hs.frequency}` : ''}
+            </p>
+            <p>{hs.summary}</p>
+            <p class="fig-item-trap"><b>Exam Trap:</b> {hs.examTrap}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="fig-cta">
+      <div>
+        <p class="eyebrow">Practice Offline on iOS &amp; Android</p>
+        <h2>Drill all 12 FAA figures &amp; 480 cited Part 107 questions</h2>
+        <p>Pinch-zoom every FAA-CT-8080-2H chart, play the 60-target Chart Gauntlet, decode METARs, and take realistic 60-question timed mock exams. Free to start — $14.99 once, no subscription.</p>
+      </div>
+      <div class="acts">
+        <a class="btn btn-primary" href={APP_STORE} target="_blank" rel="noreferrer">App Store ↗</a>
+        <a class="btn btn-ghost" href={PLAY_STORE} target="_blank" rel="noreferrer">Google Play ↗</a>
+      </div>
+    </section>
+
+    <nav class="fig-pager" aria-label="Adjacent figures">
+      {prev ? <a href={`/chart107/figures/${prev.slug}`}>← {prev.figureLabel}: {prev.title}</a> : <span />}
+      {next ? <a href={`/chart107/figures/${next.slug}`}>{next.figureLabel}: {next.title} →</a> : <span />}
+    </nav>
+  </article>
+</Base>
+
+<style>
+  .fig-page { padding: 40px 0 64px; display: grid; gap: 32px; max-width: 960px; }
+  .fig-crumb { display: flex; gap: 8px; align-items: center; font: 600 12.5px/1 "JetBrains Mono", monospace; color: var(--fg3); }
+  .fig-crumb a { color: #38bdf8; text-decoration: none; }
+  .fig-head h1 { margin: 8px 0 10px; font: 700 clamp(30px, 4.5vw, 48px)/1.08 "JetBrains Mono", monospace; letter-spacing: -0.03em; }
+  .fig-sub { margin: 0; font-size: 16.5px; line-height: 1.6; color: var(--fg2); max-width: 66ch; }
+  .fig-takeaway {
+    padding: 20px 22px;
+    border-radius: 16px;
+    border: 1px solid color-mix(in oklab, #38bdf8 35%, var(--line));
+    background: var(--bg2);
+  }
+  .fig-takeaway p:last-child { margin: 6px 0 0; font-size: 15px; line-height: 1.65; color: var(--fg); }
+  .fig-table-sec h2 { margin: 0 0 16px; font: 700 22px/1.25 "JetBrains Mono", monospace; }
+  .fig-cards { display: grid; gap: 14px; }
+  .fig-item { padding: 18px 20px; border-radius: 14px; border: 1px solid var(--line); background: var(--bg2); display: grid; gap: 8px; }
+  .fig-item-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .fig-item-idx { font: 800 12px/1 "JetBrains Mono", monospace; color: #38bdf8; }
+  .fig-item-laanc { font: 700 11.5px/1 "JetBrains Mono", monospace; color: #f59e0b; }
+  .fig-item h3 { margin: 0; font: 700 17px/1.3 "JetBrains Mono", monospace; }
+  .fig-item p { margin: 0; font-size: 14.5px; line-height: 1.6; color: var(--fg2); }
+  .fig-item-meta { font: 600 13px/1.4 "JetBrains Mono", monospace; color: var(--fg); }
+  .fig-item-trap { padding: 10px 12px; border-radius: 10px; background: rgba(245, 158, 11, 0.12); color: #f59e0b !important; font-size: 13.5px !important; }
+  .fig-cta {
+    padding: 24px 26px;
+    border-radius: 18px;
+    border: 1px solid #38bdf8;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), var(--bg2));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .fig-cta h2 { margin: 6px 0; font: 700 20px/1.25 "JetBrains Mono", monospace; }
+  .fig-cta p { margin: 0; max-width: 56ch; font-size: 14.5px; line-height: 1.55; color: var(--fg2); }
+  .fig-cta .acts { display: flex; gap: 10px; flex-wrap: wrap; }
+  .fig-pager { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-top: 12px; border-top: 1px solid var(--line); }
+  .fig-pager a { font: 700 13.5px/1.3 "JetBrains Mono", monospace; color: #38bdf8; text-decoration: none; }
+</style>
