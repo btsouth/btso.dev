@@ -28,21 +28,28 @@ const EMAIL = 'tyler@btso.dev';
   </p>
   <ul>
     <li><b>Templates:</b> the email templates your admins create or edit.</li>
-    <li><b>Notification rules:</b> projects, events, conditions, recipients (Jira account IDs, group
-      IDs and their display names) and delivery settings.</li>
+    <li><b>Notification rules:</b> projects, events, conditions, recipients (Jira account IDs,
+      group IDs and group names; user display names are resolved live from Jira and not stored) and
+      delivery settings.</li>
     <li><b>Pending digest entries:</b> temporary items waiting for the next hourly or daily digest,
-      such as issue key, summary, change details and permitted comment excerpts. They are deleted
-      after delivery, or dropped after at most 3 delivery attempts.</li>
+      such as issue key, summary, non-user change details, comment ID (comment text is fetched live
+      and re-checked for restrictions right before delivery, never stored) and Jira account IDs
+      (actor, assignee, reporter, changed user fields and recipients already delivered to during
+      retries). They are deleted after delivery, or dropped after at most 3 delivery attempts.</li>
     <li><b>Delivery log:</b> the most recent 200 delivery records, with the rule, issue, status,
-      recipients by account ID and display name, and the reason anyone was left out. Older records
-      are removed automatically.</li>
+      subject (with user-name variables redacted), recipient Jira account IDs (resolved to display
+      names live in the UI) and the reason anyone was left out. Older records are removed
+      automatically.</li>
   </ul>
 
-  <h2>Email addresses</h2>
+  <h2>Personal data and email addresses</h2>
   <p>
-    Dispatch never accesses or stores user email addresses. Notifications are delivered through
-    Jira's native notification API using Jira account IDs, and Jira itself resolves where to send
-    the email.
+    Dispatch does not store Atlassian user profile data (such as display names, email addresses,
+    usernames or avatars). It refers to users only by Jira <code>accountId</code> and resolves
+    display names live from Jira when needed. Issue content typed by your team (such as issue
+    summaries or template text) is stored as written while needed for configuration or pending
+    digests. Notifications are delivered through Jira's native notification API using Jira account
+    IDs, and Jira itself resolves where to send the email.
   </p>
 
   <h2>Restricted comments</h2>
