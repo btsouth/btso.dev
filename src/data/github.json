@@ -1,11 +1,12 @@
 {
- "generatedAt": "2026-11-25T06:18:14.375Z",
+ "generatedAt": "2026-11-25T06:35:34.376Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 246,
-   "pushedAt": "2026-11-25T05:57:31Z",
-   "latest": "v2.4.0",
+   "pushedAt": "2026-11-25T06:34:56Z",
+   "latest": "v2.4.1",
    "releaseDates": [
+    "2026-11-25T06:33:11Z",
     "2026-11-25T02:22:52Z",
     "2026-11-20T03:53:57Z",
     "2026-11-16T22:36:54Z",
@@ -96,6 +97,14 @@
     "2026-06-19T23:39:17Z"
    ],
    "releases": [
+    {
+     "tag": "v2.4.1",
+     "title": "Toolport v2.4.1",
+     "at": "2026-11-25T06:33:11Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/toolport/releases/tag/v2.4.1",
+     "body": "Toolport 2.4.1 adds a shell output command breakdown to `toolport usage` and\n`toolport report`, discovers nested Claude Code workflow subagent transcripts,\nand fixes a UTF-8 slicing crash in image sizing.\n\n### Added\n\n- `toolport usage` and `toolport report` now include a `Shell output` section\n  showing where bash residency came from by command category (`File reads &\nsearch`, `Git & GitHub`, `Scripts & data tools`, `Tests & verification`,\n  `Builds, lint & typecheck`, `Network & packages`, and `Other commands`),\n  with tokens added, call counts, path-free allowlisted top commands, and a\n  tailored recommendation for the largest shell contributor. (#1433)\n- `skills/toolport/SKILL.md` for installing the Toolport skill via\n  `npx skills add btsouth/toolport`, plus automatic OIDC npm publishing on\n  release tags. (#1432)\n\n### Fixed\n\n- `toolport usage` now walks deeper under Claude Code `projects/` so nested\n  workflow subagents (`subagents/workflows/<wf>/agent-*.jsonl`) are included\n  while skipping workflow `journal.jsonl` files, attributes continued output\n  from Codex `wait`/`write_stdin` and Claude `BashOutput` back to the\n  originating command, and avoids panicking on malformed non-ASCII image data.\n  (#1433)\n\n\n---\n\n**Full changelog:** https://github.com/btsouth/toolport/blob/v2.4.1/CHANGELOG.md"
+    },
     {
      "tag": "v2.4.0",
      "title": "Toolport v2.4.0",
@@ -5693,7 +5702,7 @@
   ],
   [
    "2026-11-25",
-   7
+   10
   ]
  ]
 }
