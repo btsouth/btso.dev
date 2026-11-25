@@ -1,11 +1,12 @@
 {
- "generatedAt": "2026-11-25T00:18:14.477Z",
+ "generatedAt": "2026-11-25T02:25:35.058Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 246,
-   "pushedAt": "2026-11-24T23:23:34Z",
-   "latest": "v2.3.8",
+   "pushedAt": "2026-11-25T02:02:51Z",
+   "latest": "v2.4.0",
    "releaseDates": [
+    "2026-11-25T02:22:52Z",
     "2026-11-20T03:53:57Z",
     "2026-11-16T22:36:54Z",
     "2026-11-14T02:04:46Z",
@@ -95,6 +96,14 @@
     "2026-06-19T23:39:17Z"
    ],
    "releases": [
+    {
+     "tag": "v2.4.0",
+     "title": "Toolport v2.4.0",
+     "at": "2026-11-25T02:22:52Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/toolport/releases/tag/v2.4.0",
+     "body": "Toolport 2.4.0 adds the standalone `toolport` CLI (`@toolport/cli`), compact\nresult previews with structured queries in the gateway, and Code mode discovery\nacross the gateway and both desktop apps.\n\nIf you are on Toolport 1.24.x, this is also your update to Toolport 2. Read the\n[upgrade guide](https://github.com/btsouth/toolport/blob/main/docs/migration.md)\nbefore updating.\n\n### Added\n\n- Standalone `toolport` CLI (`@toolport/cli` on npm, and directly from\n  `/usr/bin/toolport` on Linux GTK packages) with `scan`, `usage`, `fix`,\n  `init`, `up`, `export`, `import`, `hook`, and static HTML `report`. Check\n  agents for plaintext secrets, config drift, and skill issues, profile local\n  token and cache behavior offline across Claude Code, Codex, OpenCode, and\n  `audit.jsonl`, and bootstrap repos from a secret-free `toolport.toml`. (#1428)\n- Code mode discovery (`code-mode`, \"Code mode · scripts\" in both desktop apps)\n  exposes `toolport_run_script` alongside `toolport_search_tools` and\n  `toolport_fetch_result`, with `toolport.describe(name)` inside scripts so\n  agents can batch multi-call workflows in a single script instead of pulling\n  every intermediate payload into context. (#1428)\n- Compact result shaping and structured queries on `toolport_fetch_result`\n  (`path`, `where`, `fields`, `grep`, `sort`, `limit`, `skip`), lossless JSON\n  whitespace minification, and suppressed no-op `tools/list_changed`\n  notifications for unchanged Lazy and Code mode catalogs to keep prompt caches\n  warm. (#1428)\n- T3 Code's OpenCode, Grok and Pi instances with their own home now get a row on\n"
+    },
     {
      "tag": "v2.3.8",
      "title": "Toolport v2.3.8",
@@ -5680,11 +5689,11 @@
   ],
   [
    "2026-11-24",
-   14
+   20
   ],
   [
    "2026-11-25",
-   0
+   1
   ]
  ]
 }
