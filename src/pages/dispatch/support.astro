@@ -1,0 +1,72 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const SUPPORT_EMAIL = 'tyler@btso.dev';
+const PORTAL_URL = 'https://btsodev.atlassian.net/helpcenter/DSP';
+const CONTACT_URL = 'https://btsodev.atlassian.net/helpcenter/DSP/contact-us';
+---
+<Base
+  title="Support | Dispatch: Email Templates & Digests for Jira | btso.dev"
+  description="Public support portal and email contact for Dispatch: Email Templates & Digests for Jira Cloud."
+  path="/dispatch/support"
+>
+  <article class="wrap dsp-support">
+    <p class="eyebrow">Dispatch · Support</p>
+    <h1>Dispatch support</h1>
+    <p class="lede">
+      Help with templates, notification rules, digests, permissions, and licensing for Dispatch: Email Templates &amp; Digests for Jira Cloud.
+    </p>
+
+    <div class="dsp-cards">
+      <section class="dsp-card">
+        <h2>Support portal</h2>
+        <p>Submit a support request, report a bug, or suggest a feature through our public Atlassian support portal.</p>
+        <div class="dsp-actions">
+          <a class="btn btn-primary" href={CONTACT_URL} target="_blank" rel="noopener">Submit a request</a>
+          <a class="btn btn-ghost" href={PORTAL_URL} target="_blank" rel="noopener">Visit help center</a>
+        </div>
+      </section>
+
+      <section class="dsp-card">
+        <h2>Direct email</h2>
+        <p>Prefer email, or have a security or billing inquiry? Reach out directly and we will follow up asynchronously.</p>
+        <div class="dsp-actions">
+          <a class="btn btn-primary" href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>
+        </div>
+      </section>
+    </div>
+
+    <section class="dsp-info">
+      <h2>Support hours and response times</h2>
+      <ul>
+        <li><b>Format:</b> Asynchronous support via the support portal or email.</li>
+        <li><b>Response target:</b> Within 1 business day, Monday through Friday (US Eastern time).</li>
+        <li><b>What to include:</b> Your Jira site URL, project type (company-managed, team-managed, or Jira Service Management), and any relevant status or detail from the Delivery Log or Rule Tester.</li>
+      </ul>
+    </section>
+
+    <section class="dsp-info">
+      <h2>Documentation and legal</h2>
+      <div class="dsp-actions">
+        <a class="btn btn-ghost" href="/dispatch/docs">Documentation</a>
+        <a class="btn btn-ghost" href="/dispatch/privacy">Privacy policy</a>
+        <a class="btn btn-ghost" href="/dispatch/terms">Terms and EULA</a>
+        <a class="btn btn-ghost" href="/dispatch">Product overview</a>
+      </div>
+    </section>
+  </article>
+</Base>
+
+<style>
+  .dsp-support { max-width: 52rem; padding-top: 4rem; padding-bottom: 5rem; }
+  .dsp-support h1 { margin-top: 0.4rem; }
+  .dsp-support .lede { margin-top: 0.75rem; }
+  .dsp-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 2rem; }
+  .dsp-card { border: 1px solid var(--line); border-radius: 14px; padding: 1.25rem; background: var(--bg2); display: flex; flex-direction: column; gap: 0.75rem; }
+  .dsp-card h2 { margin: 0; font-size: 1.15rem; }
+  .dsp-card p { margin: 0; opacity: 0.85; line-height: 1.55; font-size: 0.925rem; }
+  .dsp-actions { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: auto; padding-top: 0.25rem; }
+  .dsp-info { margin-top: 2.5rem; }
+  .dsp-info h2 { margin: 0 0 0.75rem; font-size: 1.25rem; }
+  .dsp-info ul { display: grid; gap: 0.55rem; padding-left: 1.2rem; opacity: 0.9; line-height: 1.6; }
+</style>
