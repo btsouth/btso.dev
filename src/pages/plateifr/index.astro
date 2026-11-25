@@ -1,0 +1,70 @@
+---
+import Base from '../../layouts/Base.astro';
+import { SITE_URL } from '../../lib/site';
+
+const ART = '/assets/plateifr';
+const SUPPORT_EMAIL = 'tyler@btso.dev';
+
+const plates = [
+  ['Figure 170', 'ILS or LOC RWY 33 (KADS)', 'Free in app · Briefing strip, remote altimeter adjustment, glideslope intercept, DA vs MDA'],
+  ['Figure 171', 'RNAV (GPS) RWY 33 (KADS)', 'Free in app · LNAV-only GPS approach, IAF/IF feeders, Procedure Turn NA, 3.03° VDA'],
+  ['Figure 186', 'ILS or LOC RWY 10R (KPDX)', 'ALSF-2 lighting & inop table, JADNU stepdown fix minimums, VDP, Sidestep 10L'],
+  ['Figure 187', 'RNAV (GPS) X RWY 28L (KPDX)', 'WAAS LPV vs Baro-VNAV cold-temp cutoff (-15°C), YINUP stepdown & VDP'],
+  ['Figure 192', 'VOR/DME-B (KPRB)', 'Circling-only letter suffix, 12.5 DME arc, HILPT at EXUPY, circling minimums'],
+  ['Figure 210', 'ILS or LOC RWY 6 (KBDL)', 'Left-turn HILPT at PENNA, JETIX dual-row LOC minimums, alternate missed fix'],
+  ['Figure 221', 'ILS or LOC RWY 24R (KLAX)', 'Class B simultaneous ops, #4000 glidepath note, stepped feeders, Sidestep 24L'],
+  ['Figure 244', 'LDA RWY 6 (KROA)', 'Offset 14.52° localizer w/ glideslope (APV), terrain circling restrictions, SKIRT OM'],
+  ['Figure 155', 'Grand Junction Six SID (KGJT)', '300 ft/NM non-standard climb gradient, obstacle notes, DME transitions'],
+  ['Figure 167', 'BONHAM Six STAR (KDFW)', 'STAR transitions, Changeover Points (COP), FL180/6000/5000 MEAs'],
+  ['Figure 24', 'En Route Low-Altitude (Colorado)', 'Free in app · OROCA, MEA vs MOCA, MEA GAP, CONES MCA, PACES MRA'],
+  ['Figure 78', 'En Route Low-Altitude (Montana)', 'Compulsory vs on-request fixes, green IAP airports, Bozeman MCAs & localizer'],
+];
+---
+<Base
+  title="PlateIFR: FAA Instrument Rating Plates, Holds & VOR Lab | btso.dev"
+  description="Interactive FAA-CT-8080-3F approach plates, live AIM 5-3-8 holding pattern entry simulator, VOR/HSI/ILS cockpit gauge, 1-2-3 alternate lab, and 420 FAA-cited IRA questions. $24.99 once, no subscription."
+  path="/plateifr"
+>
+  <section class="wrap" style="padding-top: 4rem; padding-bottom: 3rem;">
+    <div style="max-width: 48rem;">
+      <img src={`${ART}/icon.png`} alt="PlateIFR icon" width="76" height="76" style="border-radius: 18px; margin-bottom: 1.25rem;" />
+      <p class="eyebrow">FAA Instrument Rating (IRA) · iPhone</p>
+      <h1 style="margin-top: 0.4rem;">PlateIFR</h1>
+      <p class="lede" style="margin-top: 0.75rem;">
+        Decode real FAA-CT-8080-3F approach plates, drill AIM 5-3-8 holding pattern entries and VOR/HSI/ILS needles live, and practice 420 FAA-cited IRA questions offline — for <b>$24.99 once</b>, zero subscriptions.
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem;">
+        <a class="btn btn-primary" href="#plates">Browse all 12 FAA plates ↓</a>
+        <a class="btn btn-ghost" href="/plateifr/privacy">Privacy policy</a>
+      </div>
+      <ul style="margin-top: 1.75rem; display: grid; gap: 0.65rem; padding-left: 1.15rem; opacity: 0.9;">
+        <li><b>Interactive Approach Plates:</b> Pinch-zoom 12 authentic FAA-CT-8080-3F plates &amp; enroute charts (3 free) with tappable callouts and inline checks.</li>
+        <li><b>Deterministic Cockpit Simulators:</b> Live Holding Pattern Entry visualizer &amp; Speed Drill, rotating HSI/CDI/ILS Glideslope &amp; Back-Course lab, plus METAR &amp; 14 CFR §91.169 1-2-3 alternate evaluator.</li>
+        <li><b>420 FAA-Cited IRA Questions:</b> Mapped verbatim to FAA-S-ACS-8C codes with SM-2 spaced repetition and a 60-question / 2.5-hour mock exam (84 questions + 1 full mock exam free).</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="wrap" id="plates" style="padding-bottom: 4rem;">
+    <p class="eyebrow">FAA-CT-8080-3F Testing Supplement</p>
+    <h2 style="margin-top: 0.35rem; margin-bottom: 1.25rem;">12 Interactive Plates &amp; Enroute Charts</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1rem;">
+      {plates.map(([num, title, desc]) => (
+        <article style="border: 1px solid rgba(148,163,184,0.22); border-radius: 14px; padding: 1rem; background: rgba(15,30,51,0.35);">
+          <p style="font-size: 0.75rem; font-weight: 800; letter-spacing: 0.06em; color: #00D1FF; margin: 0;">{num}</p>
+          <h3 style="font-size: 1rem; margin: 0.35rem 0 0.4rem;">{title}</h3>
+          <p style="font-size: 0.875rem; opacity: 0.85; margin: 0; line-height: 1.45;">{desc}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="wrap" id="support" style="padding-bottom: 4rem; max-width: 48rem;">
+    <p class="eyebrow">Support &amp; Disclaimer</p>
+    <h2 style="margin-top: 0.35rem;">Questions or feedback?</h2>
+    <p style="opacity: 0.85; line-height: 1.6;">
+      Email <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a> for help with purchases, restores, or chart feedback.
+      PlateIFR uses public-domain FAA-CT-8080-3F figures and FAA-S-ACS-8C standards for training only (not for navigation) and is not affiliated with or endorsed by the FAA.
+    </p>
+  </section>
+</Base>

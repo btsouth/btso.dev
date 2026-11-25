@@ -1,0 +1,76 @@
+---
+import Legal from '../../layouts/Legal.astro';
+const EMAIL = 'tyler@btso.dev';
+---
+<Legal
+  pageTitle="Privacy Policy | PlateIFR: IFR Plates & Holds"
+  heading="PlateIFR privacy"
+  description="What PlateIFR keeps on your device, what it sends, and what it never does."
+  lastUpdated="November 24, 2026"
+>
+  <p>
+    PlateIFR is an offline-first FAA Instrument Rating (IRA) study app and cockpit procedures
+    trainer for iPhone, Android and the web. It has no user accounts, no ads, no third-party
+    analytics and no cross-app tracking. PlateIFR uses public-domain FAA materials from faa.gov for
+    training only (not for navigation) and is not affiliated with or endorsed by the Federal
+    Aviation Administration.
+  </p>
+
+  <h2>Your study progress stays on your device</h2>
+  <p>
+    Your answered questions, spaced-repetition intervals, completed approach plate lessons, holding
+    and VOR drill counts, mock exam history, exam date target and theme preference are stored
+    locally on your device (SQLite on iOS and Android, localStorage on the web). We do not operate a
+    backend server and do not upload your study data anywhere. If your device backs up app data to
+    iCloud or Google Backup, Apple or Google handles those backups under your account.
+  </p>
+
+  <h2>One-time Pro purchase</h2>
+  <p>
+    PlateIFR offers a single optional one-time in-app purchase to unlock all 12 FAA approach plates
+    and enroute charts, 420 source-cited IRA questions and unlimited 60-question mock exams. Payment
+    is handled by the Apple App Store or Google Play; we never see your card or payment details. To
+    verify and restore your purchase across reinstalls, the app uses
+    <a href="https://www.revenuecat.com/privacy">RevenueCat</a>, which receives a random anonymous
+    app user ID generated on your device, your purchase receipt and basic technical details such as
+    app version, device type and store storefront. This information is used solely to unlock and
+    restore your purchase.
+  </p>
+
+  <h2>Optional live airport weather lookup</h2>
+  <p>
+    Inside the METAR decoder on iOS and Android, you can optionally type a 4-letter airport ICAO
+    code (such as KPDX) and tap Fetch Live to request the current public METAR directly from the
+    National Weather Service Aviation Weather Center (<a href="https://aviationweather.gov">aviationweather.gov</a>).
+    No personal data or location is sent; only the 4-letter station code you entered is requested.
+    All bundled IFR METAR samples, the 1-2-3 alternate calculator, holding simulator, VOR/HSI lab
+    and every plate lesson work offline without making any network requests.
+  </p>
+
+  <h2>What we don't do</h2>
+  <p>
+    We do not sell or share your information, show advertisements, embed ad SDKs or third-party
+    analytics, track you across apps or websites, or collect your name, email address, contacts,
+    location, photos or microphone.
+  </p>
+
+  <h2>Children</h2>
+  <p>
+    PlateIFR is intended for prospective and certificated instrument pilots and does not knowingly
+    collect personal information from children under 13.
+  </p>
+
+  <h2>Deleting your data</h2>
+  <p>
+    You can clear all local study progress anytime from Readiness &rarr; Reset Study Progress, or by
+    uninstalling the app. To request deletion of anonymous purchase records held by RevenueCat, email
+    <a href={`mailto:${EMAIL}`}>{EMAIL}</a>. Your Apple or Google store account retains its own
+    purchase history.
+  </p>
+
+  <h2>Changes and contact</h2>
+  <p>
+    If this policy changes, the date at the top of this page will be updated. Questions or support
+    requests can be sent to <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.
+  </p>
+</Legal>
