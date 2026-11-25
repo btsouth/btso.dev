@@ -1,0 +1,93 @@
+---
+import Legal from '../../layouts/Legal.astro';
+const EMAIL = 'tyler@btso.dev';
+---
+<Legal
+  pageTitle="Terms & EULA | Dispatch: Email Templates & Digests for Jira"
+  heading="Dispatch terms"
+  description="End user license agreement and terms of service for Dispatch, a Jira Cloud app sold through the Atlassian Marketplace."
+  lastUpdated="November 24, 2026"
+>
+  <p>
+    These terms are an agreement between you (the customer installing the app on a Jira Cloud site)
+    and Brandon South (btso.dev, "we") for Dispatch: Email Templates &amp; Digests for Jira
+    ("Dispatch"). By installing or using Dispatch you agree to these terms. Your use of the Atlassian
+    Marketplace is also governed by the
+    <a href="https://www.atlassian.com/licensing/marketplace/termsofuse">Atlassian Marketplace Terms of Use</a>.
+  </p>
+
+  <h2>License</h2>
+  <p>
+    We grant you a non-exclusive, non-transferable license to use Dispatch on the Jira Cloud sites
+    for which you hold a valid license, for your internal business purposes, during your
+    subscription term. You may not resell, sublicense, reverse engineer or redistribute the app.
+  </p>
+
+  <h2>Pricing, billing and evaluation</h2>
+  <p>
+    Dispatch is free for Jira sites with up to 10 users. Larger sites pay per user per month at the
+    rates shown on the Atlassian Marketplace listing. All payments, invoices, renewals and taxes are
+    handled by Atlassian through Atlassian Marketplace billing. Paid tiers include a 30-day free
+    evaluation.
+  </p>
+
+  <h2>Refunds</h2>
+  <p>
+    Refunds follow the Atlassian Marketplace refund policy and are processed by Atlassian.
+  </p>
+
+  <h2>Hosting and availability</h2>
+  <p>
+    Dispatch runs on Atlassian Forge and relies on Atlassian Cloud and Jira for hosting, storage,
+    scheduling and email delivery. Its availability therefore depends on Atlassian Cloud and is
+    subject to Atlassian's own service levels. We do not offer a separate uptime commitment. Email
+    is sent through Jira, so Jira's outgoing mail settings and mail delivery apply.
+  </p>
+
+  <h2>Your data</h2>
+  <p>
+    You keep all rights to your data. Dispatch processes it only to provide the app, as described in
+    the <a href="/dispatch/privacy">privacy policy</a>.
+  </p>
+
+  <h2>Support and updates</h2>
+  <p>
+    Support is provided asynchronously by email at <a href={`mailto:${EMAIL}`}>{EMAIL}</a>. We may
+    update Dispatch to fix issues, improve it or follow Atlassian platform changes.
+  </p>
+
+  <h2>Warranty disclaimer</h2>
+  <p>
+    Dispatch is provided "as is" and "as available". To the extent permitted by law, we disclaim
+    all warranties, express or implied, including merchantability, fitness for a particular purpose
+    and non-infringement. We do not warrant that every email will be delivered, or that the app will
+    be uninterrupted or error free.
+  </p>
+
+  <h2>Limitation of liability</h2>
+  <p>
+    To the extent permitted by law, we are not liable for any indirect, incidental, special,
+    consequential or punitive damages, or for lost profits, data or business. Our total liability
+    for any claim related to Dispatch is limited to the amount you paid for the app in the 12 months
+    before the claim.
+  </p>
+
+  <h2>Termination</h2>
+  <p>
+    You can stop using Dispatch at any time by uninstalling it. Your license ends when your
+    subscription ends or if you breach these terms. After uninstall, app data is deleted as
+    described in the privacy policy.
+  </p>
+
+  <h2>Governing law</h2>
+  <p>
+    These terms are governed by the laws of the Commonwealth of Kentucky and the United States,
+    without regard to conflict of law rules.
+  </p>
+
+  <h2>Changes and contact</h2>
+  <p>
+    If these terms change, the date at the top of this page will be updated. Questions can be sent
+    to <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.
+  </p>
+</Legal>

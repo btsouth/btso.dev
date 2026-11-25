@@ -1,0 +1,148 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const SUPPORT_EMAIL = 'tyler@btso.dev';
+
+const issueVars = [
+  ['{{issue.key}}', 'Issue key, such as OPS-142'],
+  ['{{issue.summary}}', 'Issue summary'],
+  ['{{issue.status}}', 'Current status'],
+  ['{{issue.priority}}', 'Priority'],
+  ['{{issue.type}}', 'Issue type'],
+  ['{{issue.assignee}}', 'Assignee display name, or "Unassigned"'],
+  ['{{issue.reporter}}', 'Reporter display name'],
+  ['{{issue.labels}}', 'Labels, comma separated'],
+  ['{{issue.url}}', 'Link to the issue'],
+  ['{{project.key}}', 'Project key'],
+  ['{{project.name}}', 'Project name'],
+  ['{{actor.name}}', 'Person who made the change'],
+  ['{{event.label}}', 'What happened, such as "Issue updated"'],
+  ['{{comment.author}}', 'Comment author, on comment events'],
+  ['{{field.<id>}}', 'Any Jira field by id, such as {{field.customfield_10020}}'],
+];
+
+const digestVars = [
+  ['{{digest.count}}', 'Number of updates in the digest'],
+  ['{{digest.countLabel}}', 'Update count as text, such as "3 updates"'],
+  ['{{digest.issueCount}}', 'Number of issues in the digest'],
+  ['{{digest.issueCountLabel}}', 'Issue count as text, such as "2 issues"'],
+  ['{{digest.date}}', 'Digest date (YYYY-MM-DD, UTC)'],
+];
+
+const events = [
+  ['Issue created', 'Issue Created'],
+  ['Any update', 'Issue Updated, Issue Assigned, Issue Moved, Work Logged, plus the events below'],
+  ['Status changed', 'Generic Event (most workflow transitions), Issue Resolved, Issue Closed, Issue Reopened, Work Started, Work Stopped'],
+  ['Assignee changed', 'Issue Assigned'],
+  ['Priority changed', 'Issue Updated'],
+  ['Comment added', 'Issue Commented'],
+];
+---
+<Base
+  title="Dispatch Docs: Setup, Variables & Permissions | btso.dev"
+  description="Admin documentation for Dispatch for Jira Cloud: quick start, template variables, native notification event mapping, and security and permissions FAQ."
+  path="/dispatch/docs"
+>
+  <article class="wrap dsp-docs">
+    <p class="eyebrow">Dispatch · Documentation</p>
+    <h1>Dispatch docs</h1>
+    <p class="lede">Setup and reference for Jira administrators. Open Dispatch from <b>Jira settings → Apps → Dispatch</b>, or from <b>Project settings → Dispatch</b> for a single project.</p>
+
+    <nav class="dsp-toc" aria-label="On this page">
+      <a href="#quick-start">Quick start</a>
+      <a href="#variables">Template variables</a>
+      <a href="#events">Event mapping</a>
+      <a href="#faq">Security and permissions</a>
+      <a href="#support">Support</a>
+    </nav>
+
+    <section id="quick-start">
+      <h2>Quick start</h2>
+      <ol>
+        <li>
+          <h3>Customize a starter template and send a test</h3>
+          <p>On the <b>Templates</b> tab, open one of the starter templates and adjust the subject, headline, accent color and sections. The preview updates as you type. Use <b>Send test email</b> with a real issue, then check your inbox and the <b>Delivery Log</b>. Jira's outgoing mail must be on (<b>Jira settings → System → Outgoing mail</b>); it is on by default in Jira Cloud.</p>
+        </li>
+        <li>
+          <h3>Create a rule and dry-run it</h3>
+          <p>On the <b>Rules</b> tab, create a rule: choose projects, events, optional conditions (issue type, priority, status, labels), recipients, a template and a delivery mode (instant, hourly digest or daily digest). Then use <b>Test rules against an issue</b> to see which rules would fire and who would get the email. Nothing is sent during a test.</p>
+        </li>
+        <li>
+          <h3>Mute the matching native Jira notifications</h3>
+          <p>So people do not get two emails for the same change, remove the matching events from the Jira notification scheme for the projects Dispatch covers (see the <a href="#events">event mapping</a>). If those projects use the shared <b>Default Notification Scheme</b>, <b>copy it first</b>, edit the copy, and assign the copy only to the projects Dispatch covers so other projects keep their notifications. Company-managed projects use <b>Jira settings → System → Notification schemes</b>; team-managed projects use <b>Project settings → Notifications</b>.</p>
+          <p>@mentions are separate: Jira always emails a mentioned person, and Dispatch does not replace those emails.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="variables">
+      <h2>Template variables</h2>
+      <p>Variables work in the subject, headline, intro and footer. Values are escaped before they are inserted.</p>
+      <h3>Issue templates</h3>
+      <div class="dsp-table"><table>
+        <thead><tr><th>Variable</th><th>Value</th></tr></thead>
+        <tbody>{issueVars.map(([v, d]) => <tr><td><code>{v}</code></td><td>{d}</td></tr>)}</tbody>
+      </table></div>
+      <h3>Digest templates</h3>
+      <div class="dsp-table"><table>
+        <thead><tr><th>Variable</th><th>Value</th></tr></thead>
+        <tbody>{digestVars.map(([v, d]) => <tr><td><code>{v}</code></td><td>{d}</td></tr>)}</tbody>
+      </table></div>
+    </section>
+
+    <section id="events">
+      <h2>Event mapping</h2>
+      <p>Each Dispatch rule event and the native notification scheme events that send the same news. Mute these in the scheme for projects Dispatch covers.</p>
+      <div class="dsp-table"><table>
+        <thead><tr><th>Dispatch event</th><th>Native Jira notification scheme events</th></tr></thead>
+        <tbody>{events.map(([d, j]) => <tr><td><b>{d}</b></td><td>{j}</td></tr>)}</tbody>
+      </table></div>
+      <p>Updates made only of noise fields (Rank, board moves, the development panel) send nothing.</p>
+    </section>
+
+    <section id="faq">
+      <h2>Security and permissions</h2>
+      <h3>Where does Dispatch run?</h3>
+      <p>Entirely on Atlassian Forge. Dispatch has no external servers and declares no external network permissions, so no data leaves your Jira site. Email is sent through Jira's native notify API to Jira account IDs.</p>
+      <h3>Who can receive email?</h3>
+      <p>Only active internal Jira users. Before every send, recipients are deduplicated, apps and portal customers are removed, and each person is checked for Browse permission on the issue, including issue security levels. A rule can use up to 20 groups and sends to at most 250 people per event.</p>
+      <h3>What about Jira Service Management?</h3>
+      <p>In service projects, recipients must also hold Assignable User or Edit Issues permission. Portal customers, even those with Atlassian accounts, never receive agent-side email.</p>
+      <h3>Can restricted comments leak?</h3>
+      <p>No. Comments with role or group visibility and JSM internal notes never trigger comment rules and never appear in email. Digest comment excerpts are re-checked before sending, so a comment made internal after it was queued is not sent.</p>
+      <h3>Who can change templates and rules?</h3>
+      <p>The Dispatch admin page needs the Administer Jira permission. Project settings need Administer Projects on that project. Project admins can only change rules and templates owned by their project.</p>
+      <h3>How do I see why someone did not get an email?</h3>
+      <p>Open the <b>Delivery Log</b>. It keeps the last 200 sends with their status (sent, partial, failed or skipped), who each one reached, and the reason anyone was left out. Use <b>Test rules against an issue</b> to check a rule before it fires.</p>
+    </section>
+
+    <section id="support">
+      <h2>Support</h2>
+      <p>Email <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>. Support is asynchronous by email; include your Jira site URL and, if relevant, the Delivery Log entry. See also the <a href="/dispatch/privacy">privacy policy</a> and <a href="/dispatch/terms">terms</a>.</p>
+    </section>
+  </article>
+</Base>
+
+<style>
+  .dsp-docs { max-width: 52rem; padding-top: 4rem; padding-bottom: 5rem; }
+  .dsp-docs h1 { margin-top: 0.4rem; }
+  .dsp-docs .lede { margin-top: 0.75rem; }
+  .dsp-docs section { margin-top: 3rem; }
+  .dsp-docs h2 { margin: 0 0 0.75rem; }
+  .dsp-docs h3 { font-size: 1.05rem; margin: 1.5rem 0 0.4rem; }
+  .dsp-docs p, .dsp-docs li { line-height: 1.65; color: var(--fg2); }
+  .dsp-docs ol { padding-left: 1.25rem; }
+  .dsp-docs ol h3 { margin-top: 1.25rem; color: var(--fg); }
+  .dsp-docs a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .dsp-docs code { font-family: "JetBrains Mono", monospace; font-size: 0.85em; color: var(--fg); white-space: nowrap; }
+  .dsp-toc { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin-top: 1.5rem; padding: 0.85rem 1rem; border: 1px solid var(--line); border-radius: 12px; background: var(--bg2); font-size: 0.9rem; }
+  .dsp-toc a { text-decoration: none; color: var(--fg2); }
+  .dsp-toc a:hover { color: var(--accent); }
+  .dsp-table { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--bg2); margin: 0.75rem 0 1rem; }
+  .dsp-table table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  .dsp-table th, .dsp-table td { padding: 0.6rem 0.9rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+  .dsp-table tr:last-child td { border-bottom: 0; }
+  .dsp-table th { font-weight: 700; color: var(--fg); }
+  .dsp-table td { color: var(--fg2); }
+  @media (max-width: 640px) { .dsp-docs code { white-space: normal; word-break: break-all; } }
+</style>

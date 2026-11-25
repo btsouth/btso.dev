@@ -1,0 +1,131 @@
+---
+import Base from '../../layouts/Base.astro';
+import { SITE_URL } from '../../lib/site';
+
+const SUPPORT_EMAIL = 'tyler@btso.dev';
+
+const features = [
+  ['Templates', 'Custom HTML email templates', 'Design issue and digest emails with your accent color, headline, intro, field table, change diff, comment callout and button. The live preview uses the same renderer that sends the email, so what you see is what Jira delivers.'],
+  ['Rules', 'Conditional event rules', 'Send on issue created, any update, status, assignee or priority change, or a new comment. Narrow each rule by project, issue type, priority, status and labels.'],
+  ['Recipients', 'One email per person', 'Pick assignee, reporter, watchers, project lead, users and groups. Recipients are deduplicated by Jira account, so someone who matches three roles still gets one email.'],
+  ['Permissions', 'Browse permission per recipient', 'Every recipient is checked for Browse permission on the issue, including issue security levels, before anything is sent. Digests are filtered per person.'],
+  ['Service Management', 'Portal customers stay out', 'In Jira Service Management projects only agents receive Dispatch email. Portal customers never get agent-side details, and internal notes never appear in email.'],
+  ['Digests', 'Hourly and daily rollups', 'Collect activity into an hourly digest or a daily digest at the UTC hour you choose, optionally on weekdays only. Each person sees only the issues they can browse.'],
+];
+
+const pricing = [
+  ['1 to 10 users', 'Free', 'Standard Atlassian free tier'],
+  ['11 to 100 users', '$1.00', 'per user per month'],
+  ['101 to 250 users', '$0.75', 'per user per month'],
+  ['251+ users', 'Lower per-user rate', 'Tiered rates continue to step down; see the Marketplace listing'],
+];
+
+const appSchema = {
+  '@type': 'SoftwareApplication',
+  name: 'Dispatch: Email Templates & Digests for Jira',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Jira Cloud',
+  url: `${SITE_URL}/dispatch`,
+  author: { '@id': `${SITE_URL}/#person` },
+  offers: [
+    { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: 'Free for Jira sites with up to 10 users' },
+    { '@type': 'Offer', price: '1.00', priceCurrency: 'USD', description: 'Per user per month, 11 to 100 users, billed through Atlassian Marketplace' },
+  ],
+};
+---
+<Base
+  title="Dispatch: Email Templates & Digests for Jira | btso.dev"
+  description="Custom HTML email templates, conditional rules and hourly or daily digests for Jira Cloud. Runs on Atlassian with no external servers and no data egress. Free up to 10 users."
+  path="/dispatch"
+  schema={[appSchema]}
+>
+  <section class="wrap" style="padding-top: 4rem; padding-bottom: 3rem;">
+    <div style="max-width: 48rem;">
+      <p class="eyebrow">Jira Cloud app · Atlassian Marketplace</p>
+      <h1 style="margin-top: 0.4rem;">Dispatch</h1>
+      <p class="lede" style="margin-top: 0.75rem;">
+        Email templates and digests for Jira. Replace Jira's default notification emails with clear, branded messages, send them only to the right people, and roll busy projects up into <b>hourly or daily digests</b>.
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem;">
+        <a class="btn btn-primary" href="/dispatch/docs">Read the docs</a>
+        <a class="btn btn-ghost" href="#pricing">Pricing ↓</a>
+      </div>
+      <ul style="margin-top: 1.75rem; display: grid; gap: 0.65rem; padding-left: 1.15rem; opacity: 0.9;">
+        <li><b>Runs on Atlassian:</b> Dispatch runs entirely on Atlassian Forge. No external servers, no third-party services and no data leaving your Jira site.</li>
+        <li><b>Uses Jira's own notification engine:</b> Email goes out through Jira's native notify API. No SMTP server, API keys or DNS records to set up.</li>
+        <li><b>Permission aware:</b> Recipients are deduplicated and checked for Browse permission on every issue before anything is sent.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="wrap" id="features" style="padding-bottom: 4rem;">
+    <p class="eyebrow">What it does</p>
+    <h2 style="margin-top: 0.35rem; margin-bottom: 1.25rem;">Better Jira email, without new infrastructure</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1rem;">
+      {features.map(([tag, title, desc]) => (
+        <article style="border: 1px solid var(--line); border-radius: 14px; padding: 1rem; background: var(--bg2);">
+          <p style="font-size: 0.75rem; font-weight: 800; letter-spacing: 0.06em; color: var(--accent); margin: 0; text-transform: uppercase;">{tag}</p>
+          <h3 style="font-size: 1rem; margin: 0.35rem 0 0.4rem;">{title}</h3>
+          <p style="font-size: 0.875rem; opacity: 0.85; margin: 0; line-height: 1.45;">{desc}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="wrap" id="runs-on-atlassian" style="padding-bottom: 4rem; max-width: 48rem;">
+    <p class="eyebrow">Security and data</p>
+    <h2 style="margin-top: 0.35rem;">100% Runs on Atlassian</h2>
+    <p style="opacity: 0.85; line-height: 1.6;">
+      Dispatch is a Forge app with no external permissions. Templates, rules, pending digest items and the delivery log live in Forge storage scoped to your Jira site. Email is sent by Jira itself to Jira account IDs, so Dispatch never reads or stores email addresses.
+    </p>
+    <ul style="display: grid; gap: 0.5rem; padding-left: 1.15rem; opacity: 0.9; line-height: 1.55;">
+      <li>Zero external servers and zero third-party subprocessors.</li>
+      <li>Only active internal Jira users receive email. Apps and portal customers are excluded.</li>
+      <li>Comments with role or group visibility and JSM internal notes are never sent or stored in digests.</li>
+      <li>A delivery log of the last 200 sends shows who was emailed and why anyone was left out.</li>
+    </ul>
+    <p style="opacity: 0.85; line-height: 1.6;">Details are in the <a href="/dispatch/privacy">privacy policy</a>.</p>
+  </section>
+
+  <section class="wrap" id="pricing" style="padding-bottom: 4rem; max-width: 48rem;">
+    <p class="eyebrow">Pricing</p>
+    <h2 style="margin-top: 0.35rem; margin-bottom: 1.25rem;">Simple per-user pricing</h2>
+    <div style="border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--bg2);">
+      <table style="width: 100%; border-collapse: collapse; font-size: 0.925rem;">
+        <thead>
+          <tr style="text-align: left; border-bottom: 1px solid var(--line);">
+            <th style="padding: 0.75rem 1rem; font-weight: 700;">Jira users</th>
+            <th style="padding: 0.75rem 1rem; font-weight: 700;">Price</th>
+            <th style="padding: 0.75rem 1rem; font-weight: 700;">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          {pricing.map(([tier, price, note], i) => (
+            <tr style={i < pricing.length - 1 ? 'border-bottom: 1px solid var(--line);' : ''}>
+              <td style="padding: 0.75rem 1rem;">{tier}</td>
+              <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--accent);">{price}</td>
+              <td style="padding: 0.75rem 1rem; opacity: 0.8;">{note}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p style="opacity: 0.8; line-height: 1.6; margin-top: 1rem; font-size: 0.925rem;">
+      Billed through Atlassian Marketplace with the same user tier as your Jira site. Paid tiers include a 30-day free evaluation. The Atlassian Marketplace listing shows the current price for every tier.
+    </p>
+  </section>
+
+  <section class="wrap" id="support" style="padding-bottom: 4rem; max-width: 48rem;">
+    <p class="eyebrow">Support and legal</p>
+    <h2 style="margin-top: 0.35rem;">Questions?</h2>
+    <p style="opacity: 0.85; line-height: 1.6;">
+      Email <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a> for setup help, billing questions or bug reports. Support is by email.
+    </p>
+    <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem;">
+      <a class="btn btn-ghost" href="/dispatch/docs">Docs</a>
+      <a class="btn btn-ghost" href="/dispatch/privacy">Privacy policy</a>
+      <a class="btn btn-ghost" href="/dispatch/terms">Terms and EULA</a>
+      <a class="btn btn-ghost" href={`mailto:${SUPPORT_EMAIL}`}>Support</a>
+    </div>
+  </section>
+</Base>

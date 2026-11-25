@@ -1,0 +1,80 @@
+---
+import Legal from '../../layouts/Legal.astro';
+const EMAIL = 'tyler@btso.dev';
+---
+<Legal
+  pageTitle="Privacy Policy | Dispatch: Email Templates & Digests for Jira"
+  heading="Dispatch privacy"
+  description="What Dispatch stores inside your Jira site, what it never collects, and how data is deleted."
+  lastUpdated="November 24, 2026"
+>
+  <p>
+    This policy covers Dispatch: Email Templates &amp; Digests for Jira ("Dispatch"), a Jira Cloud
+    app distributed through the Atlassian Marketplace. Dispatch is provided by Brandon South
+    (btso.dev, <a href={`mailto:${EMAIL}`}>{EMAIL}</a>). Effective date: November 24, 2026.
+  </p>
+
+  <h2>Runs on Atlassian</h2>
+  <p>
+    Dispatch is built entirely on Atlassian Forge and runs inside Atlassian's infrastructure. We do
+    not operate any external servers, we use no third-party subprocessors, and the app declares no
+    external network permissions (its <code>permissions.external</code> list is empty), so Dispatch
+    cannot send your data outside Atlassian. We, the vendor, have no access to your Jira data.
+  </p>
+
+  <h2>What Dispatch stores</h2>
+  <p>
+    Dispatch stores the following in Atlassian Forge storage, scoped to your Jira site:
+  </p>
+  <ul>
+    <li><b>Templates:</b> the email templates your admins create or edit.</li>
+    <li><b>Notification rules:</b> projects, events, conditions, recipients (Jira account IDs, group
+      IDs and their display names) and delivery settings.</li>
+    <li><b>Pending digest entries:</b> temporary items waiting for the next hourly or daily digest,
+      such as issue key, summary, change details and permitted comment excerpts. They are deleted
+      after delivery, or dropped after at most 3 delivery attempts.</li>
+    <li><b>Delivery log:</b> the most recent 200 delivery records, with the rule, issue, status,
+      recipients by account ID and display name, and the reason anyone was left out. Older records
+      are removed automatically.</li>
+  </ul>
+
+  <h2>Email addresses</h2>
+  <p>
+    Dispatch never accesses or stores user email addresses. Notifications are delivered through
+    Jira's native notification API using Jira account IDs, and Jira itself resolves where to send
+    the email.
+  </p>
+
+  <h2>Restricted comments</h2>
+  <p>
+    Comments restricted to a role or group, and Jira Service Management internal notes, are never
+    included in email and never stored in digest excerpts. Excerpts are re-checked before a digest
+    is sent.
+  </p>
+
+  <h2>What we don't do</h2>
+  <p>
+    We do not sell or share your information, show advertisements, use analytics or tracking, or
+    copy your Jira data to any system outside Atlassian.
+  </p>
+
+  <h2>Retention and deletion</h2>
+  <p>
+    Jira admins can delete templates and rules and clear the delivery log at any time inside the
+    app. When you uninstall Dispatch, its access to your site ends immediately and Atlassian deletes
+    the app's Forge storage according to Atlassian's Forge data retention policy.
+  </p>
+
+  <h2>Atlassian</h2>
+  <p>
+    Atlassian hosts and processes app data under its own terms and
+    <a href="https://www.atlassian.com/legal/privacy-policy">privacy policy</a>. Billing and license
+    data for Dispatch are handled by Atlassian Marketplace.
+  </p>
+
+  <h2>Changes and contact</h2>
+  <p>
+    If this policy changes, the date at the top of this page will be updated. Questions can be sent
+    to <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.
+  </p>
+</Legal>
