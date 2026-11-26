@@ -1,11 +1,12 @@
 {
- "generatedAt": "2026-11-26T18:18:12.292Z",
+ "generatedAt": "2026-11-26T18:25:34.084Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 247,
-   "pushedAt": "2026-11-26T16:59:41Z",
-   "latest": "v2.4.1",
+   "pushedAt": "2026-11-26T18:21:02Z",
+   "latest": "v2.4.2",
    "releaseDates": [
+    "2026-11-26T18:20:42Z",
     "2026-11-25T06:33:11Z",
     "2026-11-25T02:22:52Z",
     "2026-11-20T03:53:57Z",
@@ -97,6 +98,14 @@
     "2026-06-19T23:39:17Z"
    ],
    "releases": [
+    {
+     "tag": "v2.4.2",
+     "title": "Toolport v2.4.2",
+     "at": "2026-11-26T18:20:42Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/toolport/releases/tag/v2.4.2",
+     "body": "Toolport 2.4.2 adds a per-server option to prefer the modern MCP handshake on\ndual-era servers, stops daemon log scrubbing and log growth from exhausting\nmemory on Windows, and preserves negotiated legacy HTTP protocol versions.\n\n### Added\n\n- Per-server `preferModern` option (available in the React and native GTK\n  server editors) that probes `server/discover` before legacy `initialize` on\n  dual-era MCP servers, unlocking MCP Tasks and `_meta` relay while falling\n  back cleanly to legacy `initialize` when unsupported. (#1442)\n\n### Fixed\n\n- Streamed in-place secret redaction, bounded tail reads of `daemon.log`, live\n  log rotation, and deduplicated refresh/collision storms so runaway logs\n  cannot exhaust gateway memory or crash `conduit.exe`. (#1441)\n- Preserved the negotiated legacy MCP protocol version header on downstream\n  streamable HTTP requests and sanitized imported HTTP headers. (#1440)\n\n\n---\n\n**Full changelog:** https://github.com/btsouth/toolport/blob/v2.4.2/CHANGELOG.md"
+    },
     {
      "tag": "v2.4.1",
      "title": "Toolport v2.4.1",
@@ -5706,7 +5715,7 @@
   ],
   [
    "2026-11-26",
-   25
+   28
   ]
  ]
 }
