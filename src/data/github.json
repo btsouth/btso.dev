@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-11-26T00:18:12.770Z",
+ "generatedAt": "2026-11-26T06:18:14.174Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 246,
-   "pushedAt": "2026-11-25T07:05:09Z",
+   "pushedAt": "2026-11-26T00:53:13Z",
    "latest": "v2.4.1",
    "releaseDates": [
     "2026-11-25T06:33:11Z",
@@ -2252,7 +2252,7 @@
    ]
   },
   "btsouth/omarchy-omcp": {
-   "stars": 13,
+   "stars": 14,
    "pushedAt": "2026-10-16T23:28:08Z",
    "latest": null,
    "releaseDates": [],
@@ -5702,11 +5702,11 @@
   ],
   [
    "2026-11-25",
-   21
+   23
   ],
   [
    "2026-11-26",
-   0
+   2
   ]
  ]
 }
