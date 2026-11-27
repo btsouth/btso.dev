@@ -1,11 +1,12 @@
 {
- "generatedAt": "2026-11-27T00:18:11.336Z",
+ "generatedAt": "2026-11-27T03:45:33.762Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 247,
-   "pushedAt": "2026-11-27T00:08:32Z",
-   "latest": "v2.4.2",
+   "pushedAt": "2026-11-27T03:30:10Z",
+   "latest": "v2.4.3",
    "releaseDates": [
+    "2026-11-27T03:45:07Z",
     "2026-11-26T18:20:42Z",
     "2026-11-25T06:33:11Z",
     "2026-11-25T02:22:52Z",
@@ -98,6 +99,14 @@
     "2026-06-19T23:39:17Z"
    ],
    "releases": [
+    {
+     "tag": "v2.4.3",
+     "title": "Toolport v2.4.3",
+     "at": "2026-11-27T03:45:07Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/toolport/releases/tag/v2.4.3",
+     "body": "Toolport 2.4.3 fixes client backups breaking gnome-keyring's unencrypted\nkeyring on Linux. Update and start Toolport before you next log out or reboot.\n\n### Fixed\n\n- Since 2.3.6, on Linux, Toolport stored client config backups raw in the\n  keyring. On gnome-keyring's unencrypted keyring (the Omarchy default) this\n  breaks the keyring at the next login, and every app loses its saved logins.\n  Update and start Toolport before you next log out or reboot. (#1445)\n- Toolport now repairs its own keyring entries at startup, so the keyring loads\n  again at the next login. It never touches other apps' entries. (#1445)\n- Credentials with backslashes, line breaks or leading or trailing spaces are now\n  stored encoded, so they read back exactly. A gateway from an older version\n  that is still running reads them wrongly until it restarts, so restart your\n  MCP clients after updating. Downgrading below 2.4.3 is not supported for those\n  values. (#1445)\n- If your keyring was already rejected at login, Toolport can't recover it\n  automatically. Follow the\n  [manual recovery steps](https://github.com/btsouth/toolport/blob/main/docs/troubleshooting.md#linux-every-app-signed-out-after-a-login-and-create-a-new-keyring)\n  or [open an issue](https://github.com/btsouth/toolport/issues).\n\n\n---\n\n**Full changelog:** https://github.com/btsouth/toolport/blob/v2.4.3/CHANGELOG.md"
+    },
     {
      "tag": "v2.4.2",
      "title": "Toolport v2.4.2",
@@ -5724,11 +5733,11 @@
   ],
   [
    "2026-11-26",
-   37
+   42
   ],
   [
    "2026-11-27",
-   0
+   1
   ]
  ]
 }
