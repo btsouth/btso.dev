@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-27T12:18:17.553Z",
+ "generatedAt": "2026-11-27T15:40:33.423Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 247,
@@ -2788,9 +2788,10 @@
   },
   "btsouth/ceiling": {
    "stars": 34,
-   "pushedAt": "2026-11-26T18:45:46Z",
-   "latest": "v1.5.51",
+   "pushedAt": "2026-11-27T15:09:51Z",
+   "latest": "v1.5.53",
    "releaseDates": [
+    "2026-11-27T15:39:07Z",
     "2026-11-26T19:17:49Z",
     "2026-11-09T03:26:38Z",
     "2026-11-03T03:27:47Z",
@@ -2837,6 +2838,14 @@
     "2026-07-14T05:04:40Z"
    ],
    "releases": [
+    {
+     "tag": "v1.5.53",
+     "title": "Ceiling 1.5.53",
+     "at": "2026-11-27T15:39:07Z",
+     "pre": false,
+     "url": "https://github.com/btsouth/ceiling/releases/tag/v1.5.53",
+     "body": "## [Ceiling] 1.5.53 - 2026-11-27\n\nAntigravity now uses Google's official read-only `agy` CLI exclusively, Gemini Code Assist and Claude Code session handling are safer, and desktop startup, token accounts, updater selection, and Settings error handling are hardened.\n\n### Changed\n- **Antigravity uses the official `agy` CLI only.** Removed the unofficial local language-server process scraping, CSRF token extraction, and Connect RPC fallback to avoid Google Antigravity Terms of Service risk. Antigravity quota now reads exclusively from `agy --sandbox -p /usage --output-format json` (requires Antigravity CLI 1.2.13 or later on Windows), with matching Gemini 5-hour / Gemini Weekly labels and Settings provenance text. Thanks to @jayn2u.\n- **Gemini Code Assist is strictly read-only.** Ceiling still reads your existing `~/.gemini/oauth_creds.json` sign-in, but no longer extracts OAuth client secrets from Gemini CLI's bundle or modifies `oauth_creds.json` on expiry. Run `gemini` to refresh an expired session.\n\n### Fixed\n- **Prevent Claude Code sign-outs during OAuth refresh.** Ceiling now verifies the credentials store (file, parent directory, or keyring writes) is writable before exchanging Claude Code's rotating refresh token.\n- **Harden Grok, Copilot, login browser URLs, and CLI subprocesses.** Grok refresh now allowlists `auth.x.ai` / `accounts.x.ai`, refuses to recreate `auth.json` after logout, and verifies the on-disk refresh token before writing. Copilot Enterprise validates hostnames strictly with `url::Url` and no longer falls back to `github.com` credentials on enterprise"
+    },
     {
      "tag": "v1.5.51",
      "title": "Ceiling 1.5.51",
@@ -5737,7 +5746,7 @@
   ],
   [
    "2026-11-27",
-   8
+   17
   ]
  ]
 }
