@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-28T00:18:10.668Z",
+ "generatedAt": "2026-11-28T06:18:11.308Z",
  "repos": {
   "btsouth/toolport": {
    "stars": 247,
@@ -974,7 +974,7 @@
    ]
   },
   "btsouth/omakade": {
-   "stars": 460,
+   "stars": 459,
    "pushedAt": "2026-11-15T14:23:25Z",
    "latest": "v1.19.0",
    "releaseDates": [
@@ -5746,11 +5746,11 @@
   ],
   [
    "2026-11-27",
-   43
+   56
   ],
   [
    "2026-11-28",
-   0
+   2
   ]
  ]
 }
